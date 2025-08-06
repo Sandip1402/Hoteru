@@ -2,18 +2,18 @@
     <div class="row mt-2 mb-3" >
         <div class="col-8 offset-2">
             <h2>Update Listing Details</h2>
-            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation">
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input name="listing[title]" value="<%=listing.title%>" placeholder="enter title" type="text"
-                        class="form-control">
+                        class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea name="listing[description]" placeholder="enter description" rows="5" cols="40"
-                        class="form-control"><%=listing.description%></textarea>
+                        class="form-control" required><%=listing.description%></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -26,20 +26,20 @@
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Update price</label>
                         <input name="listing[price]" placeholder="enter price" value="<%=listing.price%>" type="number"
-                            class="form-control">
+                            class="form-control" required>
                     </div>
 
                     <div class="mb-3 col-md-8">
                         <label for="country" class="form-label">Update country</label>
                         <input name="listing[country]" placeholder="enter country" value="<%=listing.country%>"
-                            type="text" class="form-control">
+                            type="text" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="location" class="form-label">Update Location</label>
                     <input name="listing[location]" placeholder="enter location" value="<%=listing.location%>"
-                        type="text" class="form-control">
+                        type="text" class="form-control" required>
                 </div>
 
                 <button class="btn btn-dark update-btn">Update</button>
