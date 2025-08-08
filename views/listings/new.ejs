@@ -8,11 +8,13 @@
                     <label for="title" class="form-label">Title</label>
                     <input name="listing[title]" placeholder="Hotel Name" type="text" class="form-control" required>
                     <div class="valid-feedback">Title looks good!</div>
+                    <div class="invalid-feedback">Give a title</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="listing[description]" class="form-control" required></textarea>
+                    <textarea name="listing[description]" type="text" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Give short description</div>
                 </div>
 
                 <div class="mb-3">
@@ -23,14 +25,14 @@
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Price</label>
-                        <input name="listing[price]" placeholder="Ex: 1200" class="form-control" required>
-                        <div class="invalid-feedback">Enter valid price</div>
+                        <input name="listing[price]" type="number" placeholder="Ex: 1200" class="form-control" required>
+                        <div class="invalid-feedback">Enter price</div>
                     </div>
 
                     <div class="mb-3 col-md-8">
                         <label for="country" class="form-label">Country</label>
                         <input name="listing[country]" type="text" placeholder="Ex: India" class="form-control" required>
-                        <div class="invalid-feedback">Enter valid country name</div>                        
+                        <div class="invalid-feedback">Enter valid country</div>                        
                     </div>
                 </div>
 
