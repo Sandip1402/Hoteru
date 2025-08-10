@@ -52,13 +52,16 @@ app.get("/listings/new", (req,res) => {
     res.render("listings/new.ejs");
 })
     // create new listing route
-app.post("/listings", async(req,res) => {
-    // const {title, description, image, price, country, location} = req.body;
-    console.log(req.body.listing);
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
-
-    res.redirect("/listings");
+app.post("/listings", async(req,res, next) => {
+    try{
+        console.log(req.body.listing);
+        const newListing = new Listing(req.body.listing);
+        await newListing.save();
+    
+        res.redirect("/listings");
+    }catch(err){
+        next(err);
+    }
 })
 
 
@@ -92,7 +95,9 @@ app.delete("/listings/:id", async(req,res) => {
     res.redirect("/listings");
 })
 
-
+app.use((err,req,res,next)=>{
+    res.send("Something went wrong");
+})
 
 
 
