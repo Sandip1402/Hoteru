@@ -48,7 +48,10 @@ app.get("/", (req, res) => {
 
 
 // validate list
-const validateListing = (req,res,next) => {
+let validateListing = (req,res,next) => {
+    if (!req.body) {
+        throw new expressError(400, "Request body is missing");
+    }
     let {error} = listingSchema.validate(req.body);
     if(error){
         let errMsg = error.details.map((el) => el.message).join(",");
