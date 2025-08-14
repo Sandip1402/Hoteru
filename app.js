@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const expressError = require("./utils/expressError.js");
 const {listingSchema} = require("./schema.js");
+const Review = require("./models/review.js");
 
 
 const app = express();
@@ -48,11 +49,17 @@ app.get("/", (req, res) => {
 
 
 // validate list
-let validateListing = (req,res,next) => {
+let validateData = (req,res,next) => {
     if (!req.body) {
         throw new expressError(400, "Request body is missing");
     }
-    let {error} = listingSchema.validate(req.body);
+    
+    if(req.path == `/listings/${req.parms.id}/reviews`){
+        console.log("review path");
+    }else if(req.path == "/listings"){
+        let {error} = listingSchema.validate(req.body);
+    }
+
     if(error){
         let errMsg = error.details.map((el) => el.message).join(",");
         throw new expressError(400, errMsg);
@@ -60,6 +67,8 @@ let validateListing = (req,res,next) => {
         next();
     }
 };
+
+
 
 
 // index route
@@ -75,7 +84,7 @@ app.get("/listings/new", (req, res) => {
 })
 
 // create new listing
-app.post("/listings", validateListing, wrapAsync(async (req, res, next) => {
+app.post("/listings", validateData, wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
     await newListing.save()
 
@@ -99,7 +108,7 @@ app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
     res.render("listings/edit.ejs", { listing });
 }))
 
-app.put("/listings/:id", validateListing, wrapAsync(async (req, res) => {
+app.put("/listings/:id", validateData, wrapAsync(async (req, res) => {
     // if(!req.body.listing){
     //     throw new expressError(400, "Send valid data for listing");
     // }
@@ -116,6 +125,23 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     console.log(deletedListing);
     res.redirect("/listings");
 }))
+
+
+// Review Route
+app.post("/listings/:id/reviews", validateData, wrapAsync(async (req,res) => {
+    let listing = await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+    
+    listing.reviews.push(newReview);
+    
+    await newReview.save();
+    await listing.save();
+
+    console.log(`New review saved for ${listing.title}`);
+    res.redirect("/listings");
+})
+)
+
 
 
 
