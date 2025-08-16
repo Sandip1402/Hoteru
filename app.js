@@ -72,15 +72,10 @@ const validateData = (req, res, next) => {
 
 // APIs
 
-    // Home route
-app.get("/", (req, res) => {
-    res.send("Home");
-})
-
 
 
 // index route
-app.get("/listings", wrapAsync(async (req, res) => {
+app.get(["/","/listings"], wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
 }))
