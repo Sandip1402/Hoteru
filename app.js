@@ -11,7 +11,7 @@ const Review = require("./models/review.js");
 
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // connect to database
 const MONGO_URL = "mongodb://127.0.0.1:27017/hoteru";
@@ -70,9 +70,9 @@ const validateData = (req, res, next) => {
 
 
 // test
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "views/index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/index.html"));
+});
 
 
 
@@ -80,10 +80,10 @@ const validateData = (req, res, next) => {
 // APIs
 
 // index route
-app.get(["/","/listings"], wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings });
-}))
+// app.get(["/","/listings"], wrapAsync(async (req, res) => {
+//     const allListings = await Listing.find({});
+//     res.render("listings/index.ejs", { allListings });
+// }))
 
 
 

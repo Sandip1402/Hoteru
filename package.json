@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev:css": "npx @tailwindcss/cli -i ./public/css/style.css -o ./public/css/output.css --watch",
-    "build:css": "npx @tailwindcss/cli -i ./public/css/style.css -o ./public/css/output.css",
+    "dev:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css --watch",
+    "build:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css",
     "start": "nodemon app.js",
     "dev": "concurrently \"npm run dev:css\" \"npm run start\""
   },
@@ -14,6 +14,8 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.0.50",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^5.1.0",
@@ -23,7 +25,6 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "concurrently": "^9.2.0",
-    "daisyui": "^5.0.50"
+    "concurrently": "^9.2.0"
   }
 }
