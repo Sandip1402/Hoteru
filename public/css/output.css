@@ -1,0 +1,22 @@
+/*! tailwindcss v4.1.12 | MIT License | https://tailwindcss.com */
+.collapse {
+  visibility: collapse;
+}
+.col-1 {
+  grid-column: 1;
+}
+.col-5 {
+  grid-column: 5;
+}
+.col-6 {
+  grid-column: 6;
+}
+.col-8 {
+  grid-column: 8;
+}
+.container {
+  width: 100%;
+}
+.text-end {
+  text-align: end;
+}

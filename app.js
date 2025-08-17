@@ -36,7 +36,7 @@ app.use(methodOverride("_method"));
 
 app.engine("ejs", ejsMate);
 
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 
@@ -69,10 +69,15 @@ const validateData = (req, res, next) => {
 };
 
 
+// test
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "views/index.html"));
+// });
+
+
+
 
 // APIs
-
-
 
 // index route
 app.get(["/","/listings"], wrapAsync(async (req, res) => {
@@ -171,16 +176,15 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
 }))
 
 
-
 app.use((req,res,next) => {
-    next(new expressError(404, "Page Not Found"));
+    next(new expressError(404, "Page Not found"));
 })
 
 
 
 app.use((err, req, res, next) => {
     let { statusCode=500, message="Something weng wrong" } = err;
-    res.status(statusCode).render("error.ejs", {message});
+    res.status(statusCode).render("layouts/error.ejs", {message});
     // res.status(statusCode).send(message);
     // res.send("Something went wrong");
 })
