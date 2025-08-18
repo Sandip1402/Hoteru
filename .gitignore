@@ -10,6 +10,7 @@ pnpm-debug.log*
 node_modules
 
 # Build output
+public/css/output.css
 dist
 *.local
 

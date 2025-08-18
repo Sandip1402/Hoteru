@@ -69,10 +69,10 @@ const validateData = (req, res, next) => {
 };
 
 
-// test
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/index.html"));
-});
+// test tailwind
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "views/index.html"));
+// });
 
 
 
@@ -80,10 +80,10 @@ app.get("/", (req, res) => {
 // APIs
 
 // index route
-// app.get(["/","/listings"], wrapAsync(async (req, res) => {
-//     const allListings = await Listing.find({});
-//     res.render("listings/index.ejs", { allListings });
-// }))
+app.get(["/","/listings"], wrapAsync(async (req, res) => {
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs", { allListings });
+}))
 
 
 

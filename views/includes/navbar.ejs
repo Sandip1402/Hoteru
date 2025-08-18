@@ -1,14 +1,23 @@
-<nav class="bg-blue-500 text-white p-4">
-    <div >
-        <a  href="/"><i class="fa-solid fa-hotel"></i><span>Hoteru</span></a>
-        <div >
-            <div >
-                <a  href="/listings">Home</a>
-                <a  href="/listings/new">Add new</a>
-            </div>
-        </div>
-        <button >
-            <span ></span>
-        </button>
+<div class="navbar bg-base-100 p-4">
+  <div class="navbar-start">
+    <a class="text-xl"><i class="fa-solid fa-hotel"></i>Hoteru</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+  </div>
+  <div class="navbar-end">
+    
+    <div class="hidden sm:block">
+      <a class="btn shadow-none focus:border-indigo-600 focus:outline-hidden mr-4">Become a host</a>
+      <a class="btn shadow-none focus:border-indigo-600 focus:outline-hidden"><i class="fa-solid fa-globe"></i></a>
     </div>
-</nav>
+    <div class="dropdown dropdown-bottom dropdown-end md:hidden">
+      <div tabindex="0" role="button" class="btn m-1"><i class="fa-solid fa-bars"></i></div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+        <li><a class="btn outline-none mr-4">Become a host</a></li>
+        <li><a>Log In or Sign up</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
