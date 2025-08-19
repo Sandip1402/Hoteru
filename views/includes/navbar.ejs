@@ -1,23 +1,33 @@
-<div class="navbar bg-base-100 p-4">
-  <div class="navbar-start">
-    <a class="text-xl"><i class="fa-solid fa-hotel"></i>Hoteru</a>
-  </div>
-  <div class="navbar-center hidden lg:flex">
-    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-  </div>
-  <div class="navbar-end">
-    
-    <div class="hidden sm:block">
-      <a class="btn shadow-none focus:border-indigo-600 focus:outline-hidden mr-4">Become a host</a>
-      <a class="btn shadow-none focus:border-indigo-600 focus:outline-hidden"><i class="fa-solid fa-globe"></i></a>
-    </div>
-    <div class="dropdown dropdown-bottom dropdown-end md:hidden">
-      <div tabindex="0" role="button" class="btn m-1"><i class="fa-solid fa-bars"></i></div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-        <li><a class="btn outline-none mr-4">Become a host</a></li>
-        <li><a>Log In or Sign up</a></li>
-      </ul>
+<nav class="h-32 sm:max-w-full max-w-full bg-nav-bar p-4 flex-col">
+
+  <div class="nav-top flex justify-between">
+
+    <div class="nav-top-start text-2xl">
+      <a class="" href="/"><i class="fa-solid fa-hotel mr-1"></i>Hoteru</a>
     </div>
 
+    <div class="nav-top-center w-1/2 text-center text-lg flex justify-between">
+      <div class="flex"><img class="w-12" src="/assets/Home.png" alt="home"><p>Homes</p></div>
+      <div class="flex"><img class="w-14" src="/assets/Experience.png" alt="experience">Experiences</div>
+      <div class="flex"><img class="w-14" src="/assets/Hotel services.png" alt="services">Services</div>
+    </div>
+
+    <div class="nav-top-end text-lg">
+      <a href="">Become a host</a>
+      <a href=""><i class="fa-solid fa-bars"></i></a>
+    </div>
+
+  </div class="nav-bottom">
+    <input placeholder="Search"/>
+  <div>
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">All listings</a>
+        <a class="nav-link" href="/listings/new">Add new</a>
+      </div>
+    </div> -->
   </div>
-</div>
+</nav>

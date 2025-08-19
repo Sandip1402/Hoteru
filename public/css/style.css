@@ -1,4 +1,9 @@
 @import "tailwindcss";
  @plugin "daisyui" {
-   themes: light --default, dark --prefersdark;
+   themes: light --default;
  }
+ @theme {
+  --color-nav-bar: #fcf6bd;
+  --color-content: #faedcd;
+  --color-footer: #e9edc9;
+}
