@@ -1,43 +1,66 @@
-<nav class="h-32 sm:max-w-full max-w-full bg-nav-bar/75 flex-col">
+<nav class="h-32 w-full bg-nav-bar/75 flex-col">
 
-  <div class="nav-top flex justify-between h-1/2 items-center pl-4 pr-4">
+  <div class="nav-top flex w-full h-1/2 pl-4 items-center justify-between ">
 
     <div class="nav-top-start text-2xl">
       <a class="text-shadow-black" href="/"><i class="fa-solid fa-hotel mr-1"></i>Hoteru</a>
     </div>
 
-    <div class="nav-top-center w-auto text-lg flex justify-between ">
-      <div class="nav-item flex items-center mr-3 space-x-2 cursor-pointer relative">
-        <img class="w-10 h-10" src="/assets/Home.png" alt="home">
-        <a class="text-gray-500">Homes</a>
+    <div class="nav-top-center text-lg md:max-w-full flex justify-between relative left-4">
+      <div class="nav-item mr-2 ml-2 cursor-pointer relative">
+        <a class="flex w-auto items-center space-x-2" href="#">
+          <img class="w-10 h-10" src="/assets/Home.png" alt="home">
+          <p class="text-gray-500 hidden md:block">Homes</p>
+        </a>
       </div>
-      <div class="nav-item flex items-center mr-3 ml-3 space-x-2 cursor-pointer relative">
-        <img class="w-12 h-12" src="/assets/Experience.png" alt="experience">
-        <a class="text-gray-500 active:text-black">Experiences</a>
+      <div class="nav-item flex w-auto mr-2 ml-2 space-x-2 cursor-pointer relative">
+        <a class="flex w-auto items-center space-x-2" href="#">
+          <img class="w-10 h-10" src="/assets/Experience.png" alt="experience">
+          <p class="text-gray-500 hidden md:block">Experiences</p>
+        </a>
       </div>
-      <div class="nav-item flex items-center ml-3 space-x-2 cursor-pointer relative">
-        <img class="w-12 h-12" src="/assets/Hotel services.png" alt="services">
-        <a class="text-gray-500">Services</a>
+      <div class="nav-item flex w-auto mr-2 ml-2 cursor-pointer relative">
+        <a class="flex w-auto items-center space-x-2" href="#">
+          <img class="w-9 h-9" src="/assets/Service.png" alt="services">
+          <p class="text-gray-500 hidden md:block">Services</p>
+        </a>
       </div>
     </div>
 
 
-    <div class="nav-top-end text-lg flex w-auto items-center">
+    <div class="nav-top-end text-lg flex items-center mr-4">
       <form>
-        <button class="host w-35 h-8 mr-4 rounded-2xl cursor-pointer">Become a host</button>
+        <button class="host w-35 h-8 rounded-2xl cursor-pointer">Become a host</button>
       </form>
-      <a href="/"><i class="fa-solid fa-globe mr-4 globe relative"></i></a>
+      <a href="/" class="flex justify-center items-center relative"><i class="fa-solid fa-globe globe"></i></a>
     </div>
-  
+
   </div>
 
-  <div class="nav-bottom align-middle">
-    <input id="search" placeholder="Search"/>
+  <!-- <div class="nav-bottom w-full h-1/2 flex items-center justify-center">
+    <div class="w-min-[60%] w-max-[80%] h-[65%] border-solid border-x-4 border-y-1 rounded-2xl bg-amber-600">
+      <form class="flex justify-center items-center h-full w-full">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+        <div class="w-px h-6 bg-gray-300 mx-2"></div>
+        <input id="search" type="text" placeholder="Search" class="w-[80%] text-lg outline-hidden "/>
+      </form>
+    </div>
+  </div> -->
+  <div class="nav-bottom w-full flex h-1/2 items-center justify-center pb-2">
+    <div class="w-full max-w-[50%] h-[65%] border-2 rounded-2xl bg-amber-600">
+      <form class="flex items-center h-full w-full px-4">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+        <div class="w-px h-6 bg-gray-300 mx-3"></div>
+        <input id="search" type="text" placeholder="Search"
+          class="flex-1 bg-transparent text-lg outline-none "/>
+      </form>
+    </div>
   </div>
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+
+  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">All listings</a>
         <a class="nav-link" href="/listings/new">Add new</a>
