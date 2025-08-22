@@ -1,26 +1,26 @@
 <nav class="h-32 w-full bg-nav-bar/75 flex-col">
 
-  <div class="nav-top flex w-full h-1/2 pl-4 items-center justify-between ">
+  <div class="nav-top w-full h-1/2 px-4 flex items-center justify-between relative">
 
-    <div class="nav-top-start text-2xl">
+    <div class="nav-top-start text-lg md:text-xl lg:text-2xl">
       <a class="text-shadow-black" href="/"><i class="fa-solid fa-hotel mr-1"></i>Hoteru</a>
     </div>
 
-    <div class="nav-top-center text-lg md:max-w-full flex justify-between relative left-4">
-      <div class="nav-item mr-2 ml-2 cursor-pointer relative">
-        <a class="flex w-auto items-center space-x-2" href="#">
+    <div class="nav-bottom md:nav-top-center md:text-lg flex">
+      <div class="nav-item mx-2 cursor-pointer relative">
+        <a class="flex w-auto items-center md:space-x-2" href="#">
           <img class="w-10 h-10" src="/assets/Home.png" alt="home">
           <p class="text-gray-500 hidden md:block">Homes</p>
         </a>
       </div>
-      <div class="nav-item flex w-auto mr-2 ml-2 space-x-2 cursor-pointer relative">
-        <a class="flex w-auto items-center space-x-2" href="#">
+      <div class="nav-item flex w-auto mx-2 cursor-pointer relative">
+        <a class="flex w-auto items-center mx-2 md:space-x-2" href="#">
           <img class="w-10 h-10" src="/assets/Experience.png" alt="experience">
           <p class="text-gray-500 hidden md:block">Experiences</p>
         </a>
       </div>
-      <div class="nav-item flex w-auto mr-2 ml-2 cursor-pointer relative">
-        <a class="flex w-auto items-center space-x-2" href="#">
+      <div class="nav-item flex w-auto mx-2 cursor-pointer relative">
+        <a class="flex w-auto items-center mx-2 md:space-x-2" href="#">
           <img class="w-9 h-9" src="/assets/Service.png" alt="services">
           <p class="text-gray-500 hidden md:block">Services</p>
         </a>
@@ -28,42 +28,35 @@
     </div>
 
 
-    <div class="nav-top-end text-lg flex items-center mr-4">
-      <form>
-        <button class="host w-35 h-8 rounded-2xl cursor-pointer">Become a host</button>
+    <div class="nav-top-end hidden md:flex items-baseline">
+      <form class="mx-2">
+        <button class="w-auto h-auto px-4 py-1 rounded-2xl text-xl cursor-pointer hover:bg-base-100">Become a host</button>
       </form>
-      <a href="/" class="flex justify-center items-center relative"><i class="fa-solid fa-globe globe"></i></a>
+      
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex items-center justify-center"><i class="fa-solid fa-globe text-xl"></i></div>
+        <ul tabindex="0" class="dropdown-content bg-base-100 rounded-box z-1 w-52 py-2 px-2">
+          <li class="p-2 cursor-pointer hover:bg-base-300"><a>Become a host</a></li>
+          <div class="w-full h-0.5 bg-gray-300"></div>
+          <li class="p-2 cursor-pointer hover:bg-base-300"><a>Refer a host</a></li>
+          <div class="w-full h-0.5 bg-gray-300"></div>
+          <li class="p-2 cursor-pointer hover:bg-base-300"><a>Find a co-host</a></li>
+          <div class="w-full h-0.5 bg-gray-300"></div>
+          <li class="p-2 cursor-pointer hover:bg-base-300"><a>Log In or Sign up</a></li>
+        </ul>
+      </div>
     </div>
 
   </div>
 
-  <!-- <div class="nav-bottom w-full h-1/2 flex items-center justify-center">
-    <div class="w-min-[60%] w-max-[80%] h-[65%] border-solid border-x-4 border-y-1 rounded-2xl bg-amber-600">
-      <form class="flex justify-center items-center h-full w-full">
-        <i class="fa-solid fa-magnifying-glass text-lg"></i>
-        <div class="w-px h-6 bg-gray-300 mx-2"></div>
-        <input id="search" type="text" placeholder="Search" class="w-[80%] text-lg outline-hidden "/>
-      </form>
-    </div>
-  </div> -->
-  <div class="nav-bottom w-full flex h-1/2 items-center justify-center pb-2">
-    <div class="w-full max-w-[50%] h-[65%] border-2 rounded-2xl bg-amber-600">
-      <form class="flex items-center h-full w-full px-4">
+  <div class="nav-top-end md:nav-bottom flex-1 hidden md:flex h-1/2 items-center justify-center pb-2">
+    <div class="w-full max-w-[50%] h-[80%] border-1 rounded-2xl bg-[#fefae0]">
+      <form class="flex items-center px-4">
         <i class="fa-solid fa-magnifying-glass text-lg"></i>
         <div class="w-px h-6 bg-gray-300 mx-3"></div>
-        <input id="search" type="text" placeholder="Search"
-          class="flex-1 bg-transparent text-lg outline-none "/>
+        <input id="search" type="text" placeholder="Search" class="bg-transparent text-lg outline-none"/>
       </form>
     </div>
   </div>
 
-  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">All listings</a>
-        <a class="nav-link" href="/listings/new">Add new</a>
-      </div>
-    </div> -->
 </nav>

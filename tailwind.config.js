@@ -4,7 +4,11 @@ module.exports = {
     "./views/*.{html}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // fontSize:{
+      //   responsive: "var(--text-responsive)",
+      // },
+    },
   },
   plugins: [require('daisyui')],
 };
