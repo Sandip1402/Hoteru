@@ -43,8 +43,9 @@
 
 @media(max-width : 768px){
   .nav-bottom{
-    position: absolute;
-    /* bottom: -10px; */
+    position: sticky;
+    top: 50px;
+    
   }
   /* .nav-top-center{
 
