@@ -9,16 +9,17 @@
   /* --text-responsive: clamp(14px, 2vw, 20px); */
 }
 
-
-
-
+/* ----------------------- boilerplate --------------------- */
+.container{
+  min-height: 100vh;
+  min-height: 100dvh;
+}
 
 /* -----------------------  Navbar ------------------------ */
 .nav-item::after {
   content: "";
   position: absolute;
   bottom: -4px; /* below text */
-  left: 0px;
   width: 0px;
   height: 2px;
   background-color: #000000;
@@ -29,28 +30,11 @@
   color: #000000;
 }
 
-@media(max-width : 768px){
-  .nav-itme.active > a p{
-    display: block;
-    position: relative;
-    bottom: -8px;
-  }
-}
-
 .nav-item.active::after {
   width: 100%;
 }
 
-@media(max-width : 768px){
-  .nav-bottom{
-    position: sticky;
-    top: 50px;
-    
-  }
-  /* .nav-top-center{
 
-  } */
-}
 
 
 

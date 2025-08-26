@@ -1,3 +1,5 @@
+
+// form validation
 (() => {
   'use strict'
 
@@ -17,6 +19,8 @@
   })
 })()
 
+
+// navbar top center item toggle on click
 const navItems = document.querySelectorAll('.nav-item');
 
 navItems.forEach(item => {
@@ -26,3 +30,19 @@ navItems.forEach(item => {
   });
 });
 
+
+// positon of nav items change on screen size reduction
+function moveContainer() {
+  const items = document.querySelector('.movable');
+  const navbarBottom = document.querySelector('.nav-bottom');
+  const navbarTopCenter = document.querySelector('.nav-top-center');
+
+  if (window.innerWidth < 768) {
+    navbarBottom.appendChild(items);
+  } else {
+    navbarTopCenter.appendChild(items);
+  }
+}
+
+window.addEventListener('resize', moveContainer);
+window.addEventListener('load', moveContainer);
