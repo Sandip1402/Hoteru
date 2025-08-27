@@ -3,6 +3,7 @@
    themes: light --default;
  }
  @theme {
+  --color-logo: #003049;
   --color-nav-bar: #fcf6bd;
   --color-background: #faedcd;
   --color-footer: #e9edc9;
@@ -10,12 +11,12 @@
 }
 
 /* ----------------------- boilerplate --------------------- */
-.container{
+.main-container{
   min-height: 100vh;
   min-height: 100dvh;
 }
 
-/* -----------------------  Navbar ------------------------ */
+/* ----------------------- Navbar ------------------------ */
 .nav-item::after {
   content: "";
   position: absolute;
@@ -34,9 +35,17 @@
   width: 100%;
 }
 
+/* ----------------------- Homes ------------------------ */
+.scroll-btn:hover{
+  cursor: pointer;
+}
 
+.scroll-btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-
-
-
-/* -----------------------  Navbar ------------------------ */
+.scroll-btn:hover img{
+  border-radius: 50%;
+  background-color: #fef3c7;
+}

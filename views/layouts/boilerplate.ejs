@@ -10,15 +10,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
     <link href="/css/output.css" rel="stylesheet">
 </head>
 
 <body>
     <%- include("../includes/navbar.ejs") %>
-        <div class="container"><%- body %></div>
-    <%- include("../includes/footer.ejs") %>
-        <script src="/js/script.js"></script>
+        <div class="main-container"><%- body %></div>
+        <%- include("../includes/footer.ejs") %>
+            <script src="/js/script.js"></script>
 </body>
 
 </html>

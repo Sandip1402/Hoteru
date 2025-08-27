@@ -3,6 +3,7 @@ module.exports = {
     "./views/**/*.{html,ejs}",
     "./views/*.{html}",
   ],
+  // prefix: 'tw-',
   theme: {
     extend: {
       // fontSize:{

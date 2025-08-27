@@ -46,3 +46,36 @@ function moveContainer() {
 
 window.addEventListener('resize', moveContainer);
 window.addEventListener('load', moveContainer);
+
+
+// scroll horizontally when button pressed
+const itemContainer = document.querySelector('.home-list');
+const leftButton = document.querySelector('.move-left');
+const rightButton = document.querySelector('.move-right');
+
+rightButton.addEventListener('click', () => {
+  itemContainer.scrollBy({
+    left: (window.innerWidth / 2),
+    behavior: 'smooth'
+  });
+});
+
+leftButton.addEventListener('click', () => {
+  itemContainer.scrollBy({
+    left: -(window.innerWidth / 2),
+    behavior: 'smooth'
+  });
+});
+
+function updateButton(){
+  // Disable left button if at the very start
+  leftButton.disabled = itemContainer.scrollLeft <= 0;
+
+  // Disable right button if at the very end
+  rightButton.disabled =
+    itemContainer.scrollLeft + itemContainer.clientWidth >= itemContainer.scrollWidth;
+}
+
+itemContainer.addEventListener("scroll", updateButton);
+
+window.addEventListener("load", updateButton);

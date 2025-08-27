@@ -1,20 +1,29 @@
 <%- layout("/layouts/boilerplate") %>
-
-    <h2>Homes</h2>
-    <div class="home-list flex space-x-4 overflow-x-auto scrollbar-hide px-4 py-2 w-full snap-x snap-mandatory">
+<div class="my-2 px-4 w-full">
+    <div class="mx-2 flex justify-between">
+        <p class="text-xl"><b>Homes</b></p>
+        <div class="flex justify-between">
+            <button class="scroll-btn move-left">
+                <img class="rotate-180" src="/assets/Chevron_right.svg" alt="chevron_left">
+            </button>
+            <button class="scroll-btn move-right">
+                <img src="/assets/Chevron_right.svg" alt="chevron_right">
+            </button>
+        </div>
+    </div>
+    <div class="home-list flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link snap-center">
-                <div class="card w-64 h-72 bg-base-100 shadow-sm">
-                    <figure class="object-cover w-full h-40">
-                        <img src="<%=listing.image%>" alt="Hotel_image" />
+            <a href="/listings/<%=listing._id%>" class="listing-link">
+                <div class="card bg-base-100 w-50 h-60 m-2 shadow-sm snap-center">
+                    <figure class="h-1/2">
+                        <img src="<%=listing.image%>" alt="Home_image" class="object-cover"/>
                     </figure>
-                    <div class="card-body ">
-                        <b class="card-title">
-                            <%=listing.title%>
-                        </b>
-                        <p>&#8377;<%=listing.price.toLocaleString("en-IN")%></p>
+                    <div class="card-body p-2">
+                        <b class="card-title text-sm md:text-lg"><%=listing.title%></b>
+                        <p class="text-gray-700">&#8377;<%=listing.price.toLocaleString("en-IN")%></p>
                     </div>
                 </div>
             </a>
         <% } %>
     </div>
+</div>
