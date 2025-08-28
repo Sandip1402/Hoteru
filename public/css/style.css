@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-/* ----------------------- Homes ------------------------ */
+/* ----------------------- Home list ------------------------ */
 .scroll-btn:hover{
   cursor: pointer;
 }
@@ -49,3 +49,10 @@
   border-radius: 50%;
   background-color: #fef3c7;
 }
+
+/* ---------------------------- room-image --------------------- */
+/* .room-images::before{
+  width: 30px;
+  height: 30px;
+  background-image: url("/assets/left-arrow.png");
+} */
