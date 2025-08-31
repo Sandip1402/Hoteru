@@ -20,3 +20,4 @@ dist
 .idea
 .DS_Store
 *.sw?
+.env

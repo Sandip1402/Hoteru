@@ -1,20 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
 const path = require("path");
-const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const methodOverride = require("method-override");
+const User = require('./models/user.js');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const Listing = require("./models/listing.js");
+const Review = require("./models/review.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 const expressError = require("./utils/expressError.js");
-const {listingSchema, reviewSchema} = require("./schema.js");
-const Review = require("./models/review.js");
+const validateData = require("./utils/middlewares/validateData.js");
+const config = require("./config.js");
 
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = config.port;
 
 // connect to database
-const MONGO_URL = "mongodb://127.0.0.1:27017/hoteru";
+const MONGO_URL = config.dbUrl;
 async function main() {
     await mongoose.connect(MONGO_URL);
 }
@@ -42,33 +47,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 
-
-// validate list
-const validateData = (req, res, next) => {
-    if (!req.body) {
-        throw new expressError(400, "Request body is missing");
-    }
-
-    let schema;
-
-    if (req.path.includes("/reviews")) {
-        schema = reviewSchema;
-    } else if (req.path === "/listings") {
-        schema = listingSchema;
-    }
-
-    if (schema) {
-        const { error } = schema.validate(req.body, { abortEarly: false });
-        if (error) {
-            const errMsg = error.details.map(el => el.message).join(", ");
-            throw new expressError(400, errMsg);
-        }
-    }
-
-    next();
-};
-
-
 // test tailwind
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname, "views/index.html"));
@@ -79,8 +57,48 @@ const validateData = (req, res, next) => {
 
 // APIs
 
+// user registration
+app.post('/signup', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = new User({ username, password: hashedPassword });
+        await user.save();
+        res.status(201).json({ message: 'User registered successfully' });
+    } catch (error) {
+        throw new expressError(500, "Registration failed");
+    }
+});
+
+// user login
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'Authentication failed' });
+        }
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ error: 'Authentication failed' });
+        }
+        const token = jwt.sign({ userId: user._id }, 'your-secret-key', {
+            expiresIn: '1h',
+        });
+        res.status(200).json({ token });
+    } catch (error) {
+        res.status(500).json({ error: 'Login failed' });
+    }
+});
+
+
+
+
+
+
+
 // index route
-app.get(["/","/listings"], wrapAsync(async (req, res) => {
+app.get(["/", "/listings"], wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
 }))
@@ -105,10 +123,10 @@ app.post("/listings", validateData, wrapAsync(async (req, res, next) => {
 // show route
 app.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    if(mongoose.Types.ObjectId.isValid(id)){
+    if (mongoose.Types.ObjectId.isValid(id)) {
         const listing = await Listing.findById(id).populate("reviews");
         res.render("listings/show.ejs", { listing });
-    }else{
+    } else {
         throw new expressError(404, "Page Not found");
     }
 }))
@@ -134,12 +152,12 @@ app.put("/listings/:id", validateData, wrapAsync(async (req, res) => {
 
 
 // add Review Route
-app.post("/listings/:id/reviews", validateData, wrapAsync(async (req,res) => {
+app.post("/listings/:id/reviews", validateData, wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
-    
+
     listing.reviews.push(newReview);
-    
+
     await newReview.save();
     await listing.save();
 
@@ -151,10 +169,10 @@ app.post("/listings/:id/reviews", validateData, wrapAsync(async (req,res) => {
 
 
 // Delete review route
-app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req,res)=>{
-    let {id, reviewId} = req.params;
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
+    let { id, reviewId } = req.params;
     console.log(reviewId);
-    let listing = await Listing.findByIdAndUpdate(id, {$pull : {reviews : reviewId}});
+    let listing = await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     let review = await Review.findByIdAndDelete(reviewId);
 
     console.log(`Review Deleted for ${listing.title}`);
@@ -162,7 +180,7 @@ app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req,res)=>{
     console.log(review);
 
     res.redirect(`/listings/${id}`);
-}   
+}
 ))
 
 
@@ -176,15 +194,15 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
 }))
 
 
-app.use((req,res,next) => {
+app.use((req, res, next) => {
     next(new expressError(404, "Page Not found"));
 })
 
 
 
 app.use((err, req, res, next) => {
-    let { statusCode=500, message="Something weng wrong" } = err;
-    res.status(statusCode).render("layouts/error.ejs", {message});
+    let { statusCode = 500, message = "Something weng wrong" } = err;
+    res.status(statusCode).render("layouts/error.ejs", { message });
 })
 
 
