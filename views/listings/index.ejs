@@ -1,22 +1,29 @@
 <%- layout("/layouts/boilerplate") %>
-
-<h2>All listings</h2>
-<div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
-    <% for (let listing of allListings) { %>
-        <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card col listing-card">
-                <img src="<%= listing.image %>" class="card-img-top" alt="Hotel_image" style="height: 15rem;">
-                <div class="card-img-overlay"></div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <b>
-                            <%= listing.title %>
-                        </b>
-                        <br />
-                        &#8377;<%= listing.price.toLocaleString("en-IN") %>/Night
-                    </p>
+<div class="my-2 px-4 w-full">
+    <div class="mx-2 flex justify-between">
+        <p class="text-xl"><b>Homes</b></p>
+        <div class="flex justify-between">
+            <button class="scroll-btn move-left">
+                <img class="rotate-180" src="/assets/Chevron_right.svg" alt="chevron_left">
+            </button>
+            <button class="scroll-btn move-right">
+                <img src="/assets/Chevron_right.svg" alt="chevron_right">
+            </button>
+        </div>
+    </div>
+    <div class="home-list flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <% for (let listing of allListings) { %>
+            <a href="/listings/<%=listing._id%>" class="listing-link">
+                <div class="card bg-base-100 w-50 h-60 m-2 shadow-sm snap-center">
+                    <figure class="h-1/2">
+                        <img src="<%=listing.image%>" alt="Home_image" class="object-cover"/>
+                    </figure>
+                    <div class="card-body p-2">
+                        <b class="card-title text-sm md:text-lg"><%=listing.title%></b>
+                        <p class="text-gray-700">&#8377;<%=listing.price.toLocaleString("en-IN")%> for two nights</p>
+                    </div>
                 </div>
-            </div>
-        </a>
-    <% } %>
+            </a>
+        <% } %>
+    </div>
 </div>
