@@ -5,19 +5,18 @@
   "scripts": {
     "dev:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css --watch",
     "build:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css",
-    "start": "nodemon app.js",
-    "dev": "concurrently \"npm run dev:css\" \"npm run start\""
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.49.0",
     "@tailwindcss/cli": "^4.1.12",
     "autoprefixer": "^10.4.21",
     "bcrypt": "^6.0.0",
     "daisyui": "^5.0.50",
-    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^5.1.0",
@@ -26,8 +25,5 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.16.4",
     "tailwindcss": "^4.1.12"
-  },
-  "devDependencies": {
-    "concurrently": "^9.2.0"
   }
 }

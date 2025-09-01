@@ -1,11 +1,12 @@
-const dotenv = require("dotenv");
+const dotenvx = require('@dotenvx/dotenvx');
 
-dotenv.config({path : "./.env"});
+dotenvx.config({path : "./.env"});
 
 const config = {
   port: process.env.PORT || 8080,
   dbUrl: process.env.DB_URL,
-//   jwtSecret: process.env.JWT_SECRET,
+  access_Token: process.env.JWT_SECRET,
+  refresh_Token: process.env.REFRESH_SECRET
 };
 
 module.exports = config;

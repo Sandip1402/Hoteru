@@ -1,4 +1,4 @@
-const {listingSchema, reviewSchema} = require("../schema.js");
+const {listingSchema, reviewSchema, userSchema} = require("../validSchema.js");
 const expressError = require("../expressError.js");
 
 module.exports = (req, res, next) => {
@@ -10,8 +10,10 @@ module.exports = (req, res, next) => {
 
     if (req.path.includes("/reviews")) {
         schema = reviewSchema;
-    } else if (req.path === "/listings") {
+    } else if (req.path === "/home") {
         schema = listingSchema;
+    }else if(req.path === "/signup"){
+        schema = userSchema;
     }
 
     if (schema) {

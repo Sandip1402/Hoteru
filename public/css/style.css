@@ -1,17 +1,19 @@
 @import "tailwindcss";
- @plugin "daisyui" {
-   themes: light --default;
- }
- @theme {
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@theme {
   --color-logo: #003049;
-  --color-nav-bar: #fcf6bd;
+  --color-main-color: #fcf6bd;
   --color-background: #faedcd;
   --color-footer: #e9edc9;
   /* --text-responsive: clamp(14px, 2vw, 20px); */
 }
 
 /* ----------------------- boilerplate --------------------- */
-.main-container{
+.main-container {
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -20,14 +22,15 @@
 .nav-item::after {
   content: "";
   position: absolute;
-  bottom: -4px; /* below text */
+  bottom: -4px;
+  /* below text */
   width: 0px;
   height: 2px;
   background-color: #000000;
   transition: width 0.3s ease;
 }
 
-.nav-item.active > a p{
+.nav-item.active>a p {
   color: #000000;
 }
 
@@ -36,16 +39,16 @@
 }
 
 /* ----------------------- Home list ------------------------ */
-.scroll-btn:hover{
+.scroll-btn:hover {
   cursor: pointer;
 }
 
-.scroll-btn:disabled{
+.scroll-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.scroll-btn:hover img{
+.scroll-btn:hover img {
   border-radius: 50%;
   background-color: #fef3c7;
 }
@@ -56,3 +59,29 @@
   height: 30px;
   background-image: url("/assets/left-arrow.png");
 } */
+
+
+
+
+/* -------------------------- Login page ---------------------- */
+.indicator-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 24px;
+  height: 4px;
+  background-color: #6b7280;
+  /* gray-500 */
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #a094d6;
+  /* custom purple shade */
+}
