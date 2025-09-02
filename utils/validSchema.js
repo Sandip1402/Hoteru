@@ -26,6 +26,6 @@ module.exports.userSchema = Joi.object({
         lastname: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required(),
-        TC: Joi.boolean().truthy("on").falsy("off").required(),
+        check: Joi.string().valid("on").required()
     }).required()
 }).required();

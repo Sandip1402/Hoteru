@@ -3,18 +3,17 @@ const dotenvx = require('@dotenvx/dotenvx');
 dotenvx.config();
 
 const authenticate = (req, res, next) => {
-  const token = req.headers['authorization'];
-  if (!token) {
-    return res.status(401).send('Access Denied. No token provided.');
-  }
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1]; // Bearer <token>
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+  if (!token) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_KEY, (err, decoded) => {
+    if (err) return res.sendStatus(403); // token expired or invalid
+    req.userId = decoded.userId;
     next();
-  } catch (error) {
-    return res.status(400).send('Invalid Token.');
-  }
+  });
+
   next();
 };
 

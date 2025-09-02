@@ -9,8 +9,8 @@ module.exports = (app) => {
         res.render("pages/signup.ejs");
     })
     app.post('/signup', validateData, wrapAsync(async(req, res) => {
-        const {password, TC, ...userDetail} = req.body.user;
-        TC = TC === "on";
+        const {password, check, ...userDetail} = req.body.user;
+        const TC = check === "on";
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({TC, password: hashedPassword, ...userDetail });
         await user.save();

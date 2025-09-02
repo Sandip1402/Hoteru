@@ -1,12 +1,12 @@
 const dotenvx = require('@dotenvx/dotenvx');
 
-dotenvx.config({path : "./.env"});
+dotenvx.config();
 
 const config = {
   port: process.env.PORT || 8080,
   dbUrl: process.env.DB_URL,
-  access_Token: process.env.JWT_SECRET,
-  refresh_Token: process.env.REFRESH_SECRET
+  access_Token: process.env.ACCESS_KEY,
+  refresh_Token: process.env.REFRESH_KEY
 };
 
 module.exports = config;

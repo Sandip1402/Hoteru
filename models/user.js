@@ -24,6 +24,11 @@ const userSchema = new Schema({
     TC: {
         type: Boolean,
         required: true
+    },
+    Joined_on: {
+        type: Date,
+        required: true,
+        default: new Date()
     }
 });
 const User = mongoose.model('User', userSchema);
