@@ -11,9 +11,9 @@
             </button>
         </div>
     </div>
-    <div class="home-list flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div class="home-list tw-home-list">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%=listing._id%>" class="listing-link">
+            <a href="/home/<%=listing._id%>" class="listing-link">
                 <div class="card bg-base-100 w-50 h-60 m-2 shadow-sm snap-center">
                     <figure class="h-1/2">
                         <img src="<%=listing.image%>" alt="Home_image" class="object-cover"/>

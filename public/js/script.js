@@ -1,4 +1,4 @@
-
+// ---------------------------- new & edit page ----------------------
 // form validation
 (() => {
   'use strict'
@@ -20,6 +20,7 @@
 })()
 
 
+// ----------------------- Navbar ---------------------------
 // navbar top center item toggle on click
 const navItems = document.querySelectorAll('.nav-item');
 
@@ -48,6 +49,8 @@ window.addEventListener('resize', moveContainer);
 window.addEventListener('load', moveContainer);
 
 
+
+// ----------------------- home page ------------------
 // scroll horizontally when button pressed
 const itemContainer = document.querySelector('.home-list');
 const leftButton = document.querySelector('.move-left');
@@ -71,7 +74,7 @@ leftButton.addEventListener('click', () => {
   });
 });
 
-function updateButtons(){
+function updateButtons() {
   // Disable left button if at the very start
   leftButton.disabled = itemContainer.scrollLeft <= 0;
 
@@ -84,3 +87,7 @@ itemContainer.addEventListener("scroll", updateButtons);
 
 window.addEventListener("load", updateButtons);
 window.addEventListener("resize", updateButtons);
+
+
+
+

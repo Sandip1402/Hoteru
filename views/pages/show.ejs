@@ -28,9 +28,9 @@
         </div>
 
         <div class="options btns">
-            <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+            <a href="/home/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
 
-            <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+            <form method="POST" action="/home/<%= listing._id %>?_method=DELETE">
                 <button class="btn btn-dark offset-5">Delete</button>
             </form>
         </div>
@@ -38,7 +38,7 @@
         <div class="reviews col-8 offset-3 mb-3">
             <hr />
             <h4>Give a review</h4>
-            <form method="post" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
+            <form method="post" action="/home/<%= listing._id %>/reviews" novalidate class="needs-validation">
                 <div class="mb-3 mt-3">
                     <label for="rating" class="form-label"></label>
                     <input id="rating" type="range" min="1" max="5" name="review[rating]" class="form-range" required />
@@ -73,7 +73,7 @@
                                 </p>
                             </div>
                             <form method="post" class="mb-3 text-end"
-                                action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                action="/home/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                                 <button class="btn btn-dark btn-sm">Delete</button>
                             </form>
                         </div>
