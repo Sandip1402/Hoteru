@@ -5,7 +5,6 @@ const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 
 const expressError = require("./utils/expressError.js");
-const authUser = require("./utils/middlewares/authUser.js");
 const config = require("./config.js");
 
 
@@ -41,6 +40,8 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 
 app.use(express.static(path.join(__dirname, "public")));
+
+
 
 
 

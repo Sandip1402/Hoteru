@@ -14,21 +14,20 @@
 </head>
 
 <body>
-    <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="min-h-screen flex items-center justify-center p-6">
         <div class="max-w-7xl w-full bg-main-color rounded-xl flex overflow-hidden shadow-xl shadow-gray-900/50">
 
             <!-- Left side: image placeholder -->
-            <div class="hidden md:flex flex-col justify-between bg-main-color w-1/2 rounded-l-xl p-3 relative">
+            <div class="hidden md:flex md:flex-col justify-between w-1/2 rounded-l-xl p-3 relative">
                 <!-- Logo -->
-                <div>
-                    <img src="/assets/icon.png" title="logo" />
+                <div class="hidden md:fixed z-1">
+                    <img class="w-10 h-10" src="/assets/icon.png" title="logo" />
                 </div>
 
                 <!-- Image placeholder -->
-                <div
-                    class="relative flex-grow rounded-md overflow-hidden bg-gradient-to-tr from-[#5C5696] to-[#463E7E]">
-                    <!-- Put your own image inside this div -->
-                    <div class="w-full h-full flex items-center justify-center text-white text-center px-6">
+                <div class="relative flex-grow rounded-md overflow-hidden bg-gradient-to-tr from-[#5C5696] to-[#463E7E]">
+
+                    <div class="w-full h-full md:flex items-center justify-center text-white text-center px-6">
                         <div>
                             <p class="text-2xl font-normal">
                                 Capturing Moments,<br />Creating Memories
@@ -52,9 +51,9 @@
 
             <!-- Right side: form -->
             <div class="w-full md:w-1/2 p-10 pb-16 rounded-r-xl text-white">
-                <form id="logInAccountForm" class="space-y-6" method="post" action="/login">
+                <form id="logInForm" class="space-y-6" method="post" action="/login">
 
-                    <input type="email" placeholder="Email" name="user[email]"
+                    <input id="emailInput" type="email" placeholder="Email" name="user[email]"
                         class="input input-bordered input-md w-full bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1]"
                         required />
 
@@ -62,10 +61,10 @@
                         <input id="passwordInput" type="password" placeholder="Enter your password" name="user[pass]"
                             class="input input-bordered input-md w-full bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1]"
                             required />
+                        
                         <button type="button" id="togglePassword" tabindex="-1" aria-label="Toggle Password Visibility"
                             class="absolute right-3 top-1/2 -translate-y-1/2 text-white hover:text-gray-300">
-                            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
+                            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -78,6 +77,9 @@
                         class="btn btn-block btn-primary bg-[#837CE1] border-[#837CE1] hover:bg-[#6756CC] hover:border-[#6756CC] normal-case">
                         Log In
                     </button>
+                    <% if (typeof error !== 'undefined') { %>
+                        <p class="login-error">*<%= error %></p>
+                    <% } %>
                 </form>
 
                 <div class="mt-10 flex items-center justify-center gap-4 text-gray-400">
@@ -113,5 +115,5 @@
             </div>
         </div>
     </div>
-    <script src="/js/script.js"></script>
+    <script src="/js/login.js"></script>
 </body>

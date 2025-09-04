@@ -38,7 +38,12 @@
   width: 100%;
 }
 
-/* ----------------------- Home list ------------------------ */
+/* ----------------------- Home page ------------------------ */
+
+.tw-home-list{
+  @apply flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
 .scroll-btn:hover {
   cursor: pointer;
 }
@@ -84,4 +89,11 @@
 .dot.active {
   background-color: #a094d6;
   /* custom purple shade */
+}
+
+.login-error {
+  color: red;
+}
+.login-error.disabled {
+  display: none;
 }

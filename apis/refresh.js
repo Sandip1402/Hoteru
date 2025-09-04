@@ -12,7 +12,14 @@ module.exports = (app) => {
       if (err) return res.sendStatus(403); // expired or tampered
 
       // issue new access token
-      const newAccessToken = jwt.sign({ userId: decoded.userId, role: decoded.role },access_Token,{ expiresIn: "1h" });
+      const newAccessToken = jwt.sign({ 
+        userId: decoded.userId, 
+        role: decoded.role },
+        access_Token,
+        { expiresIn: "1h"}
+      );
+
+      localStorage.setItem('accessToken', newAccessToken);
 
       res.header("Authorization", `Bearer ${newAccessToken}`).send({ success: true });
 
