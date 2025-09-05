@@ -1,12 +1,11 @@
 
 module.exports = (app) => {
-    app.post("/logout", (req, res) => {
-        localStorage.removeItem("accessToken");
+    app.post("/api/logout", (req, res) => {
         res.clearCookie("refreshToken", {
             httpOnly: true,
             sameSite: "strict",
             secure: true,
         })
-        res.json({ success: true, message: "Logged out successfully" });
+        res.status(200).json({ success: true, message: "Logged out successfully" });
     });
 }
