@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <Navbar />
 
     </>
   )
