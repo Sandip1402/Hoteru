@@ -1,19 +1,28 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
+import { Logo } from './Logo';
+import Movable from './Movable';
 
-function Navbar (){
+
+const Navbar = () => {
+
+  const [active, setActive] = useState("Home");
+
+  const menuItems = ["Home", "Experience", "Service"];
+
     return (
         <>
-            <nav className="h-38 w-full bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl">
+            <nav className="h-auto w-full bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
+                <div className="nav-top w-full h-1/2 p-4 flex items-center justify-between">
 
-                <div className="nav-top w-full h-1/2 px-4 md:py-4 flex items-center justify-between">
+                    <Logo customStyle="nav-top-start w-1/3"/>
 
-                    <div className="nav-top-start w-1/3 text-lg  md:text-xl">
-                        <a className="text-logo" href="/"><i className="fa-solid fa-hotel mr-1"></i>Hoteru</a>
+                    <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
+                        {menuItems.map((item) => (
+                            <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
+                        ))}
                     </div>
 
-                    <div className="nav-top-center w-1/3 lg:w-max flex justify-center"> </div>
-
-                    <div className="nav-top-end w-1/3 flex items-baseline justify-end">
+                    <div className="nav-top-end lg:w-1/3 flex items-baseline justify-between">
                         <form className="md:hidden">
                             <i className="fa-solid fa-magnifying-glass text-xl"></i>
                         </form>
@@ -60,36 +69,15 @@ function Navbar (){
                             <input id="search" type="text" placeholder="Search" className="bg-transparent text-lg outline-none w-full" />
                         </form>
                     </div>
+                    <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
+                        {menuItems.map((item) => (
+                            <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
+                        ))}
+                    </div>
                 </div>
-
             </nav>
-
-
-            <div className="movable flex justify-around items-center w-full max-w-md text-sm md:text-lg lg:text-xl">
-
-                <div className="nav-item flex flex-col items-center mx-2 cursor-pointer relative">
-                    <a className="flex flex-col items-center lg:flex-row md:space-x-2" href="#">
-                        <img className="w-8 h-8 md:w-10 md:h-10" src="/assets/Home.png" alt="home" />
-                            <p className="text-gray-500 mt-1 md:mt-0">Homes</p>
-                    </a>
-                </div>
-
-
-                <div className="nav-item flex flex-col items-center mx-2 cursor-pointer relative">
-                    <a className="flex flex-col items-center lg:flex-row md:space-x-2" href="#">
-                        <img className="w-8 h-8 md:w-10 md:h-10" src="/assets/Experience.png" alt="experience" />
-                            <p className="text-gray-500 mt-1 md:mt-0">Experiences</p>
-                    </a>
-                </div>
-
-                <div className="nav-item flex flex-col items-center mx-2 cursor-pointer relative">
-                    <a className="flex flex-col items-center lg:flex-row md:space-x-2" href="#">
-                        <img className="w-7 h-7 md:w-9 md:h-9" src="/assets/Service.png" alt="services" />
-                            <p className="text-gray-500 mt-1 md:mt-0">Services</p>
-                    </a>
-                </div>
-            </div>
         </>
     )
 }
+
 export default Navbar;
