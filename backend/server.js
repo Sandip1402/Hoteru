@@ -31,6 +31,13 @@ app.use(cookieParser());
 // APIs
 registerApis(app);
 
+// serve react build
+// app.use(express.static(path.join(__dirname, "dist")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "dist", "index.html"));
+// });
+
 
 // error handler
 app.use((req, res, next) => {

@@ -3,7 +3,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 
 module.exports = (app) => {
-    app.get("/api/home/new" ,(req, res) => {
+    app.get("/api/listings/new" ,(req, res) => {
             // Show the form
             res.status(200).json({
                 success: true,
@@ -11,7 +11,7 @@ module.exports = (app) => {
             })
         })
 
-    app.post("/api/home", validateData, wrapAsync(async (req, res, next) => {
+    app.post("/api/listings", validateData, wrapAsync(async (req, res, next) => {
             const newListing = new Listing(req.body.listing);
             await newListing.save();
             if(!newListing){

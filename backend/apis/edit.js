@@ -4,7 +4,7 @@ const validateData = require("../utils/middlewares/validateData.js");
 
 module.exports = (app) => {
     // update listing route
-    app.get("/api/home/:id/edit", wrapAsync(async (req, res) => {
+    app.get("/api/listings/:id/edit", wrapAsync(async (req, res) => {
         let { id } = req.params;
         const listing = await Listing.findById(id);
         if(!listing){

@@ -1,10 +1,10 @@
 const wrapAsync = require("../utils/wrapAsync.js");
 const mongoose = require("mongoose");
 const Listing = require("../models/listing.js");
-const expressError = require("../utils/expressError.js");
+
 
 module.exports = (app) => {
-    app.get("/api/home/:id", wrapAsync(async (req, res) => {
+    app.get("/api/listings/:id", wrapAsync(async (req, res) => {
         let { id } = req.params;
         if (mongoose.Types.ObjectId.isValid(id)) {
             const listing = await Listing.findById(id).populate("reviews");
@@ -16,7 +16,7 @@ module.exports = (app) => {
             }
             res.status(200).json({
                 success: true,
-                message: listing
+                data: listing
             })
 
         } else {

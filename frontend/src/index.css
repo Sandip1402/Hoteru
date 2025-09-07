@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
+
 @plugin "daisyui"{
   themes: light --default
 }
@@ -18,11 +19,7 @@ body {
   font-family: var(--font-text)
 }
 
-/* ----------------------- boilerplate --------------------- */
-.main-container {
-  min-height: 100vh;
-  min-height: 100dvh;
-}
+
 
 /* ----------------------- Navbar ------------------------ */
 .nav-top-center{
@@ -50,11 +47,11 @@ body {
 
 /* ----------------------- Home page ------------------------ */
 
-.tw-home-list{
+/* .tw-home-list{
   @apply flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
-}
+} */
 
-.scroll-btn:hover {
+/* .scroll-btn:hover {
   cursor: pointer;
 }
 
@@ -66,7 +63,7 @@ body {
 .scroll-btn:hover img {
   border-radius: 50%;
   background-color: #fef3c7;
-}
+} */
 
 /* ---------------------------- room-image --------------------- */
 /* .room-images::before{

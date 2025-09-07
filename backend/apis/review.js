@@ -6,7 +6,7 @@ const Review = require("../models/review.js");
 
 module.exports = (app) => {
     // add Review Route
-    app.post("/api/home/:id/reviews", validateData, wrapAsync(async (req, res) => {
+    app.post("/api/listings/:id/reviews", validateData, wrapAsync(async (req, res) => {
         let listing = await Listing.findById(req.params.id);
         if(!listing){
             return res.status(404).json({
@@ -34,7 +34,7 @@ module.exports = (app) => {
         })
     })
     )
-    app.delete("/api/home/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
+    app.delete("/api/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
         let { id, reviewId } = req.params;
 
         let listing = await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });

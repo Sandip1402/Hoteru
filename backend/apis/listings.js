@@ -4,7 +4,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 
 
 module.exports = (app) => {
-    app.get(["/", "/api/home"], authUser, wrapAsync(async (req, res) => {
+    app.get("/api/listings", wrapAsync(async (req, res) => {
         const allListings = await Listing.find({});
         if(!allListings){
             return res.status(404).json({

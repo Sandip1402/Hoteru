@@ -2,7 +2,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 
 module.exports = (app) => {
-  app.delete("/api/home/:id",wrapAsync(async (req, res) => {
+  app.delete("/api/listings/:id",wrapAsync(async (req, res) => {
       const { id } = req.params;
       const deletedListing = await Listing.findByIdAndDelete(id);
       if (!deletedListing) {

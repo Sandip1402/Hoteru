@@ -1,9 +1,9 @@
-import React from 'react'
+
 
 const Error = (message) => {
   return (
-    <div className="row mt-3">
-        <div className="alert alert-danger col-6 offset-3" role="alert">
+    <div className="m-3">
+        <div className="bg-base-300 p-4 rounded-2xl" role="alert">
             <p className="alert-heading">message</p>
         </div>
     </div>

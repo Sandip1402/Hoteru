@@ -1,11 +1,14 @@
 import React from 'react'
+import { Logo } from './Logo'
 
 const Footer = () => {
+
+    
+
     return (
         <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
             <aside className="text-3xl text-center">
-                <i className="fa-solid fa-hotel"></i>
-                <p>Hoteru</p>
+                <Logo customStyle={"footer-logo"}/>
             </aside>
             <nav>
                 <h6 className="footer-title">Services</h6>

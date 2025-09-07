@@ -22,13 +22,13 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    <div className="nav-top-end lg:w-1/3 flex items-baseline justify-between">
-                        <form className="md:hidden">
+                    <div className="nav-top-end w-1/3 flex items-center justify-end">
+                        
+                        <form className='md:hidden'>
                             <i className="fa-solid fa-magnifying-glass text-xl"></i>
                         </form>
                         <form className="mx-2 hidden md:block">
-                            <button className="w-auto h-auto px-2 py-1 rounded-2xl text-xl cursor-pointer hover:bg-base-100">Become a
-                                host</button>
+                            <button className="px-2 py-1 rounded-2xl whitespace-nowrap cursor-pointer hover:bg-base-100">Become host</button>
                         </form>
 
                         <div className="dropdown dropdown-end">
