@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const [active, setActive] = useState("Home");
 
-  const menuItems = ["Home", "Experience", "Service"];
+  const menuItems = ['Home', 'Experience', 'Service'];
 
     return (
         <>
@@ -18,7 +18,7 @@ const Navbar = () => {
 
                     <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
                         {menuItems.map((item) => (
-                            <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
+                            <Movable key={item} name={item} />
                         ))}
                     </div>
 
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <form className='md:hidden'>
                             <i className="fa-solid fa-magnifying-glass text-xl"></i>
                         </form>
-                        <form className="mx-2 hidden md:block">
+                        <form className=" hidden md:block">
                             <button className="px-2 py-1 rounded-2xl whitespace-nowrap cursor-pointer hover:bg-base-100">Become host</button>
                         </form>
 

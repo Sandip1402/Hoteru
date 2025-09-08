@@ -30,14 +30,14 @@ body {
   content: "";
   position: absolute;
   bottom: -4px;
-  /* below text */
+  left: 0px;
   width: 0px;
   height: 2px;
   background-color: #000000;
   transition: width 0.3s ease;
 }
 
-.nav-item.active>a p {
+.nav-item.active> p {
   color: #000000;
 }
 
@@ -45,25 +45,6 @@ body {
   width: 100%;
 }
 
-/* ----------------------- Home page ------------------------ */
-
-/* .tw-home-list{
-  @apply flex overflow-x-auto scroll-smooth w-full h-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
-} */
-
-/* .scroll-btn:hover {
-  cursor: pointer;
-}
-
-.scroll-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.scroll-btn:hover img {
-  border-radius: 50%;
-  background-color: #fef3c7;
-} */
 
 /* ---------------------------- room-image --------------------- */
 /* .room-images::before{

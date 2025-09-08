@@ -9,6 +9,7 @@ export const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        
         const fetchItem = async () => {
             try {
                 setLoading(true);
@@ -25,21 +26,18 @@ export const Home = () => {
         };
 
         fetchItem();
-    }, [id]);
+    }, []);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p className="text-red-500">{error}</p>;
-    if (!item) return <p>No listing found</p>;
-
+    if (!listings) return <p>No listing found</p>;
 
 
     return (
         <>
-            <div className="mx-2 w-full flex-col space-y-2">
-                <div>
-                    <p className="text-xl"><b>Homes</b></p>
-                </div>
-                <div className="home-list">
+            <div className="w-full flex-col space-y-2">
+                <div className="homes">
+                    <p className="text-xl mb-2"><b>Homes</b></p>
                     <Slide items={listings} />
                 </div>
             </div>

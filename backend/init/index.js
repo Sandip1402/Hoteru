@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Listing = require("../models/listing.js");
 
 const initData = require("./data.js");
-
+const config = require("../config.js");
 
 // connect to database
-const MONGO_URL = "mongodb://127.0.0.1:27017/hoteru";
+const DB_URL = config.dbUrl;
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(DB_URL);
 }
 
 main().then(() => {

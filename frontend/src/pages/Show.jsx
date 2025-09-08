@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom";
 import { apiFetch } from "../js/api"
 import { Slide } from "../components/Slide";
 
@@ -19,7 +20,7 @@ export const Show = () => {
                 const res = await apiFetch(`/listings/${id}`, { method: "GET" });
                 setItem(res.data);
             } catch (err) {
-                setError("Failed to load listing 😢");
+                setError("Failed to load hotel detail 😢");
                 console.error(err);
             } finally {
                 setLoading(false);
@@ -36,43 +37,47 @@ export const Show = () => {
 
     return (
         <>
-            <div className="my-2 mx-4">
-                <p className="text-xl lg:text-2xl mb-2">{item.title}</p>
+            <div className="mx-4 text-lg lg:text-2xl ">
+                <p className="text-xl mb-2">{item.title}</p>
+                <div>
+                    <img className="rounded-2xl h-[400px]" src={item.display_img} alt="hotel_image"/>
 
+                    {/* shouldbe added later */}
+                    {/* {item.images.length ? <Slide items={item.images} /> : ''} */}
+
+                </div>
                 <div className="info">
-                    <Slide items={item.image} />
-                    <div className="card-body">
-                        <div className="card-text space-y-2">
-                            <p>{item.description}</p>
-                            <p>&#8377; {item.price.toLocaleString("en-IN")} for two nights only</p>
-                            <p>{item.location}</p>
-                            <p>{item.country}</p>
-                        </div>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Book Now</button>
-                        </div>
+                    <div className="card-text">
+                        <p className="my-3">{item.description}</p>
+                        <p className="my-3">&#8377; {item.price.toLocaleString("en-IN")} for two nights only</p>
+                        <p><b>Address:</b></p>
+                        <p className="mb-3">{item.location},{item.country}</p>
+                    </div>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Book Now</button>
                     </div>
                 </div>
 
-                <div className="options btns">
-                    <a href="/home/ { item._id  }/edit" className="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                {/* Should be added in host profile */}
+                {/* <div className="options btns">
+                    <NavLink  className="btn btn-dark col-1 offset-3 edit-btn">Edit</NavLink>
 
                     <form method="POST" action="/home/ { item._id  }?_method=DELETE">
                         <button className="btn btn-dark offset-5">Delete</button>
                     </form>
-                </div>
+                </div> */}
 
                 <div className="reviews col-8 offset-3 mb-3">
                     <hr />
                     <h4>Give a review</h4>
-                    <form method="post" action="/home/ { item._id  }/reviews" novalidate className="needs-validation">
+                    <form method="post" action="/home/ { item._id  }/reviews" noValidate className="needs-validation">
                         <div className="mb-3 mt-3">
-                            <label for="rating" className="form-label"></label>
+                            <label htmlFor="rating" className="form-label"></label>
                             <input id="rating" type="range" min="1" max="5" name="review[rating]" className="form-range" required />
                         </div>
 
                         <div className="mb-3 mt-3">
-                            <label for="comment" className="form-label">Comments</label>
+                            <label htmlFor="comment" className="form-label">Comments</label>
                             <textarea id="comment" placeholder="Leave a comment" className="form-control" cols="10" rows="5"
                                 name="review[comment]" required></textarea>
                             <div className="invalid-feedback">Please give a feedback</div>
