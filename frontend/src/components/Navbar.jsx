@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="h-auto w-full bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
+            <nav className="h-auto min-w-screen bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
                 <div className="nav-top w-full h-1/2 p-4 flex items-center justify-between">
 
                     <Logo customStyle="nav-top-start w-1/3"/>

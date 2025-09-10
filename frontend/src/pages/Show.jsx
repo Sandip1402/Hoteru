@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import { apiFetch } from "../js/api"
 import { Slide } from "../components/Slide";
+import { Reviews } from "../components/Reviews";
+import { ReviewForm } from "../components/ReviewForm";
+
 
 
 export const Show = () => {
@@ -37,16 +40,16 @@ export const Show = () => {
 
     return (
         <>
-            <div className="mx-4 text-lg lg:text-2xl ">
+            <div className="m-4 flex-col items-center text-lg lg:text-2xl">
                 <p className="text-xl mb-2">{item.title}</p>
-                <div>
-                    <img className="rounded-2xl h-[400px]" src={item.display_img} alt="hotel_image"/>
+                <div className="flex justify-center items-center">
+                    <img className="rounded-2xl w-45 h-60 hobject-cover" src={item.display_img} alt="hotel_image"/>
 
-                    {/* shouldbe added later */}
+                    {/* should be added later */}
                     {/* {item.images.length ? <Slide items={item.images} /> : ''} */}
 
                 </div>
-                <div className="info">
+                <div className="info flex-col justify-center items-start p-2">
                     <div className="card-text">
                         <p className="my-3">{item.description}</p>
                         <p className="my-3">&#8377; {item.price.toLocaleString("en-IN")} for two nights only</p>
@@ -67,54 +70,11 @@ export const Show = () => {
                     </form>
                 </div> */}
 
-                <div className="reviews col-8 offset-3 mb-3">
+                <div className="reviews mb-3">
+                    <br />
                     <hr />
-                    <h4>Give a review</h4>
-                    <form method="post" action="/home/ { item._id  }/reviews" noValidate className="needs-validation">
-                        <div className="mb-3 mt-3">
-                            <label htmlFor="rating" className="form-label"></label>
-                            <input id="rating" type="range" min="1" max="5" name="review[rating]" className="form-range" required />
-                        </div>
-
-                        <div className="mb-3 mt-3">
-                            <label htmlFor="comment" className="form-label">Comments</label>
-                            <textarea id="comment" placeholder="Leave a comment" className="form-control" cols="10" rows="5"
-                                name="review[comment]" required></textarea>
-                            <div className="invalid-feedback">Please give a feedback</div>
-                        </div>
-                        <button className="btn btn-outline-dark">Submit</button>
-                    </form>
-
-                    {item.reviews.length} !== 0 &&
-                    <hr />
-                    <p><b>All Reviews</b></p>
-                    <div className="row">
-                        {item.reviews.map((review) => {
-                            <div className="card col-5 mb-3 ms-3">
-                                <div className="card-body p-2">
-                                    <div className="card-title d-flex justify-content-between mb-0"><b>Jan doe</b><b>
-                                        {review.rating} Stars
-                                    </b></div>
-                                    <p className="small">
-                                        {review.createdAt.toLocaleDateString("en-GB", {
-                                            day: "2-digit", month: "2-digit"
-                                            , year: "2-digit"
-                                        }) + " " + review.createdAt.toLocaleTimeString("en-GB", {
-                                            hour: "2-digit", minute: "2-digit", hour12: false
-                                        })}
-                                    </p>
-                                    <p className="card-text">
-                                        {review.comment}
-                                    </p>
-                                </div>
-                                <form method="post" className="mb-3 text-end"
-                                    action="/home/ { item._id  }/reviews/ { review._id  }?_method=DELETE">
-                                    <button className="btn btn-dark btn-sm">Delete</button>
-                                </form>
-                            </div>
-                        })}
-                    </div>
-
+                    <ReviewForm id={id}/>
+                    {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews}/>) : ''}
                 </div>
             </div>
         </>

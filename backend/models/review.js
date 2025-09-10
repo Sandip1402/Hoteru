@@ -13,6 +13,13 @@ const reviewSchema = new schema({
         min: 1,
         max: 5
     },
+    images: {
+        type: String,
+    },
+    privacy: {
+        type: Boolean,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: new Date()

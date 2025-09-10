@@ -46,13 +46,14 @@ body {
 }
 
 
-/* ---------------------------- room-image --------------------- */
-/* .room-images::before{
-  width: 30px;
-  height: 30px;
-  background-image: url("/assets/left-arrow.png");
+/* ----------------------------  Home page --------------------- */
+/* .slick-prev {
+  position: relative;
+  left: -20px;
+}
+.slick-arrow {
+  color: black !important;
 } */
-
 
 
 
@@ -84,4 +85,13 @@ body {
 }
 .login-error.disabled {
   display: none;
+}
+
+/* ---------------- Review Form ------------------------ */
+.review-text-area {
+  @apply w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 rounded-md resize-none text-gray-700
+}
+
+.image-input {
+  @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
 }
