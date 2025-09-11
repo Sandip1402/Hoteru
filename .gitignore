@@ -1,24 +1,59 @@
-# Logs
-logs
-*.log
+# -------------------------
+# Node
+# -------------------------
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Dependencies
-node_modules
+# -------------------------
+# Build outputs
+# -------------------------
+frontend/dist/
+frontend/build/
+backend/dist/
 
-# Build output
-public/css/output.css
-dist
-*.local
+# -------------------------
+# Logs
+# -------------------------
+*.log
+logs
+*.out
+*.pid
+*.gz
 
-# Editor/OS files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.sw?
+# -------------------------
+# Environment variables
+# -------------------------
 .env
+.env.*
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+
+# -------------------------
+# Editor & OS files
+# -------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Testing / Coverage
+# -------------------------
+coverage/
+*.lcov
+
+# -------------------------
+# Optional (caches)
+# -------------------------
+.cache/
+frontend/.vite/
+frontend/.next/
+
+
 ideas.txt
+

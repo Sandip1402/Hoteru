@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+
+@plugin "daisyui"{
+  themes: light --default
+}
+
+@theme {
+  --color-logo: #F55F0A;
+  --color-main-color: #fcf6bd;
+  --color-background: #faedcd;
+  --font-text: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --fong-heading: "Plus Jakarta Sans", sans-serif;
+  --font-optical-sizing: auto;
+  --logo-size: clamp(30px, 5vw, 200px);
+}
+
+body {
+  font-family: var(--font-text)
+}
+
+
+
+/* ----------------------- Navbar ------------------------ */
+.nav-top-center{
+  width: 520px;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+  width: 0px;
+  height: 2px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.nav-item.active> p {
+  color: #000000;
+}
+
+.nav-item.active::after {
+  width: 100%;
+}
+
+
+/* ----------------------------  Home page --------------------- */
+/* .slick-prev {
+  position: relative;
+  left: -20px;
+}
+.slick-arrow {
+  color: black !important;
+} */
+
+
+
+/* -------------------------- Login page ---------------------- */
+.indicator-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 24px;
+  height: 4px;
+  background-color: #6b7280;
+  /* gray-500 */
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #a094d6;
+  /* custom purple shade */
+}
+
+.login-error {
+  color: red;
+}
+.login-error.disabled {
+  display: none;
+}
+
+/* ---------------- Review Form ------------------------ */
+.review-text-area {
+  @apply w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 rounded-md resize-none text-gray-700
+}
+
+.image-input {
+  @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
+}

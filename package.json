@@ -1,31 +1,20 @@
 {
-  "name": "project1",
+  "name": "hoteru",
   "version": "1.0.0",
-  "main": "app.js",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css --watch",
-    "build:css": "npx @tailwindcss/cli -i public/css/style.css -o public/css/output.css",
-    "start": "nodemon app.js"
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm start --prefix backend\"",
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm start --prefix backend"
   },
-  "keywords": [],
   "author": "Sandip Das",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-    "@dotenvx/dotenvx": "^1.49.0",
-    "@tailwindcss/cli": "^4.1.12",
-    "autoprefixer": "^10.4.21",
-    "bcrypt": "^6.0.0",
-    "ejs": "^3.1.10",
-    "ejs-mate": "^4.0.0",
-    "express": "^5.1.0",
-    "joi": "^18.0.0",
-    "jsonwebtoken": "^9.0.2",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.16.4",
-    "tailwindcss": "^4.1.12"
-  },
   "devDependencies": {
-    "daisyui": "^5.0.50"
+    "concurrently": "^9.0.0"
   }
 }
