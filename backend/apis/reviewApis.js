@@ -2,11 +2,14 @@ const validateData = require("../utils/middlewares/validateData.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
+const { reviewSchema } = require("../utils/validSchema.js");
 
 
 module.exports = (app) => {
-    // add Review Route
-    app.post("/api/listings/:id/reviews", validateData, wrapAsync(async (req, res) => {
+
+    // new Review Route
+    app.post("/api/listings/:id/reviews", validateData(reviewSchema), wrapAsync(async (req, res) => {
+
         let listing = await Listing.findById(req.params.id);
         if(!listing){
             return res.status(404).json({
@@ -14,16 +17,24 @@ module.exports = (app) => {
                 message: "Listing not found"
             })
         }
-        if (!req.body.review || Object.keys(req.body.review).length === 0) {
+        const review = req.body.review;
+        
+        if (!review || Object.keys(review).length === 0) {
             return res.status(400).json({
                 success: false,
                 message: "Review is empty"
             });
         }
-        let newReview = new Review(req.body.review);
+        
+        // set privacy true if checkbox on
+        review.privacy = review.privacy === "on";
+        // console.log(review);
 
+        // push into listing review list
+        let newReview = new Review(review);
         listing.reviews.push(newReview);
 
+        // save review and listing
         await newReview.save();
         await listing.save();
 
@@ -34,6 +45,8 @@ module.exports = (app) => {
         })
     })
     )
+
+    // delete review route
     app.delete("/api/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
         let { id, reviewId } = req.params;
 
@@ -44,6 +57,7 @@ module.exports = (app) => {
                 message: "Listing not found"
             })
         }
+        
         let review = await Review.findByIdAndDelete(reviewId);
         if(!review){
             return res.status(404).json({

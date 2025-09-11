@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require("../config.js");
 const wrapAsync = require("../utils/wrapAsync.js");
+const expressError = require('../utils/expressError.js');
 
 const {access_Token, refresh_Token} = config;
 
@@ -15,6 +16,9 @@ module.exports = (app) => {
         })
     })
     app.post('/api/login', wrapAsync(async (req, res) => {
+            if(!req.body.user){
+                throw new expressError("No user info found");
+            }
             const { email, password } = req.body.user;
             const user = await User.findOne({ email: email });
             if (!user || !(await bcrypt.compare(password, user.password))) {
@@ -33,7 +37,7 @@ module.exports = (app) => {
                 .json({
                     success: true,
                     message: "Logged in successfully"
-                })
+            })
         }
     ));
 }

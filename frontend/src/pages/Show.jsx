@@ -74,7 +74,7 @@ export const Show = () => {
                     <br />
                     <hr />
                     <ReviewForm id={id}/>
-                    {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews}/>) : ''}
+                    {/* {item.reviews.length !== 0 ? (<Reviews id={item._id} reviews={item.reviews}/>) : ''} */}
                 </div>
             </div>
         </>

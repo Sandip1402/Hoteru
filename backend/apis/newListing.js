@@ -1,6 +1,7 @@
 const validateData = require("../utils/middlewares/validateData.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
+const { listingSchema } = require("../utils/validSchema.js");
 
 module.exports = (app) => {
     app.get("/api/listings/new" ,(req, res) => {
@@ -11,7 +12,7 @@ module.exports = (app) => {
             })
         })
 
-    app.post("/api/listings", validateData, wrapAsync(async (req, res, next) => {
+    app.post("/api/listings", validateData(listingSchema), wrapAsync(async (req, res, next) => {
             const newListing = new Listing(req.body.listing);
             await newListing.save();
             if(!newListing){

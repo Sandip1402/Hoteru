@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.js');
 const wrapAsync = require("../utils/wrapAsync.js");
 const validateData = require("../utils/middlewares/validateData.js");
+const { userSchema } = require("../utils/validSchema.js");
 const config = require("../config.js");
 
 const {access_Token, refresh_Token} = config;
@@ -13,7 +14,7 @@ module.exports = (app) => {
             success: true
         })
     })
-    app.post('/api/signup', validateData, wrapAsync(async(req, res) => {
+    app.post('/api/signup', validateData(userSchema), wrapAsync(async(req, res) => {
         const {password, check, ...userDetail} = req.body.user;
         const TC = check === "on";
         const hashedPassword = await bcrypt.hash(password, 10);

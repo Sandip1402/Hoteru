@@ -23,13 +23,11 @@ main().then(() => {
 })
 
 
-
+// express settings
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-// APIs
-registerApis(app);
 
 // serve react build
 // app.use(express.static(path.join(__dirname, "dist")));
@@ -37,6 +35,10 @@ registerApis(app);
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "dist", "index.html"));
 // });
+
+
+// APIs
+registerApis(app);
 
 
 // error handler

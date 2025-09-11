@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react"
 import { StarRating } from "./StarRating"
+import { apiFetch } from "../js/api"
 
 
-export const Reviews = ({reviews}) => {
+export const Reviews = ({id, reviews}) => {
+    const [reviewId, setReviewId] = useState("");
+
+    useEffect(() => {
+        // api calling
+        const res = apiFetch(`/listings/${id}/reviews/${reviewId}`, 
+            {method : DELETE}
+        )
+        if(!res.success){
+            throw new Error("Could not delete review");
+        }
+        setReviewId("");
+    }, [reviewId])
+
     return (
         <div>
             <hr />
@@ -26,10 +41,7 @@ export const Reviews = ({reviews}) => {
                                 {review.comment}
                             </p>
                         </div>
-                        <form method="post" className="mb-3 text-end"
-                            action="/home/ { item._id  }/reviews/ { review._id  }?_method=DELETE">
-                            <button className="btn btn-sm">Delete</button>
-                        </form>
+                        <button className="btn btn-sm" onClick={() => {setReviewId(review._id)}}>Delete</button>
                     </div>
                 })}
             </div>

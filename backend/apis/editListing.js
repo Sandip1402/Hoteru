@@ -1,9 +1,11 @@
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 const validateData = require("../utils/middlewares/validateData.js");
+const { listingSchema } = require("../utils/validSchema.js");
 
 module.exports = (app) => {
-    // update listing route
+
+    // get update request for listing
     app.get("/api/listings/:id/edit", wrapAsync(async (req, res) => {
         let { id } = req.params;
         const listing = await Listing.findById(id);
@@ -18,8 +20,9 @@ module.exports = (app) => {
             data: listing
         })
     }))
+
     // update listing
-    app.put("/api/home/:id", validateData, wrapAsync(async (req, res) => {
+    app.put("/api/listings/:id", validateData(listingSchema), wrapAsync(async (req, res) => {
         let { id } = req.params;
         const listing = await Listing.findByIdAndUpdate(id,
             { ...req.body.listing },

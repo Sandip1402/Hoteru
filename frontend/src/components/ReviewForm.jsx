@@ -2,61 +2,96 @@ import { TbCameraPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
 import { apiFetch } from "../js/api";
-import { redirect } from "react-router-dom";
+import { ImagePreview } from "./ImagePreview";
 
 
 export const  ReviewForm = ({id}) => {
     const [rating, setRating] = useState(4);
-    const [review, setReview] = useState("");
+    const [comment, setComment] = useState("");
     const [files, setFiles] = useState([]); 
     const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
+
+    // manage image files
     const handleFileChange = (e) => {
         const newFiles = Array.from(e.target.files);
+        let size = 0;
 
         // validating file
-        const validFiles = newFiles.filter(
-            (file) =>
-            (file.type === "image/jpeg" || file.type === "image/png") &&
-                file.size <= 100 * 1024 * 1024
-        );
+        // testing
+        newFiles.forEach((file) => {
+            if(file.type !== "image/jpeg" && file.type !== "image/png"){
+                alert("Some files were invalid");
+                return;
+            }else{
+                size += file.size
+                file = URL.createObjectURL(file);
+            }
+        });
 
-        if (validFiles.length !== newFiles.length) {
-            alert("Some files were invalid. Please upload only JPEG/PNG under 100MB.");
+        if(size > 100 * 1024 * 1024){
+            alert("Please upload only JPEG/PNG under 100MB.")
+            return;
         }
-        
+
+    //    const validFiles = newFiles.filter((file) =>
+    //         (file.type === "image/jpeg" || file.type === "image/png") &&
+    //         file.size <= 100 * 1024 * 1024 // 100MB
+    //     );
+
+    //     if (validFiles.length !== newFiles.length) {
+    //         alert("Some files were invalid. Please upload only JPEG/PNG under 100MB.");
+    //     }
+
+
         // append file
-        setFiles((prev) => [...(prev || []), ...validFiles]);
+        setFiles((prev) => [...(prev || []), ...newFiles]);
         e.target.value = null;
     };
 
 
     // form submission
-    const handleSubmit = async (formData) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         if (!acceptedPrivacy) {
             alert("Please accept the Privacy Policy.");
             return;
         }
-        const review = Object.fromEntries(formData);
+
+        const review = Object.fromEntries(new FormData(e.target));
         review.rating = rating;
-        console.log(review);
-        const res = apiFetch(`/listings/${id}/review`,
-            {method: "POST"}, 
-            review
-        )
+        // review.images = files.map((file) => URL.createObjectURL(file));
+        // testing
+        review.images = files;
+        console.log("submitting review : ", review);
+        
+
+        // api calling
+        const res = await apiFetch(`/listings/${id}/reviews`,{
+            method: "POST",
+            body: JSON.stringify({review})
+        })
         if(!res.success){
             throw new Error("Could not save review");
+        }else{
+            console.log("Review saved");
         }
         
+        // reset form
+        setRating(4);
+        setComment("");
+        setFiles([]);
+        setAcceptedPrivacy(false);
+
+        e.target.reset();
     };
 
+    useEffect(() => {
 
-
-    // useEffect(() => {
-    // console.log("Current files:", files);
-    // }, [files]);
+    }, [files]);
 
     return (
-        <form className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg select-none" action={handleSubmit}>
+        <form className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg select-none" onSubmit={(e) => handleSubmit(e)}>
             <h2 className="text-2xl font-bold mb-6 text-center">Share your experience</h2>
 
             {/* Rating */}
@@ -73,11 +108,12 @@ export const  ReviewForm = ({id}) => {
                 <textarea
                     id="review"
                     rows={4}
-                    value={review}
-                    name="commment"
-                    onChange={(e) => setReview(e.target.value)}
+                    value={comment}
+                    name="comment"
+                    onChange={(e) => setComment(e.target.value)}
                     placeholder="Write your review..."
                     className='review-text-area'
+                    required
                 />
             </div>
 
@@ -87,22 +123,10 @@ export const  ReviewForm = ({id}) => {
                 <div className="flex justify-between items-start">
                     <div>
                         <label htmlFor="uploadImg" className="image-input"><TbCameraPlus /></label>
-                        <input id="uploadImg" type="file" accept="image/*" onChange={handleFileChange} name="images"
+                        <input id="uploadImg" type="file" accept="image/*" onChange={handleFileChange}
                             className='hidden' multiple/>
                     </div>
-                    {/* preview */}{/*may be added later */}
-                    {/* {files.length !== 0 ? 
-                        <ul>
-                            <small>Click to remove</small>
-                            {files.map((file, idx) => (
-                                <li key={idx}><img src=""/>
-                                    <button type="button" onClick={() => handleRemoveFile(idx)} className="text-red-500">
-                                        ❌
-                                    </button>
-                                </li>
-                            ))}
-                        </ul> : ''
-                    } */}
+                    <ImagePreview Files={files} setFiles={setFiles}/>
                 </div>
                 <small className="text-gray-500 mt-1 block">
                     Maximum size: 100 MB
@@ -118,6 +142,7 @@ export const  ReviewForm = ({id}) => {
                     checked={acceptedPrivacy}
                     onChange={(e) => setAcceptedPrivacy(e.target.checked)}
                     className="w-4 h-4 border-gray-300 rounded"
+                    required
                 />
                 <label htmlFor="privacy" className="text-gray-700 text-sm">
                     I accept the{" "}
