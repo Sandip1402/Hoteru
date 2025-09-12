@@ -10,7 +10,7 @@ module.exports = (app) => {
             const listing = await Listing.findById(id).populate("reviews");
             if(!listing){
                 return res.status(404).json({
-                    success: true,
+                    success: false,
                     message: "Not found"
                 })
             }
@@ -21,7 +21,7 @@ module.exports = (app) => {
 
         } else {
             return res.status(400).json({
-                success: true,
+                success: false,
                 message: "Bad request"
             })
         }

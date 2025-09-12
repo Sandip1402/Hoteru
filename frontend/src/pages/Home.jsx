@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { apiFetch } from "../js/api.js";
 import { Slide } from "../components/Slide.jsx";
+import { New } from "../components/New.jsx";
 
 export const Home = () => {
 
@@ -18,7 +19,7 @@ export const Home = () => {
                 const res = await apiFetch('/listings', { method: "GET" });
                 setListings(res.data);
             } catch (err) {
-                setError("Failed to load listing 😢");
+                setError("Failed to load hotels 😢");
                 console.error(err);
             } finally {
                 setLoading(false);
@@ -38,7 +39,8 @@ export const Home = () => {
             <div className="w-full py-2 px-4 flex-col space-y-2">
                 <div className="homes w-full overflow-hidden">
                     <p className="text-xl mb-2"><b>Homes</b></p>
-                    <Slide items={listings} />
+                    <New />
+                    {/* <Slide items={listings} /> */}
                 </div>
             </div>
         </>

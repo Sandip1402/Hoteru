@@ -33,25 +33,27 @@ const Navbar = () => {
 
                         <div className="dropdown dropdown-end">
                             <div tabIndex="0" role="button"
-                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center"><i
-                                    className="fa-solid fa-globe text-xl"></i></div>
+                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
+                                    <i className="fa-solid fa-globe text-xl"></i>
+                            </div>
 
                             <div tabIndex="0" role="button"
-                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center"><i
-                                    className="fa-solid fa-bars text-xl"></i></div>
+                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center">
+                                    <i className="fa-solid fa-bars text-xl"></i>
+                            </div>
 
-                            <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box z-1 w-40 md:w-52 border-2 border-main-color px-2 text-lg">
+                            <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 mr-2 text-lg">
                                 <div className="block md:hidden">
-                                    <li className="my-2 px-2 cursor-pointer hover:bg-base-100"><a>Become a host</a></li>
-                                    <div className="w-full h-0.5 bg-gray-300"></div>
+                                    <li className="btn border-0 bg-transparent w-full mt-2 px-2 cursor-pointer rounded-box hover:bg-base-100"><a>Become host</a></li>
+                                    <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 </div>
-                                <li className="my-2 px-2 cursor-pointer hover:bg-main-color/70"><a>Refer a host</a></li>
-                                <div className="w-full h-0.5 bg-gray-300"></div>
-                                <li className="my-2 px-2 cursor-pointer hover:bg-main-color/70"><a>Find a co-host</a></li>
-                                <div className="w-full h-0.5 bg-gray-300"></div>
-                                <li className="my-2 px-2 cursor-pointer hover:bg-main-color/70"><a href="/signup">Log In/Sign up</a></li>
+                                <li className="btn border-0 bg-transparent w-full md:mt-2 px-2 cursor-pointer rounded-box hover:bg-main-color/70 "><a>Refer host</a></li>
+                                <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
+                                <li className="btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70"><a>Find co-host</a></li>
+                                <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
+                                <li className="btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70"><a href="/signup">Log In/Sign up</a></li>
                                 <form method="post" action="/logout">
-                                    <button className="btn btn-error my-2 px-2 cursor-pointer hover:bg-main-color/70">Log out</button>
+                                    <button className="btn btn-error w-full max-md:mb-2 md:my-2 px-2 cursor-pointer hover:bg-main-color/70">Log out</button>
                                 </form>
                             </ul>
                         </div>

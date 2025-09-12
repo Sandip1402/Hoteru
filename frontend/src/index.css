@@ -10,7 +10,7 @@
   --color-main-color: #fcf6bd;
   --color-background: #faedcd;
   --font-text: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --fong-heading: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-optical-sizing: auto;
   --logo-size: clamp(30px, 5vw, 200px);
 }

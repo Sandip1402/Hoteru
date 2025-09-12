@@ -102,9 +102,7 @@ export const  ReviewForm = ({id}) => {
 
             {/* Review textarea */}
             <div className="mb-4">
-                <label className="block mb-1 font-semibold" htmlFor="review">
-                    Review
-                </label>
+                <label className="block mb-1 font-semibold" htmlFor="review">Review</label>
                 <textarea
                     id="review"
                     rows={4}
