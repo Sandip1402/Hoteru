@@ -1,52 +1,63 @@
-
+import { useForm, FormProvider } from "react-hook-form";
+import { FormField } from "./FormField";
+import { FormInput } from "./FormInput";
+import { validateFiles } from "../js/validateFiles";
+import { TbCameraPlus } from "react-icons/tb";
+import { apiFetch } from "../js/api";
+import { useNavigate } from "react-router-dom"
 
 export const New = () => {
+    const methods = useForm();
+    const navigate = useNavigate();
+    
+    const saveData = async(data) => {
+        const listing = structuredClone(data);
+        const res = await apiFetch('/listings/new', {
+            method : "POST",
+            body: JSON.stringify({listing})
+        })
+
+        if(!res.success){
+            console.log("Failed to save data. Try again");
+        }else{
+            console.log("Data saved");
+        }
+        navigate('/');
+    }
 
 
     return (
-        <>
-            <form  novalidate className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg select-none needs-validation">
+        <FormProvider {...methods}>
+            <form className="max-w-md mx-auto m-4 p-6 bg-white rounded-lg shadow-lg select-none" onSubmit={methods.handleSubmit(saveData)}>
                 <h3 className="text-xl font-bold mb-6 text-center">Enter Listing Details</h3>
-                <div className="mb-3">
-                    <label for="title" className="form-label">Title</label>
-                    <input name="listing[title]" placeholder="Hotel Name" type="text" className="form-control" required />
-                    <div className="valid-feedback">Title looks good!</div>
-                    <div className="invalid-feedback">Give a title</div>
+
+                <FormInput name="title" label="Title" placeholder="Ex:SeaSide hotel" 
+                        rules={{ required: "*Title is required" }} />
+
+                <FormField name="description" label="Description" placeholder="Ex:hotel with nice view and service" 
+                        rules={{ required: "*Description is required" }} />
+                
+                <div className="sm:flex justify-between">
+                    <FormInput name="price" label="Price/Night" type="number" placeholder="Ex:2000"
+                        rules={{
+                            required : "*Enter valid price", 
+                            min: { value: 100, message: "*Price must be at least 100"
+                        }}} />
+                    <FormInput name="country" label="Country" type="text" placeholder="Ex:India" 
+                        rules={{required: "*Please provide country name"}} />
                 </div>
 
-                <div className="mb-3">
-                    <label for="description" className="form-label">Description</label>
-                    <textarea name="listing[description]" type="text" className="form-control" required></textarea>
-                    <div className="invalid-feedback">Give short description</div>
-                </div>
+                <FormInput name="location" label="Enter location" placeholder="Ex:Mumbai juhu beach" 
+                        rules={{required: "*Please provide country name"}} />
 
-                <div className="mb-3">
-                    <label for="image" className="form-label">Image Link</label>
-                    <input name="listing[image]" type="text" placeholder="enter image url/link" className="form-control" />
-                </div>
-
-                <div className="row">
-                    <div className="mb-3 col-md-4">
-                        <label for="price" className="form-label">Price</label>
-                        <input name="listing[price]" type="number" placeholder="Ex: 1200" className="form-control" required />
-                        <div className="invalid-feedback">Enter price</div>
-                    </div>
-
-                    <div className="mb-3 col-md-8">
-                        <label for="country" className="form-label">Country</label>
-                        <input name="listing[country]" type="text" placeholder="Ex: India" className="form-control" required />
-                        <div className="invalid-feedback">Enter valid country</div>
-                    </div>
-                </div>
-
-                <div className="mb-3">
-                    <label for="location" className="form-label">Location</label>
-                    <input name="listing[location]" type="text" placeholder="Ex: Patna, Bihar" className="form-control" required />
-                    <div className="invalid-feedback">Enter valid location</div>
-                </div>
-                <button className="btn btn-dark add-btn">Add</button>
-                <br />
+                <FormInput name="images" label={<TbCameraPlus />} type="file" multiple
+                    accept="image/jpeg, image/png, image/jpg"
+                    input_classes="hidden"
+                    label_classes="image-input"
+                    rules={{ validate: validateFiles }} />
+                
+                <button type="submit" className="bg-blue-600 text-white w-full px-4 py-2 rounded">ADD</button>
             </form>
-        </>
+        </FormProvider>
     )
 }

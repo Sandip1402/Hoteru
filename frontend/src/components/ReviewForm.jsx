@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
 import { apiFetch } from "../js/api";
 import { ImagePreview } from "./ImagePreview";
+import { validateFiles } from "../js/validateFiles";
 
 
 export const  ReviewForm = ({id}) => {
@@ -13,35 +14,11 @@ export const  ReviewForm = ({id}) => {
 
     // manage image files
     const handleFileChange = (e) => {
-        const newFiles = Array.from(e.target.files);
-        let size = 0;
-
-        // validating file
-        // testing
-        newFiles.forEach((file) => {
-            if(file.type !== "image/jpeg" && file.type !== "image/png"){
-                alert("Some files were invalid");
-                return;
-            }else{
-                size += file.size
-                file = URL.createObjectURL(file);
-            }
-        });
-
-        if(size > 100 * 1024 * 1024){
-            alert("Please upload only JPEG/PNG under 100MB.")
+        let valid = validateFiles(e.target.files);
+        if(!(valid === true)){
+            alert(valid);
             return;
         }
-
-    //    const validFiles = newFiles.filter((file) =>
-    //         (file.type === "image/jpeg" || file.type === "image/png") &&
-    //         file.size <= 100 * 1024 * 1024 // 100MB
-    //     );
-
-    //     if (validFiles.length !== newFiles.length) {
-    //         alert("Some files were invalid. Please upload only JPEG/PNG under 100MB.");
-    //     }
-
 
         // append file
         setFiles((prev) => [...(prev || []), ...newFiles]);
@@ -60,9 +37,7 @@ export const  ReviewForm = ({id}) => {
 
         const review = Object.fromEntries(new FormData(e.target));
         review.rating = rating;
-        // review.images = files.map((file) => URL.createObjectURL(file));
-        // testing
-        review.images = files;
+        review.images = files.map((file) => URL.createObjectURL(file));
         console.log("submitting review : ", review);
         
 
@@ -103,11 +78,7 @@ export const  ReviewForm = ({id}) => {
             {/* Review textarea */}
             <div className="mb-4">
                 <label className="block mb-1 font-semibold" htmlFor="review">Review</label>
-                <textarea
-                    id="review"
-                    rows={4}
-                    value={comment}
-                    name="comment"
+                <textarea id="review" rows={4} value={comment} name="comment"
                     onChange={(e) => setComment(e.target.value)}
                     placeholder="Write your review..."
                     className='review-text-area'
@@ -133,10 +104,7 @@ export const  ReviewForm = ({id}) => {
 
             {/* Privacy Policy */}
             <div className="mb-4 flex items-center space-x-2">
-                <input
-                    id="privacy"
-                    type="checkbox"
-                    name="privacy"
+                <input id="privacy" type="checkbox" name="privacy"
                     checked={acceptedPrivacy}
                     onChange={(e) => setAcceptedPrivacy(e.target.checked)}
                     className="w-4 h-4 border-gray-300 rounded"
