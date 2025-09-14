@@ -11,7 +11,7 @@ export const New = () => {
     const navigate = useNavigate();
     
     const saveData = async(data) => {
-        const listing = structuredClone(data);
+        const listing = {...data};
         const res = await apiFetch('/listings/new', {
             method : "POST",
             body: JSON.stringify({listing})
@@ -37,7 +37,7 @@ export const New = () => {
                 <FormField name="description" label="Description" placeholder="Ex:hotel with nice view and service" 
                         rules={{ required: "*Description is required" }} />
                 
-                <div className="sm:flex justify-between">
+                <div className="sm:flex justify-between gap-2">
                     <FormInput name="price" label="Price/Night" type="number" placeholder="Ex:2000"
                         rules={{
                             required : "*Enter valid price", 

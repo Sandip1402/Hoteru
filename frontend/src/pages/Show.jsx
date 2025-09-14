@@ -4,6 +4,7 @@ import { apiFetch } from "../js/api"
 import { Slide } from "../components/Slide";
 import { Reviews } from "../components/Reviews";
 import { ReviewForm } from "../components/ReviewForm";
+import { Edit } from "../components/Edit";
 
 
 
@@ -21,7 +22,6 @@ export const Show = () => {
                 setError(null);
 
                 const res = await apiFetch(`/listings/${id}`, { method: "GET" });
-                console.log(res.data.reviews);
                 setItem(res.data);
             } catch (err) {
                 setError("Failed to load hotel detail 😢");
@@ -72,7 +72,8 @@ export const Show = () => {
 
 
             {/* <ReviewForm id={id}/> */}
-            {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews} />) : ''}
+            {/* {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews} />) : ''} */}
+            <Edit listing={item} />
         </div>
     )
 }
