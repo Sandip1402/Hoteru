@@ -7,14 +7,7 @@ const expressError = require('../utils/expressError.js');
 
 const {access_Token, refresh_Token} = config;
 
-
 module.exports = (app) => {
-    // user login
-    app.get('/api/login', (req,res)=> {
-        res.status(200).json({
-            success: true
-        })
-    })
     app.post('/api/login', wrapAsync(async (req, res) => {
             if(!req.body.user){
                 throw new expressError("No user info found");

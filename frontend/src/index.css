@@ -19,6 +19,14 @@ body {
   font-family: var(--font-text)
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
 
 
 /* ----------------------- Navbar ------------------------ */
@@ -47,17 +55,15 @@ body {
 
 
 /* ----------------------------  Home page --------------------- */
-/* .slick-prev {
-  position: relative;
-  left: -20px;
+.dropdown-item {
+  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70;
 }
-.slick-arrow {
-  color: black !important;
-} */
-
-
 
 /* -------------------------- Login page ---------------------- */
+.input-field {
+  @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg;
+}
+
 .indicator-dots {
   display: flex;
   justify-content: center;

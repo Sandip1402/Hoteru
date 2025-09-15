@@ -6,8 +6,8 @@ export const Card = ({ item }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="item-link w-40 h-50 text-xs" onClick={() => navigate(`/info/${item._id}`)}>
-            <figure className="h-1/2">
+        <div className="w-40" onClick={() => navigate(`/info/${item._id}`)}>
+            <figure className="h-[100px]">
                 <img src={item.display_img} alt="image" className="w-full h-full object-cover rounded-2xl" />
             </figure>
             <div className="p-2">
@@ -17,3 +17,4 @@ export const Card = ({ item }) => {
         </div>
     )
 }
+

@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { apiFetch } from "../js/api"
 import { Slide } from "../components/Slide";
 import { Reviews } from "../components/Reviews";
-import { ReviewForm } from "../components/ReviewForm";
-import { Edit } from "../components/Edit";
 
 
 
@@ -70,10 +68,7 @@ export const Show = () => {
                     </form>
                 </div> */}
 
-
-            {/* <ReviewForm id={id}/> */}
-            {/* {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews} />) : ''} */}
-            <Edit listing={item} />
+            {item.reviews.length !== 0 ? (<Reviews reviews={item.reviews} />) : ''}
         </div>
     )
 }

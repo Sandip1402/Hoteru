@@ -56,7 +56,7 @@ export const New = () => {
                     label_classes="image-input"
                     rules={{ validate: validateFiles }} />
                 
-                <button type="submit" className="bg-blue-600 text-white w-full px-4 py-2 rounded">ADD</button>
+                <button type="submit" className="bg-blue-600 text-white btn-block px-4 py-2 rounded">ADD</button>
             </form>
         </FormProvider>
     )

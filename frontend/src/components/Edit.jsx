@@ -30,7 +30,7 @@ export const Edit = ({listing}) => {
 
     return (
         <FormProvider {...methods}>
-            <form className="max-w-md mx-auto m-4 p-6 bg-white rounded-lg shadow-lg select-none" onSubmit={handleSubmit(saveData)}>
+            <form className="max-w-md mx-auto m-1.5 md:m-4 p-2 md:p-6 bg-white rounded-lg shadow-lg select-none" onSubmit={handleSubmit(saveData)}>
                 <h3 className="text-xl font-bold mb-6 text-center">Update Listing Details</h3>
                 <FormInput name="title" label="Title" placeholder="Ex:SeaSide hotel"
                     rules={{ required: "*Title is required" }} />
@@ -58,7 +58,7 @@ export const Edit = ({listing}) => {
                     label_classes="image-input"
                     rules={{ validate: validateFiles }} />
 
-                <button type="submit" className="bg-blue-600 text-white w-full px-4 py-2 rounded">Update</button>
+                <button type="submit" className="bg-blue-600 text-white btn-block px-4 py-2 rounded">Update</button>
             </form>
         </FormProvider>
     )

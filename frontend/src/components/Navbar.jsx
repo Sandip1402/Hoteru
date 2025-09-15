@@ -1,84 +1,97 @@
 import { useEffect, useState } from 'react';
 import { Logo } from './Logo';
 import Movable from './Movable';
+import { Modal } from './Modal';
+import { Login } from './Login';
 
 
 const Navbar = () => {
 
-  const [active, setActive] = useState("Home");
+    const [showLogin, setShowLogin] = useState(false);
+    const [showOptions, setShowOptions] = useState(false);
+    const [active, setActive] = useState("Home");
 
-  const menuItems = ['Home', 'Experience', 'Service'];
+    const menuItems = ['Home', 'Experience', 'Service'];
 
     return (
-        <>
-            <nav className="h-auto min-w-screen bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
-                <div className="nav-top w-full h-1/2 p-4 flex items-center justify-between">
+        <nav className="h-auto min-w-screen bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
+            <div className="nav-top w-full h-1/2 p-4 flex items-center justify-between">
 
-                    <Logo customStyle="nav-top-start w-1/3"/>
+                <Logo customStyle="nav-top-start w-1/3" />
 
-                    <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
-                        {menuItems.map((item) => (
-                            <Movable key={item} name={item} />
-                        ))}
-                    </div>
+                <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
+                    {menuItems.map((item) => (
+                        <Movable key={item} name={item} />
+                    ))}
+                </div>
 
-                    <div className="nav-top-end w-1/3 flex items-center justify-end">
-                        
-                        <form className='md:hidden'>
-                            <i className="fa-solid fa-magnifying-glass text-xl"></i>
-                        </form>
-                        <form className=" hidden md:block">
-                            <button className="px-2 py-1 rounded-2xl whitespace-nowrap cursor-pointer hover:bg-base-100">Become host</button>
-                        </form>
+                <div className="nav-top-end w-1/3 flex items-center justify-end">
 
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex="0" role="button"
-                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
-                                    <i className="fa-solid fa-globe text-xl"></i>
-                            </div>
+                    <form className='md:hidden'>
+                        <i className="fa-solid fa-magnifying-glass text-xl"></i>
+                    </form>
+                    <form className=" hidden md:block">
+                        <button className="px-2 py-1 rounded-2xl whitespace-nowrap cursor-pointer hover:bg-base-100">Become host</button>
+                    </form>
 
-                            <div tabIndex="0" role="button"
-                                className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center">
-                                    <i className="fa-solid fa-bars text-xl"></i>
-                            </div>
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex="0" role="button"
+                            className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
+                            <i className="fa-solid fa-globe text-xl"
+                                onClick={() => setShowOptions((p) => !p)}
+                            ></i>
+                        </div>
 
+                        <div tabIndex="0" role="button"
+                            className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center">
+                            <i className="fa-solid fa-bars text-xl"
+                                onClick={() => setShowOptions((p) => !p)}
+                            ></i>
+                        </div>
+
+                        {showOptions && !showLogin && (
                             <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 mr-2 text-lg">
                                 <div className="block md:hidden">
-                                    <li className="btn border-0 bg-transparent w-full mt-2 px-2 cursor-pointer rounded-box hover:bg-base-100"><a>Become host</a></li>
+                                    <li className="mt-2 dropdown-item"><a>Become host</a></li>
                                     <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 </div>
-                                <li className="btn border-0 bg-transparent w-full md:mt-2 px-2 cursor-pointer rounded-box hover:bg-main-color/70 "><a>Refer host</a></li>
+                                <li className="md:mt-2 dropdown-item "><a>Refer host</a></li>
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-                                <li className="btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70"><a>Find co-host</a></li>
+                                <li className="dropdown-item"><a>Find co-host</a></li>
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-                                <li className="btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70"><a href="/signup">Log In/Sign up</a></li>
+                                <li className="dropdown-item" 
+                                    onClick={() => {setShowOptions(false); setShowLogin(true);}}>
+                                    Log In/Sign up</li>
                                 <form method="post" action="/logout">
                                     <button className="btn btn-error w-full max-md:mb-2 md:my-2 px-2 cursor-pointer hover:bg-main-color/70">Log out</button>
                                 </form>
                             </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="nav-bottom w-full flex h-1/2 items-center justify-center">
-                    <div className="w-[50%] h-10 border-1 px-4 hidden md:flex rounded-2xl bg-[#ffffff] items-center justify-around">
-                        <div className="flex items-center justify-self-start">
-                            <i className="fa-solid fa-magnifying-glass text-xl"></i>
-                            <div className="w-px h-6 bg-black mx-3"></div>
-                        </div>
-                        <form className="w-full">
-                            <input id="search" type="text" placeholder="Search" className="bg-transparent text-lg outline-none w-full" />
-                        </form>
-                    </div>
-                    <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
-                        {menuItems.map((item) => (
-                            <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
-                        ))}
+                        )}
                     </div>
                 </div>
-            </nav>
-        </>
+            </div>
+
+            <div className="nav-bottom w-full flex h-1/2 items-center justify-center">
+                <div className="w-[50%] h-10 border-1 px-4 hidden md:flex rounded-2xl bg-[#ffffff] items-center justify-around">
+                    <div className="flex items-center justify-self-start">
+                        <i className="fa-solid fa-magnifying-glass text-xl"></i>
+                        <div className="w-px h-6 bg-black mx-3"></div>
+                    </div>
+                    <form className="w-full">
+                        <input id="search" type="text" placeholder="Search" className="bg-transparent text-lg outline-none w-full" />
+                    </form>
+                </div>
+                <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
+                    {menuItems.map((item) => (
+                        <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
+                    ))}
+                </div>
+            </div>
+            <Modal show={showLogin}
+                onClose={() => {setShowLogin(false)}}>
+                <Login />
+            </Modal>
+        </nav>
     )
 }
 

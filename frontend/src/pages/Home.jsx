@@ -36,10 +36,9 @@ export const Home = () => {
 
     return (
         <>
-            <div className="w-full py-2 px-4 flex-col space-y-2">
-                <div className="homes w-full overflow-hidden">
+            <div className="py-2 flex-col space-y-2">
+                <div className="max-w-screen px-3">
                     <p className="text-xl mb-2"><b>Homes</b></p>
-                    {/* <New /> */}
                     <Slide items={listings} />
                 </div>
             </div>
