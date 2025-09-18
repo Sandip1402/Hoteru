@@ -2,6 +2,7 @@ import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} fr
 import { useState } from 'react'
 
 import RootLayout from '../layout/RootLayout.jsx'
+import { AuthProvider } from "./js/authContext.js";
 import { Home } from './pages/Home.jsx'
 import { Experience } from './pages/Experience.jsx'
 import { Service } from './pages/Service.jsx'
@@ -9,7 +10,6 @@ import { Show } from './pages/Show.jsx'
 import { Test } from './pages/Test.jsx'
 
 function App() {
-  // const [showLogin, setShowLogin] = useState(false);
 
   const Router = createBrowserRouter(
         createRoutesFromElements(

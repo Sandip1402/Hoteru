@@ -7,40 +7,49 @@ import { FaFacebook } from "react-icons/fa";
 import { FormInput } from "./FormInput";
 import { apiFetch } from "../js/api";
 
-export const Login = () => {
+export const Login = ({setShowLogin, setLogin}) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(null)
 
-    const saveData = async (data) => {
+    const checkData = async (data) => {
         const user = { ...data };
-        const res = apiFetch('/login', {
+        const res = await apiFetch('/login', {
             method: "POST",
             body: JSON.stringify({ user })
         })
         if (!res.success) {
             setError(res.error);
+        }else{
+            console.log("logged in ", user.email);
+            setAccessToken(res.data.accessToken)
+            setShowLogin(false);
+            setLogin(true);
         }
     }
 
     return (
         <FormProvider {...methods}>
-            <form className="max-w-screen mx-auto p-4 bg-white rounded-lg shadow-lg select-none" onSubmit={handleSubmit(saveData)}>
+            <form className="mx-auto md:max-w-screen p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
 
-                <FormInput name="mail" label="Mail" placeholder="Enter mail"
-                    rules={{ required: "*mail is required" }} input_classes={"input-field"} />
+                <span className="absolute inline top-2 right-4 text-lg text-gray-400 hover:text-black"
+                    onClick={()=>{setShowLogin(false)}}>X
+                </span>
+
+                <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
+                    rules={{ required: "*mail is required" }} input_classes={"input-field md:text-sm"} />
 
                 <div className="relative">
-                    <FormInput name="pass" label="Password" placeholder="Enter password"
-                        rules={{ required: "*password is required" }} input_classes={"input-field"}
+                    <FormInput name="password" label="Password" placeholder="Enter password"
+                        rules={{ required: "*password is required" }} input_classes={"input-field md:text-sm"}
                         type={showPassword ? "text" : "password"}
                     />
 
                     {/* password view button */}
                     <button type="button" onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute right-3 top-8 text-white hover:text-gray-300 focus:outline-none">
+                        className="absolute right-3 top-8 md:top-10 text-white hover:text-gray-300 focus:outline-none">
                         {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                     </button>
                 </div>

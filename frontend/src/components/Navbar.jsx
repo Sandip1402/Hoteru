@@ -3,19 +3,34 @@ import { Logo } from './Logo';
 import Movable from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
+import { apiFetch } from '../js/api';
 
 
 const Navbar = () => {
 
+    const [login, setLogin] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
-    const [showOptions, setShowOptions] = useState(false);
+    // const [showOptions, setShowOptions] = useState(false);
     const [active, setActive] = useState("Home");
 
     const menuItems = ['Home', 'Experience', 'Service'];
 
+    const  logOut = async () => {
+        const res = await apiFetch('/logout', {
+            method: "POST"
+        })
+        if(res.success){
+            setLogin(false);
+            console.log(res.message);
+        }else{
+            alert("Could not log out");
+        }
+    }
+
+
     return (
-        <nav className="h-auto min-w-screen bg-main-color/80 flex-col text-sm md:text-lg lg:text-xl pb-3">
-            <div className="nav-top w-full h-1/2 p-4 flex items-center justify-between">
+        <nav className="h-35 bg-main-color/80 flex-col p-3">
+            <div className="nav-top h-1/2 mb-2 flex items-center justify-between">
 
                 <Logo customStyle="nav-top-start w-1/3" />
 
@@ -27,30 +42,22 @@ const Navbar = () => {
 
                 <div className="nav-top-end w-1/3 flex items-center justify-end">
 
-                    <form className='md:hidden'>
-                        <i className="fa-solid fa-magnifying-glass text-xl"></i>
-                    </form>
-                    <form className=" hidden md:block">
-                        <button className="px-2 py-1 rounded-2xl whitespace-nowrap cursor-pointer hover:bg-base-100">Become host</button>
-                    </form>
+                    <span className='md:hidden'><i className="fa-solid fa-magnifying-glass text-xl"></i></span>
+                    <span className="hidden md:flex btn bg-inherit border-none rounded-3xl hover:shadow-none hover:bg-white text-lg ">Become host</span>
 
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown">
                         <div tabIndex="0" role="button"
                             className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
-                            <i className="fa-solid fa-globe text-xl"
-                                onClick={() => setShowOptions((p) => !p)}
-                            ></i>
+                            <i className="fa-solid fa-globe text-xl"></i>
                         </div>
 
                         <div tabIndex="0" role="button"
                             className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center">
-                            <i className="fa-solid fa-bars text-xl"
-                                onClick={() => setShowOptions((p) => !p)}
-                            ></i>
+                            <i className="fa-solid fa-bars text-xl"></i>
                         </div>
 
-                        {showOptions && !showLogin && (
-                            <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 mr-2 text-lg">
+                        {!showLogin &&
+                            <ul tabIndex="0" className="dropdown-content dropdown-end bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 text-lg">
                                 <div className="block md:hidden">
                                     <li className="mt-2 dropdown-item"><a>Become host</a></li>
                                     <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
@@ -59,19 +66,21 @@ const Navbar = () => {
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 <li className="dropdown-item"><a>Find co-host</a></li>
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-                                <li className="dropdown-item" 
-                                    onClick={() => {setShowOptions(false); setShowLogin(true);}}>
-                                    Log In/Sign up</li>
-                                <form method="post" action="/logout">
-                                    <button className="btn btn-error w-full max-md:mb-2 md:my-2 px-2 cursor-pointer hover:bg-main-color/70">Log out</button>
-                                </form>
+                                {!login && <li className="dropdown-item mb-2"
+                                    onClick={() => {setShowLogin(true);}}>
+                                    Log In/Sign up</li> }
+                                {login && <button className="btn btn-error w-full mb-2 md:my-2 px-2 hover:bg-main-color/70"
+                                            onClick={() => {logOut}}>
+                                            Log out 
+                                        </button>
+                                }
                             </ul>
-                        )}
+                        }
                     </div>
                 </div>
             </div>
 
-            <div className="nav-bottom w-full flex h-1/2 items-center justify-center">
+            <div className="nav-bottom w-full flex h-1/2 items-center justify-center md:p-4">
                 <div className="w-[50%] h-10 border-1 px-4 hidden md:flex rounded-2xl bg-[#ffffff] items-center justify-around">
                     <div className="flex items-center justify-self-start">
                         <i className="fa-solid fa-magnifying-glass text-xl"></i>
@@ -89,7 +98,7 @@ const Navbar = () => {
             </div>
             <Modal show={showLogin}
                 onClose={() => {setShowLogin(false)}}>
-                <Login />
+                <Login setShowLogin = {setShowLogin} setLogin = {setLogin} />
             </Modal>
         </nav>
     )

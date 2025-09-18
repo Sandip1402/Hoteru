@@ -12,11 +12,12 @@
   --font-text: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-optical-sizing: auto;
-  --logo-size: clamp(30px, 5vw, 200px);
+  /* --logo-size: min(30px, 5vw, 50px); */
 }
 
 body {
-  font-family: var(--font-text)
+  font-family: var(--font-text);
+  @apply text-sm md:text-lg lg:text-xl
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -45,8 +46,11 @@ body {
   transition: width 0.3s ease;
 }
 
-.nav-item.active> p {
-  color: #000000;
+.nav-item {
+  opacity: 0.7;
+}
+.nav-item.active {
+  opacity: 1;
 }
 
 .nav-item.active::after {

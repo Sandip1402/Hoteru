@@ -38,8 +38,8 @@ export const Show = () => {
 
 
     return (
-        <div className="m-4 flex-col items-center text-lg lg:text-2xl">
-            <p className="text-xl mb-2">{item.title}</p>
+        <div className="md:m-4 flex-col items-center">
+            <p className="mb-2">{item.title}</p>
             <div className="flex justify-center items-center">
                 <img className="rounded-2xl w-45 h-60 hobject-cover" src={item.display_img} alt="hotel_image" />
 
@@ -47,7 +47,7 @@ export const Show = () => {
                 {/* {item.images.length ? <Slide items={item.images} /> : ''} */}
 
             </div>
-            <div className="info flex-col justify-center items-start p-2 my-3">
+            <div className="info flex-col justify-center items-start p-2 my-3 ">
                 <div className="card-text">
                     <p className="mb-3">{item.description}</p>
                     <p className="my-3">&#8377; {item.price.toLocaleString("en-IN")} for two nights only</p>

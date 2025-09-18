@@ -6,7 +6,7 @@ export const Modal = ({ show, onClose, children }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
             {/* Background overlay */}
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-xs"
                 onClick={onClose} /> {/* close when clicking outside */}
 
             {/* Modal content */}

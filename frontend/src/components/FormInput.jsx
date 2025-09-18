@@ -25,7 +25,7 @@ export const FormInput = ({name, label, rules, ...rest}) => {
                                 }
                             }}
                          />
-                        {error && ( <p className="text-red-500 text-sm mt-1">{error.message}</p> )}
+                        {error && ( <p className="text-red-500 mt-1">{error.message}</p> )}
                     </>
                 )}
             />
