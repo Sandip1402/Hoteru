@@ -1,17 +1,26 @@
 import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { ImCross } from "react-icons/im";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
 import { FormInput } from "./FormInput";
-import { apiFetch } from "../js/api";
+import { useApiFetch } from "../util/api";
+import { useAuth } from "./AuthContext";
+import { Modal } from "./Modal";
+import { Signup } from "./Signup";
 
-export const Login = ({setShowLogin, setLogin}) => {
+export const Login = ({ setShowLogin, setLogin }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
+    const { setAccessToken } = useAuth();
+    const apiFetch = useApiFetch();
+
     const [showPassword, setShowPassword] = useState(false);
+    const [showSignUp, setShowSignUp] = useState(false);
     const [error, setError] = useState(null)
 
     const checkData = async (data) => {
@@ -19,12 +28,12 @@ export const Login = ({setShowLogin, setLogin}) => {
         const res = await apiFetch('/login', {
             method: "POST",
             body: JSON.stringify({ user })
-        })
+        }, false)
         if (!res.success) {
             setError(res.error);
-        }else{
+        } else {
             console.log("logged in ", user.email);
-            setAccessToken(res.data.accessToken)
+            setAccessToken(res.accessToken)
             setShowLogin(false);
             setLogin(true);
         }
@@ -32,10 +41,10 @@ export const Login = ({setShowLogin, setLogin}) => {
 
     return (
         <FormProvider {...methods}>
-            <form className="mx-auto md:max-w-screen p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
+            <form className="mx-auto max-w-dvw p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
 
-                <span className="absolute inline top-2 right-4 text-lg text-gray-400 hover:text-black"
-                    onClick={()=>{setShowLogin(false)}}>X
+                <span className="absolute top-4 right-4 text-lg text-gray-400 hover:text-black"
+                    onClick={() => { setShowLogin(false) }}><ImCross />
                 </span>
 
                 <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
@@ -79,7 +88,19 @@ export const Login = ({setShowLogin, setLogin}) => {
                         Facebook
                     </button>
                 </div>
+
+                {/* sign up button */}
+                <div className="mt-4 text-sm">Didn't have an account?
+                    <p className="inline underline text-blue-600"
+                        onClick={() => setShowSignUp((prev) => !prev)}>
+                        Sign Up
+                    </p>
+                </div>
             </form>
+            <Modal show={showSignUp}
+                onClose={() => {setShowLogin(false)}}>
+                    <Signup setShowSignUp={setShowSignUp} setLogin={setLogin}/>
+            </Modal>
         </FormProvider>
     )
 }

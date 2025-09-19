@@ -3,16 +3,16 @@ import { Logo } from './Logo';
 import Movable from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
-import { apiFetch } from '../js/api';
+import { useApiFetch } from '../util/api';
 
 
-const Navbar = () => {
+export const Navbar = () => {
 
     const [login, setLogin] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
-    // const [showOptions, setShowOptions] = useState(false);
     const [active, setActive] = useState("Home");
-
+    
+    const apiFetch = useApiFetch();
     const menuItems = ['Home', 'Experience', 'Service'];
 
     const  logOut = async () => {
@@ -68,11 +68,11 @@ const Navbar = () => {
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 {!login && <li className="dropdown-item mb-2"
                                     onClick={() => {setShowLogin(true);}}>
-                                    Log In/Sign up</li> }
+                                    Log In</li> }
                                 {login && <button className="btn btn-error w-full mb-2 md:my-2 px-2 hover:bg-main-color/70"
-                                            onClick={() => {logOut}}>
-                                            Log out 
-                                        </button>
+                                        onClick={() => {logOut}}>
+                                        Log out 
+                                    </button>
                                 }
                             </ul>
                         }
@@ -103,5 +103,3 @@ const Navbar = () => {
         </nav>
     )
 }
-
-export default Navbar;

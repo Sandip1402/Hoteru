@@ -23,7 +23,6 @@ const userSchema = new Schema({
     },
     TC: {
         type: Boolean,
-        default: true,
         required: true
     },
     Joined_on: {

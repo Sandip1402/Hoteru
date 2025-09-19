@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
-import { apiFetch } from "../js/api"
+import { useApiFetch } from "../util/api"
 import { Slide } from "../components/Slide";
 import { Reviews } from "../components/Reviews";
 
@@ -8,6 +8,7 @@ import { Reviews } from "../components/Reviews";
 
 export const Show = () => {
     const { id } = useParams();
+    const apiFetch = useApiFetch();
 
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);

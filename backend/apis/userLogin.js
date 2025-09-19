@@ -21,7 +21,7 @@ module.exports = (app) => {
                 });
             }
             const payload = { userId: user._id, role: "client" };
-            const accessToken = jwt.sign(payload, access_Token, { expiresIn: '30min', });
+            const accessToken = jwt.sign(payload, access_Token, { expiresIn: '1h', });
             const refreshToken = jwt.sign(payload, refresh_Token, { expiresIn: '4d' });
 
             res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict', secure: true })

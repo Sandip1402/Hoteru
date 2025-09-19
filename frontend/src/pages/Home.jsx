@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { apiFetch } from "../js/api.js";
+import { useApiFetch } from "../util/api.js";
 import { Slide } from "../components/Slide.jsx";
-import { New } from "../components/New.jsx";
 
 export const Home = () => {
 
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const apiFetch = useApiFetch();
 
     useEffect(() => {
         
@@ -18,9 +18,8 @@ export const Home = () => {
 
                 const res = await apiFetch('/listings', { method: "GET" });
                 setListings(res.data);
-            } catch (err) {
+            } catch{
                 setError("Failed to load hotels 😢");
-                console.error(err);
             } finally {
                 setLoading(false);
             }

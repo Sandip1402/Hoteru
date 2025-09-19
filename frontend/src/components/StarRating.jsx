@@ -1,7 +1,5 @@
 
-
 export const StarRating = ({rating, setRating}) => {
-
 
     return (
         <div className="flex space-x-1">

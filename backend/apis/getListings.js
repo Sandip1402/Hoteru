@@ -1,5 +1,4 @@
 const Listing = require("../models/listing.js");
-const authUser = require("../utils/middlewares/authUser.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 
 

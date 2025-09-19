@@ -1,7 +1,7 @@
 import { TbCameraPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
-import { apiFetch } from "../js/api";
+import { useApiFetch } from "../js/api";
 import { ImagePreview } from "./ImagePreview";
 import { validateFiles } from "../js/validateFiles";
 
@@ -11,6 +11,7 @@ export const  ReviewForm = ({id}) => {
     const [comment, setComment] = useState("");
     const [files, setFiles] = useState([]); 
     const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
+    const apiFetch = useApiFetch();
 
     // manage image files
     const handleFileChange = (e) => {

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Login } from "../components/Login";
+import { Signup } from "../components/Signup";
 
 export const Test = () => {
-    const [showLogin, setShowLogin] = useState(false);
     return (
         <div>
-            <Login />
+            <Signup />
         </div>
     )
 }

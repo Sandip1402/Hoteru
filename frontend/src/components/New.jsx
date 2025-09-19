@@ -1,14 +1,15 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
-import { validateFiles } from "../js/validateFiles";
+import { validateFiles } from "../util/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { apiFetch } from "../js/api";
+import { useApiFetch } from "../util/api";
 import { useNavigate } from "react-router-dom"
 
 export const New = () => {
     const methods = useForm();
     const navigate = useNavigate();
+    const apiFetch = useApiFetch();
     
     const saveData = async(data) => {
         const listing = {...data};

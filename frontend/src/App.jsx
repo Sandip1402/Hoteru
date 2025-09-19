@@ -1,8 +1,6 @@
 import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
-import { useState } from 'react'
 
 import RootLayout from '../layout/RootLayout.jsx'
-import { AuthProvider } from "./js/authContext.js";
 import { Home } from './pages/Home.jsx'
 import { Experience } from './pages/Experience.jsx'
 import { Service } from './pages/Service.jsx'
