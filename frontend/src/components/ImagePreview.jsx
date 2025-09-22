@@ -2,9 +2,9 @@
 
 export const ImagePreview = ({Files, setFiles}) => {
   return (
-        <div className="flex gap-3 flex-wrap mt-4">
+        <div className="flex gap-3 flex-wrap">
             {Files.map((file, index) => (
-                <div key={index} className="relative w-24 h-24">
+                <div key={index} className="relative w-20 h-20">
                     <img src={URL.createObjectURL(file)} alt="preview" 
                         className="w-full h-full object-cover rounded" />
                     <button

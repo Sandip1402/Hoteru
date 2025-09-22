@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { apiFetch } from "../js/api.js";
+import { useApiFetch } from "../util/api.js";
 import { Slide } from "../components/Slide.jsx";
 
 export const Home = () => {
@@ -7,6 +7,7 @@ export const Home = () => {
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const apiFetch = useApiFetch();
 
     useEffect(() => {
         
@@ -17,9 +18,8 @@ export const Home = () => {
 
                 const res = await apiFetch('/listings', { method: "GET" });
                 setListings(res.data);
-            } catch (err) {
-                setError("Failed to load listing 😢");
-                console.error(err);
+            } catch{
+                setError("Failed to load hotels 😢");
             } finally {
                 setLoading(false);
             }
@@ -35,8 +35,8 @@ export const Home = () => {
 
     return (
         <>
-            <div className="w-full py-2 px-4 flex-col space-y-2">
-                <div className="homes w-full overflow-hidden">
+            <div className="py-2 w-full flex-col">
+                <div className="w-full px-3">
                     <p className="text-xl mb-2"><b>Homes</b></p>
                     <Slide items={listings} />
                 </div>

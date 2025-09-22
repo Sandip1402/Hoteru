@@ -10,15 +10,24 @@
   --color-main-color: #fcf6bd;
   --color-background: #faedcd;
   --font-text: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --fong-heading: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-optical-sizing: auto;
-  --logo-size: clamp(30px, 5vw, 200px);
+  /* --logo-size: min(30px, 5vw, 50px); */
 }
 
 body {
-  font-family: var(--font-text)
+  font-family: var(--font-text);
+  @apply text-sm md:text-lg lg:text-xl
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
 
 
 /* ----------------------- Navbar ------------------------ */
@@ -37,8 +46,11 @@ body {
   transition: width 0.3s ease;
 }
 
-.nav-item.active> p {
-  color: #000000;
+.nav-item {
+  opacity: 0.7;
+}
+.nav-item.active {
+  opacity: 1;
 }
 
 .nav-item.active::after {
@@ -47,44 +59,13 @@ body {
 
 
 /* ----------------------------  Home page --------------------- */
-/* .slick-prev {
-  position: relative;
-  left: -20px;
-}
-.slick-arrow {
-  color: black !important;
-} */
-
-
-
-/* -------------------------- Login page ---------------------- */
-.indicator-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+.dropdown-item {
+  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70;
 }
 
-.dot {
-  width: 24px;
-  height: 4px;
-  background-color: #6b7280;
-  /* gray-500 */
-  border-radius: 9999px;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #a094d6;
-  /* custom purple shade */
-}
-
-.login-error {
-  color: red;
-}
-.login-error.disabled {
-  display: none;
+/* -------------------------- Form ---------------------- */
+.input-field {
+  @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg;
 }
 
 /* ---------------- Review Form ------------------------ */

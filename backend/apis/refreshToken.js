@@ -6,10 +6,13 @@ const { refresh_Token, access_Token } = config;
 module.exports = (app) => {
   app.post("/api/refresh", (req, res) => {
     const refreshToken = req.cookies.refreshToken;
-    if (!refreshToken) return res.sendStatus(401);
+    if (!refreshToken) return res.sendStatus(401).json({message: "No refresh token"});
 
     jwt.verify(refreshToken, refresh_Token, (err, decoded) => {
-      if (err) return res.sendStatus(403); // expired or tampered
+      if (err) return res.sendStatus(403).json({
+                    success: false,
+                    message: "Refresh token expired or tampered"
+                  }); // expired or tampered
 
       // issue new access token
       const newAccessToken = jwt.sign(
@@ -20,7 +23,7 @@ module.exports = (app) => {
         { expiresIn: "1h"}
       );
 
-      res.header("Authorization", `Bearer ${newAccessToken}`)
+      res.set("Authorization", `Bearer ${newAccessToken}`)
           .send({ success: true, accessToken: newAccessToken });
     });
 

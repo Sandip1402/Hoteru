@@ -17,8 +17,6 @@
     "express": "^5.1.0",
     "joi": "^18.0.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.18.0",
-    "react-slick": "^0.31.0",
-    "slick-carousel": "^1.8.1"
+    "mongoose": "^8.18.0"
   }
 }
