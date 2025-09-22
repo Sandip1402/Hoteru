@@ -4,18 +4,19 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     firstname: {
         type: String,
-        unique: true, 
+        trim: true,
         required: true 
     },
     lastname: {
         type: String,
-        unique: true, 
+        trim: true,
         required: true 
     },
     email: {
         type: String,
-        unique: true, 
-        required: true   
+        unique: true,
+        trim: true,
+        required: true
     },
     password: { 
         type: String, 
@@ -31,5 +32,14 @@ const userSchema = new Schema({
         default: new Date()
     }
 });
+
+// normalizing email before saving
+userSchema.pre("save", function (next) {
+  if (this.isModified("email")) {
+    this.email = this.email.toLowerCase();
+  }
+  next();
+});
+
 const User = mongoose.model('User', userSchema);
 module.exports = User;

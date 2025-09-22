@@ -1,9 +1,24 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [accessToken, setAccessToken] = useState(null);
+
+  useEffect(() => {
+    const refreshToken = async () => {
+      try {
+        const res = await fetch("/api/refresh", { method: "POST", credentials: "include" });
+        const data = await res.json();
+        if (data.success && data.accessToken) {
+          setAccessToken(data.accessToken);
+        }
+      } catch (err) {
+        setAccessToken(null);
+      }
+    };
+    refreshToken();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ accessToken, setAccessToken }}>
@@ -12,4 +27,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+
+export function useAuth(){
+  return useContext(AuthContext);
+}

@@ -1,31 +1,39 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import Movable from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
+import { Signup } from './Signup';
 import { useApiFetch } from '../util/api';
+import { useAuth } from './AuthContext';
 
 
 export const Navbar = () => {
 
-    const [login, setLogin] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [active, setActive] = useState("Home");
+    const [showSignUp, setShowSignUp] = useState(false);
+    const navigate = useNavigate();
+    
+    const { accessToken, setAccessToken } = useAuth();
+    const loggedIn = !!accessToken; // converting to correct boolean
     
     const apiFetch = useApiFetch();
     const menuItems = ['Home', 'Experience', 'Service'];
 
-    const  logOut = async () => {
-        const res = await apiFetch('/logout', {
-            method: "POST"
-        })
-        if(res.success){
-            setLogin(false);
-            console.log(res.message);
-        }else{
-            alert("Could not log out");
-        }
+  const logOut = async () => {
+    try {
+      await apiFetch("/logout", { method: "POST" });
+
+      // clear access token
+      setAccessToken(null);
+      navigate("/", { replace: true });
+
+    } catch (err) {
+      console.error("Logout failed:", err.message);
     }
+  };
 
 
     return (
@@ -66,13 +74,13 @@ export const Navbar = () => {
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 <li className="dropdown-item"><a>Find co-host</a></li>
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-                                {!login && <li className="dropdown-item mb-2"
+                                {!loggedIn && <li className="dropdown-item mb-2"
                                     onClick={() => {setShowLogin(true);}}>
-                                    Log In</li> }
-                                {login && <button className="btn btn-error w-full mb-2 md:my-2 px-2 hover:bg-main-color/70"
-                                        onClick={() => {logOut}}>
-                                        Log out 
-                                    </button>
+                                    Log In</li>
+                                }
+                                {loggedIn && <button className="btn btn-error w-full mb-2 md:my-2 px-2 hover:bg-main-color/70"
+                                    onClick={logOut}>
+                                    Log out</button> 
                                 }
                             </ul>
                         }
@@ -98,7 +106,11 @@ export const Navbar = () => {
             </div>
             <Modal show={showLogin}
                 onClose={() => {setShowLogin(false)}}>
-                <Login setShowLogin = {setShowLogin} setLogin = {setLogin} />
+                    <Login setShowLogin = {setShowLogin} setShowSignUp = {setShowSignUp} />
+            </Modal>
+            <Modal show={showSignUp}
+                onClose={() => {setShowSignUp(false)}}>
+                    <Signup  setShowLogin = {setShowLogin} setShowSignUp = {setShowSignUp} />
             </Modal>
         </nav>
     )

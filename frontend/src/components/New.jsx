@@ -41,7 +41,7 @@ export const New = () => {
                 <div className="sm:flex justify-between gap-2">
                     <FormInput name="price" label="Price/Night" type="number" placeholder="Ex:2000"
                         rules={{
-                            required : "*Enter valid price", 
+                            required : "*Enter valid price",
                             min: { value: 100, message: "*Price must be at least 100"
                         }}} />
                     <FormInput name="country" label="Country" type="text" placeholder="Ex:India" 

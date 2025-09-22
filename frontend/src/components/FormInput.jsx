@@ -13,7 +13,7 @@ export const FormInput = ({name, label, rules, ...rest}) => {
                 rules={rules}
                 render={({ field, fieldState: { error } }) => (
                     <>
-                        <input {...(rest.type !== "file" ? field : {})} {...rest} type={rest.type || "text"} id={name} 
+                        <input {...(rest.type !== "file" ? field : {})} {...rest} type={rest.type || "text"} id={name}
                             className={`border p-2 w-full ${rest.input_classes}`}
                             onChange={(e) => { if (rest.type === "file") {
                                     const newFiles = Array.from(e.target.files);
@@ -25,7 +25,7 @@ export const FormInput = ({name, label, rules, ...rest}) => {
                                 }
                             }}
                          />
-                        {error && ( <p className="text-red-500 mt-1">{error.message}</p> )}
+                        {error && ( <p className="text-red-500 mt-1 text-sm">{error.message}</p> )}
                     </>
                 )}
             />

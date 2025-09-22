@@ -29,7 +29,7 @@ const userSchema = Joi.object({
         lastname: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required(),
-        check: Joi.string().valid("on").required()
+        TC: Joi.boolean().required()
     }).required()
 }).required();
 

@@ -16,7 +16,7 @@ export const useApiFetch = () => {
     let res = await fetch(`/api${endpoint}`, {
       ...options,
       headers,
-      credentials: "include", // send cookies (refresh token)
+      credentials: "include",
     });
 
     // Handle expired token only if route is protected
@@ -26,8 +26,9 @@ export const useApiFetch = () => {
         credentials: "include",
       });
 
-      if (refreshRes.success) {
-        const refreshData = await refreshRes.json();
+      const refreshData = await refreshRes.json();
+
+      if (refreshData.success) {
         setAccessToken(refreshData.accessToken);
 
         // Retry original request with new token
@@ -45,12 +46,14 @@ export const useApiFetch = () => {
     }
 
     const data = await res.json();
-    if (!data.success) {
-      throw new Error(`API error: ${res.status}`);
-    } else {
-      console.log("request successful");
-    }
 
+    // handle error
+    if (!res.ok || data.success === false) {
+      const error = new Error(data.message || "Request failed");
+      error.status = res.status;
+      throw error;
+    }
+    
     return data;
   };
 

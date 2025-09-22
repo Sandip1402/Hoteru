@@ -9,10 +9,8 @@ import { FaFacebook } from "react-icons/fa";
 import { FormInput } from "./FormInput";
 import { useApiFetch } from "../util/api";
 import { useAuth } from "./AuthContext";
-import { Modal } from "./Modal";
-import { Signup } from "./Signup";
 
-export const Login = ({ setShowLogin, setLogin }) => {
+export const Login = ({ setShowLogin, setShowSignUp }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
@@ -20,7 +18,6 @@ export const Login = ({ setShowLogin, setLogin }) => {
     const apiFetch = useApiFetch();
 
     const [showPassword, setShowPassword] = useState(false);
-    const [showSignUp, setShowSignUp] = useState(false);
     const [error, setError] = useState(null)
 
     const checkData = async (data) => {
@@ -28,24 +25,22 @@ export const Login = ({ setShowLogin, setLogin }) => {
         const res = await apiFetch('/login', {
             method: "POST",
             body: JSON.stringify({ user })
-        }, false)
+        })
         if (!res.success) {
-            setError(res.error);
+            setError(res.message);
         } else {
-            console.log("logged in ", user.email);
             setAccessToken(res.accessToken)
             setShowLogin(false);
-            setLogin(true);
         }
     }
 
     return (
         <FormProvider {...methods}>
-            <form className="mx-auto max-w-dvw p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
+            <form className="mx-auto p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
 
-                <span className="absolute top-4 right-4 text-lg text-gray-400 hover:text-black"
+                <button className="absolute cursor-pointer top-4 right-4 text-lg text-gray-400 hover:text-black"
                     onClick={() => { setShowLogin(false) }}><ImCross />
-                </span>
+                </button>
 
                 <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
                     rules={{ required: "*mail is required" }} input_classes={"input-field md:text-sm"} />
@@ -68,7 +63,7 @@ export const Login = ({ setShowLogin, setLogin }) => {
                     Log In
                 </button>
 
-                {error ? <p className="login-error">*{error}</p> : ''}
+                {error ? <p className="text-red-700 text-sm">*{error}</p> : ''}
 
                 <div className="mt-10 flex items-center justify-center gap-4 text-gray-400">
                     <div className="border-b border-gray-600 flex-grow mx-3"></div>
@@ -89,18 +84,14 @@ export const Login = ({ setShowLogin, setLogin }) => {
                     </button>
                 </div>
 
-                {/* sign up button */}
+                {/* sign up option */}
                 <div className="mt-4 text-sm">Didn't have an account?
-                    <p className="inline underline text-blue-600"
-                        onClick={() => setShowSignUp((prev) => !prev)}>
+                    <p className="inline underline text-blue-600 cursor-pointer"
+                        onClick={() => {setShowSignUp(true); setShowLogin(false)}}>
                         Sign Up
                     </p>
                 </div>
             </form>
-            <Modal show={showSignUp}
-                onClose={() => {setShowLogin(false)}}>
-                    <Signup setShowSignUp={setShowSignUp} setLogin={setLogin}/>
-            </Modal>
         </FormProvider>
     )
 }

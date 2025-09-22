@@ -63,38 +63,9 @@ body {
   @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70;
 }
 
-/* -------------------------- Login page ---------------------- */
+/* -------------------------- Form ---------------------- */
 .input-field {
   @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg;
-}
-
-.indicator-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.dot {
-  width: 24px;
-  height: 4px;
-  background-color: #6b7280;
-  /* gray-500 */
-  border-radius: 9999px;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #a094d6;
-  /* custom purple shade */
-}
-
-.login-error {
-  color: red;
-}
-.login-error.disabled {
-  display: none;
 }
 
 /* ---------------- Review Form ------------------------ */
