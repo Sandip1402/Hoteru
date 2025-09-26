@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"
 
 export const Card = ({ item }) => {
 
     const navigate = useNavigate();
-
     return (
-        <div className="w-40 cursor-pointer overflow-x-clip" onClick={() => navigate(`/info/${item._id}`)}>
+        <div className="w-40 cursor-pointer overflow-x-clip" onClick={() => navigate(`/hotel/${item._id}`)}>
             <figure className="h-[100px]">
                 <img src={item.display_img} alt="image" className="w-full h-full object-cover rounded-2xl" />
             </figure>

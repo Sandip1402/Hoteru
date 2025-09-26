@@ -1,6 +1,6 @@
 const wrapAsync = require("../utils/wrapAsync.js");
 const mongoose = require("mongoose");
-const Listing = require("../models/listing.js");
+const Listing = require("../models/listing.js")
 
 
 module.exports = (app) => {

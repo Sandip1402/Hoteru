@@ -12,7 +12,7 @@ module.exports = (app) => {
         if(!listing){
             return res.status(404).json({
                 success: false,
-                error: "Listing not found"
+                message: "Listing not found"
             });
         }
         res.status(200).json({

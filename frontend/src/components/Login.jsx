@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -18,42 +18,54 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
     const apiFetch = useApiFetch();
 
     const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState('')
 
     const checkData = async (data) => {
         const user = { ...data };
-        const res = await apiFetch('/login', {
-            method: "POST",
-            body: JSON.stringify({ user })
-        })
-        if (!res.success) {
-            setError(res.message);
-        } else {
+        try {
+            const res = await apiFetch('/login', {
+                method: "POST",
+                body: JSON.stringify({ user })
+            })
             setAccessToken(res.accessToken)
             setShowLogin(false);
+        } catch (err) {
+            setError(err.message || "Login Failed! Please try again");
         }
     }
 
+    useEffect(() => {
+        const handleEscape = (ev) => {
+            if (ev.key === "Escape") {
+                setShowLogin(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleEscape);
+        return () => window.removeEventListener("keydown", handleEscape);
+    }, [setShowLogin]);
+
     return (
         <FormProvider {...methods}>
-            <form className="mx-auto p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(checkData)}>
+            <form className="mx-auto p-4 bg-white rounded-lg shadow-lg select-none relative"
+                onSubmit={handleSubmit(checkData)}>
 
-                <button className="absolute cursor-pointer top-4 right-4 text-lg text-gray-400 hover:text-black"
+                <button type="button" className="absolute cursor-pointer top-4 right-4 text-lg text-gray-400 hover:text-black"
                     onClick={() => { setShowLogin(false) }}><ImCross />
                 </button>
 
                 <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
-                    rules={{ required: "*mail is required" }} input_classes={"input-field md:text-sm"} />
+                    rules={{ required: "*mail is required" }} input_classes={"input-field"} label_classes={"text-sm font-bold"} />
 
                 <div className="relative">
                     <FormInput name="password" label="Password" placeholder="Enter password"
-                        rules={{ required: "*password is required" }} input_classes={"input-field md:text-sm"}
+                        rules={{ required: "*password is required" }} input_classes={"input-field"} label_classes={"text-sm font-bold"}
                         type={showPassword ? "text" : "password"}
                     />
 
                     {/* password view button */}
                     <button type="button" onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute right-3 top-8 md:top-10 text-white hover:text-gray-300 focus:outline-none">
+                        className="absolute right-3 top-8 text-white hover:text-gray-300 focus:outline-none">
                         {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                     </button>
                 </div>
@@ -63,7 +75,7 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
                     Log In
                 </button>
 
-                {error ? <p className="text-red-700 text-sm">*{error}</p> : ''}
+                {error ? <p className="text-red-500 text-sm mt-2">*{error}</p> : ''}
 
                 <div className="mt-10 flex items-center justify-center gap-4 text-gray-400">
                     <div className="border-b border-gray-600 flex-grow mx-3"></div>
@@ -87,7 +99,7 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
                 {/* sign up option */}
                 <div className="mt-4 text-sm">Didn't have an account?
                     <p className="inline underline text-blue-600 cursor-pointer"
-                        onClick={() => {setShowSignUp(true); setShowLogin(false)}}>
+                        onClick={() => { setShowSignUp(true); setShowLogin(false) }}>
                         Sign Up
                     </p>
                 </div>

@@ -15,6 +15,10 @@
   /* --logo-size: min(30px, 5vw, 50px); */
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-text);
   @apply text-sm md:text-lg lg:text-xl
@@ -65,7 +69,7 @@ body {
 
 /* -------------------------- Form ---------------------- */
 .input-field {
-  @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg;
+  @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg text-sm;
 }
 
 /* ---------------- Review Form ------------------------ */

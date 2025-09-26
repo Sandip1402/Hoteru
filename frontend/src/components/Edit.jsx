@@ -12,7 +12,7 @@ export const Edit = ({listing}) => {
     const methods = useForm({
         defaultValues: listing,
     });
-    const { handleSubmit, reset } = methods;
+    const { handleSubmit } = methods;
 
     const saveData = async(data) => {
         console.log(data);

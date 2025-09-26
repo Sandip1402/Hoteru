@@ -43,17 +43,28 @@ export const Signup = ({ setShowLogin, setShowSignUp }) => {
             if (err.status === 409) {
                 setError(err.message);
             } else {
-                setError(err.message || "Signup failed");
+                setError(err.message || "Signup failed! Please try again");
             }
         }
     };
+
+    useEffect(() => {
+        const handleEscape = (ev) => {
+            if (ev.key === "Escape") {
+                setShowSignUp(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleEscape);
+        return () => window.removeEventListener("keydown", handleEscape);
+    }, [setShowSignUp]);
 
 
     return (
         <FormProvider {...methods}>
             <form className="mx-auto w-max p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(saveUser)}>
 
-                <button className="absolute top-4 cursor-pointer right-4 text-lg text-gray-400 hover:text-black"
+                <button type="button" className="absolute top-4 cursor-pointer right-4 text-lg text-gray-400 hover:text-black"
                     onClick={() => { setShowSignUp(false) }}><ImCross />
                 </button>
 
@@ -84,7 +95,7 @@ export const Signup = ({ setShowLogin, setShowSignUp }) => {
                 <label className="flex items-center gap-2 cursor-pointer select-none text-gray-300 mb-4">
                     <input type="checkbox" checked={checked}
                         className="checkbox checkbox-sm checkbox-primary checked:bg-[#837CE1]"
-                        onClick={() => { setChecked((p) => !p) }} />
+                        onChange={() => { setChecked((p) => !p) }} />
                     <span className="text-xs">I agree to the <a href="#"
                         className="underline text-[#837CE1] hover:text-[#A095D6]">Terms &amp; Conditions</a>
                     </span>
@@ -97,7 +108,7 @@ export const Signup = ({ setShowLogin, setShowSignUp }) => {
                 </button>
 
                 {/* Handle error */}
-                {error ? <p className="text-red-700 text-sm mt-2">*{error}</p> : ''}
+                {error ? <p className="text-red-500 text-sm mt-2">*{error}</p> : ''}
 
                 {/* Sign up with social media */}
                 <div className="mt-7 flex items-center justify-center gap-4 text-gray-400">

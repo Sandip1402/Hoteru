@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom";
-import { useApiFetch } from "../util/api"
+import { useNavigate, useParams } from "react-router-dom";
+
 import { Slide } from "../components/Slide";
 import { Reviews } from "../components/Reviews";
-
+import { useApiFetch } from "../util/api"
 
 
 export const Show = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
-    const apiFetch = useApiFetch();
 
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    
+    const apiFetch = useApiFetch();
 
     useEffect(() => {
         const fetchItem = async () => {
@@ -37,7 +39,6 @@ export const Show = () => {
     if (error) return <p className="text-red-500 text-center my-auto">{error}</p>;
     if (!item) return <p>No listing found</p>;
 
-
     return (
         <div className="md:m-4 flex-col items-center">
             <p className="mb-2">{item.title}</p>
@@ -55,7 +56,7 @@ export const Show = () => {
                     <p><b>Address:</b></p>
                     <p className="mb-3">{item.location},{item.country}</p>
                 </div>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-end" onClick={() => navigate(`/payment/${item._id}`)} >
                     <button className="btn btn-primary w-full">Book Now</button>
                 </div>
             </div>

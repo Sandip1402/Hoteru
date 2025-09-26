@@ -6,10 +6,10 @@ const { refresh_Token, access_Token } = config;
 module.exports = (app) => {
   app.post("/api/refresh", (req, res) => {
     const refreshToken = req.cookies.refreshToken;
-    if (!refreshToken) return res.sendStatus(401).json({message: "No refresh token"});
+    if (!refreshToken) return res.status(401).json({message: "No refresh token"});
 
     jwt.verify(refreshToken, refresh_Token, (err, decoded) => {
-      if (err) return res.sendStatus(403).json({
+      if (err) return res.status(403).json({
                     success: false,
                     message: "Refresh token expired or tampered"
                   }); // expired or tampered

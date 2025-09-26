@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+
+// to connect all apis with express app at once, no need to connect each api individually
 module.exports = function registerApis(app) {
     // read all files in /apis folder
   const Files = fs.readdirSync(__dirname);  

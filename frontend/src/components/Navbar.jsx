@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
-import Movable from './Movable';
+import { Movable } from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
@@ -20,7 +20,6 @@ export const Navbar = () => {
     const loggedIn = !!accessToken; // converting to correct boolean
     
     const apiFetch = useApiFetch();
-    const menuItems = ['Home', 'Experience', 'Service'];
 
   const logOut = async () => {
     try {
@@ -43,9 +42,9 @@ export const Navbar = () => {
                 <Logo customStyle="nav-top-start w-1/3" />
 
                 <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
-                    {menuItems.map((item) => (
-                        <Movable key={item} name={item} />
-                    ))}
+                        <Movable name="Hotel" />
+                        <Movable name="Experience" />
+                        <Movable name="Service" />
                 </div>
 
                 <div className="nav-top-end w-1/3 flex items-center justify-end">
@@ -53,7 +52,7 @@ export const Navbar = () => {
                     <span className='md:hidden'><i className="fa-solid fa-magnifying-glass text-xl"></i></span>
                     <span className="hidden md:flex btn bg-inherit border-none rounded-3xl hover:shadow-none hover:bg-white text-lg ">Become host</span>
 
-                    <div className="dropdown">
+                    <div className="dropdown dropdown-end">
                         <div tabIndex="0" role="button"
                             className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
                             <i className="fa-solid fa-globe text-xl"></i>
@@ -65,7 +64,7 @@ export const Navbar = () => {
                         </div>
 
                         {!showLogin &&
-                            <ul tabIndex="0" className="dropdown-content dropdown-end bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 text-lg">
+                            <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 text-lg">
                                 <div className="block md:hidden">
                                     <li className="mt-2 dropdown-item"><a>Become host</a></li>
                                     <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
@@ -99,9 +98,9 @@ export const Navbar = () => {
                     </form>
                 </div>
                 <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
-                    {menuItems.map((item) => (
-                        <Movable key={item} name={item} isActive={active === item ? "active" : ""} onClick={() => setActive(item)} />
-                    ))}
+                        <Movable name="Hotel" />
+                        <Movable name="Experience" />
+                        <Movable name="Service" />
                 </div>
             </div>
             <Modal show={showLogin}

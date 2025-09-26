@@ -11,21 +11,21 @@ module.exports = (app) => {
     app.post("/api/listings/:id/reviews", validateData(reviewSchema), wrapAsync(async (req, res) => {
 
         let listing = await Listing.findById(req.params.id);
-        if(!listing){
+        if (!listing) {
             return res.status(404).json({
                 success: false,
                 message: "Listing not found"
             })
         }
         const review = req.body.review;
-        
+
         if (!review || Object.keys(review).length === 0) {
             return res.status(400).json({
                 success: false,
                 message: "Review is empty"
             });
         }
-        
+
         // set privacy true if checkbox on
         review.privacy = review.privacy === "on";
         // console.log(review);
@@ -41,7 +41,7 @@ module.exports = (app) => {
         console.log(`New review saved for ${listing.title}`);
         res.status(201).json({
             success: true,
-            message: `New review added to ${listing.title}`
+            message: "Review added"
         })
     })
     )
@@ -51,15 +51,15 @@ module.exports = (app) => {
         let { id, reviewId } = req.params;
 
         let listing = await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-        if(!listing){
+        if (!listing) {
             return res.status(404).json({
                 success: false,
                 message: "Listing not found"
             })
         }
-        
+
         let review = await Review.findByIdAndDelete(reviewId);
-        if(!review){
+        if (!review) {
             return res.status(404).json({
                 success: false,
                 message: "Review not found"

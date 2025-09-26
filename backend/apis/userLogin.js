@@ -11,7 +11,7 @@ module.exports = (app) => {
             const { email, password } = req.body.user;
             const user = await User.findOne({ email: email });
             if (!user || !(await bcrypt.compare(password, user.password))) {
-                return res.status(401).json({
+                return res.status(404).json({
                     success: false,
                     message: "Invalid email or password"
                 });
