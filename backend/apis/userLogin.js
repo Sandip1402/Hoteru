@@ -27,6 +27,7 @@ module.exports = (app) => {
                 .status(200)
                 .json({
                     success: true,
+                    user: payload,
                     accessToken,
                     message: "Logged in successfully"
             })

@@ -10,7 +10,7 @@ import { FormInput } from "./FormInput";
 import { useApiFetch } from "../util/api";
 import { useAuth } from "./AuthContext";
 
-export const Login = ({ setShowLogin, setShowSignUp }) => {
+export const Login = ({ setShowLogin, setShowSignUp, setUser }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
@@ -29,6 +29,9 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
             })
             setAccessToken(res.accessToken)
             setShowLogin(false);
+            // console.log(res);
+            setUser(res.user);
+            
         } catch (err) {
             setError(err.message || "Login Failed! Please try again");
         }

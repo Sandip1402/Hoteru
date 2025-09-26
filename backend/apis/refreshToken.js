@@ -10,9 +10,9 @@ module.exports = (app) => {
 
     jwt.verify(refreshToken, refresh_Token, (err, decoded) => {
       if (err) return res.status(403).json({
-                    success: false,
-                    message: "Refresh token expired or tampered"
-                  }); // expired or tampered
+        success: false,
+        message: "Refresh token expired or tampered"
+      }); // expired or tampered
 
       // issue new access token
       const newAccessToken = jwt.sign(

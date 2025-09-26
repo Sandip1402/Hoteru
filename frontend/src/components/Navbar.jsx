@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import { Logo } from './Logo';
 import { Movable } from './Movable';
 import { Modal } from './Modal';
@@ -11,28 +12,29 @@ import { useAuth } from './AuthContext';
 
 export const Navbar = () => {
 
+    const [user, setUser] = useState({});
     const [showLogin, setShowLogin] = useState(false);
-    const [active, setActive] = useState("Home");
     const [showSignUp, setShowSignUp] = useState(false);
     const navigate = useNavigate();
-    
+
     const { accessToken, setAccessToken } = useAuth();
     const loggedIn = !!accessToken; // converting to correct boolean
-    
+
     const apiFetch = useApiFetch();
 
-  const logOut = async () => {
-    try {
-      await apiFetch("/logout", { method: "POST" });
+    const logOut = async () => {
+        try {
+            await apiFetch("/logout", { method: "POST" });
 
-      // clear access token
-      setAccessToken(null);
-      navigate("/", { replace: true });
+            // clear access token
+            setAccessToken(null);
+            navigate("/", { replace: true });
 
-    } catch (err) {
-      console.error("Logout failed:", err.message);
-    }
-  };
+        } catch (err) {
+            console.error("Logout failed:", err.message);
+        }
+    };
+
 
 
     return (
@@ -42,9 +44,9 @@ export const Navbar = () => {
                 <Logo customStyle="nav-top-start w-1/3" />
 
                 <div className="nav-top-center hidden lg:w-1/3 md:flex justify-between items-center">
-                        <Movable name="Hotel" />
-                        <Movable name="Experience" />
-                        <Movable name="Service" />
+                    <Movable name="Hotel" />
+                    <Movable name="Experience" />
+                    <Movable name="Service" />
                 </div>
 
                 <div className="nav-top-end w-1/3 flex items-center justify-end">
@@ -65,21 +67,30 @@ export const Navbar = () => {
 
                         {!showLogin &&
                             <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 text-lg">
+
+                                {/* Profile button*/}
+                                {loggedIn &&
+                                    (<>
+                                        <NavLink to={`/user/${user.userId}`} className='dropdown-item md:mt-2'>My Profile</NavLink>
+                                        <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
+                                    </>)
+                                }
+
                                 <div className="block md:hidden">
-                                    <li className="mt-2 dropdown-item"><a>Become host</a></li>
+                                    <li className={`dropdown-item ${loggedIn ? '' : "mt-2"}`}><a>Become host</a></li>
                                     <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 </div>
-                                <li className="md:mt-2 dropdown-item "><a>Refer host</a></li>
+                                <li className={`dropdown-item ${loggedIn ? '' : "md:mt-2"}`}><a>Refer host</a></li>
                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
                                 <li className="dropdown-item"><a>Find co-host</a></li>
-                                <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
+                                <div className={`md:my-2 w-full h-0.5 bg-gray-300 ${loggedIn ? "hidden" : "block"}`}></div>
                                 {!loggedIn && <li className="dropdown-item mb-2"
-                                    onClick={() => {setShowLogin(true);}}>
+                                    onClick={() => { setShowLogin(true) }}>
                                     Log In</li>
                                 }
-                                {loggedIn && <button className="btn btn-error w-full mb-2 md:my-2 px-2 hover:bg-main-color/70"
+                                {loggedIn && <button className="btn btn-error w-full mb-2 md:mt-2 px-2"
                                     onClick={logOut}>
-                                    Log out</button> 
+                                    Log out</button>
                                 }
                             </ul>
                         }
@@ -98,18 +109,18 @@ export const Navbar = () => {
                     </form>
                 </div>
                 <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
-                        <Movable name="Hotel" />
-                        <Movable name="Experience" />
-                        <Movable name="Service" />
+                    <Movable name="Hotel" />
+                    <Movable name="Experience" />
+                    <Movable name="Service" />
                 </div>
             </div>
             <Modal show={showLogin}
-                onClose={() => {setShowLogin(false)}}>
-                    <Login setShowLogin = {setShowLogin} setShowSignUp = {setShowSignUp} />
+                onClose={() => { setShowLogin(false) }}>
+                <Login setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} setUser={setUser} />
             </Modal>
             <Modal show={showSignUp}
-                onClose={() => {setShowSignUp(false)}}>
-                    <Signup  setShowLogin = {setShowLogin} setShowSignUp = {setShowSignUp} />
+                onClose={() => { setShowSignUp(false) }}>
+                <Signup setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} setUser={setUser} />
             </Modal>
         </nav>
     )

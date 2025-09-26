@@ -9,7 +9,7 @@ import { FormInput } from "./FormInput";
 import { useAuth } from "./AuthContext";
 import { useApiFetch } from "../util/api";
 
-export const Signup = ({ setShowLogin, setShowSignUp }) => {
+export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
@@ -38,6 +38,7 @@ export const Signup = ({ setShowLogin, setShowSignUp }) => {
 
             setAccessToken(loginRes.accessToken);
             setShowSignUp(false);
+            setUser(loginRes.user);
 
         } catch (err) {
             if (err.status === 409) {
