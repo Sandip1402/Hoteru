@@ -28,7 +28,7 @@ export const Navbar = () => {
 
             // clear access token
             setAccessToken(null);
-            navigate("/", { replace: true });
+            navigate("/hotel", { replace: true });
 
         } catch (err) {
             console.error("Logout failed:", err.message);
