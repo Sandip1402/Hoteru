@@ -16,19 +16,15 @@ export const Profile = () => {
         
         const getUser = async() => {
             try {
-                
-                const res = await apiFetch(`/user/${userId}`, {
-                    method: "GET",
-                }, true)
+                const res = await apiFetch(`/user/${userId}`,
+                    {method: "GET"}, true)
                 setUser(res.data);
-                
             } catch (err) {
                 setError(err.message);
             } finally {
                 setLoading(false);
             }
         }
-
         getUser();
     }, [])
 

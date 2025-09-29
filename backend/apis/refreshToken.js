@@ -23,7 +23,7 @@ module.exports = (app) => {
         { expiresIn: "1h"}
       );
 
-      res.set("Authorization", `Bearer ${newAccessToken}`)
+      res.status(201).set("Authorization", `Bearer ${newAccessToken}`)
           .send({ success: true, accessToken: newAccessToken });
     });
 

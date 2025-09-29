@@ -4,7 +4,7 @@ import { useAuth } from "../components/AuthContext";
 
 export const useApiFetch = () => {
   const { accessToken, setAccessToken } = useAuth();
-
+  
   const apiFetch = async (endpoint, options = {}, isProtected = false) => {
     // Build headers
     const headers = {

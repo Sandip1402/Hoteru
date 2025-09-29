@@ -1,13 +1,12 @@
 const wrapAsync = require("../utils/wrapAsync")
 const User = require("../models/user.js");
+const auth = require("../utils/middlewares/auth.js");
 
 
 module.exports = (app) => {
-    app.get("/api/user/:userId", wrapAsync(async (req, res) => {
-
-        console.log(typeOf(req.headers.authorization));
-
+    app.get("/api/user/:userId", auth, wrapAsync(async (req, res) => {
         const { userId } = req.params;
+
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({
@@ -15,19 +14,21 @@ module.exports = (app) => {
                 message: "User not found"
             })
         }
+
         res.status(200).json({
             success: true,
             data: user
         })
     }))
 
-    app.put("/api/user/:userId", wrapAsync(async (req, res) => {
+    app.put("/api/user/:userId", auth, wrapAsync(async (req, res) => {
         const { userId } = req.params;
+
         const updatedUser = req.body.user;
         const resExistingUser = await fetch(`/api/user/${userId}`);
 
-        if (res.status === 404) {
-            return res;
+        if (resExistingUser.status === 404) {
+            return resExistingUser;
         }
 
         const userData = await resExistingUser.json();
