@@ -7,18 +7,19 @@ import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
 import { useApiFetch } from '../util/api';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 
 export const Navbar = () => {
 
-    const [user, setUser] = useState({});
     const [showLogin, setShowLogin] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
     const navigate = useNavigate();
 
     const { accessToken, setAccessToken } = useAuth();
     const loggedIn = !!accessToken; // converting to correct boolean
+
+    const user = localStorage.getItem("user");
 
     const apiFetch = useApiFetch();
 
@@ -116,11 +117,11 @@ export const Navbar = () => {
             </div>
             <Modal show={showLogin}
                 onClose={() => { setShowLogin(false) }}>
-                <Login setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} setUser={setUser} />
+                <Login setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} />
             </Modal>
             <Modal show={showSignUp}
                 onClose={() => { setShowSignUp(false) }}>
-                <Signup setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} setUser={setUser} />
+                <Signup setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} />
             </Modal>
         </nav>
     )

@@ -1,6 +1,6 @@
 
 // const API_BASE = import.meta.env.VITE_API_BASE_URL;
-import { useAuth } from "../components/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 export const useApiFetch = () => {
   const { accessToken, setAccessToken } = useAuth();

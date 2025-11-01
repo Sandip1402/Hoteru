@@ -33,6 +33,9 @@ export const Profile = () => {
     if (!user) return <p>No data found</p>;
 
   return (
-    <div>Profile</div>
+    /* Sidebar */
+    <div>
+        
+    </div>
   )
 }

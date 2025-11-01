@@ -7,6 +7,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+
   useEffect(() => {
     const initAuth = async () => {
       try {
@@ -28,19 +29,13 @@ export function AuthProvider({ children }) {
     initAuth();
   }, []);
 
-  if (loading) {
-    return (
-      <div>Loading ... </div>
-    )
-  }
 
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken, loading, isAuthenticated }}>
+    <AuthContext.Provider value={{ accessToken, setAccessToken, setLoading, setIsAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
 
 export function useAuth() {
   return useContext(AuthContext);

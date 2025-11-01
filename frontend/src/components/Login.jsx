@@ -8,13 +8,14 @@ import { FaFacebook } from "react-icons/fa";
 
 import { FormInput } from "./FormInput";
 import { useApiFetch } from "../util/api";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../context/AuthContext";
 
-export const Login = ({ setShowLogin, setShowSignUp, setUser }) => {
+
+export const Login = ({ setShowLogin, setShowSignUp }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
-    const { setAccessToken } = useAuth();
+    const { setAccessToken, setIsAuthenticated } = useAuth();
     const apiFetch = useApiFetch();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -27,11 +28,12 @@ export const Login = ({ setShowLogin, setShowSignUp, setUser }) => {
                 method: "POST",
                 body: JSON.stringify({ user })
             })
-            setAccessToken(res.accessToken)
+            setAccessToken(res.accessToken);
             setShowLogin(false);
             // console.log(res);
-            setUser(res.user);
-            
+            localStorage.setItem(res.user);
+            setIsAuthenticated(true);
+
         } catch (err) {
             setError(err.message || "Login Failed! Please try again");
         }
@@ -53,22 +55,23 @@ export const Login = ({ setShowLogin, setShowSignUp, setUser }) => {
             <form className="mx-auto p-4 bg-white rounded-lg shadow-lg select-none relative"
                 onSubmit={handleSubmit(checkData)}>
 
-                <button type="button" className="absolute cursor-pointer top-4 right-4 text-lg text-gray-400 hover:text-black"
+                <p className="font-semibold text-center">Login</p>
+                <button type="button" className="absolute right-4 top-5 cursor-pointertext-lg text-gray-400 hover:text-black"
                     onClick={() => { setShowLogin(false) }}><ImCross />
                 </button>
 
                 <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
-                    rules={{ required: "*mail is required" }} input_classes={"input-field"} label_classes={"text-sm font-bold"} />
+                    rules={{ required: "*mail is required" }} input_classes={"input-field"} label_classes={""} />
 
                 <div className="relative">
                     <FormInput name="password" label="Password" placeholder="Enter password"
-                        rules={{ required: "*password is required" }} input_classes={"input-field"} label_classes={"text-sm font-bold"}
+                        rules={{ required: "*password is required" }} input_classes={"input-field"}
                         type={showPassword ? "text" : "password"}
                     />
 
                     {/* password view button */}
                     <button type="button" onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute right-3 top-8 text-white hover:text-gray-300 focus:outline-none">
+                        className="absolute right-3 bottom-2 text-white hover:text-gray-300 focus:outline-none">
                         {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                     </button>
                 </div>

@@ -9,7 +9,7 @@ import { NotFound } from './components/NotFound.jsx'
 import { Payment } from './components/Payment.jsx'
 import { Show } from './pages/Show.jsx'
 import { Profile } from './pages/Profile.jsx'
-import { AuthProvider } from './components/AuthContext.jsx'
+import { RequireAuth } from './context/RequireAuth.jsx'
 function App() {
 
   const Router = createBrowserRouter(
@@ -20,9 +20,12 @@ function App() {
         <Route path='hotel/:id' element={<Show />} />
         <Route path='experience' element={<Experience />} />
         <Route path='service' element={<Service />} />
-        <AuthProvider>
-          <Route path='user/:userId' element={<Profile />} />
-        </AuthProvider>
+        <Route path='user/:userId'
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          } />
         <Route path='payment/:id' element={<Payment />} />
         <Route path='test' element={<Test />} />
       </Route>
