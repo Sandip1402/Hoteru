@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
 @plugin "daisyui"{
@@ -7,20 +7,20 @@
 
 @theme {
   --color-logo: #F55F0A;
-  --color-main-color: #fcf6bd;
+  --color-main-color: #2c35e0ff;
   --color-background: #faedcd;
-  --font-text: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-optical-sizing: auto;
   /* --logo-size: min(30px, 5vw, 50px); */
 }
 
 html, body {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
-  font-family: var(--font-text);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  user-select: none;
   @apply text-sm md:text-lg lg:text-xl
 }
 
@@ -33,38 +33,19 @@ body {
   scrollbar-width: none;     /* Firefox */
 }
 
+li:focus{
+  background-color: transparent !important;
+}
 
 /* ----------------------- Navbar ------------------------ */
-.nav-top-center{
-  width: 520px;
-}
-
-.nav-item::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0px;
-  width: 0px;
-  height: 2px;
-  background-color: #000000;
-  transition: width 0.3s ease;
-}
-
-.nav-item {
-  opacity: 0.7;
-}
-.nav-item.active {
-  opacity: 1;
-}
-
-.nav-item.active::after {
-  width: 100%;
+.active {
+  color: var(--color-main-color)
 }
 
 
 /* ----------------------------  Home page --------------------- */
 .dropdown-item {
-  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/70;
+  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/50;
 }
 
 /* -------------------------- Form ---------------------- */

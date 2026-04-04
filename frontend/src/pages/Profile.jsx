@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router"
 import { useApiFetch } from "../util/api";
 
 
@@ -35,7 +35,7 @@ export const Profile = () => {
   return (
     /* Sidebar */
     <div>
-        
+        <p>profile</p>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { FormInput } from "./FormInput";
 import { validateFiles } from "../util/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
 import { useApiFetch } from "../util/api";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router"
 
 export const New = () => {
     const methods = useForm();
