@@ -1,0 +1,134 @@
+Project Hoteru{
+  database_type : 'MongoDB'
+  
+}
+
+Table Users{
+  userId int [pk]
+  image varchar2 [note: 'must be url']
+  firstname varchar2
+  lastname varchar2
+  DOB date
+  isAdult bool [note: 'verification']
+  email varchar2
+  country varchar2
+  createdAt timestamp
+
+  indexes {
+    email [unique, name: 'idx_users_email_unique']
+    country [name: 'idx_users_country']
+    createdAt [name: 'idx_users_created_at']
+  }
+}
+
+Table Bookings{
+  bookingId int [pk]
+  userId int
+  roomId int
+  checkIn datetimeoffset [note: 'offset according to GMT/UTC']
+  checkOut datetimeoffset [note: 'offset according to GMT/UTC']
+  guests int
+  price decimal
+  createdAt timestamp
+
+  indexes {
+    userId [name: 'idx_bookings_user']
+    roomId [name: 'idx_bookings_room']
+    (userId, createdAt) [name: 'idx_bookings_user_created']
+    (roomId, checkIn, checkOut) [name: 'idx_bookings_room_dates']
+    (checkIn, checkOut) [name: 'idx_bookings_dates']
+    createdAt [name: 'idx_bookings_created_at']
+  }
+}
+
+Table Rooms{
+  roomId int [pk]
+  addressId int
+  type varchar2 [note: 'hotels, pg, guesthouse, etc']
+  price decimal
+  desc varchar2
+  guests int [note: 'max and min to be mentioned']
+  beds int
+  baths int
+  avgRating decimal
+  createdAt timestamp
+
+  indexes {
+    addressId [name: 'idx_rooms_address']
+    type [name: 'idx_rooms_type']
+    price [name: 'idx_rooms_price']
+    guests [name: 'idx_rooms_guest']
+    avgRating [name: 'idx_rooms_rating']
+    (type, price, guests) [name: 'idx_rooms_filter_main']
+    (addressId, type, price) [name: 'idx_rooms_address_type_price']
+    createdAt [name: 'idx_rooms_created_at']
+  }
+}
+
+Table Address{
+  addressId int [pk]
+  city varchar2
+  state varchar2
+  country varchar2
+  location varchar2 [note: 'Geo-location Link']
+
+  indexes {
+    city [name: 'idx_address_city']
+    state [name: 'idx_address_state']
+    country [name: 'idx_address_country']
+    (city, state, country) [name: 'idx_address_city_state_country']
+  }
+}
+
+Table Services{
+  roomId int
+  service varchar2
+  createdAt timestamp
+
+  indexes {
+    (roomId, service) [pk]
+    service [name: 'idx_services_service']
+  }
+}
+
+Table Reviews{
+  reviewId int [pk]
+  roomId int
+  userId int
+  rating integer
+  comment varchar2
+  createdAt timestamp
+
+  indexes {
+    userId [name: 'idx_reviews_user']
+    roomId [name: 'idx_reviews_room']
+    (roomId, createdAt) [name: 'idx_reviews_room_created']
+    rating [name: 'idx_reviews_rating']
+  }
+}
+
+// For rooms saved by user
+Table Likes{
+  userId int
+  roomId int
+  createdAt timestamp
+
+  indexes {
+    (userId, roomId) [pk]
+    roomId [name: 'idx_likes_room']
+    (userId, createdAt) [name: 'idx_likes_user_created']
+  }
+}
+
+
+
+
+// RELATIONSHIPS
+Ref : Bookings.userId > Users.userId
+Ref : Bookings.roomId > Rooms.roomId
+Ref : Rooms.addressId > Address.addressId
+Ref : Reviews.userId > Users.userId
+Ref : Reviews.roomId > Rooms.roomId
+Ref : Likes.userId > Users.userId
+Ref : Likes.roomId > Rooms.roomId
+Ref : Services.roomId > Rooms.roomId
