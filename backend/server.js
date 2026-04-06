@@ -4,9 +4,9 @@ const cookieParser = require("cookie-parser");
 
 const expressError = require("./utils/expressError.js");
 const config = require("./config.js");
-const port = config.port;
 const registerApis = require("./apis/index.js");
 
+const port = process.env.port || 8080
 const app = express();
 
 // connect to database
@@ -56,6 +56,19 @@ app.use((err, req, res, next) => {
 })
 
 
+// // Error handling middleware
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+  
+//   const status = err.status || 500;
+//   const message = err.message || 'Internal Server Error';
+  
+//   res.status(status).json({
+//     error: err.code || 'server_error',
+//     message: status === 401 ? 'Authentication required' : message,
+//   });
+// });
+
 app.listen(port, () => {
-    console.log(`app listening on ${port} port`);
-})
+  console.log(`API server running on port ${port}`);
+});

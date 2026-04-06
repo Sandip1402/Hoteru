@@ -1,10 +1,10 @@
 const wrapAsync = require("../utils/wrapAsync")
-const User = require("../models/user.js");
-const auth = require("../utils/middlewares/auth.js");
+const User = require("../database/models/user.js");
+const checkJwt = require("../utils/middlewares/auth.js");
 
 
 module.exports = (app) => {
-    app.get("/api/user/:userId", auth, wrapAsync(async (req, res) => {
+    app.get("/api/user/:userId", checkJwt, wrapAsync(async (req, res) => {
         const { userId } = req.params;
 
         const user = await User.findById(userId);
@@ -21,7 +21,7 @@ module.exports = (app) => {
         })
     }))
 
-    app.put("/api/user/:userId", auth, wrapAsync(async (req, res) => {
+    app.put("/api/user/:userId", checkJwt, wrapAsync(async (req, res) => {
         const { userId } = req.params;
 
         const updatedUser = req.body.user;

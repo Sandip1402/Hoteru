@@ -7,6 +7,8 @@ import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
 import { useApiFetch } from '../util/api';
+import { LoginButton } from './Loginbutton';
+import { LogoutButton } from './LogoutButton';
 // import { useAuth } from '../context/AuthContext';
 
 
@@ -18,7 +20,7 @@ export const Navbar = () => {
 
     // const { accessToken, setAccessToken } = useAuth();
     // const loggedIn = !!accessToken; // converting to correct boolean
-    const loggedIn = !false;
+    const loggedIn = false;
 
     // const user = localStorage.getItem("user");
 
@@ -44,7 +46,10 @@ export const Navbar = () => {
 
             {/* Logo */}
             <div className="flex-none mb-1">
-                <Link className="text-xl" to="/" >Hoteru</Link>
+                <Link className="text-xl" to="/">
+                    {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
+                    Hoteru
+                </Link>
             </div>
 
             {/* Options */}
@@ -66,8 +71,8 @@ export const Navbar = () => {
                 {/* Notifications */}
                 <button className="btn btn-ghost btn-circle">
                     <Link to="/notification">
-                        <div className="indicator">
-                            <img src="/Icons/Notification.svg" className='h-5 w-5 relative top-0.5' alt="bell_icon" />
+                        <div className="indicator relative top-0.5">
+                            <img src="/Icons/Notification.svg" className='h-5 w-5' alt="bell_icon" />
                         </div>
                     </Link>
                 </button>
@@ -85,13 +90,11 @@ export const Navbar = () => {
                         (<ul tabIndex="-1" className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><Link to="/profile" >Profile</Link></li>
                             <li><Link>Settings</Link></li>
-                            <li><Link>Logout</Link></li>
+                            <li><LogoutButton /></li>
                         </ul>) :
                         (<ul tabIndex="-1" className='menu dropdown-content rounded-box shadow bg-white'>
                             <li>
-                                <Link className='btn bg-main-color rounded-box text-amber-50'>
-                                    Login/Signup
-                                </Link>
+                                <LoginButton />
                             </li>
                         </ul>)
                     }

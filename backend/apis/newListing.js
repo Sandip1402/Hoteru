@@ -1,6 +1,6 @@
 const validateData = require("../utils/middlewares/validateData.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const Listing = require("../models/listing.js");
+const Listing = require("../database/models/listing.js");
 const { listingSchema } = require("../utils/validSchema.js");
 
 module.exports = (app) => {

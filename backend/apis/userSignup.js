@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const User = require('../models/user.js');
+const User = require('../database/models/user.js');
 const wrapAsync = require("../utils/wrapAsync.js");
 const validateData = require("../utils/middlewares/validateData.js");
 const { userSchema } = require("../utils/validSchema.js");

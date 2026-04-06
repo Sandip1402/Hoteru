@@ -5,6 +5,7 @@ Project Hoteru{
 
 Table Users{
   userId int [pk]
+  auth0Id varchar2
   image varchar2 [note: 'must be url']
   firstname varchar2
   lastname varchar2

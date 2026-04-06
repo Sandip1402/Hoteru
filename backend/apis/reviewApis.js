@@ -1,7 +1,7 @@
 const validateData = require("../utils/middlewares/validateData.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const Listing = require("../models/listing.js");
-const Review = require("../models/review.js");
+const Listing = require("../database/models/listing.js");
+const Review = require("../database/models/review.js");
 const { reviewSchema } = require("../utils/validSchema.js");
 
 
