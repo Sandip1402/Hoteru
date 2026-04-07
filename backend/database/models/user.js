@@ -1,45 +1,58 @@
+// models/User.js
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    firstname: {
-        type: String,
-        trim: true,
-        required: true 
-    },
-    lastname: {
-        type: String,
-        trim: true,
-        required: true 
+const userSchema = new mongoose.Schema(
+  {
+    auth0Id: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      index: true,
     },
     email: {
-        type: String,
-        unique: true,
-        trim: true,
-        required: true
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
-    password: { 
-        type: String, 
-        required: true 
+    emailVerified: {
+      type: Boolean,
+      default: false,
     },
-    TC: {
-        type: Boolean,
-        required: true
+    image: {
+      type: String,
+      trim: true,
     },
-    Joined_on: {
-        type: Date,
-        required: true,
-        default: new Date()
-    }
-});
+    firstname: {
+      type: String,
+      trim: true,
+      maxlength: 50,
+    },
+    lastname: {
+      type: String,
+      trim: true,
+      maxlength: 50,
+    },
+    DOB: Date,
+    isAdult: {
+      type: Boolean,
+      default: false,
+    },
+    country: {
+      type: String,
+      trim: true,
+      maxlength: 50,
+    },
+  },
+  { timestamps: true }
+);
 
-// normalizing email before saving
-userSchema.pre("save", function (next) {
-  if (this.isModified("email")) {
-    this.email = this.email.toLowerCase();
-  }
-  next();
-});
+userSchema.index({ email: 1 }, { unique: true, name: "idx_users_email_unique" });
+userSchema.index({ country: 1 }, { name: "idx_users_country" });
+userSchema.index({ createdAt: 1 }, { name: "idx_users_created_at" });
+userSchema.index({ auth0Id: 1 }, { unique: true, name: "idx_users_auth0id_unique" });
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

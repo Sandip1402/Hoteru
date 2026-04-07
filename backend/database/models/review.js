@@ -1,31 +1,45 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
 
-const reviewSchema = new schema({
-    comment: {
-        type: String,
-        required: true
+const reviewSchema = new mongoose.Schema(
+  {
+    // reviewId: {
+    //   type: Number,
+    //   required: true,
+    //   unique: true
+    // },
+    roomId: {
+      type: Number,
+      required: true
+    },
+    userId: {
+      type: Number,
+      required: true
     },
     rating: {
-        type: Number,
-        required: true,
-        default: 3,
-        min: 1,
-        max: 5
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5
     },
-    images: {
-        type: Array
-    },
-    privacy: {
-        type: Boolean,
-        default: true,
-        required: true
+    comment: {
+      type: String,
+      required: true,
+      trim: true
     },
     createdAt: {
-        type: Date,
-        default: new Date()
+      type: Date,
+      default: Date.now
     }
-});
+  },
+  {
+    versionKey: false
+  }
+);
+
+reviewSchema.index({ userId: 1 }, { name: "idx_reviews_user" });
+reviewSchema.index({ roomId: 1 }, { name: "idx_reviews_room" });
+reviewSchema.index({ roomId: 1, createdAt: 1 },{ name: "idx_reviews_room_created" });
+reviewSchema.index({ rating: 1 }, { name: "idx_reviews_rating" });
 
 const Review = mongoose.model("Review", reviewSchema);
 module.exports = Review;
