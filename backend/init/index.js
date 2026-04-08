@@ -1,28 +1,28 @@
-const mongoose = require("mongoose");
-const Listing = require("../database/models/listing.js");
+// const mongoose = require("mongoose");
+// const Listing = require("../database/models/listing.js");
 
-const initData = require("./data.js");
-const config = require("../config.js");
+// const initData = require("./data.js");
+// const config = require("../config.js");
 
-// connect to database
-const DB_URL = config.dbUrl;
-async function main(){
-    await mongoose.connect(DB_URL);
-}
+// // connect to database
+// const DB_URL = config.dbUrl;
+// async function main(){
+//     await mongoose.connect(DB_URL);
+// }
 
-main().then(() => {
-    console.log("connected to database");
-}).catch((err) => {
-    console.log(err);
-    console.log("error connecting to database");
-})
+// main().then(() => {
+//     console.log("connected to database");
+// }).catch((err) => {
+//     console.log(err);
+//     console.log("error connecting to database");
+// })
 
-const initDB = async () => {
-    await Listing.deleteMany({});
-    await Listing.insertMany(initData.data);
-    console.log("Data was initialized");
-}
-initDB();
+// const initDB = async () => {
+//     await Listing.deleteMany({});
+//     await Listing.insertMany(initData.data);
+//     console.log("Data was initialized");
+// }
+// initDB();
 
 
 

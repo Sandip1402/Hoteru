@@ -1,8 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
   provider = "prisma-client"
@@ -10,6 +9,135 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+
+model Users {
+  userId     Int       @id @default(autoincrement())
+  auth0Id    String    @unique
+  image      String?
+  firstname  String?
+  lastname   String?
+  DOB        DateTime?
+  isAdult    Boolean?
+  email      String    @unique(map: "idx_users_email_unique")
+  country    String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  bookings   Bookings[]
+  reviews    Reviews[]
+  likes      Likes[]
+
+  @@index([country], map: "idx_users_country")
+  @@index([createdAt], map: "idx_users_created_at")
+}
+
+model Bookings {
+  bookingId  Int       @id @default(autoincrement())
+  userId     Int
+  roomId     Int
+  checkIn    DateTime
+  checkOut   DateTime
+  guests     Int
+  price      Decimal   @db.Decimal(10, 2)
+  createdAt  DateTime? @default(now())
+
+  user       Users     @relation(fields: [userId], references: [userId])
+  room       Rooms     @relation(fields: [roomId], references: [roomId])
+
+  @@index([userId], map: "idx_bookings_user")
+  @@index([roomId], map: "idx_bookings_room")
+  @@index([userId, createdAt], map: "idx_bookings_user_created")
+  @@index([roomId, checkIn, checkOut], map: "idx_bookings_room_dates")
+  @@index([checkIn, checkOut], map: "idx_bookings_dates")
+  @@index([createdAt], map: "idx_bookings_created_at")
+}
+
+model Rooms {
+  roomId        Int        @id @default(autoincrement())
+  addressId     Int
+  type          String
+  price         Decimal    @db.Decimal(10, 2)
+  description   String?    @map("desc")
+  guests        Int
+  beds          Int
+  baths         Int
+  avgRating     Decimal?   @db.Decimal(3, 2)
+  createdAt     DateTime?  @default(now())
+  updatedAt     DateTime?  @updatedAt
+
+  address       Address    @relation(fields: [addressId], references: [addressId])
+  bookings      Bookings[]
+  reviews       Reviews[]
+  likes         Likes[]
+  services      Services[]
+
+  @@index([addressId], map: "idx_rooms_address")
+  @@index([type], map: "idx_rooms_type")
+  @@index([price], map: "idx_rooms_price")
+  @@index([guests], map: "idx_rooms_guest")
+  @@index([avgRating], map: "idx_rooms_rating")
+  @@index([type, price, guests], map: "idx_rooms_filter_main")
+  @@index([addressId, type, price], map: "idx_rooms_address_type_price")
+  @@index([createdAt], map: "idx_rooms_created_at")
+}
+
+model Address {
+  addressId  Int      @id @default(autoincrement())
+  city       String?
+  state      String?
+  country    String?
+  location   String?
+
+  rooms      Rooms[]
+
+  @@index([city], map: "idx_address_city")
+  @@index([state], map: "idx_address_state")
+  @@index([country], map: "idx_address_country")
+  @@index([city, state, country], map: "idx_address_city_state_country")
+}
+
+model Services {
+  roomId     Int
+  service    String
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  room       Rooms     @relation(fields: [roomId], references: [roomId])
+
+  @@id([roomId, service])
+  @@index([service], map: "idx_services_service")
+}
+
+model Reviews {
+  reviewId    Int       @id @default(autoincrement())
+  roomId      Int
+  userId      Int
+  rating      Int
+  comment     String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+
+  room        Rooms     @relation(fields: [roomId], references: [roomId])
+  user        Users     @relation(fields: [userId], references: [userId])
+
+  @@index([userId], map: "idx_reviews_user")
+  @@index([roomId], map: "idx_reviews_room")
+  @@index([roomId, createdAt], map: "idx_reviews_room_created")
+  @@index([rating], map: "idx_reviews_rating")
+}
+
+model Likes {
+  userId     Int
+  roomId     Int
+  createdAt  DateTime? @default(now())
+
+  user       Users   @relation(fields: [userId], references: [userId])
+  room       Rooms   @relation(fields: [roomId], references: [roomId])
+
+  @@id([userId, roomId])
+  @@index([roomId], map: "idx_likes_room")
+  @@index([userId, createdAt], map: "idx_likes_user_created")
 }
