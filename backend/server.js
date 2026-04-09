@@ -1,32 +1,18 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
+const { prismaClient } = require("@prisma/client");
 
 const expressError = require("./utils/expressError.js");
-const config = require("./config.js");
-const registerApis = require("./apis/index.js");
+const registerRoutes = require("./routes/connect_routes.js");
 
-const port = process.env.port || 8080
+const port = process.env.port || 8080;
 const app = express();
-
-// connect to database
-const MONGO_URL = config.dbUrl;
-async function main() {
-    await mongoose.connect(MONGO_URL);
-}
-
-main().then(() => {
-    console.log("connected to database");
-}).catch((err) => {
-    console.log(err);
-    console.log("error connecting to database");
-})
-
+const prisma = new prismaClient();
 
 // express settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 
 // serve react build
@@ -37,9 +23,8 @@ app.use(cookieParser());
 // });
 
 
-// APIs
-registerApis(app);
-
+// Routes
+registerRoutes(app, prisma);
 
 // error handler
 app.use((req, res, next) => {
@@ -69,6 +54,18 @@ app.use((err, req, res, next) => {
 //   });
 // });
 
-app.listen(port, () => {
-  console.log(`API server running on port ${port}`);
-});
+async function startServer() {
+  try {
+    await prisma.$connect();
+    console.log('Database connected');
+
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+  } catch (error) {
+    console.error('Failed to connect to database:', error.message);
+    process.exit(1);
+  }
+}
+
+startServer();

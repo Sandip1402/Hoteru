@@ -8,4 +8,3 @@ module.exports = {
   access_Token: process.env.ACCESS_KEY,
   refresh_Token: process.env.REFRESH_KEY
 };
-
