@@ -1,9 +1,9 @@
-const fs = require("fs");
-const path = require("path");
+import fs from 'fs';
+import path from 'path';
 
 
 // to connect all apis with express app at once, not individually
-module.exports = function registerRoutes(app, prisma) {
+export default function registerRoutes(app, prisma) {
     // read all files in /apis folder
   const Files = fs.readdirSync(__dirname);
 

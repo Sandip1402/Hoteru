@@ -1,17 +1,18 @@
-const express = require("express");
+import express from 'express';
 // const cookieParser = require("cookie-parser");
-const { prismaClient } = require("@prisma/client");
 
-const expressError = require("./utils/expressError.js");
-const registerRoutes = require("./routes/connect_routes.js");
+import expressError from "./utils/expressError.js";
+import registerRoutes from "./routes/connect_routes.js";
+import { prisma } from "./utils/prisma.js";
+import checkJwt from "./utils/middlewares/auth.js";
 
 const port = process.env.port || 8080;
 const app = express();
-const prisma = new prismaClient();
 
 // express settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(auth());
 // app.use(cookieParser());
 
 
@@ -24,7 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Routes
-registerRoutes(app, prisma);
+// registerRoutes(app, prisma);
+
 
 // error handler
 app.use((req, res, next) => {
@@ -32,33 +34,28 @@ app.use((req, res, next) => {
 })
 
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        success: false,
-        error: "Something went wrong on the server",
-    });
-})
+// test
+app.get('/api/private', checkJwt, (req, res) => {
+  res.json({ message: `Hello ${req.auth.payload.sub}!` });
+});
 
 
 // // Error handling middleware
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
+app.use((err, req, res, next) => {
+  console.error(err.stack);
   
-//   const status = err.status || 500;
-//   const message = err.message || 'Internal Server Error';
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
   
-//   res.status(status).json({
-//     error: err.code || 'server_error',
-//     message: status === 401 ? 'Authentication required' : message,
-//   });
-// });
+  res.status(status).json({
+    error: err.code || 'server_error',
+    message: status === 401 ? 'Authentication required' : message,
+  });
+});
+
 
 async function startServer() {
   try {
-    await prisma.$connect();
-    console.log('Database connected');
-
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });

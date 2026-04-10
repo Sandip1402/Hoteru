@@ -1,4 +1,5 @@
-const { auth } = require("express-oauth2-jwt-bearer");
+import { auth } from "express-oauth2-jwt-bearer";
+import '@dotenvx/dotenvx/config'
 
 // JWT validation middleware
 const checkJwt = auth({
@@ -6,4 +7,4 @@ const checkJwt = auth({
   audience: process.env.AUTH0_AUDIENCE,
 });
 
-module.exports = checkJwt;
+export default checkJwt;
