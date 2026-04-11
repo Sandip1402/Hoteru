@@ -5,6 +5,7 @@ import expressError from "./utils/expressError.js";
 import registerRoutes from "./routes/connect_routes.js";
 import { prisma } from "./utils/prisma.js";
 import checkJwt from "./utils/middlewares/auth.js";
+import '@dotenvx/dotenvx/config'
 
 const port = process.env.port || 8080;
 const app = express();
@@ -12,7 +13,7 @@ const app = express();
 // express settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(auth());
+app.use(checkJwt);
 // app.use(cookieParser());
 
 
@@ -27,17 +28,20 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 // registerRoutes(app, prisma);
 
+// test
+app.get('/api/private', (req, res) => {
+  res.json({ message: `Hello ${req.auth.payload.sub}!` });
+});
+
+
+app.use('/', (req,res) => {
+  res.json({message: "App is running"});
+})
 
 // error handler
 app.use((req, res, next) => {
     next(new expressError(404, "Page Not found"));
 })
-
-
-// test
-app.get('/api/private', checkJwt, (req, res) => {
-  res.json({ message: `Hello ${req.auth.payload.sub}!` });
-});
 
 
 // // Error handling middleware
