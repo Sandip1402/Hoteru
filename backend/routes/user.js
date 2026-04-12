@@ -3,7 +3,7 @@ import express from 'express'
 import checkJwt from '../utils/middlewares/auth.js';
 const router = express.Router();
 
-module.exports = function (prisma) {
+export default function (prisma) {
   router.get('/', checkJwt, async (req, res) => {
     console.log(req.user.sub);
     const auth0Id = req.user.sub;

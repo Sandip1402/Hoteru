@@ -4,7 +4,6 @@ import express from 'express';
 import expressError from "./utils/expressError.js";
 import registerRoutes from "./routes/connect_routes.js";
 import { prisma } from "./utils/prisma.js";
-import checkJwt from "./utils/middlewares/auth.js";
 import '@dotenvx/dotenvx/config'
 
 const port = process.env.port || 8080;
@@ -13,7 +12,6 @@ const app = express();
 // express settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(checkJwt);
 // app.use(cookieParser());
 
 
@@ -26,21 +24,11 @@ app.use(checkJwt);
 
 
 // Routes
-// registerRoutes(app, prisma);
-
-// test
-app.get('/api/private', (req, res) => {
-  res.json({ message: `Hello ${req.auth.payload.sub}!` });
-});
+registerRoutes(app, prisma);
 
 
-app.use('/', (req,res) => {
+app.get('/', (req,res) => {
   res.json({message: "App is running"});
-})
-
-// error handler
-app.use((req, res, next) => {
-    next(new expressError(404, "Page Not found"));
 })
 
 
@@ -61,7 +49,7 @@ app.use((err, req, res, next) => {
 async function startServer() {
   try {
     app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
+      console.log(`Server running on http://localhost:${port}/`);
     });
   } catch (error) {
     console.error('Failed to connect to database:', error.message);

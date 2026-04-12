@@ -1,4 +1,5 @@
 import { defineConfig } from "prisma/config";
+import '@dotenvx/dotenvx/config'
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
