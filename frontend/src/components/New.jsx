@@ -3,13 +3,13 @@ import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
 import { validateFiles } from "../util/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { useApiFetch } from "../util/api";
+import { fetchApi } from "../util/api";
 import { useNavigate } from "react-router"
 
 export const New = () => {
     const methods = useForm();
     const navigate = useNavigate();
-    const apiFetch = useApiFetch();
+    const apiFetch = fetchApi();
     
     const saveData = async(data) => {
         const listing = {...data};

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { useApiFetch } from "../util/api";
+import { fetchApi } from "../util/api";
 
 
 export const Profile = () => {
@@ -10,7 +10,7 @@ export const Profile = () => {
     const [error, setError] = useState(null);
 
     let { userId } = useParams();
-    const apiFetch = useApiFetch();
+    const apiFetch = fetchApi();
 
     useEffect(() => {
         

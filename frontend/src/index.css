@@ -21,7 +21,7 @@ body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   user-select: none;
-  @apply text-sm md:text-lg lg:text-xl
+  @apply text-sm xl:text-2xl
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -50,7 +50,7 @@ li:focus{
 
 /* -------------------------- Form ---------------------- */
 .input-field {
-  @apply bg-[#241F3A] text-white focus:outline-none focus:ring-1 focus:ring-[#837CE1] rounded-lg text-sm;
+  @apply bg-white focus:outline-none text-sm;
 }
 
 /* ---------------- Review Form ------------------------ */
@@ -60,4 +60,9 @@ li:focus{
 
 .image-input {
   @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
+}
+
+/* --------------- Filter ------------------------- */
+.expand-item:open{
+  transform: rotate(180);
 }

@@ -6,8 +6,8 @@ import { ImCross } from "react-icons/im";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
-import { FormInput } from "./FormInput";
-import { useApiFetch } from "../util/api";
+import { FormInput } from "./InputTypes";
+import { fetchApi } from "../util/api";
 import { useAuth } from "../context/AuthContext";
 
 
@@ -16,7 +16,7 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
     const { handleSubmit } = methods;
 
     const { setAccessToken, setIsAuthenticated } = useAuth();
-    const apiFetch = useApiFetch();
+    const apiFetch = fetchApi();
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('')

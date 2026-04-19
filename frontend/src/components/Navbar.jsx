@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, matchPath, NavLink, useNavigate } from 'react-router';
 
 import { Logo } from './Logo';
 import { Movable } from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
-import { useApiFetch } from '../util/api';
+import { fetchApi } from '../util/api';
 import { LoginButton } from './Loginbutton';
 import { LogoutButton } from './LogoutButton';
 // import { useAuth } from '../context/AuthContext';
@@ -24,7 +24,7 @@ export const Navbar = () => {
 
     // const user = localStorage.getItem("user");
 
-    // const apiFetch = useApiFetch();
+    // const apiFetch = fetchApi();
 
     // const logOut = async () => {
     //     try {
@@ -42,11 +42,11 @@ export const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm items-center">
 
             {/* Logo */}
-            <div className="flex-none mb-1">
-                <Link className="text-xl" to="/">
+            <div className="flex-none pb-1">
+                <Link className="text-xl xl:text-3xl outline-none" to="/">
                     {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
                     Hoteru
                 </Link>
@@ -54,11 +54,19 @@ export const Navbar = () => {
 
             {/* Options */}
             <div className="flex-1 mx-4">
-                <ul className='flex text-sm'>
-                    <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
-                    <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
-                    <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
-                </ul>
+                {/* { matchPath("/") ? 
+                    <div className='dropdown dropdown-end' >
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+
+                        </div>
+                    </div>
+                    :
+                } */}
+                    <ul className='hidden md:flex'>
+                        <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
+                        <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
+                        <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
+                    </ul>
             </div>
 
             {/* User-specific */}
@@ -93,9 +101,7 @@ export const Navbar = () => {
                             <li><LogoutButton /></li>
                         </ul>) :
                         (<ul tabIndex="-1" className='menu dropdown-content rounded-box shadow bg-white'>
-                            <li>
-                                <LoginButton />
-                            </li>
+                            <li><LoginButton /></li>
                         </ul>)
                     }
                 </div>

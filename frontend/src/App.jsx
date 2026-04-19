@@ -12,6 +12,7 @@ import { Discover } from './pages/Discover.jsx'
 // import { NotFound } from './components/NotFound.jsx'
 // import { Payment } from './components/Payment.jsx'
 import { Profile } from './pages/Profile.jsx'
+import RoomDetails from "./pages/RoomDetails.jsx";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -29,13 +30,17 @@ function App() {
       Component: RootLayout,
       children: [
         {index: true, Component: Home},
-        {path: "hotels", Component: Hotel},
+        {path: "hotels",
+          children: [
+            {index: true, Component: Hotel},
+            {path: "/hotels/roomdetails", Component:RoomDetails}
+          ]
+        },
         {path: "experiences", Component: Experiences},
         {path: "discover", Component: Discover},
-        {path: "profile/:id", 
-          Component: Profile,
+        {path: "profile",
           children: [
-            {index: true, Component: Profile},
+            {path:"/profile/:id", Component: Profile},
             // {path: "/settings", Component: Profile},
             // {path: "/logout", Component: Home}
           ]
