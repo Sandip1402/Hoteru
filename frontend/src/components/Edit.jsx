@@ -3,11 +3,11 @@ import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
 import { validateFiles } from "../js/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { useApiFetch } from "../js/api";
+import { fetchApi } from "../js/api";
 
 export const Edit = ({listing}) => {
 
-    const apiFetch = useApiFetch();
+    const apiFetch = fetchApi();
 
     const methods = useForm({
         defaultValues: listing,

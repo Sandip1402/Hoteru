@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle, FcLeave } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-import { FormInput } from "./FormInput";
-import { useAuth } from "./AuthContext";
-import { useApiFetch } from "../util/api";
+import { FormInput } from "./InputTypes";
+import { useAuth } from "../context/AuthContext";
+import { fetchApi } from "../util/api";
 
 export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
-    const { setAccessToken } = useAuth();
-    const apiFetch = useApiFetch();
+    const { setAccessToken, setIsAuthenticated } = useAuth();
+    const apiFetch = fetchApi();
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -38,7 +38,8 @@ export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
 
             setAccessToken(loginRes.accessToken);
             setShowSignUp(false);
-            setUser(loginRes.user);
+            localStorage.setItem(loginRes.user);
+            setIsAuthenticated(true);
 
         } catch (err) {
             if (err.status === 409) {
@@ -63,18 +64,25 @@ export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
 
     return (
         <FormProvider {...methods}>
-            <form className="mx-auto w-max p-4 bg-white rounded-lg shadow-lg select-none relative" onSubmit={handleSubmit(saveUser)}>
+            <form className="w-max max-h-120 p-4 overflow-y-auto scroll-smooth bg-white rounded-lg shadow-lg select-none relative" 
+                onSubmit={handleSubmit(saveUser)}>
 
-                <button type="button" className="absolute top-4 cursor-pointer right-4 text-lg text-gray-400 hover:text-black"
+                <p className="font-semibold text-center">Sign Up</p>
+                <button type="button" className="absolute top-5 right-4 cursor-pointer text-lg text-gray-400 hover:text-black"
                     onClick={() => { setShowSignUp(false) }}><ImCross />
                 </button>
 
                 {/* input fields*/}
-                <FormInput name="firstname" label="Firstname" placeholder="First Name"
-                    rules={{ required: "*First name is required" }} input_classes={"input-field md:text-sm"} />
+                <div className="flex flex-col">
+                    <label>Enter Name</label>
+                    <div className="flex gap-2">
+                        <FormInput name="firstname" placeholder="First Name"
+                            rules={{ required: "*First name is required" }} input_classes={"input-field md:text-sm"} />
 
-                <FormInput name="lastname" label="Lastname" placeholder="Last Name"
-                    rules={{ required: "*Last name is required" }} input_classes={"input-field md:text-sm"} />
+                        <FormInput name="lastname" placeholder="Last Name"
+                            rules={{ required: "*Last name is required" }} input_classes={"input-field md:text-sm"} />
+                    </div>
+                </div>
 
                 <FormInput name="email" label="Mail" placeholder="Enter mail" type="email"
                     rules={{ required: "*Mail is required" }} input_classes={"input-field md:text-sm"} />

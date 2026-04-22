@@ -39,5 +39,13 @@
 // window.addEventListener("resize", updateButtons);
 
 
+// const filters = document.getElementsByClassName("rotate-90");
+// console.dir(filters)
+// for (let index = 0; index < filters.length; index++) {
+//     const element = filters[index].parentElement;
+//     element.addEventListener(onclick, ()=>{
+//         console.dir(this);
+//     })
+// }
 
 

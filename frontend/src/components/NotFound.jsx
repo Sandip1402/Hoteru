@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router"
 import { FaRegSadTear } from "react-icons/fa";
 
 export const NotFound = () => {

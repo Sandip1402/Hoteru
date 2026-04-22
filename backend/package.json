@@ -6,17 +6,28 @@
   "scripts": {
     "start": "nodemon server.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "Sandip Das",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@auth0/auth0-react": "^2.16.1",
     "@dotenvx/dotenvx": "^1.49.0",
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
+    "express-oauth2-jwt-bearer": "^1.7.4",
     "joi": "^18.0.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.18.0"
+    "mongoose": "^8.18.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@types/pg": "^8.20.0",
+    "prisma": "^7.7.0"
   }
 }

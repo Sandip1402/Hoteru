@@ -1,32 +1,55 @@
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from "react-router";
+import { RouterProvider } from "react-router";
+import { useAuth0 } from "@auth0/auth0-react"
 
 import RootLayout from '../layout/RootLayout.jsx'
 import { Hotel } from './pages/Hotel.jsx'
-import { Experience } from './pages/Experience.jsx'
-import { Service } from './pages/Service.jsx'
-import { Test } from './pages/Test.jsx'
-import { NotFound } from './components/NotFound.jsx'
-import { Payment } from './components/Payment.jsx'
-import { Show } from './pages/Show.jsx'
+import { Home } from "./pages/Home.jsx";
+import { Experiences } from './pages/Experiences.jsx'
+import { Discover } from './pages/Discover.jsx'
+// import { Service } from './pages/Service.jsx'
+// import { Test } from './pages/Test.jsx'
+// import { NotFound } from './components/NotFound.jsx'
+// import { Payment } from './components/Payment.jsx'
 import { Profile } from './pages/Profile.jsx'
-import { AuthProvider } from './components/AuthContext.jsx'
+import RoomDetails from "./pages/RoomDetails.jsx";
+
+function ProtectedRoute({ children }) {
+  const { isAuthenticated, isLoading } = useAuth0();
+  
+  if (isLoading) return <div>Loading...</div>;
+  
+  return isAuthenticated ? children : <Navigate to="/" replace/>;
+}
+
 function App() {
 
-  const Router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path='/' element={<RootLayout />} errorElement={<NotFound />} >
-        <Route index element={<Hotel />} />
-        <Route path='hotel' element={<Hotel />} />
-        <Route path='hotel/:id' element={<Show />} />
-        <Route path='experience' element={<Experience />} />
-        <Route path='service' element={<Service />} />
-        <AuthProvider>
-          <Route path='user/:userId' element={<Profile />} />
-        </AuthProvider>
-        <Route path='payment/:id' element={<Payment />} />
-        <Route path='test' element={<Test />} />
-      </Route>
-    ))
+  const Router = createBrowserRouter([
+    {
+      path: "/",
+      Component: RootLayout,
+      children: [
+        {index: true, Component: Home},
+        {path: "hotels",
+          children: [
+            {index: true, Component: Hotel},
+            {path: "/hotels/roomdetails", Component:RoomDetails}
+          ]
+        },
+        {path: "experiences", Component: Experiences},
+        {path: "discover", Component: Discover},
+        {path: "profile",
+          children: [
+            {path:"/profile/:id", Component: Profile},
+            // {path: "/settings", Component: Profile},
+            // {path: "/logout", Component: Home}
+          ]
+
+        }
+      ]
+    }
+
+  ])
 
   return (
     <RouterProvider router={Router} />

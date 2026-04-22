@@ -1,14 +1,14 @@
-import React from 'react'
-import { Logo } from './Logo'
-
+import { Link } from "react-router"
 const Footer = () => {
 
-    
+
 
     return (
-        <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
-            <aside className="text-3xl text-center">
-                <Logo customStyle={"footer-logo"}/>
+        <footer className="footer sm:footer-horizontal bg-base-300 p-10">
+            <aside className="w-max h-max">
+                <Link className="outline-none" to="/">
+                    <img className="w-30 h-30" src="/Icons/Logo.png" alt="logo" />
+                </Link>
             </aside>
             <nav>
                 <h6 className="footer-title">Services</h6>
