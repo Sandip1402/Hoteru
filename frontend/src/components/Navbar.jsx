@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, matchPath, NavLink, useNavigate } from 'react-router';
+import { Link, useNavigate, NavLink } from 'react-router';
 
 import { Logo } from './Logo';
 import { Movable } from './Movable';
@@ -9,6 +9,7 @@ import { Signup } from './Signup';
 import { fetchApi } from '../util/api';
 import { LoginButton } from './Loginbutton';
 import { LogoutButton } from './LogoutButton';
+import { FiMenu } from 'react-icons/fi';
 // import { useAuth } from '../context/AuthContext';
 
 
@@ -45,23 +46,31 @@ export const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm items-center">
 
             {/* Logo */}
-            <div className="flex-none pb-1">
-                <Link className="text-xl xl:text-3xl outline-none" to="/">
+            <div className="flex-none text-center max-md:text-lg md:text-2xl xl:text-3xl text-main-color/80">
+                <Link className="outline-none" to="/">
                     {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
-                    Hoteru
+                    <b>Hoteru</b>
                 </Link>
             </div>
 
             {/* Options */}
             <div className="flex-1 mx-4">
-                {/* { matchPath("/") ? 
-                    <div className='dropdown dropdown-end' >
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-
-                        </div>
+                {/* {matchRoutes([{ path:'/hotels'}], '/hotels') 
+                    <div className='dropdown dropdown-center' >
+                        <div tabIndex={0} role="button" className='cursor-pointer flex items-center' onSelect={(ev) => { console.dir(ev.target) }}>
+                            <li><NavLink to="/hotels">Places to stay</NavLink></li>   
+                            <img className="rotate-90 max-sm:size-5" src="Icons/Chevron_right.svg" alt="down_arrow" /> */}
+                            {/* Need to hide elements for smaller screen size*/}
+                            {/* <FiMenu /> */}
+                        {/* </div>
+                        <ul tabIndex={-1} className='dropdown-content bg-white p-3 rounded-2xl text-center
+                                    *:py-2 *:px-7 *:hover:bg-base-300 *:rounded-box'>
+                            <li><NavLink to="/experiences">Experiences</NavLink></li>
+                            <li><NavLink to="/discover">Discover</NavLink></li>
+                        </ul>
                     </div>
                     :
-                } */}
+                    } */}
                     <ul className='hidden md:flex'>
                         <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
                         <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
@@ -95,12 +104,12 @@ export const Navbar = () => {
                         </div>
                     </div>
                     {loggedIn ?
-                        (<ul tabIndex="-1" className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        (<ul tabIndex={-1} className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><Link to="/profile" >Profile</Link></li>
                             <li><Link>Settings</Link></li>
                             <li><LogoutButton /></li>
                         </ul>) :
-                        (<ul tabIndex="-1" className='menu dropdown-content rounded-box shadow bg-white'>
+                        (<ul tabIndex={-1} className='menu dropdown-content rounded-box shadow bg-white'>
                             <li><LoginButton /></li>
                         </ul>)
                     }

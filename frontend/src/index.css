@@ -17,11 +17,12 @@ html, body {
   /* overflow-x: hidden; */
 }
 
-body {
+* {
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   user-select: none;
-  @apply text-sm xl:text-2xl
+  @apply max-md:text-sm
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -35,6 +36,9 @@ body {
 
 li:focus{
   background-color: transparent !important;
+}
+li{
+  list-style: none;
 }
 
 /* ----------------------- Navbar ------------------------ */

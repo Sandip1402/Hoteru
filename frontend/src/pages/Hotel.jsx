@@ -45,10 +45,10 @@ export const Hotel = () => {
 
 
     return (
-        <div className="py-1 lg:px-20 w-full h-max flex">
+        <div className="py-1 lg:px-20 w-full flex justify-around">
 
             {/* Filter Options */}
-            <div className="hidden lg:block filters bg-white py-2 px-5 h-150 w-75 flex-col border-r-gray-600">
+            <div className="hidden lg:block filters bg-white py-2 px-5 h-max w-75 flex-col border-r-gray-600">
                 <CheckFilter showOptions={true} name={"Property type"} options={["Hotel", "Guest House", "House", "Apartment"]} />
                 <CheckFilter showOptions={true} name={"Price"} options={["Below $50", "$50 to $99", "$100 to $200", "Above $200"]} />
                 <RangeFilter name={"Reviews"} maxVal={5} />
@@ -58,8 +58,9 @@ export const Hotel = () => {
             </div>
 
             {/* Rooms */}
-            <div className="flex-1 lg:px-10 lg:py-5 flex-col xl:flex">
-                <p className="text-gray-500">150+ rooms</p>
+            <div className="flex max-md:px-3 md:px-5 py-2 xl:w-full max-xl:flex-col xl:gap-3 xl:flex-wrap">
+                {/* Need to add later */}
+                {/* <span className="w-full text-gray-500">150+ rooms</span> */}
                 <RoomCard />
                 <RoomCard />
                 <RoomCard />
@@ -75,7 +76,7 @@ export const Hotel = () => {
                 <RoomCard />
                 <RoomCard />
             </div>
-
+            
         </div>
     )
 }

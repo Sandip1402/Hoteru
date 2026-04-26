@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { fetchApi } from "../util/api";
 import { FiHeart, FiStar, FiCircle, FiShare2, FiHome } from "react-icons/fi";
+import { Review } from "../components/RoomCard";
 
 
 
@@ -39,19 +40,23 @@ const RoomDetails = () => {
     // if (error) return <p className="text-red-500 text-center my-auto">{error}</p>;
     // if (!item) return <p>No listing found</p>;
     return (
-        <div className="py-1 lg:px-20">
+        <div className="py-1 max-md:px-3 md:px-5 lg:px-20">
 
             {/* Intro */}
-            <section className="my-5 flex-col">
-                <b className="text-lg">Superior Family Room</b>
+            <section className="my-5 flex flex-col">
+
+                <div>
+                    <b className="text-lg">Superior Family Room</b>
+                    <Review />
+                </div>
                 <div className="flex justify-between">
                     {/*Review & place */}
                     <div className="flex gap-3">
-                        <span className="flex items-center gap-1">
+                        {/* <span className="flex items-center gap-1">
                             <FiStar strokeWidth={"0"} fill="blue" />
                             <p>3.5</p>
                             <p className="text-gray-500">(234 reviews)</p>
-                        </span>
+                        </span> */}
                         <span className="flex items-center gap-1">
                             <FiCircle size={6} fill="black" />
                             <p>Taito city, Tokyo, Japan</p>
@@ -78,7 +83,7 @@ const RoomDetails = () => {
             <section className="flex h-70">
                 <div className="flex-1 h-fit">
                     {/* OverView */}
-                    <div className="flex-col">
+                    <div className="flex flex-col">
                         <p className="my-3"><b>Overview</b></p>
                         <ul className="flex gap-2" >
                             <li><FiHome /></li>
