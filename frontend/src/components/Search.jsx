@@ -1,40 +1,45 @@
 import { FaSearch } from "react-icons/fa"
 import { useSearch } from "../context/SearchContext";
-import CheckInOut from "./CheckInOut";
+import { DateInput } from "./DateInput";
 
 function Search() {
 
-    const {setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues} = useSearch();
+    const { setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues } = useSearch();
 
 
     return (
-        
-        <form className="h-max xl:min-h-20 max-md:w-full md:max-w-fit rounded-2xl md:rounded-full sticky
-                            z-5 max-md:flex-col md:flex md:justify-between md:items-center max-md:p-3 md:p-2 
-                            md:py-2 lg:px-8 m-auto shadow bg-white"
-                    onSubmit={(ev) =>{ev.preventDefault(); console.log(searchValues)}}>
-            
+
+        <form className="m-auto shadow bg-white sticky z-5 flex max-sm:p-3 max-sm:flex-col max-sm:rounded-2xl max-sm:gap-y-2 
+                        sm:px-4 sm:py-2 sm:max-w-fit sm:rounded-full sm:justify-between sm:items-center"
+                        onSubmit={(ev) => { ev.preventDefault(); console.log(searchValues) }}>
+
             {/* Place selection */}
-            <span className="text-black md:mx-2">
+            <span className="w-30">
                 <label htmlFor="place">Location</label>
-                <input className="input-field block w-full" id="place" type="text" autoComplete="on" 
-                    placeholder="Where are you going?" onChange={(ev) => setPlace(ev.target.value)} />
+                <input className="input-field" size={10} id="place" type="text" autoComplete="on"
+                    placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} />
             </span>
 
-            <CheckInOut />
+            {/* Dates */}
+            <span className="flex max-sm:gap-6 sm:hidden">
+                <DateInput name={"Check In"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckIn}/>
+                <DateInput name={"Check Out"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckOut} />
+            </span>
+            <DateInput name={"Check In"} style={"max-sm:hidden"} />
+            <DateInput name={"Check Out"} style={"max-sm:hidden"} />
 
             {/* Guest Count */}
-            <span className="text-black md:ml-7 lg:mx-2 lg:pl-10">
+            <span className="w-30">
                 <label htmlFor="guestCount">Guests</label>
-                <input id="guestCount" className="input-field block w-full" type="number" 
+                <input id="guestCount" className="input-field" type="number"
                     min={1} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
             </span>
 
-            <button className="btn btn-block mt-3 md:btn-circle bg-main-color text-white">
+            <button className="btn btn-block sm:btn-circle bg-main-color text-white">
                 <FaSearch />
             </button>
         </form>
-        
+
     )
 }
 

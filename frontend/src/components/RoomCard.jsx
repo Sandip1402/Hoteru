@@ -16,6 +16,7 @@ export const Amenities = ({ style }) => {
     return (
         <ul className={`w-full text-xs flex flex-wrap gap-1 text-white 
                     *:p-2 *:bg-main-color/60 *:rounded-box ${style}`} >
+            {/* fix - have to adjust to show only first 3/4 depending on screen */}
             <li>2bed</li>
             <li>4guests</li>
             <li>2baths</li>
@@ -44,9 +45,9 @@ export const RoomCard = () => {
 
             {/* photos */}
             <span className="cursor-pointer max-sm:w-1/2 sm:w-70 
-                    xl:w-80 max-xl:h-full xl:h-max"
-                onClick={() => navigate(`/hotels/roomdetails`)}>
-                <img src="bg2.jpg" alt="room_image" className="rounded-2xl object-cover w-full max-xl:h-full xl:h-4/5" />
+                    xl:w-80 max-xl:h-full xl:h-max">
+                <img src="bg2.jpg" alt="room_image" className="rounded-2xl object-cover w-full max-xl:h-full xl:h-4/5"
+                    onClick={() => navigate(`/hotels/roomdetails`)} />
 
                 {/* small info at large screen - reduce scrolling*/}
                 <section className="hidden xl:flex flex-col p-1 gap-y-1 *:flex *:justify-between">
@@ -78,7 +79,7 @@ export const RoomCard = () => {
                     <p>Harley Connection</p>
                 </section>
 
-                <div className="max-sm:hidden w-20 h-0.5 bg-gray-300"></div>
+                <div className="max-sm:hidden w-30 h-0.5 border-b-1 border-b-gray-400"></div>
 
                 {/* Amenities */}
                 <Amenities style={"sm:w-4/5 sm:gap-y-2 sm:gap-2 max-sm:*:px-2 max-sm:*:py-1"} />
