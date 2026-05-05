@@ -10,6 +10,8 @@ import { Discover } from './pages/Discover.jsx'
 import { Profile } from './pages/Profile.jsx'
 import RoomDetails from "./pages/RoomDetails.jsx";
 import { Test } from "./pages/Test.jsx"
+import Payment  from "./pages/Payment.jsx";
+
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -21,6 +23,7 @@ function ProtectedRoute({ children }) {
 
 function App() {
 
+  {/* fix - need to apply path variables */}
   const Router = createBrowserRouter([
     {
       path: "/",
@@ -30,14 +33,15 @@ function App() {
         {path: "hotels",
           children: [
             {index: true, Component: Hotel},
-            {path: "/hotels/roomdetails", Component:RoomDetails}
+            {path: "/hotels/roomdetails", Component:RoomDetails},
+            {path: "/hotels/payment", Component:Payment}
           ]
         },
         {path: "experiences", Component: Experiences},
         {path: "discover", Component: Discover},
         {path: "profile",
           children: [
-            {path:"/profile/:id", Component: Profile},
+            {path:"/profile", Component: Profile},
             // {path: "/settings", Component: Profile},
             // {path: "/logout", Component: Home}
           ]

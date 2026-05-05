@@ -10,13 +10,14 @@ function Search() {
     return (
 
         <form className="m-auto shadow bg-white sticky z-5 flex max-sm:p-3 max-sm:flex-col max-sm:rounded-2xl max-sm:gap-y-2 
-                        sm:px-4 sm:py-2 sm:max-w-fit sm:rounded-full sm:justify-between sm:items-center"
+                        sm:px-6 sm:py-2 sm:items-center sm:gap-8 max-lg:w-full lg:w-2/3 sm:rounded-full sm:justify-between "
                         onSubmit={(ev) => { ev.preventDefault(); console.log(searchValues) }}>
 
             {/* Place selection */}
-            <span className="w-30">
+            <span className="w-30 mx-1">
                 <label htmlFor="place">Location</label>
-                <input className="input-field" size={10} id="place" type="text" autoComplete="on"
+                {/* fix - turn of underlined error squiggle */}
+                <input className="input-field" size={7} id="place" type="text"
                     placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} />
             </span>
 
@@ -25,13 +26,13 @@ function Search() {
                 <DateInput name={"Check In"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckIn}/>
                 <DateInput name={"Check Out"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckOut} />
             </span>
-            <DateInput name={"Check In"} style={"max-sm:hidden"} />
-            <DateInput name={"Check Out"} style={"max-sm:hidden"} />
+            <DateInput name={"Check In"} style={"max-sm:hidden "} />
+            <DateInput name={"Check Out"} style={"max-sm:hidden "} />
 
             {/* Guest Count */}
             <span className="w-30">
                 <label htmlFor="guestCount">Guests</label>
-                <input id="guestCount" className="input-field" type="number"
+                <input id="guestCount" className="input-field w-25" type="number"
                     min={1} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
             </span>
 

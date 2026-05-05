@@ -5,6 +5,7 @@ import { CheckFilter } from "../components/CheckFilter.jsx";
 import { RangeFilter } from "../components/RangeFilter.jsx";
 import BubbleFilter from "../components/BubbleFilter.jsx";
 import { RoomCard } from "../components/RoomCard.jsx";
+import { RoomCardFlat } from "../components/RoomCardFlat.jsx";
 
 export const Hotel = () => {
     // const [listings, setListings] = useState([]);
@@ -58,7 +59,26 @@ export const Hotel = () => {
             </div>
 
             {/* Rooms */}
-            <div className="flex max-md:px-3 md:px-5 py-2 xl:w-full max-xl:flex-col xl:gap-3 xl:flex-wrap">
+            <div className="flex flex-col py-2 max-md:px-3 md:px-5 xl:hidden">
+                {/* Need to add later */}
+                {/* <span className="w-full text-gray-500">150+ rooms</span> */}
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+                <RoomCardFlat />
+            </div>
+
+            <div className="max-xl:hidden xl:flex py-2 w-full gap-3 flex-wrap justify-end">
                 {/* Need to add later */}
                 {/* <span className="w-full text-gray-500">150+ rooms</span> */}
                 <RoomCard />

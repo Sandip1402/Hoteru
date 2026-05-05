@@ -2,9 +2,10 @@ import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { fetchApi } from "../util/api";
 import { FiHeart, FiStar, FiCircle, FiShare2, FiHome, FiCalendar } from "react-icons/fi";
-import { Review } from "../components/RoomCard";
+
 import { PaymentForm } from "../components/PaymentForm";
 import { ReviewCard } from "../components/ReviewCard";
+import { Review } from "../components/RoomComponents";
 
 
 const RoomDetails = () => {
@@ -132,8 +133,9 @@ const RoomDetails = () => {
 
             {/* Reviews */}
             <section className="mb-3">
+                <h3><b>Reviews</b></h3>
                 <Review style={"my-3"} />
-                <div className="w-full flex gap-y-5 max-sm:flex-col sm:flex-wrap sm:justify-between xl:gap-1">
+                <div className="w-full flex gap-y-5 max-sm:flex-col sm:flex-wrap sm:gap-x-5">
                     <ReviewCard />
                     <ReviewCard />
                     <ReviewCard />

@@ -15,6 +15,7 @@
 
 html, body {
   /* overflow-x: hidden; */
+  /* scrollbar-width: none; */
 }
 
 * {
@@ -22,7 +23,7 @@ html, body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   user-select: none;
-  @apply max-md:text-sm
+  @apply max-sm:text-sm
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -52,6 +53,16 @@ li{
   @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/50;
 }
 
+
+/* .swiper::part-pagination{
+  positon: absolute
+  bottom: -20px;
+}
+
+.swiper-pagination-bullet {
+  color: gray;
+} */
+
 /* -------------------------- Form ---------------------- */
 .input-field {
   @apply focus:outline-none text-sm;
@@ -66,12 +77,10 @@ li{
   @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
 }
 
-/* --------------- Filter ------------------------- */
-.expand-item:open{
-  transform: rotate(180);
-}
-
-/* -------------- Review Card -------------------- */
-.review-card-setting {
-  @apply sm:grid
+/* --------------- Room Card --------------------- */
+.bullet {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  border-radius: 100%;
 }
