@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react"
 
 import RootLayout from '../layout/RootLayout.jsx'
+import ProfileLayout from '../layout/ProfileLayout.jsx'
 import { Hotel } from './pages/Hotel.jsx'
 import { Home } from "./pages/Home.jsx";
 import { Experiences } from './pages/Experiences.jsx'
@@ -39,11 +40,14 @@ function App() {
         },
         {path: "experiences", Component: Experiences},
         {path: "discover", Component: Discover},
-        {path: "profile",
+        {path: "profile", Component: ProfileLayout,
           children: [
-            {path:"/profile", Component: Profile},
-            // {path: "/settings", Component: Profile},
-            // {path: "/logout", Component: Home}
+            {index: true, Component: Profile},
+            {path: "/profile/personal_info", Component: Profile},
+            {path: "/profile/security", Component: Profile},
+            {path: "/profile/payment_info", Component: Profile},
+            {path: "/profile/notification", Component: Profile},
+            {path: "/profile/logout", Component: Profile}
           ]
         },
         {path: "test", Component: Test}

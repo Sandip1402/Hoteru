@@ -5,36 +5,37 @@ import { fetchApi } from "../util/api";
 
 export const Profile = () => {
 
-    const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
-    let { userId } = useParams();
-    const apiFetch = fetchApi();
+    // const [user, setUser] = useState({});
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
-    useEffect(() => {
+    // let { userId } = useParams();
+    // const apiFetch = fetchApi();
+
+    // useEffect(() => {
         
-        const getUser = async() => {
-            try {
-                const res = await apiFetch(`/user/${userId}`,
-                    {method: "GET"}, true)
-                setUser(res.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-        getUser();
-    }, [])
+    //     const getUser = async() => {
+    //         try {
+    //             const res = await apiFetch(`/user/${userId}`,
+    //                 {method: "GET"}, true)
+    //             setUser(res.data);
+    //         } catch (err) {
+    //             setError(err.message);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     getUser();
+    // }, [])
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p className="text-red-500">{error}</p>;
-    if (!user) return <p>No data found</p>;
+    // if (loading) return <p>Loading...</p>;
+    // if (error) return <p className="text-red-500">{error}</p>;
+    // if (!user) return <p>No data found</p>;
 
   return (
     /* Sidebar */
-    <div>
+    <div className="p-4">
         <p>profile</p>
     </div>
   )

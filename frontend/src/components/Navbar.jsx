@@ -46,10 +46,10 @@ export const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm items-center">
 
             {/* Logo */}
-            <div className="flex-none text-center max-md:text-lg md:text-2xl xl:text-3xl text-main-color/80">
-                <Link className="outline-none" to="/">
+            <div className="flex-none text-center max-md:text-lg md:text-2xl xl:text-3xl text-primary">
+                <Link className="outline-none font-bold" to="/">
                     {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
-                    <b>Hoteru</b>
+                    Hoteru
                 </Link>
             </div>
 
@@ -119,7 +119,7 @@ export const Navbar = () => {
     )
 }
 
-// <nav className="h-35 bg-main-color/80 flex-col p-3">
+// <nav className="h-35 bg-primary/80 flex-col p-3">
 //     <div className="nav-top h-1/2 mb-2 flex items-center justify-between">
 
 //         <Logo customStyle="nav-top-start w-1/3" />

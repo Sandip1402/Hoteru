@@ -78,7 +78,7 @@ const RoomDetails = () => {
                 Photos
             </section>
 
-            <section className="flex justify-between max-lg:flex-col">
+            <section className="flex justify-between max-lg:flex-col gap-x-5 xl:gap-x-10">
 
                 {/* Room Details */}
                 <div className="flex-col gap-y-3 flex-2">
@@ -86,15 +86,15 @@ const RoomDetails = () => {
                     {/* OverView */}
                     <div className="flex flex-col gap-y-2">
                         <h3><b>Overview</b></h3>
-                        <ul className="flex gap-2 items-center" >
-                            <li><FiHome className="text-main-color" /></li>
-                            <li><b>2bed</b></li>
-                            <li><b>4guests</b></li>
-                            <li><b>2 private baths</b></li>
+                        <ul className="flex gap-2 items-center font-bold" >
+                            <li><FiHome className="text-primary" /></li>
+                            <li>2bed</li>
+                            <li>4guests</li>
+                            <li>2baths</li>
                         </ul>
-                        <span className="flex gap-2 items-center">
+                        <span className="flex gap-2 items-center font-bold">
                             <FiCalendar className="text-pink-600" />
-                            <b>Free cancellation withing 48 hours</b>
+                            <p>Free cancellation withing 48 hours</p>
                         </span>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum sint aperiam ducimus odio
                             explicabo facere dignissimos magnam? Ullam consectetur eligendi asperiores at animi

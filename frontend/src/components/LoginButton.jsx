@@ -5,7 +5,7 @@ export const LoginButton = () => {
   return (
     <button
       onClick={() => loginWithRedirect()}
-      className="bg-main-color rounded-box text-amber-50"
+      className="bg-primary rounded-box text-amber-50"
     >
       Login/Signup
     </button>

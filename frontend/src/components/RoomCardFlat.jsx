@@ -36,7 +36,8 @@ export const RoomCardFlat = () => {
                 <div className="w-30 h-0.5 border-b-1 border-b-gray-400"></div>
 
                 {/* Amenities */}
-                <Amenities style={"max-sm:text-gray-500 sm:w-4/5 sm:gap-y-2 sm:gap-2 sm:text-white sm:*:p-2 sm:*:bg-main-color/60 sm:*:rounded-box"} />
+                {/* fix - show only 3/4 */}
+                <Amenities style={"max-sm:text-gray-500 sm:gap-y-2 sm:gap-2 sm:text-white sm:*:p-2 sm:*:bg-primary/60 sm:*:rounded-box"} />
 
                 {/* Review & price */}
                 <section className="flex justify-between">

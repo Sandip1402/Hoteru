@@ -7,8 +7,7 @@
 
 @theme {
   --color-logo: #F55F0A;
-  --color-main-color: #2c35e0ff;
-  --color-background: #faedcd;
+  --color-primary: #636AE8;
   --font-optical-sizing: auto;
   /* --logo-size: min(30px, 5vw, 50px); */
 }
@@ -16,6 +15,7 @@
 html, body {
   /* overflow-x: hidden; */
   /* scrollbar-width: none; */
+  @apply max-sm:text-sm
 }
 
 * {
@@ -23,7 +23,6 @@ html, body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   user-select: none;
-  @apply max-sm:text-sm
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -44,13 +43,13 @@ li{
 
 /* ----------------------- Navbar ------------------------ */
 .active {
-  color: var(--color-main-color)
+  color: var(--color-primary)
 }
 
 
 /* ----------------------------  Home page --------------------- */
 .dropdown-item {
-  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/50;
+  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-primary/50;
 }
 
 

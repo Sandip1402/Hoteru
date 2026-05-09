@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { FaArrowLeft, FaPen } from 'react-icons/fa'
-import { FiArrowLeft } from 'react-icons/fi'
+import { FaChevronLeft, FaPen } from 'react-icons/fa'
 import { Link } from 'react-router'
 import { RoomCardFlat } from '../components/RoomCardFlat'
 import { PriceDetails } from '../components/PaymentForm'
@@ -13,11 +12,11 @@ const Payment = () => {
     return (
         <div className='max-md:p-3 md:p-5 lg:px-15 xl:px-20'>
             <Link to='/hotels/roomdetails' className='flex items-center w-max text-gray-500'>
-                <img className="rotate-180 size-5" src="/Icons/Chevron_right.svg" alt="left_arrow" />
+                <FaChevronLeft  size={10} />
                 Back
             </Link>
 
-            <h3 className='text-2xl my-5'><b>Confirm and Pay</b></h3>
+            <h3 className='text-xl my-5 font-bold'>Confirm and Pay</h3>
 
             <div className='flex max-lg:flex-col max-lg:gap-y-5 lg:justify-between lg:flex-row-reverse'>
                 {/* Room Detail */}
@@ -29,7 +28,7 @@ const Payment = () => {
                 <section className='lg:flex lg:flex-col lg:gap-y-5 lg:w-9/20'>
                     {/* Trip Details */}
                     <div className='flex flex-col gap-y-2'>
-                        <h3 className='text-xl max-lg:mt-2'><b>Your Trip</b></h3>
+                        <h3 className='text-lg max-lg:mt-2 font-bold'>Your Trip</h3>
                         <div className='flex max-lg:flex-col max-lg:gap-y-2 lg:gap-x-3 
                                         *:flex-1 *:flex-col *:bg-base-300 *:py-2 *:px-3 *:rounded-box 
                                         **:last:flex **:last:justify-between'>
@@ -53,9 +52,9 @@ const Payment = () => {
 
                     {/* Payment options */}
                     <div className='flex flex-col gap-y-2'>
-                        <h3 className='text-xl max-lg:mt-2'><b>Pay with</b></h3>
+                        <h3 className='text-lg max-lg:mt-2 font-bold'>Pay with</h3>
                         <ul className='flex *:py-2 *:px-3 *:rounded-full *:text-sm *:bg-base-300 gap-5
-                                *:hover:bg-main-color/80 *:hover:text-white *:cursor-pointer'>
+                                *:hover:bg-primary/80 *:hover:text-white *:cursor-pointer'>
                             <li>Credit Card</li>
                             <li>Paypal</li>
                             <li>Google Pay</li>

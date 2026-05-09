@@ -38,7 +38,7 @@ export const RoomCard = () => {
                         <p className="text-gray-500">Apartment in ueno</p>
                         <span className="block text-end">$49/guest</span>
                     </div>
-                    <Amenities style={'text-white *:p-2 *:bg-main-color/60 *:rounded-box'} />
+                    <Amenities style={'text-white *:p-2 *:bg-primary/60 *:rounded-box'} />
                 </section>
             </span>
 

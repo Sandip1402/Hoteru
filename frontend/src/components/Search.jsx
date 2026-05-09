@@ -36,7 +36,7 @@ function Search() {
                     min={1} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
             </span>
 
-            <button className="btn btn-block sm:btn-circle bg-main-color text-white">
+            <button className="btn btn-block sm:btn-circle bg-primary text-white">
                 <FaSearch />
             </button>
         </form>

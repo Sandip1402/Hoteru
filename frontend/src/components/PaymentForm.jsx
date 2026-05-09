@@ -27,9 +27,9 @@ export const PriceDetails = () => {
             <span className="w-full h-0.5 border-b-1 border-b-gray-400"></span>
 
             {/* Total */}
-            <span>
-                <p><b>Total (USD)</b></p>
-                <p><b>$273</b></p>
+            <span className="font-bold">
+                <p>Total (USD)</p>
+                <p>$273</p>
             </span>
         </div>
     )
@@ -40,9 +40,9 @@ export const PaymentForm = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="h-max flex flex-col gap-y-3 bg-white lg:min-w-8/9 p-5 shadow-sm lg:shadow-xl rounded-2xl ">
+        <div className="h-max flex flex-col gap-y-3 bg-white lg:w-full xl:max-w-9/10 p-5 shadow-sm lg:shadow-xl rounded-2xl ">
 
-            <h3 className="mx-auto lg:underline"><b>Payment Info</b></h3>
+            <h3 className="mx-auto lg:underline font-bold">Payment Info</h3>
 
             <span className="flex justify-between">
                 <p><b>$87</b>/Night</p>
@@ -63,7 +63,7 @@ export const PaymentForm = () => {
             {/* Price Details */}
             <PriceDetails />
 
-            <span className="btn btn-block bg-main-color text-white" onClick={() => navigate('/hotels/payment')}>Book Now</span>
+            <span className="btn btn-block bg-primary text-white" onClick={() => navigate('/hotels/payment')}>Book Now</span>
             <p className="text-center text-xs text-gray-500">*Lorem ipsum dolor sit amet consectetur</p>
 
         </div>
