@@ -3,16 +3,16 @@ import { RouterProvider } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react"
 
 import RootLayout from '../layout/RootLayout.jsx'
+import ProfileLayout from '../layout/ProfileLayout.jsx'
 import { Hotel } from './pages/Hotel.jsx'
 import { Home } from "./pages/Home.jsx";
 import { Experiences } from './pages/Experiences.jsx'
 import { Discover } from './pages/Discover.jsx'
-// import { Service } from './pages/Service.jsx'
-// import { Test } from './pages/Test.jsx'
-// import { NotFound } from './components/NotFound.jsx'
-// import { Payment } from './components/Payment.jsx'
 import { Profile } from './pages/Profile.jsx'
 import RoomDetails from "./pages/RoomDetails.jsx";
+import { Test } from "./pages/Test.jsx"
+import Payment  from "./pages/Payment.jsx";
+
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -24,6 +24,7 @@ function ProtectedRoute({ children }) {
 
 function App() {
 
+  {/* fix - need to apply path variables */}
   const Router = createBrowserRouter([
     {
       path: "/",
@@ -33,19 +34,23 @@ function App() {
         {path: "hotels",
           children: [
             {index: true, Component: Hotel},
-            {path: "/hotels/roomdetails", Component:RoomDetails}
+            {path: "/hotels/roomdetails", Component:RoomDetails},
+            {path: "/hotels/payment", Component:Payment}
           ]
         },
         {path: "experiences", Component: Experiences},
         {path: "discover", Component: Discover},
-        {path: "profile",
+        {path: "profile", Component: ProfileLayout,
           children: [
-            {path:"/profile/:id", Component: Profile},
-            // {path: "/settings", Component: Profile},
-            // {path: "/logout", Component: Home}
+            {index: true, Component: Profile},
+            {path: "/profile/personal_info", Component: Profile},
+            {path: "/profile/security", Component: Profile},
+            {path: "/profile/payment_info", Component: Profile},
+            {path: "/profile/notification", Component: Profile},
+            {path: "/profile/logout", Component: Profile}
           ]
-
-        }
+        },
+        {path: "test", Component: Test}
       ]
     }
 

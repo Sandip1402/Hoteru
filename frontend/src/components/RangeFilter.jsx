@@ -13,7 +13,7 @@ export const RangeFilter = ({ name, maxVal }) => {
             <Filter name={name} setState={{ expand, setExpand }} />
             {expand &&
                 <div className="px-2 py-1">
-                    <input className="flex-1 outline-none range range-xs text-main-color" type="range"
+                    <input className="flex-1 outline-none range range-xs text-primary" type="range"
                        name={`${value}`} onChange={() => setValue(value)} step="1" min="0" max={`${maxVal}`} />
                     {/* <output className="bubble">{value}</output> */}
                 </div>

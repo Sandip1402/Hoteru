@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react"
 
 
-export const Slide = ({ items }) => {
-  const [item, setItem] = useState(items[0]);
-  // useEffect(() => {
-  //   items.map((item) => {
-  //     setInterval(() => {
-  //       setItem(item);
-  //     }, 10000);
-  //   })
-  //   }, [item])
-
-    return (
-      <div className="flex max-w- overflow-x-auto rounded-box">
-          <img src={`/${item}`} alt="bg_image" className="object-cover" />
-      </div>
-    )
-  }
+export const Slide = ({ item }) => {
+  return (
+    <div className="relative flex items-center justify-center h-60 sm:h-1/3" >
+      {/* <span className="h-96"> */}
+        <img src={`/${item}`} alt="background_image" className="object-cover rounded-2xl w-full h-full" />
+      {/* </span> */}
+      <p className="absolute text-white md:text-xl lg:text-3xl">Awaken to a different world</p>
+    </div>
+  )
+}

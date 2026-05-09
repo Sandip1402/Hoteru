@@ -1,30 +1,46 @@
 import { FaSearch } from "react-icons/fa"
 import { useSearch } from "../context/SearchContext";
+import { DateInput } from "./DateInput";
 
 function Search() {
 
-    const searchValues = useSearch();
+    const { setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues } = useSearch();
+
 
     return (
-        <form className={`h-max w-max xl:min-w-3/5  xl:min-h-20 rounded-full sticky z-1 flex justify-between items-center p-2 m-auto shadow bg-white`}>
-            <span className="text-black md:mx-4">
+
+        <form className="m-auto shadow bg-white sticky z-5 flex max-sm:p-3 max-sm:flex-col max-sm:rounded-2xl max-sm:gap-y-2 
+                        sm:px-6 sm:py-2 sm:items-center sm:gap-8 max-lg:w-full lg:w-2/3 sm:rounded-full sm:justify-between "
+                        onSubmit={(ev) => { ev.preventDefault(); console.log(searchValues) }}>
+
+            {/* Place selection */}
+            <span className="w-30 mx-1">
                 <label htmlFor="place">Location</label>
-                <input className="input-field block" id="place" type="text" autoComplete="on" placeholder="Where are you going?" />
+                {/* fix - turn of underlined error squiggle */}
+                <input className="input-field" size={7} id="place" type="text"
+                    placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} />
             </span>
-            <span className="text-black md:mx-4">
-                <label>Check in</label>
-                <input className="input-field block" type="date" placeholder="pick date" onClick={(ev) => console.log(ev)} />
+
+            {/* Dates */}
+            <span className="flex max-sm:gap-6 sm:hidden">
+                <DateInput name={"Check In"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckIn}/>
+                <DateInput name={"Check Out"} style={"max-sm:*:last:border-b-1 max-sm:*:last:border-b-gray-400"} setDate={setCheckOut} />
             </span>
-            <span className="text-black md:mx-4">
-                <label>Check out</label>
-                <input className="input-field block" type="date" placeholder="Pick date" />
+            <DateInput name={"Check In"} style={"max-sm:hidden "} />
+            <DateInput name={"Check Out"} style={"max-sm:hidden "} />
+
+            {/* Guest Count */}
+            <span className="w-30">
+                <label htmlFor="guestCount">Guests</label>
+                <input id="guestCount" className="input-field w-25" type="number"
+                    min={1} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
             </span>
-            <span className="text-black md:mx-4">
-                <label>Guests</label>
-                <input className="input-field block" type="number" min={1} placeholder="Total guests" />
-            </span>
-            <div className="btn btn-circle bg-main-color text-white" onClick={() => { console.log(searchValues) }}><FaSearch /></div>
+
+            <button className="btn btn-block sm:btn-circle bg-primary text-white">
+                <FaSearch />
+            </button>
         </form>
+
     )
 }
 

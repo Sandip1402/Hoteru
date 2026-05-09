@@ -9,7 +9,7 @@ const BubbleFilter = ({name, options}) => {
             {expand &&
                 <div className="p-2 flex flex-wrap gap-2 text-center">
                     {options.map((option) => {
-                       return <span className="h-max flex-1 p-2 bg-base-300 cursor-pointer hover:bg-main-color/80 hover:text-white rounded-box">
+                       return <span className="flex-1 p-2 bg-base-300 rounded-box cursor-pointer hover:bg-primary/80 hover:text-white">
                                 {option}
                             </span>
                     })}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 @import "tailwindcss";
 
 @plugin "daisyui"{
@@ -7,21 +7,22 @@
 
 @theme {
   --color-logo: #F55F0A;
-  --color-main-color: #2c35e0ff;
-  --color-background: #faedcd;
+  --color-primary: #636AE8;
   --font-optical-sizing: auto;
   /* --logo-size: min(30px, 5vw, 50px); */
 }
 
 html, body {
   /* overflow-x: hidden; */
+  /* scrollbar-width: none; */
+  @apply max-sm:text-sm
 }
 
-body {
+* {
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   user-select: none;
-  @apply text-sm xl:text-2xl
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -36,21 +37,34 @@ body {
 li:focus{
   background-color: transparent !important;
 }
+li{
+  list-style: none;
+}
 
 /* ----------------------- Navbar ------------------------ */
 .active {
-  color: var(--color-main-color)
+  color: var(--color-primary)
 }
 
 
 /* ----------------------------  Home page --------------------- */
 .dropdown-item {
-  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-main-color/50;
+  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-primary/50;
 }
+
+
+/* .swiper::part-pagination{
+  positon: absolute
+  bottom: -20px;
+}
+
+.swiper-pagination-bullet {
+  color: gray;
+} */
 
 /* -------------------------- Form ---------------------- */
 .input-field {
-  @apply bg-white focus:outline-none text-sm;
+  @apply focus:outline-none text-sm;
 }
 
 /* ---------------- Review Form ------------------------ */
@@ -62,7 +76,10 @@ li:focus{
   @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
 }
 
-/* --------------- Filter ------------------------- */
-.expand-item:open{
-  transform: rotate(180);
+/* --------------- Room Card --------------------- */
+.bullet {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  border-radius: 100%;
 }
