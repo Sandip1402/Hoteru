@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { fetchApi } from "../util/api";
+import { fetchApi } from "../util/callAPI";
 import { FiHeart, FiStar, FiCircle, FiShare2, FiHome, FiCalendar } from "react-icons/fi";
 
 import { PaymentForm } from "../components/PaymentForm";

@@ -42,7 +42,7 @@ function App() {
         {path: "discover", Component: Discover},
         {path: "profile", Component: ProfileLayout,
           children: [
-            {index: true, Component: Profile},
+            {index: true, element: <Navigate to="/profile/personal_info" replace />},
             {path: "/profile/personal_info", Component: Profile},
             {path: "/profile/security", Component: Profile},
             {path: "/profile/payment_info", Component: Profile},

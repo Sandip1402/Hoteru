@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
 import { FormInput } from "./InputTypes";
-import { fetchApi } from "../util/api";
+import { fetchApi } from "../util/callAPI";
 import { useAuth } from "../context/AuthContext";
 
 

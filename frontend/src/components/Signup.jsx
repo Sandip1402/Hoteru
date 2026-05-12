@@ -7,7 +7,7 @@ import { ImCross } from "react-icons/im";
 
 import { FormInput } from "./InputTypes";
 import { useAuth } from "../context/AuthContext";
-import { fetchApi } from "../util/api";
+import { fetchApi } from "../util/callAPI";
 
 export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
     const methods = useForm();

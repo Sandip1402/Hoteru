@@ -12,8 +12,9 @@ createRoot(document.getElementById('root')).render(
                         clientId={import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID}
                         authorizationParams={{ 
                                 redirect_uri: window.location.origin,
-                                audience: import.meta.env.VITE_REACT_APP_AUTH0_AUDIENCE
+                                // audience: import.meta.env.VITE_REACT_APP_AUTH0_AUDIENCE
                         }}
+                        
                 >
                         <App />
                 </Auth0Provider>

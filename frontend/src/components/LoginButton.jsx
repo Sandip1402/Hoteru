@@ -5,9 +5,9 @@ export const LoginButton = () => {
   return (
     <button
       onClick={() => loginWithRedirect()}
-      className="bg-primary rounded-box text-amber-50"
+      className="bg-primary hover:bg-primary/80 rounded-full text-white font-semibold py-1 px-3 cursor-pointer"
     >
-      Login/Signup
+      Login | Signup
     </button>
   );
 };

@@ -6,7 +6,7 @@ import { Movable } from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
-import { fetchApi } from '../util/api';
+import { fetchApi } from '../util/callAPI';
 import { LoginButton } from './Loginbutton';
 import { LogoutButton } from './LogoutButton';
 import { FiMenu } from 'react-icons/fi';
@@ -60,9 +60,9 @@ export const Navbar = () => {
                         <div tabIndex={0} role="button" className='cursor-pointer flex items-center' onSelect={(ev) => { console.dir(ev.target) }}>
                             <li><NavLink to="/hotels">Places to stay</NavLink></li>   
                             <img className="rotate-90 max-sm:size-5" src="Icons/Chevron_right.svg" alt="down_arrow" /> */}
-                            {/* Need to hide elements for smaller screen size*/}
-                            {/* <FiMenu /> */}
-                        {/* </div>
+                {/* Need to hide elements for smaller screen size*/}
+                {/* <FiMenu /> */}
+                {/* </div>
                         <ul tabIndex={-1} className='dropdown-content bg-white p-3 rounded-2xl text-center
                                     *:py-2 *:px-7 *:hover:bg-base-300 *:rounded-box'>
                             <li><NavLink to="/experiences">Experiences</NavLink></li>
@@ -71,11 +71,11 @@ export const Navbar = () => {
                     </div>
                     :
                     } */}
-                    <ul className='hidden md:flex'>
-                        <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
-                        <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
-                        <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
-                    </ul>
+                <ul className='hidden md:flex'>
+                    <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
+                    <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
+                    <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
+                </ul>
             </div>
 
             {/* User-specific */}
@@ -103,16 +103,16 @@ export const Navbar = () => {
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         </div>
                     </div>
-                    {loggedIn ?
-                        (<ul tabIndex={-1} className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link to="/profile" >Profile</Link></li>
-                            <li><Link>Settings</Link></li>
-                            <li><LogoutButton /></li>
-                        </ul>) :
-                        (<ul tabIndex={-1} className='menu dropdown-content rounded-box shadow bg-white'>
+                    <ul tabIndex={-1} className="dropdown-content rounded-box bg-white z-1 mt-1 w-max p-2 shadow">
+                        {loggedIn ?
+                            <>
+                                <li><Link to="/profile" >Profile</Link></li>
+                                <li><LogoutButton /></li>
+                            </>
+                            :
                             <li><LoginButton /></li>
-                        </ul>)
-                    }
+                        }
+                    </ul>
                 </div>
             </div>
         </div>

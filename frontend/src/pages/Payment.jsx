@@ -11,7 +11,7 @@ const Payment = () => {
 
     return (
         <div className='max-md:p-3 md:p-5 lg:px-15 xl:px-20'>
-            <Link to='/hotels/roomdetails' className='flex items-center w-max text-gray-500'>
+            <Link to='/hotels/roomdetails' className='flex items-center w-max text-gray-500 cursor-pointer hover:underline'>
                 <FaChevronLeft  size={10} />
                 Back
             </Link>

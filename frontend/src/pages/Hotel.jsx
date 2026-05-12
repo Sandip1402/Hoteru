@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchApi } from "../util/api.js";
+import { fetchApi } from "../util/callAPI.js";
 import { FiMenu } from "react-icons/fi";
 import { CheckFilter } from "../components/CheckFilter.jsx";
 import { RangeFilter } from "../components/RangeFilter.jsx";

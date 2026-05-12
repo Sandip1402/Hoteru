@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { fetchApi } from "../util/api";
+import { fetchApi } from "../util/callAPI";
 
 
 export const Profile = () => {
@@ -35,7 +35,7 @@ export const Profile = () => {
 
   return (
     /* Sidebar */
-    <div className="p-4">
+    <div className="py-2 sm:p-4">
         <p>profile</p>
     </div>
   )

@@ -1,12 +1,12 @@
 import express from 'express';
 // const cookieParser = require("cookie-parser");
 
-import expressError from "./utils/expressError.js";
+// import expressError from "./utils/expressError.js";
 import registerRoutes from "./routes/connect_routes.js";
 import { prisma } from "./utils/prisma.js";
 import '@dotenvx/dotenvx/config'
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 const app = express();
 
 // express settings
@@ -24,12 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Routes
-registerRoutes(app, prisma);
-
-
-app.get('/', (req,res) => {
+app.get('/api', (req,res) => {
   res.json({message: "App is running"});
 })
+
+await registerRoutes(app, prisma);
+
 
 
 // // Error handling middleware

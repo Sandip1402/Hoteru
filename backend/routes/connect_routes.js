@@ -1,21 +1,24 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import { dirname, extname, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readdirSync } from 'node:fs';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // to connect all apis with express app at once, not individually
-export default function registerRoutes(app, prisma) {
-    // read all files in /apis folder
-  const Files = fs.readdirSync(__dirname);
+export default async function registerRoutes(app, prisma) {
+    // read all files in /routes folder
+  const Files = readdirSync(__dirname);
 
-  Files.forEach(file => {
-    // skiping itself
-    if (file === "connect_routes.js") return;
-    if (path.extname(file) !== '.js') return;
+  for (const file of Files) {
+    // skipping itself
+    if (file === "connect_routes.js") continue;
+    if (extname(file) !== '.js') continue;
 
-    // loading each file
-    const makeRouter = require(path.join(__dirname, file));
+    // loading each file dynamically
+    const moduleExport = await import(`./${file}`);
+    const makeRouter = moduleExport.default;
     const router = makeRouter(prisma);
 
-    app.use(`/api/${path.basename(file, '.js')}`, router);
-  });
-};
+    app.use(`/api/${basename(file, '.js')}`, router);
+  }
+}

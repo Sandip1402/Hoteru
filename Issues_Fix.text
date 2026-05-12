@@ -1,0 +1,5 @@
+1. Issue regarding profile path, wanted to make profile/personal_info as index but with normal settings two links with active class was being created
+    in profile page.
+
+    Fix : used Navigate in profile index path to open profile/personal_info page
+
