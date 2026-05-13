@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router'
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth } from '../src/hooks/useAuth'
 
 import { FaChevronLeft, FaHamburger } from 'react-icons/fa'
 import { ProfileSideBar } from '../src/components/ProfileSideBar'
@@ -11,7 +11,7 @@ import { LogoutButton } from '../src/components/LogoutButton';
 const ProfileLayout = () => {
 
     const [show, setShow] = useState(false);
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth();
     const location = useLocation();
 
     // Close sidebar on route change (for mobile)

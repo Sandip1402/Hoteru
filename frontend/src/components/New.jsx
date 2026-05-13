@@ -3,17 +3,17 @@ import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
 import { validateFiles } from "../util/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { fetchApi } from "../util/api";
+import { CallAPI } from "../util/api";
 import { useNavigate } from "react-router"
 
 export const New = () => {
     const methods = useForm();
     const navigate = useNavigate();
-    const apiFetch = fetchApi();
+    
     
     const saveData = async(data) => {
         const listing = {...data};
-        const res = await apiFetch('/listings/new', {
+        const res = await CallAPI('/listings/new', {
             method : "POST",
             body: JSON.stringify({listing})
         })

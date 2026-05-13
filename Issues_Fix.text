@@ -3,3 +3,10 @@
 
     Fix : used Navigate in profile index path to open profile/personal_info page
 
+2. CORS issue : as frontend and backend running on different port CORS enforce same-origin-policy
+
+    Fix : used vite's proxy server, will shift to api gateway (nginx) later
+
+3. Issue calling protected apis : auth0 exports can't be used in a js function directly
+
+    Fix : made a centralized custom hook that provides auth0 properties to other components

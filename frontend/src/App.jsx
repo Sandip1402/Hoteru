@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import { RouterProvider } from "react-router";
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth } from "./hooks/useAuth.js";
 
 import RootLayout from '../layout/RootLayout.jsx'
 import ProfileLayout from '../layout/ProfileLayout.jsx'
@@ -15,7 +15,7 @@ import Payment  from "./pages/Payment.jsx";
 
 
 function ProtectedRoute({ children }) {
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth();
   
   if (isLoading) return <div>Loading...</div>;
   
@@ -28,29 +28,29 @@ function App() {
   const Router = createBrowserRouter([
     {
       path: "/",
-      Component: RootLayout,
+      element: <RootLayout />,
       children: [
-        {index: true, Component: Home},
+        {index: true, element: <Home />},
         {path: "hotels",
           children: [
-            {index: true, Component: Hotel},
-            {path: "/hotels/roomdetails", Component:RoomDetails},
-            {path: "/hotels/payment", Component:Payment}
+            {index: true, element: <Hotel />},
+            {path: "/hotels/roomdetails", element: <RoomDetails />},
+            {path: "/hotels/payment", element: <Payment />}
           ]
         },
-        {path: "experiences", Component: Experiences},
-        {path: "discover", Component: Discover},
-        {path: "profile", Component: ProfileLayout,
+        {path: "experiences", element: <Experiences />},
+        {path: "discover", element: <Discover />},
+        {path: "profile", element: <ProfileLayout />,
           children: [
             {index: true, element: <Navigate to="/profile/personal_info" replace />},
-            {path: "/profile/personal_info", Component: Profile},
-            {path: "/profile/security", Component: Profile},
-            {path: "/profile/payment_info", Component: Profile},
-            {path: "/profile/notification", Component: Profile},
-            {path: "/profile/logout", Component: Profile}
+            {path: "/profile/personal_info", element: (<ProtectedRoute> <Profile /> </ProtectedRoute>)},
+            {path: "/profile/security", element: (<ProtectedRoute> <Profile /> </ProtectedRoute>)},
+            {path: "/profile/payment_info", element: (<ProtectedRoute> <Profile /> </ProtectedRoute>)},
+            {path: "/profile/notification", element: (<ProtectedRoute> <Profile /> </ProtectedRoute>)},
+            {path: "/profile/logout", element: (<ProtectedRoute> <Profile /> </ProtectedRoute>)}
           ]
         },
-        {path: "test", Component: Test}
+        {path: "test", element: <Test />}
       ]
     }
 

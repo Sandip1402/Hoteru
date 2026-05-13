@@ -1,7 +1,7 @@
 import { TbCameraPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
-import { fetchApi } from "../js/api";
+import { CallAPI } from "../js/api";
 import { ImagePreview } from "./ImagePreview";
 import { validateFiles } from "../js/validateFiles";
 
@@ -11,7 +11,7 @@ export const  ReviewForm = ({id}) => {
     const [comment, setComment] = useState("");
     const [files, setFiles] = useState([]); 
     const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
-    const apiFetch = fetchApi();
+    
 
     // manage image files
     const handleFileChange = (e) => {
@@ -43,7 +43,7 @@ export const  ReviewForm = ({id}) => {
         
 
         // api calling
-        const res = await apiFetch(`/listings/${id}/reviews`,{
+        const res = await CallAPI(`/listings/${id}/reviews`,{
             method: "POST",
             body: JSON.stringify({review})
         })

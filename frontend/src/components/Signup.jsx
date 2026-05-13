@@ -6,15 +6,14 @@ import { FaFacebook } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 import { FormInput } from "./InputTypes";
-import { useAuth } from "../context/AuthContext";
-import { fetchApi } from "../util/callAPI";
+import { CallAPI } from "../util/callAPI";
 
 export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
     const methods = useForm();
     const { handleSubmit } = methods;
 
     const { setAccessToken, setIsAuthenticated } = useAuth();
-    const apiFetch = fetchApi();
+    
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -25,13 +24,13 @@ export const Signup = ({ setShowLogin, setShowSignUp, setUser }) => {
 
         try {
             // Try signing up
-            await apiFetch('/signup', {
+            await CallAPI('/signup', {
                 method: "POST",
                 body: JSON.stringify({ user }),
             });
 
             // If signup succeeds, auto-login
-            const loginRes = await apiFetch('/login', {
+            const loginRes = await CallAPI('/login', {
                 method: "POST",
                 body: JSON.stringify({ user: { email: data.email, password: data.password } }),
             });

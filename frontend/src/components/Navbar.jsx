@@ -6,11 +6,11 @@ import { Movable } from './Movable';
 import { Modal } from './Modal';
 import { Login } from './Login';
 import { Signup } from './Signup';
-import { fetchApi } from '../util/callAPI';
+import { CallAPI } from '../util/callAPI';
 import { LoginButton } from './Loginbutton';
 import { LogoutButton } from './LogoutButton';
 import { FiMenu } from 'react-icons/fi';
-// import { useAuth } from '../context/AuthContext';
+
 
 
 export const Navbar = () => {
@@ -25,11 +25,11 @@ export const Navbar = () => {
 
     // const user = localStorage.getItem("user");
 
-    // const apiFetch = fetchApi();
+    // 
 
     // const logOut = async () => {
     //     try {
-    //         await apiFetch("/logout", { method: "POST" });
+    //         await CallAPI("/logout", { method: "POST" });
 
     //         // clear access token
     //         setAccessToken(null);

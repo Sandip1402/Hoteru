@@ -24,12 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Routes
-app.get('/api', (req,res) => {
+app.get('/', (req,res) => {
   res.json({message: "App is running"});
 })
 
-await registerRoutes(app, prisma);
 
+await registerRoutes(app, prisma);
 
 
 // // Error handling middleware
@@ -49,7 +49,7 @@ app.use((err, req, res, next) => {
 async function startServer() {
   try {
     app.listen(port, () => {
-      console.log(`Server running on http://localhost:${port}/`);
+      console.log(`Server running on http://localhost:${port}`);
     });
   } catch (error) {
     console.error('Failed to connect to database:', error.message);

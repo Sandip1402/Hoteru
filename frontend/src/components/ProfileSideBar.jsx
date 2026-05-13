@@ -1,12 +1,12 @@
 import { MdOutlineLogout } from 'react-icons/md'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router'
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth } from '../hooks/useAuth'
 
 export const ProfileSideBar = ({ setFunc, style }) => {
 
     const setShow = setFunc || (() => { }) // default to no-op if not provided
-    const { logout } = useAuth0();
+    const { logout } = useAuth();
 
     const sections = {
         personal_info: {
