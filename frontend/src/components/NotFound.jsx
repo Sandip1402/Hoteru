@@ -1,7 +1,10 @@
-import { NavLink } from "react-router"
+import { replace, useNavigate } from "react-router";
 import { FaRegSadTear } from "react-icons/fa";
 
 export const NotFound = () => {
+  
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-center items-center h-dvh">
       <div>
@@ -10,9 +13,9 @@ export const NotFound = () => {
           <p>404 | Page Not Found</p>
         </div>
         <p className="text-gray-700 text-lg md:text-2xl mt-2">
-          <NavLink to='/hotel' className={"outline-none"}>
-            &gt;&gt;Go to Home
-          </NavLink>
+          <button onClick={() => navigate('/', {replace : true})} className="outline-none">
+            &gt;&gt; Go to Home Page
+          </button>
         </p>
       </div>
     </div>

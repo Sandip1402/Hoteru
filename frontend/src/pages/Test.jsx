@@ -1,4 +1,4 @@
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../Auth/useAuth';
 import { CallAPI } from '../util/callAPI'
 
 

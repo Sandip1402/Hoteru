@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, NavLink } from 'react-router';
 
-import { Logo } from './Logo';
-import { Movable } from './Movable';
-import { Modal } from './Modal';
-import { Login } from './Login';
-import { Signup } from './Signup';
+import { useAuth } from '../Auth/useAuth';
 import { CallAPI } from '../util/callAPI';
+
+// import { Logo } from './Logo';
+// import { Movable } from './Movable';
+// import { Modal } from './Modal';
+// import { Login } from './Login';
+// import { Signup } from './Signup';
 import { LoginButton } from './Loginbutton';
 import { LogoutButton } from './LogoutButton';
 import { FiMenu } from 'react-icons/fi';
@@ -15,13 +17,12 @@ import { FiMenu } from 'react-icons/fi';
 
 export const Navbar = () => {
 
-    const [showLogin, setShowLogin] = useState(false);
-    const [showSignUp, setShowSignUp] = useState(false);
+    // const [showLogin, setShowLogin] = useState(false);
+    // const [showSignUp, setShowSignUp] = useState(false);
     const navigate = useNavigate();
 
-    // const { accessToken, setAccessToken } = useAuth();
-    // const loggedIn = !!accessToken; // converting to correct boolean
-    const loggedIn = false;
+    const { isAuthenticated } = useAuth();
+    const loggedIn = isAuthenticated;
 
     // const user = localStorage.getItem("user");
 
@@ -46,7 +47,7 @@ export const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm items-center">
 
             {/* Logo */}
-            <div className="flex-none text-center max-md:text-lg md:text-2xl xl:text-3xl text-primary">
+            <div className="flex-none text-center max-md:text-lg pb-1 md:text-2xl xl:text-3xl text-primary">
                 <Link className="outline-none font-bold" to="/">
                     {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
                     Hoteru
@@ -55,22 +56,7 @@ export const Navbar = () => {
 
             {/* Options */}
             <div className="flex-1 mx-4">
-                {/* {matchRoutes([{ path:'/hotels'}], '/hotels') 
-                    <div className='dropdown dropdown-center' >
-                        <div tabIndex={0} role="button" className='cursor-pointer flex items-center' onSelect={(ev) => { console.dir(ev.target) }}>
-                            <li><NavLink to="/hotels">Places to stay</NavLink></li>   
-                            <img className="rotate-90 max-sm:size-5" src="Icons/Chevron_right.svg" alt="down_arrow" /> */}
-                {/* Need to hide elements for smaller screen size*/}
-                {/* <FiMenu /> */}
-                {/* </div>
-                        <ul tabIndex={-1} className='dropdown-content bg-white p-3 rounded-2xl text-center
-                                    *:py-2 *:px-7 *:hover:bg-base-300 *:rounded-box'>
-                            <li><NavLink to="/experiences">Experiences</NavLink></li>
-                            <li><NavLink to="/discover">Discover</NavLink></li>
-                        </ul>
-                    </div>
-                    :
-                    } */}
+                {/* Fix : change this part based on path */}
                 <ul className='hidden md:flex'>
                     <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
                     <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
@@ -103,10 +89,12 @@ export const Navbar = () => {
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         </div>
                     </div>
-                    <ul tabIndex={-1} className="dropdown-content rounded-box bg-white z-1 mt-1 w-max p-2 shadow">
+                    <ul tabIndex={-1} className="dropdown-content rounded-box shadow bg-white z-10 p-2 w-30 md:w-40 
+                                                flex flex-col gap-y-2 text-center *:w-full *:flex-1 *:cursor-pointer">
                         {loggedIn ?
                             <>
-                                <li><Link to="/profile" >Profile</Link></li>
+                                <li className='rounded-box hover:bg-gray-100' onClick={() => navigate('/profile')}>Profile</li>
+                                <li><div className="w-full h-0.5 border-b-1 border-gray-300">-</div></li>
                                 <li><LogoutButton /></li>
                             </>
                             :

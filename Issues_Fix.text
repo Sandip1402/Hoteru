@@ -10,3 +10,11 @@
 3. Issue calling protected apis : auth0 exports can't be used in a js function directly
 
     Fix : made a centralized custom hook that provides auth0 properties to other components
+
+4. Navigate issue : After authentication couldn't send user back to his page always going to the home page,
+    Fix : Made a wrapper (Auth0ProviderWithHistory) with redirectcallback function which uses appstate but
+            couldn't use useNavigate hook as it's outside of router context
+    Fix : used plain browser navigation (window.history.replaceState or window.location.pathname), 
+            which does not require React Router hooks.
+    Fix : even after using plain browser navigation it didn't work as expected, so made a separte file for Router.
+            imported router in both app.jsx and Auth0ProviderWithHistory

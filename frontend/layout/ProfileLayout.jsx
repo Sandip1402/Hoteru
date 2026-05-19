@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router'
-import { useAuth } from '../src/hooks/useAuth'
+import { useAuth } from '../src/Auth/useAuth'
 
 import { FaChevronLeft, FaHamburger } from 'react-icons/fa'
 import { ProfileSideBar } from '../src/components/ProfileSideBar'
@@ -44,7 +44,7 @@ const ProfileLayout = () => {
 
                 {/* sidebar and content screen-wise */}
                 {/* fix - height */}
-                {show && <ProfileSideBar setFunc={setShow} style={'sm:hidden absolute z-10 py-2 px-4 border-y-2 w-2/3 *:last:gap-y-4'} />}
+                {show && <ProfileSideBar setFunc={setShow} style={'sm:hidden absolute z-10 py-2 px-4 border-y-2 w-60 *:last:gap-y-4'} />}
                 <div className='sm:flex max-lg:px-2 lg:px-8'>
                     <ProfileSideBar style={'hidden sm:block sm:w-3/10 p-4 *:last:gap-y-5 h-max'} />
                     <Outlet />

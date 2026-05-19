@@ -27,11 +27,8 @@ logs
 # Environment variables
 # -------------------------
 .env
-.env.*
-frontend/.env
-frontend/.env.*
-backend/.env
-backend/.env.*
+**/.env.*
+
 
 # -------------------------
 # Editor & OS files
@@ -56,4 +53,4 @@ frontend/.next/
 
 
 ideas.txt
-
+.copilotignore

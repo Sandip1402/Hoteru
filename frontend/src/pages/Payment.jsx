@@ -29,7 +29,7 @@ const Payment = () => {
                     {/* Trip Details */}
                     <div className='flex flex-col gap-y-2'>
                         <h3 className='text-lg max-lg:mt-2 font-bold'>Your Trip</h3>
-                        <div className='flex max-lg:flex-col max-lg:gap-y-2 lg:gap-x-3 
+                        <div className='flex max-md:flex-col max-md:gap-y-2 md:gap-x-3 
                                         *:flex-1 *:flex-col *:bg-base-300 *:py-2 *:px-3 *:rounded-box 
                                         **:last:flex **:last:justify-between'>
                             <span>
