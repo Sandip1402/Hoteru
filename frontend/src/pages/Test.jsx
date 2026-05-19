@@ -3,6 +3,8 @@ import { CallAPI } from '../util/callAPI'
 
 
 import { useEffect, useState } from 'react';
+import ErrorPage from './ErrorPage';
+import RootError from './RootCrash';
 
 export const Test = () => {
 
@@ -32,9 +34,11 @@ export const Test = () => {
 
 
   return (
-    <div className='flex flex-col gap-y-4 justify-center items-center h-screen'>
-      <button className='btn ' onClick={fetchData}>Fetch Data</button>
-      <span className='shadow p-4'>{data ? JSON.stringify(data) : 'No data fetched'}</span>
+    <div className='flex flex-col gap-y-4 justify-center items-center'>
+      {/* <button className='btn ' onClick={fetchData}>Fetch Data</button>
+      <span className='shadow p-4'>{data ? JSON.stringify(data) : 'No data fetched'}</span> */}
+      {/* <ErrorPage /> */}
+      <RootCrash />
     </div>
   )
 }

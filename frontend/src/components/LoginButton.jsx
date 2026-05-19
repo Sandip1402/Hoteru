@@ -19,7 +19,7 @@ export const LoginButton = () => {
   return (
     <button
       onClick={handleLogin}
-      className="bg-primary hover:bg-primary/80 rounded-full w-full text-white font-semibold py-1 px-3"
+      className="bg-primary hover:bg-primary/80 rounded-full w-full text-white font-semibold py-1 cursor-pointer"
     >
       Login | Signup
     </button>
