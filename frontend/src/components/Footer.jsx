@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="footer sm:footer-horizontal bg-base-300 p-10">
             <aside className="w-max h-max">
                 <Link className="outline-none" to="/">
-                    <img className="w-20 h-20" src="/Icons/Logo.png" alt="logo" />
+                    <img className="size-25" src="/Icons/Logo.png" alt="logo" />
                 </Link>
             </aside>
             <nav className="max-sm:px-2">

@@ -11,7 +11,7 @@ const Payment = () => {
 
     return (
         <div className='max-md:p-3 md:p-5 lg:px-15 xl:px-20'>
-            <Link to='/hotels/roomdetails' className='flex items-center w-max text-gray-500'>
+            <Link to='/hotels/roomdetails' className='flex items-center w-max text-gray-500 cursor-pointer hover:underline'>
                 <FaChevronLeft  size={10} />
                 Back
             </Link>
@@ -29,7 +29,7 @@ const Payment = () => {
                     {/* Trip Details */}
                     <div className='flex flex-col gap-y-2'>
                         <h3 className='text-lg max-lg:mt-2 font-bold'>Your Trip</h3>
-                        <div className='flex max-lg:flex-col max-lg:gap-y-2 lg:gap-x-3 
+                        <div className='flex max-md:flex-col max-md:gap-y-2 md:gap-x-3 
                                         *:flex-1 *:flex-col *:bg-base-300 *:py-2 *:px-3 *:rounded-box 
                                         **:last:flex **:last:justify-between'>
                             <span>

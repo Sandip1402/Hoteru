@@ -1,8 +1,7 @@
 // apis/users.js
 import express from 'express'
-import checkJwt from '../utils/middlewares/auth.js';
-import { findSourceMap } from 'node:module';
 const router = express.Router();
+import checkJwt from '../utils/middlewares/auth.js';
 
 export default function (prisma) {
   router.get('/', checkJwt, async (req, res) => {

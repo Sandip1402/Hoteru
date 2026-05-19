@@ -7,8 +7,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
 import { FormInput } from "./InputTypes";
-import { fetchApi } from "../util/api";
-import { useAuth } from "../context/AuthContext";
+import { CallAPI } from "../util/callAPI";
+
 
 
 export const Login = ({ setShowLogin, setShowSignUp }) => {
@@ -16,7 +16,7 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
     const { handleSubmit } = methods;
 
     const { setAccessToken, setIsAuthenticated } = useAuth();
-    const apiFetch = fetchApi();
+    
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('')
@@ -24,7 +24,7 @@ export const Login = ({ setShowLogin, setShowSignUp }) => {
     const checkData = async (data) => {
         const user = { ...data };
         try {
-            const res = await apiFetch('/login', {
+            const res = await CallAPI('/login', {
                 method: "POST",
                 body: JSON.stringify({ user })
             })

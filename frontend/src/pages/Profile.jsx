@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { fetchApi } from "../util/api";
+import { CallAPI } from "../util/callAPI";
 
 
 export const Profile = () => {
@@ -11,13 +11,13 @@ export const Profile = () => {
     // const [error, setError] = useState(null);
 
     // let { userId } = useParams();
-    // const apiFetch = fetchApi();
+    // 
 
     // useEffect(() => {
         
     //     const getUser = async() => {
     //         try {
-    //             const res = await apiFetch(`/user/${userId}`,
+    //             const res = await CallAPI(`/user/${userId}`,
     //                 {method: "GET"}, true)
     //             setUser(res.data);
     //         } catch (err) {
@@ -35,17 +35,17 @@ export const Profile = () => {
 
   return (
     /* Sidebar */
-    <div className="p-4">
+    <div className="py-2 sm:p-4">
         <p>profile</p>
     </div>
   )
 }
 
 
-// import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth } from '../hooks/useAuth';
 
 // const Profile = () => {
-//   const { user, isAuthenticated, isLoading } = useAuth0();
+//   const { user, isAuthenticated, isLoading } = useAuth();
 
 //   if (isLoading) {
 //     return <div className="loading-text">Loading profile...</div>;

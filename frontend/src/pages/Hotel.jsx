@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchApi } from "../util/api.js";
+import { CallAPI } from "../util/callAPI.js";
 import { FiMenu } from "react-icons/fi";
 import { CheckFilter } from "../components/CheckFilter.jsx";
 import { RangeFilter } from "../components/RangeFilter.jsx";
@@ -11,7 +11,7 @@ export const Hotel = () => {
     // const [listings, setListings] = useState([]);
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
-    // const apiFetch = fetchApi();
+    // 
 
     // useEffect(() => {
 
@@ -20,7 +20,7 @@ export const Hotel = () => {
     //             setLoading(true);
     //             setError(null);
 
-    //             const res = await apiFetch('/listings', { method: "GET" });
+    //             const res = await CallAPI('/listings', { method: "GET" });
     //             setListings(res.data);
     //         } catch {
     //             setError("Failed to load hotels 😢");

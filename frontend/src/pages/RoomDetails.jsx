@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { fetchApi } from "../util/api";
+import { CallAPI } from "../util/callAPI";
 import { FiHeart, FiStar, FiCircle, FiShare2, FiHome, FiCalendar } from "react-icons/fi";
 
 import { PaymentForm } from "../components/PaymentForm";
@@ -17,7 +17,7 @@ const RoomDetails = () => {
     // const [error, setError] = useState(null);
     const [save, setSave] = useState(false);
 
-    // const apiFetch = fetchApi();
+    // 
 
     // useEffect(() => {
     //     const fetchItem = async () => {
@@ -25,7 +25,7 @@ const RoomDetails = () => {
     //             setLoading(true);
     //             setError(null);
 
-    //             const res = await apiFetch(`/listings/${id}`, { method: "GET" });
+    //             const res = await CallAPI(`/listings/${id}`, { method: "GET" });
     //             setItem(res.data);
     //         } catch (err) {
     //             setError("Failed to load hotel detail 😢");
