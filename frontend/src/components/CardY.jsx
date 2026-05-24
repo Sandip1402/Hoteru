@@ -1,5 +1,4 @@
 {/* Veritcal Card */}
-
 export const CardY = ({item, style}) => {
   return (
     <span className="h-60 w-50">

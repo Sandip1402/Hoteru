@@ -24,10 +24,25 @@ export const ProfileSideBar = ({ setFunc, style }) => {
             icon: "/Icons/lock-alt.svg",
             label: "Security"
         },
-        email_notify: {
+        notification: {
             path: "/profile/notification",
-            icon: "/Icons/Notification.svg",
+            icon: "/Icons/notification.svg",
             label: "Notification"
+        },
+        bookings: {
+            path: "/profile/booking_history",
+            icon: "/Icons/booking.svg",
+            label: "Booking History"
+        },
+        wishlist: {
+            path: "/profile/wishlist",
+            icon: "/Icons/wishlist.svg",
+            label: "Wishlist"
+        },
+        hostings: {
+            path: "/profile/hostings",
+            icon: "/Icons/hosting.svg",
+            label: "Hostings"
         }
     }
 

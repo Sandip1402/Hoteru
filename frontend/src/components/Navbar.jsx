@@ -4,13 +4,9 @@ import { Link, useNavigate, NavLink } from 'react-router';
 import { useAuth } from '../Auth/useAuth';
 import { CallAPI } from '../util/callAPI';
 
-// import { Logo } from './Logo';
-// import { Movable } from './Movable';
-// import { Modal } from './Modal';
-// import { Login } from './Login';
-// import { Signup } from './Signup';
-import { LoginButton } from './Loginbutton';
-import { LogoutButton } from './LogoutButton';
+import { LoginButton } from './LoginButton.jsx';
+import { LogoutButton } from './LogoutButton.jsx';
+
 import { FiMenu } from 'react-icons/fi';
 
 
@@ -66,16 +62,17 @@ export const Navbar = () => {
 
             {/* User-specific */}
             <div className="flex-none">
+                
                 {/* chats */}
                 <button className="btn btn-ghost btn-circle">
-                    <Link to="/profile/:id/chats" ><img src="/Icons/Message.svg" className="h-5 w-5" /></Link>
+                    <Link to="/profile/:id/chats" ><img src="/Icons/message.svg" className="h-6 w-6" /></Link>
                 </button>
 
-                {/* Notifications */}
+                {/* Offers */}
                 <button className="btn btn-ghost btn-circle">
-                    <Link to="/notification">
+                    <Link to="/offers">
                         <div className="indicator relative top-0.5">
-                            <img src="/Icons/Notification.svg" className='h-5 w-5' alt="bell_icon" />
+                            <img src="/Icons/offers.svg" className='h-6 w-6' alt="offers" />
                         </div>
                     </Link>
                 </button>

@@ -2,11 +2,11 @@ import { TbCameraPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
 import { CallAPI } from "../js/api";
-import { ImagePreview } from "./ImagePreview";
+import ImagePreview from "./ImagePreview.jsx";
 import { validateFiles } from "../js/validateFiles";
 
 
-export const  ReviewForm = ({id}) => {
+export const ReviewForm = ({id}) => {
     const [rating, setRating] = useState(4);
     const [comment, setComment] = useState("");
     const [files, setFiles] = useState([]); 

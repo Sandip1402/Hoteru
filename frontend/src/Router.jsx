@@ -5,19 +5,11 @@ import { useAuth } from "./Auth/useAuth.js";
 import RootLayout from '../layout/RootLayout.jsx'
 import ProfileLayout from '../layout/ProfileLayout.jsx'
 
-import { NotFound } from "./components/NotFound.jsx";
-import { LoginButton } from "./components/Loginbutton.jsx";
-import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
+import { ProtectedRoute } from "./components";
 
-import { Hotel } from './pages/Hotel.jsx'
-import { Home } from "./pages/Home.jsx";
-import { Experiences } from './pages/Experiences.jsx'
-import { Discover } from './pages/Discover.jsx'
-import { Profile } from './pages/Profile.jsx'
-import { Test } from "./pages/Test.jsx"
-import RoomDetails from "./pages/RoomDetails.jsx";
-import Payment from "./pages/Payment.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+import { Bookings, Experiences,  Hotel, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
+        SavedPayment, WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security } from "./pages";
+
 
 
 export const Router = createBrowserRouter([
@@ -25,7 +17,7 @@ export const Router = createBrowserRouter([
         /* fix - need to apply dynamic paths */
         path: "/",
         element: <RootLayout />,
-        // errorElement:
+        errorElement: <RootCrash />,
         children: [
             {
                 errorElement: <ErrorPage />,
@@ -41,15 +33,20 @@ export const Router = createBrowserRouter([
                     },
                     { path: "experiences", element: <Experiences /> },
                     { path: "discover", element: <Discover />},
+                    // {path: "notification", element: <Notification />}, {/* fix - need to add notification page */}
+                    // {path: "chat", element: <RootCrash />}, {/* fix - need to add chat page */}
                     {
                         path: "profile",
-                        element: <ProfileLayout />,
+                        element: <ProtectedRoute><ProfileLayout /></ProtectedRoute>,
                         children: [
                             { index: true, element: <Navigate to="/profile/personal_info" replace /> },
                             { path: "personal_info", element: <Profile /> },
-                            { path: "security", element: <Profile />},
-                            { path: "payment_info", element: <Profile /> },
-                            { path: "notification", element: <Profile /> },
+                            { path: "wishlist", element: <WishList /> },
+                            { path: "booking_history", element: <Bookings /> },
+                            { path: "hostings", element: <Hostings /> }, // fix : need to add separate hosting page
+                            { path: "security", element: <Security />},
+                            { path: "notification", element: <Notification />}, // fix - need to add notification page
+                            { path: "payment_info", element: <SavedPayment /> },
                             { path: "logout", element: <Profile /> }
                         ]
                     },

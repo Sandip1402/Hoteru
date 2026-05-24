@@ -5,3 +5,4 @@ export const CardX = ({style}) => {
     <div>CardX</div>
   )
 }
+

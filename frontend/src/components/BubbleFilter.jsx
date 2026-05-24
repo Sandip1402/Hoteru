@@ -1,7 +1,7 @@
-import { Filter } from "./Filter";
+import { Filter } from "./Filter.jsx";
 import { useState } from "react";
 
-const BubbleFilter = ({name, options}) => {
+export const BubbleFilter = ({name, options}) => {
     const [expand, setExpand] = useState(false);
     return (
         <div className={`w-full my-2`}>
@@ -18,5 +18,3 @@ const BubbleFilter = ({name, options}) => {
         </div>
     )
 }
-
-export default BubbleFilter

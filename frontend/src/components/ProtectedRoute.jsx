@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 
 import { useAuth } from '../Auth/useAuth.js';
-import { LoginButton } from './Loginbutton.jsx';
+import { LoginButton } from './LoginButton.jsx';
 
 export const ProtectedRoute = ({ children }) => {
     const { isAuthenticated, isLoading } = useAuth();

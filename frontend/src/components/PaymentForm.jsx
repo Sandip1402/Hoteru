@@ -1,8 +1,9 @@
 
 import { useSearch } from "../context/SearchContext"
-import { DateInput } from "./DateInput";
 import { useNavigate } from "react-router";
-import { Review } from "./RoomComponents";
+import { DateInput } from "./DateInput.jsx";
+import { Review } from "./RoomComponents.jsx";
+
 
 export const PriceDetails = () => {
     return (

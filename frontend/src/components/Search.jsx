@@ -1,8 +1,8 @@
 import { FaSearch } from "react-icons/fa"
 import { useSearch } from "../context/SearchContext";
-import { DateInput } from "./DateInput";
+import { DateInput } from "./DateInput.jsx";
 
-function Search() {
+export const Search = () => {
 
     const { setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues } = useSearch();
 
@@ -43,5 +43,3 @@ function Search() {
 
     )
 }
-
-export default Search;

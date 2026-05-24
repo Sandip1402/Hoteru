@@ -6,7 +6,7 @@ import { TbCameraPlus } from "react-icons/tb";
 import { CallAPI } from "../util/api";
 import { useNavigate } from "react-router"
 
-export const New = () => {
+export const NewHosting = () => {
     const methods = useForm();
     const navigate = useNavigate();
     

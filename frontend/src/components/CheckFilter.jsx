@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Filter } from "./Filter";
+import { Filter } from "./Filter.jsx";
 
 
 export const CheckFilter = ({ name, options, showOptions }) => {

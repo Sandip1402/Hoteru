@@ -1,5 +1,5 @@
-import { Navbar } from "../src/components/Navbar"
-import Footer from "../src/components/Footer"
+import { Navbar, Footer } from "../src/components";
+
 import { Outlet } from "react-router"
 
 
@@ -13,4 +13,4 @@ const RootLayout = () => {
   )
 }
 
-export default RootLayout
+export default RootLayout;

@@ -3,8 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router'
 import { useAuth } from '../src/Auth/useAuth'
 
 import { FaChevronLeft, FaHamburger } from 'react-icons/fa'
-import { ProfileSideBar } from '../src/components/ProfileSideBar'
-import { LogoutButton } from '../src/components/LogoutButton';
+import { ProfileSideBar, LogoutButton } from '../src/components'
 
 
 const ProfileLayout = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiHeart } from "react-icons/fi";
 import { useNavigate } from "react-router"
-import { Amenities, Review } from "./RoomComponents";
+import { Amenities, Review } from "./RoomComponents.jsx";
 
 
 export const RoomCard = () => {
@@ -45,4 +45,3 @@ export const RoomCard = () => {
         </div>
     )
 }
-

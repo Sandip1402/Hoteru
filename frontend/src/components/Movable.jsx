@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router"
 
 
-export const Movable = ({name}) => {
+const Movable = ({name}) => {
 
   
   return (

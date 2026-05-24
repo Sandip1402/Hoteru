@@ -1,7 +1,6 @@
 import { Link } from "react-router"
-const Footer = () => {
 
-
+export const Footer = () => {
 
     return (
         <footer className="footer sm:footer-horizontal bg-base-300 p-10">
@@ -29,4 +28,3 @@ const Footer = () => {
         </footer>
     )
 }
-export default Footer

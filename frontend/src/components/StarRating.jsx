@@ -18,3 +18,4 @@ export const StarRating = ({rating, setRating}) => {
         </div>
     );
 }
+

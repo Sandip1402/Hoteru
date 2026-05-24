@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Filter } from "./Filter";
+import { Filter } from "./Filter.jsx";
 
 export const RangeFilter = ({ name, maxVal }) => {
     const [expand, setExpand] = useState(false);

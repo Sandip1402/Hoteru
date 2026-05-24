@@ -1,6 +1,6 @@
 
 
-const Error = ({message}) => {
+export const Error = ({message}) => {
   return (
     <div className="m-3">
         <div className="bg-base-300 p-4 rounded-2xl" role="alert">
@@ -9,5 +9,3 @@ const Error = ({message}) => {
     </div>
   )
 }
-
-export default Error

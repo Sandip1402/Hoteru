@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
-import { Slide } from './Slide';
+import { Slide } from './Slide.jsx';
 
 register();
 
@@ -41,6 +41,7 @@ export const SliderBG = ({ items }) => {
         </swiper-container>
     )
 }
+
 
 // const swiper = Swiper({
 //   speed: 800,

@@ -2,7 +2,7 @@ import { FaLine } from "react-icons/fa";
 import { useSearch } from "../context/SearchContext"
 
 
-const NavSearch = () => {
+export const NavSearch = () => {
     const {setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues} = useSearch();
 
 
@@ -18,5 +18,3 @@ const NavSearch = () => {
     </form>
   )
 }
-
-export default NavSearch
