@@ -1,6 +1,6 @@
 import { useRouteError } from 'react-router';
 
-const RootError = () => {
+export const RootCrash = () => {
   const error = useRouteError();
   console.error("Critical Application Crash:", error);
 
@@ -43,5 +43,3 @@ const RootError = () => {
     </div>
   );
 };
-
-export default RootError;

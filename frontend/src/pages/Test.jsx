@@ -3,8 +3,8 @@ import { CallAPI } from '../util/callAPI'
 
 
 import { useEffect, useState } from 'react';
-import ErrorPage from './ErrorPage';
-import RootError from './RootCrash';
+import { ErrorPage } from './ErrorPage';
+import { RootCrash } from './RootCrash';
 
 export const Test = () => {
 

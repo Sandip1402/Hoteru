@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaChevronLeft, FaPen } from 'react-icons/fa'
 import { Link } from 'react-router'
-import { RoomCardFlat } from '../components/RoomCardFlat'
-import { PriceDetails } from '../components/PaymentForm'
 
-const Payment = () => {
+import { RoomCardFlat, PriceDetails } from '../components'
+
+export const Payment = () => {
 
     const[open, setOpen] = useState()
 
@@ -65,5 +65,3 @@ const Payment = () => {
         </div>
     )
 }
-
-export default Payment

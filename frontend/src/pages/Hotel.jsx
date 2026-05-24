@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { CallAPI } from "../util/callAPI.js";
 import { FiMenu } from "react-icons/fi";
-import { CheckFilter } from "../components/CheckFilter.jsx";
-import { RangeFilter } from "../components/RangeFilter.jsx";
-import BubbleFilter from "../components/BubbleFilter.jsx";
-import { RoomCard } from "../components/RoomCard.jsx";
-import { RoomCardFlat } from "../components/RoomCardFlat.jsx";
+
+import { CheckFilter, RangeFilter, BubbleFilter, RoomCard, RoomCardFlat } from "../components";
+
 
 export const Hotel = () => {
     // const [listings, setListings] = useState([]);

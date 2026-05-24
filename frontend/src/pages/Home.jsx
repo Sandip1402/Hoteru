@@ -1,7 +1,5 @@
 
-import { CardY } from "../components/CardY"
-import Search from "../components/Search"
-import { SliderBG } from "../components/SliderBG"
+import { CardY, Search, SliderBG } from "../components"
 
 export const Home = () => {
   const items = ['bg0.jpg', 'bg1.jpg', 'bg2.jpg', 'bg3.jpg'];

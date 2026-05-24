@@ -1,6 +1,6 @@
 import { useRouteError, Link } from 'react-router';
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
     const error = useRouteError();
 
     // Log it to console/analytics tool for debugging
@@ -28,5 +28,3 @@ const ErrorPage = () => {
         </div>
     );
 };
-
-export default ErrorPage;

@@ -3,12 +3,9 @@ import { useState, useEffect } from "react";
 import { CallAPI } from "../util/callAPI";
 import { FiHeart, FiStar, FiCircle, FiShare2, FiHome, FiCalendar } from "react-icons/fi";
 
-import { PaymentForm } from "../components/PaymentForm";
-import { ReviewCard } from "../components/ReviewCard";
-import { Review } from "../components/RoomComponents";
+import { PaymentForm, ReviewCard, Review } from "../components";
 
-
-const RoomDetails = () => {
+export const RoomDetails = () => {
     // const navigate = useNavigate();
     // const { id } = useParams();
 
@@ -146,5 +143,3 @@ const RoomDetails = () => {
         </div>
     )
 }
-
-export default RoomDetails
