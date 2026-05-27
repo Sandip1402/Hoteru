@@ -2,6 +2,6 @@
 
 export const Notification = () => {
   return (
-    <div>Notification</div>
+    <div className="profile-sections"><p>Notification</p></div>
   )
 }

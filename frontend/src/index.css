@@ -41,6 +41,7 @@ li{
   list-style: none;
 }
 
+
 /* ----------------------- Navbar ------------------------ */
 .active {
   color: var(--color-primary)
@@ -62,10 +63,12 @@ li{
   color: gray;
 } */
 
+
 /* -------------------------- Form ---------------------- */
 .input-field {
-  @apply focus:outline-none text-sm;
+  @apply focus:outline-none text-sm placeholder:text-gray-600 text-black max-sm:border-b-1 border-gray-500;
 }
+
 
 /* ---------------- Review Form ------------------------ */
 .review-text-area {
@@ -76,10 +79,44 @@ li{
   @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
 }
 
+
 /* --------------- Room Card --------------------- */
 .bullet {
   width: 3px;
   height: 3px;
   background-color: black;
   border-radius: 100%;
+}
+
+
+/* -------------- Loading ------------------------- */
+@keyframes rotate-box {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-animation {
+  animation: rotate-box 2s linear 0.8s infinite;
+}
+
+
+/* -------------- Profile Sections ---------------- */
+.profile-sections {
+  background-color: white;
+  border-radius: var(--radius-box);
+  @apply max-sm:p-2 sm:p-3 lg:p-5 2xl:p-10 max-sm:shadow-sm sm:shadow-md flex-1 flex justify-center
+}
+
+
+/* -------------- RangeFilter ------------------- */
+.bubble::after {
+  content: var();
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1px 6px;
+  border-radius: 5px;
 }

@@ -2,6 +2,8 @@
 
 export const WishList = () => {
   return (
-    <div>WishList</div>
+    <div className="profile-sections">
+      <p>WishList</p>
+    </div>
   )
 }

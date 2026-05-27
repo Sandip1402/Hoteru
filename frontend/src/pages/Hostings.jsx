@@ -2,6 +2,6 @@
 
 export const Hostings = () => {
   return (
-    <div>Hostings</div>
+    <div className="profile-sections"><p>Hostings</p></div>
   )
 }

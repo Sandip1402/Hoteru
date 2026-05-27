@@ -29,7 +29,7 @@ const ProfileLayout = () => {
             </span>
 
             {/* Menu & Heading */}
-            <span className='flex text-xl items-center gap-x-2 md:my-5'>
+            <span className='flex text-xl items-center gap-x-2 md:my-2'>
                 {<span className='sm:hidden' onClick={() => setShow(!show)}>
                     <FaHamburger size={15} />
                 </span>}
@@ -38,9 +38,9 @@ const ProfileLayout = () => {
 
             {/* sidebar and content screen-wise */}
             {/* fix - height */}
-            {show && <ProfileSideBar setFunc={setShow} style={'sm:hidden absolute z-10 py-2 px-4 border-y-2 w-60 *:last:gap-y-4'} />}
-            <div className='sm:flex max-lg:px-2 lg:px-8'>
-                <ProfileSideBar style={'hidden sm:block sm:w-3/10 p-4 *:last:gap-y-5 h-max'} />
+            <div className='sm:flex sm:p-3 lg:p-5 2xl:p-10 sm:gap-x-3 lg:gap-x-5 2xl:gap-x-10 sm:bg-gray-100 rounded-box'>
+                {show && <ProfileSideBar setFunc={setShow} style={'sm:hidden absolute z-10 py-2 px-4 shadow-md w-60 *:last:gap-y-4'} />}
+                <ProfileSideBar style={'hidden sm:block h-max sm:w-3/10 max-w-80 sm:p-3 lg:p-5 2xl:p-10 *:last:gap-y-5 shadow-md'} />
                 <Outlet />
             </div>
 

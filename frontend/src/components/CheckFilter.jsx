@@ -19,15 +19,15 @@ export const CheckFilter = ({ name, options, showOptions }) => {
     // }
 
     return (
-        <div className={`w-full my-2`}>
+        <div className="w-full my-2">
             <Filter name={name} setState={{expand, setExpand}} />
             {expand &&
                 <ul className="px-2" >
                     {options.map((option) => {
                         return (
                             <li className="flex my-1 gap-2" key={options.indexOf(option)}>
-                                <input type="checkbox" id={options.indexOf(option)} />
-                                <label className="flex-1 cursor-pointer" htmlFor={options.indexOf(option)}>{option}</label>
+                                <input type="checkbox" id={option} name={option} />
+                                <label htmlFor={option} className="flex-1 cursor-pointer">{option}</label>
                             </li>
                         )
                     })}

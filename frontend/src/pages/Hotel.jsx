@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CallAPI } from "../util/callAPI.js";
 import { FiMenu } from "react-icons/fi";
 
-import { CheckFilter, RangeFilter, BubbleFilter, RoomCard, RoomCardFlat } from "../components";
+import { CheckFilter, RangeFilter, BubbleFilter, RoomCard } from "../components";
 
 
 export const Hotel = () => {
@@ -44,41 +44,27 @@ export const Hotel = () => {
 
 
     return (
-        <div className="py-1 lg:px-20 w-full flex justify-around">
+        <div className="w-full py-5 flex justify-evenly lg:px-20">
 
             {/* Filter Options */}
-            <div className="hidden lg:block filters bg-white py-2 px-5 h-max w-75 flex-col border-r-gray-600">
-                <CheckFilter showOptions={true} name={"Property type"} options={["Hotel", "Guest House", "House", "Apartment"]} />
+            <div className="hidden lg:flex flex-col h-max w-5/20 p-2 bg-white">
+                <CheckFilter showOptions={true} name={"Property Type"} options={["Hotel", "Guest House", "House", "Apartment"]} />
                 <CheckFilter showOptions={true} name={"Price"} options={["Below $50", "$50 to $99", "$100 to $200", "Above $200"]} />
-                <RangeFilter name={"Reviews"} maxVal={5} />
+                <RangeFilter name={"Rating"} maxVal={5} />
                 <BubbleFilter name={"Amenities"} options={["Kitchen", "WiFi", "AC", "TV", "Fridge", "Wardrobe", "Desk"]} />
                 {/* <FilterItem name={"Rooms & beds"} /> */}
                 {/* <FilterItem name={"Accessibility"} /> */}
             </div>
 
-            {/* Rooms */}
-            <div className="flex flex-col py-2 max-md:px-3 md:px-5 xl:hidden">
-                {/* Need to add later */}
-                {/* <span className="w-full text-gray-500">150+ rooms</span> */}
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-                <RoomCardFlat />
-            </div>
+            {/* fix - Need to add later */}
+            {/* <span className="w-full text-gray-500">150+ rooms</span> */}
 
-            <div className="max-xl:hidden xl:flex py-2 w-full gap-3 flex-wrap justify-end">
-                {/* Need to add later */}
-                {/* <span className="w-full text-gray-500">150+ rooms</span> */}
+            {/* Rooms */}
+            <div className="flex max-sm:flex-col max-sm:px-3 max-sm:gap-y-3 lg:w-13/20 sm:p-3 sm:gap-3 sm:flex-wrap 
+                                    max-lg:justify-center 2xl:p-5 2xl:gap-5 max-w-7xl">
+                <RoomCard />
+                <RoomCard />
+                <RoomCard />
                 <RoomCard />
                 <RoomCard />
                 <RoomCard />

@@ -3,7 +3,6 @@ import { FiHeart } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import { Amenities, Review } from "./RoomComponents";
 
-{/* for smaller screen */ }
 
 export const RoomCardFlat = () => {
 
@@ -11,15 +10,30 @@ export const RoomCardFlat = () => {
     const [save, setSave] = useState(false);
 
     return (
-        <div className="flex rounded-2xl mb-2">
+        <div className="max-sm:flex rounded-2xl">
 
-            {/* photos */}
-            <span className="cursor-pointer max-sm:w-1/2 sm:w-70">
-                <img src="/room1.jpg" alt="room_image" className="rounded-2xl object-cover w-full"
+            <span className="cursor-pointer max-sm:w-1/2 sm:w-50 sm:flex sm:flex-col">
+                {/* photos */}
+                <img src="/room1.jpg" alt="room_image" className="rounded-2xl object-cover w-full sm:h-4/5"
                     onClick={() => navigate(`/hotels/roomdetails`)} />
+                
+                {/* Desktop view */}
+                <section className="max-sm:hidden flex flex-col text-xs p-1 gap-y-1 *:flex *:justify-between">
+                    <div>
+                        <p>Harley Connection</p>
+                        <Review style={'*:last:hidden'} />
+                    </div>
+                    {/* Fix - add save button */}
+                    <div>
+                        <p className="text-gray-500">Apartment in ueno</p>
+                        <span className="block text-end">$49/guest</span>
+                    </div>
+                    <Amenities style={'text-white *:p-2 *:bg-primary/80 *:rounded-box'} />
+                </section>
             </span>
 
-            <div className="px-2 sm:px-3 flex flex-col justify-between flex-1">
+            {/* mobile view */}
+            <div className="sm:hidden px-2 flex flex-col justify-between flex-1">
                 {/* Intro */}
                 <section className="flex flex-col">
                     <span className="flex items-center justify-between">
@@ -37,12 +51,12 @@ export const RoomCardFlat = () => {
 
                 {/* Amenities */}
                 {/* fix - show only 3/4 */}
-                <Amenities style={"max-sm:text-gray-500 sm:gap-y-2 sm:gap-2 sm:text-white sm:*:p-2 sm:*:bg-primary/60 sm:*:rounded-box"} />
+                <Amenities style={"max-sm:text-gray-500 gap-x-2"} />
 
                 {/* Review & price */}
                 <section className="flex justify-between">
                     <Review style={"max-sm:*:last:hidden"} />
-                    <span className="block text-end">$49/guest</span>
+                    <p>$49/guest</p>
                 </section>
             </div>
         </div>

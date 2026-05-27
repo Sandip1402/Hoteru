@@ -4,7 +4,7 @@ import { useState } from "react";
 export const BubbleFilter = ({name, options}) => {
     const [expand, setExpand] = useState(false);
     return (
-        <div className={`w-full my-2`}>
+        <div className="w-full my-2">
             <Filter name={name} setState={{ expand, setExpand }} />
             {expand &&
                 <div className="p-2 flex flex-wrap gap-2 text-center">

@@ -2,6 +2,6 @@
 
 export const SavedPayment = () => {
   return (
-    <div>SavedPayment</div>
+    <div className="profile-sections"><p>SavedPayment</p></div>
   )
 }

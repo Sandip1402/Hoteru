@@ -2,6 +2,6 @@
 
 export const Security = () => {
   return (
-    <div>Security</div>
+    <div className="profile-sections"><p>Security</p></div>
   )
 }

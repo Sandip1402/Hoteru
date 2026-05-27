@@ -48,7 +48,7 @@ export const ProfileSideBar = ({ setFunc, style }) => {
 
     
     return (
-        <div className={`bg-white *:not-first:text-gray-600 border-r-2 border-gray-100 ${style}`}>
+        <div className={`bg-white *:not-first:text-gray-600 rounded-box ${style}`}>
             {/* fix - on click outside should close */}
             <span className='flex justify-between items-center text-lg border-b-2 border-gray-300 mb-4 sm:hidden'>
                 <p>Settings</p>

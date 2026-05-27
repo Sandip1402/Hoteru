@@ -2,6 +2,6 @@
 
 export const Bookings = () => {
   return (
-    <div>Bookings</div>
+    <div className="profile-sections"><p>Bookings</p></div>
   )
 }

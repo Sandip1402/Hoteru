@@ -5,6 +5,7 @@ import { CallAPI } from '../util/callAPI'
 import { useEffect, useState } from 'react';
 import { ErrorPage } from './ErrorPage';
 import { RootCrash } from './RootCrash';
+import { Loading } from '../components';
 
 export const Test = () => {
 
@@ -38,7 +39,8 @@ export const Test = () => {
       {/* <button className='btn ' onClick={fetchData}>Fetch Data</button>
       <span className='shadow p-4'>{data ? JSON.stringify(data) : 'No data fetched'}</span> */}
       {/* <ErrorPage /> */}
-      <RootCrash />
+      {/* <RootCrash /> */}
+      <Loading />
     </div>
   )
 }
