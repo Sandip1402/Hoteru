@@ -40,10 +40,10 @@ export const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100 shadow-sm items-center">
+        <div className="h-max w-full p-2 2xl:p-7 flex items-center-safe bg-base-100 shadow-md 2xl:shadow-xl">
 
             {/* Logo */}
-            <div className="flex-none text-center max-md:text-lg pb-1 md:text-2xl xl:text-3xl text-primary">
+            <div className="flex-none text-main mb-1 text-primary">
                 <Link className="outline-none font-bold" to="/">
                     {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
                     Hoteru
@@ -53,8 +53,8 @@ export const Navbar = () => {
             {/* Options */}
             <div className="flex-1 mx-4">
                 {/* Fix : change this part based on path */}
-                <ul className='hidden md:flex'>
-                    <li><NavLink className='px-2' to="/hotels" >Places to stay</NavLink></li>
+                <ul className='hidden md:flex text-sub'>
+                    <li><NavLink className='px-2' to="/hotels">Places to stay</NavLink></li>
                     <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
                     <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
                 </ul>
@@ -69,7 +69,7 @@ export const Navbar = () => {
                 </button>
 
                 {/* Offers */}
-                <button className="btn btn-ghost btn-circle">
+                <button className="btn btn-ghost btn-circle text-sub">
                     <Link to="/offers">
                         <div className="indicator relative top-0.5">
                             <img src="/Icons/offers.svg" className='h-6 w-6' alt="offers" />
@@ -79,19 +79,19 @@ export const Navbar = () => {
 
                 {/* Profile */}
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar text-sub">
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Avatar"
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         </div>
                     </div>
-                    <ul tabIndex={-1} className="dropdown-content rounded-box shadow bg-white z-10 p-2 w-30 md:w-40 
-                                                flex flex-col gap-y-2 text-center *:w-full *:flex-1 *:cursor-pointer">
+                    <ul tabIndex={-1} className="dropdown-content rounded-box shadow-md bg-white z-10 p-1 w-max
+                                                flex flex-col text-center text-sub">
                         {loggedIn ?
                             <>
-                                <li className='rounded-box hover:bg-gray-100' onClick={() => navigate('/profile')}>Profile</li>
-                                <li><div className="w-full h-0.5 border-b-1 border-gray-300">-</div></li>
+                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/profile')}>Profile</li>
+                                <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
                                 <li><LogoutButton /></li>
                             </>
                             :

@@ -2,7 +2,7 @@ import express from 'express';
 // const cookieParser = require("cookie-parser");
 
 // import expressError from "./utils/expressError.js";
-import registerRoutes from "./routes/connect_routes.js";
+import registerRoutes from "./routes/index.js";
 import { prisma } from "./utils/prisma.js";
 import '@dotenvx/dotenvx/config'
 
@@ -40,7 +40,7 @@ app.use((err, req, res, next) => {
   const message = err.message || 'Internal Server Error';
   
   res.status(status).json({
-    error: err.code || 'server_error',
+    error: err.code || 'Request failed',
     message: status === 401 ? 'Authentication required' : message,
   });
 });
@@ -52,7 +52,7 @@ async function startServer() {
       console.log(`Server running on http://localhost:${port}`);
     });
   } catch (error) {
-    console.error('Failed to connect to database:', error.message);
+    console.error('Failed to start server: ', error.message);
     process.exit(1);
   }
 }

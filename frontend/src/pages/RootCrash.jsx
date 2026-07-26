@@ -10,7 +10,7 @@ export const RootCrash = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-center text-gray-800 font-sans">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 text-center text-gray-800 font-sans">
       <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-8 border border-gray-200">
         
         {/* Warning Icon */}

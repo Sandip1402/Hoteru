@@ -5,7 +5,7 @@ export const CallAPI = async (endpoint, options = {}, isProtected = false, acces
   // If backend is on a different domain, set VITE_API_BASE_URL in .env
   const baseURL = import.meta.env.VITE_API_BASE_URL || '';
 
-  console.log("Calling API:", `${baseURL}/api${endpoint}`, "Protected:", isProtected);
+  // console.log("Calling API:", `${baseURL}/api${endpoint}`, "Protected:", isProtected);
 
   try {
 
@@ -28,16 +28,17 @@ export const CallAPI = async (endpoint, options = {}, isProtected = false, acces
 
     // check response status
     if (!res.ok) {
-      throw new Error(`HTTP error: ${res.status}`);
+      throw new Error(`error: ${res.status}`);
     }
 
-    // Parse response data - assuming only JSON response
+    // Parse response data - only JSON response
     const data = await res.json();
 
     // handle error
     if (!data.success) {
       const error = new Error(data.message || "Request failed");
       error.status = res.status;
+
       throw error;
     }
 

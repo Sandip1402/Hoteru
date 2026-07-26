@@ -27,20 +27,19 @@ export const Test = () => {
     if (!isLoading && accessToken) {
       fetchData();
     }
-  }, [accessToken, isLoading]);
-
-  useEffect(() => {
-
-  }, [data]);
+  }, [accessToken, isLoading, fetchData]);
 
 
   return (
-    <div className='flex flex-col gap-y-4 justify-center items-center'>
+    <div className='flex flex-col gap-y-4 justify-center items-center h-screen'>
       {/* <button className='btn ' onClick={fetchData}>Fetch Data</button>
       <span className='shadow p-4'>{data ? JSON.stringify(data) : 'No data fetched'}</span> */}
       {/* <ErrorPage /> */}
       {/* <RootCrash /> */}
-      <Loading />
+      {/* <Loading /> */}
+      {/* <span className='text-main'>Main Text - for logos, headings</span>
+      <span className='text-sub'>Sub text - for subheadings</span> */}
+      <span className='text-main'>{JSON.stringify(data)}</span>
     </div>
   )
 }

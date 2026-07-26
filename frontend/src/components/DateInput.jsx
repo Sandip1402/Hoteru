@@ -1,10 +1,10 @@
 
 
-export const DateInput = ({name, style, setDate}) => {
+export const DateInput = ({name, id, style, setDate}) => {
     return (
         <span className={`max-sm:flex-1 flex flex-col ${style}`}>
-            <label htmlFor={name}>{`Check ${name.slice(5)}`}</label>
-            <input id={name} name={name} type="date" className="input-field" role="button"
+            <label htmlFor={id}>{name}</label>
+            <input id={id} name={id} type="date" className="input-field" role="button" required
                 onClick={(ev) => console.dir(ev)} onChange={(ev) => setDate(ev.target.value)} />
         </span>
     )

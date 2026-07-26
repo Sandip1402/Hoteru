@@ -5,7 +5,7 @@ export const LogoutButton = () => {
   return (
     <button
       onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-      className="bg-red-500 hover:bg-red-400 rounded-full w-full text-white font-semibold py-1 cursor-pointer"
+      className="w-40 px-4 first:text-red-400 hover:text-red-600 font-semibold cursor-pointer"
     >
       Log Out
     </button>

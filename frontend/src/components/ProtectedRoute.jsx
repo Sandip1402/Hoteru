@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router';
 
 import { useAuth } from '../Auth/useAuth.js';
 import { LoginButton } from './LoginButton.jsx';
+import { Loading } from "./Loading.jsx";
 
 export const ProtectedRoute = ({ children }) => {
     const { isAuthenticated, isLoading } = useAuth();
     const navigate = useNavigate();
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return ( <Loading /> );
 
     return isAuthenticated ? (children) :
         (

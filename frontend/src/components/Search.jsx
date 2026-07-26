@@ -21,28 +21,28 @@ export const Search = () => {
                     <label htmlFor="place">Location</label>
                     {/* fix - turn of underlined error squiggle */}
                     <input className="input-field" id="place" name="place" type="text"
-                        placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} />
+                        placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} required />
                 </span>
 
                 {/* Dates */}
                 <span className="flex max-sm:gap-6 sm:hidden">
-                    <DateInput name={"mobileCheckIn"} setDate={setCheckIn} />
-                    <DateInput name={"mobileCheckOut"} setDate={setCheckOut} />
+                    <DateInput name="Check In" id="mobileCheckIn" setDate={setCheckIn} />
+                    <DateInput name="Check Out" id="mobileCheckOut" setDate={setCheckOut} />
                 </span>
-                <DateInput name={"checkIn"} style={"max-sm:hidden w-1/4 pr-6"} />
-                <DateInput name={"checkOut"} style={"max-sm:hidden w-1/4 pr-6"} />
+                <DateInput name={"Check In"} id="checkIn" style={"max-sm:hidden w-1/4 pr-6"} />
+                <DateInput name={"Check Out"} id="checkOut" style={"max-sm:hidden w-1/4 pr-6"} />
 
                 {/* Guest Count */}
                 <span className="max-sm:w-full flex flex-col w-1/4">
                     <label htmlFor="guests">Guests</label>
                     <input id="guests" name="guests" type="number" className="input-field"
-                        min={1} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
+                        min={1} max={10} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
                 </span>
 
             </main>
 
             <button className="btn btn-block sm:btn-circle bg-primary text-white sm:relative sm:left-2">
-                <FaSearch />
+                <FaSearch /> <p className="sm:hidden">Search</p>
             </button>
         </form>
 

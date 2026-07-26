@@ -11,7 +11,7 @@ export default async function registerRoutes(app, prisma) {
 
   for (const file of Files) {
     // skipping itself
-    if (file === "connect_routes.js") continue;
+    if (file === "index.js") continue;
     if (extname(file) !== '.js') continue;
 
     // loading each file dynamically

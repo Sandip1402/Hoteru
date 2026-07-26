@@ -1,22 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-@plugin "daisyui"{
+@plugin "daisyui" {
   themes: light --default
 }
 
 @theme {
+  --animate-spin: spin 1.5s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scrollbar-width: none;
   --color-logo: #F55F0A;
   --color-primary: #636AE8;
   --font-optical-sizing: auto;
-  /* --logo-size: min(30px, 5vw, 50px); */
 }
 
-html, body {
-  /* overflow-x: hidden; */
-  /* scrollbar-width: none; */
-  @apply max-sm:text-sm
-}
 
 * {
   box-sizing: border-box;
@@ -25,19 +36,34 @@ html, body {
   user-select: none;
 }
 
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
+
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-li:focus{
+/* ------------- text -------------- */
+.text-main {
+  @apply text-lg md:text-xl xl:text-3xl 2xl:text-4xl;
+}
+
+.text-sub {
+  @apply text-sm md:text-base xl:text-lg 2xl:text-xl;
+}
+
+/* ------------- li ----------------- */
+li:focus {
   background-color: transparent !important;
 }
-li{
+
+li {
   list-style: none;
 }
 
@@ -94,6 +120,7 @@ li{
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

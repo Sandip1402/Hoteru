@@ -1,6 +1,6 @@
 import { MdOutlineLogout } from 'react-icons/md'
 import { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router'
+import { Link, NavLink, Outlet } from 'react-router'
 import { useAuth } from '../Auth/useAuth'
 
 export const ProfileSideBar = ({ setFunc, style }) => {
@@ -82,12 +82,12 @@ export const ProfileSideBar = ({ setFunc, style }) => {
                     </li>
                 ))}
                 <li onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                    <NavLink to="/profile/logout" className='text-red-500'>
+                    <Link to="/profile/logout" className='text-red-500'>
                         <span className='size-9 flex justify-center items-center rounded-full bg-red-100'>
                             <MdOutlineLogout size={20} />
                         </span>
                         <p>Logout</p>
-                    </NavLink>
+                    </Link>
                 </li>
             </ul>
         </div>
