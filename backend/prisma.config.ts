@@ -1,12 +1,15 @@
 import { defineConfig } from "prisma/config";
-import '@dotenvx/dotenvx/config'
+import { env } from "./config.js";
+
+// Actual database connection setup with remote database
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
+    seed: "node prisma/seed.js", // node runs this command not prisma
   },
   datasource: {
-    url: process.env.DIRECT_URL
+    url: env.DIRECT_URL
   },
 });

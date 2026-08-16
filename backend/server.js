@@ -1,21 +1,65 @@
 import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import compression from 'compression';
 // const cookieParser = require("cookie-parser");
 
-// import expressError from "./utils/expressError.js";
-import registerRoutes from "./routes/index.js";
-import { prisma } from "./utils/prisma.js";
-import '@dotenvx/dotenvx/config'
+import registerRoutes from "./routes/loader.js";
 
-const port = process.env.PORT || 8080;
+import { errorHandler } from './middlewares/error.middleware.js';
+import { apiLimiter } from './middlewares/rate-limit.middleware.js';
+import { httpLogger } from './middlewares/logger.middleware.js';
+
+import { logger } from './utils/logger.js';
+import AppError from './utils/app-error.js';
+
+import { env } from "./config.js";
+
+const port = env.PORT || 8080;
 const app = express();
 
-// express settings
+// express app settings
+app.set("trust proxy", 1);
+app.disable("x-powered-by");
+
+app.use(helmet()); // Protects against common HTTP vulnerabilities.
+
+// need to be used when deploying
+// app.use(cors({
+//     origin: env.FRONTEND_URL || 'http://localhost:5173/',
+//     credentials: true,
+// }));
+
+app.use(compression()); // compresses response if threshold passed
+
+app.use(httpLogger);
+
+app.use("/api", apiLimiter); // rate limit - 100 request every 15 min
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 // app.use(cookieParser());
 
 
-// serve react build
+// Routes
+app.use((req, res, next) => {
+    console.log("Request path:", req.originalUrl);
+    next();
+});
+
+app.get(['/', '/api'], (req,res) => {
+  res.json({message: "App is running"});
+})
+
+await registerRoutes(app);
+
+app.use((req, res, next) => {
+  next(new AppError(404, "Route not found"));
+});
+
+
+// serve react build, when backend serving frontend
 // app.use(express.static(path.join(__dirname, "dist")));
 
 // app.get("*", (req, res) => {
@@ -23,38 +67,21 @@ app.use(express.urlencoded({ extended: true }));
 // });
 
 
-// Routes
-app.get('/', (req,res) => {
-  res.json({message: "App is running"});
-})
-
-
-await registerRoutes(app, prisma);
-
-
-// // Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  
-  const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-  
-  res.status(status).json({
-    error: err.code || 'Request failed',
-    message: status === 401 ? 'Authentication required' : message,
-  });
-});
+// // Global Error handling middleware
+app.use(errorHandler);
 
 
 async function startServer() {
   try {
     app.listen(port, () => {
-      console.log(`Server running on http://localhost:${port}`);
+      logger.info(`Server running on http://localhost:${port}`);
+      // console.log(`Server running on http://localhost:${port}`);
     });
   } catch (error) {
-    console.error('Failed to start server: ', error.message);
+    logger.error('Failed to start server: ', error.message);
+    // console.error('Failed to start server: ', error.message);
     process.exit(1);
   }
 }
 
-startServer();
+await startServer();
