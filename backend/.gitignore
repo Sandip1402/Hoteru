@@ -4,4 +4,9 @@ node_modules
 
 /generated/prisma
 
-test.*
+uploads
+
+tests
+/tests
+
+.gitignore
