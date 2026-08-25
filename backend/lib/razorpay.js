@@ -20,6 +20,10 @@ export const createOrder = async ({
     });
 };
 
+export const fetchPayment = async (paymentId) => {
+    return razorpay.payments.fetch(paymentId);
+};
+
 export const verifyPaymentSignature = ({
     orderId,
     paymentId,

@@ -9,9 +9,10 @@ import {
 } from "../utils/resource.helper.js";
 import * as storageService from "./storage.service.js"
 import {
-  adminListingInclude,
-  hostListingInclude,
-  publicListingInclude,
+  adminListingSelect,
+  hostListingSelect,
+  publicListingDetailSelect,
+  publicListingSummarySelect,
 } from "../utils/listing.helper.js";
 
 // public
@@ -19,9 +20,10 @@ export const getListings = async (query) => {
   const { page, limit, skip } = getPagination(query);
   const where = buildListingFilters(query);
 
-  const [listings, total] = await prisma.$transaction([
+  const [listings, total] = await Promise.all([
     prisma.listing.findMany({
       where,
+      select: publicListingSummarySelect,
       skip,
       take: limit,
       orderBy: { createdAt: "desc" },
@@ -45,9 +47,34 @@ export const getPublicListing = async (listingId) => {
     where: {
       listingId,
       status: "APPROVED",
+      isActive: true,
     },
 
-    include: publicListingInclude,
+    select: {
+      ...publicListingDetailSelect,
+
+      images: {
+        select: {
+          imageId: true,
+          imageUrl: true,
+          caption: true,
+          isThumbnail: true,
+          displayOrder: true,
+        },
+        orderBy: {
+          displayOrder: "asc",
+        },
+      },
+
+      amenities: {
+        select: {
+          amenity: true,
+        }
+      },
+
+
+
+    }
   })
 
   if (!listing) {
@@ -84,7 +111,7 @@ export const getHostListingById = async (listingId, hostId) => {
       listingId,
       ownerId: hostId,
     },
-    include: hostListingInclude,
+    include: hostListingSelect,
   });
 
   if (!listing) {
@@ -139,11 +166,11 @@ export const submitListing = async (listingId, userId) => {
           maxGuests: true,
           beds: true,
           bathrooms: true,
-          baseprice: true,
+          basePrice: true,
           quantity: true,
           images: {
             select: {
-              imgId: true,
+              imageId: true,
             },
           },
         },
@@ -272,8 +299,33 @@ export const getListingRooms = async (listingId) => {
       listingId,
       isActive: true,
     },
+    select: {
+      roomId: true,
+      name: true,
+      roomType: true,
+
+      bedrooms: true,
+      beds: true,
+
+      maxGuests: true,
+
+      basePrice: true,
+
+      images: {
+        select: {
+          imageId: true,
+          altText: true,
+          imageUrl: true,
+          isCover: true,
+          displayOrder: true,
+        },
+        orderBy: {
+          displayOrder: "asc"
+        }
+      }
+    },
     orderBy: {
-      baseprice: "asc",
+      basePrice: "asc",
     },
   });
 };
@@ -417,7 +469,7 @@ export const getAdminListingById = async (listingId) => {
       listingId,
     },
 
-    include: adminListingInclude
+    include: adminListingSelect
   })
   if (!listing) {
     throw new AppError(404, "Listing not found.");

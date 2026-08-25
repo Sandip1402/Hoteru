@@ -32,36 +32,35 @@ model User {
 }
 
 model Booking {
-  bookingId              Int                  @id @default(autoincrement())
-  bookingReference       String               @unique
-  roomId                 Int
-  roomName               String
-  listingName            String
-  listingId              Int
-  thumbnailUrl           String
-  guestId                Int
-  guests                 Int
-  checkIn                DateTime
-  checkOut               DateTime
-  pricePerNight          Decimal              @db.Decimal(10, 2)
-  bookingAmount          Decimal              @db.Decimal(10, 2)
-  remainingAmount        Decimal              @db.Decimal(10, 2)
-  paidAmount             Decimal              @db.Decimal(10, 2)
-  totalPrice             Decimal              @db.Decimal(10, 2)
-  remainingPaymentMethod PaymentMethod?
-  status                 BookingStatus        @default(AWAITING_PAYMENT)
-  cancellationReason     String?
-  cancelledAt            DateTime?
-  completedAt            DateTime?
-  createdAt              DateTime             @default(now())
-  updatedAt              DateTime             @updatedAt
-  paymentOption          PaymentOption
-  paymentStatus          BookingPaymentStatus @default(PENDING)
-  guest                  User                 @relation(fields: [guestId], references: [userId])
-  listing                Listing              @relation(fields: [listingId], references: [listingId])
-  room                   Room                 @relation(fields: [roomId], references: [roomId])
-  payments               Payment[]
-  review                 Review?
+  bookingId          Int            @id @default(autoincrement())
+  bookingReference   String         @unique
+  roomId             Int
+  roomName           String
+  listingName        String
+  listingId          Int
+  thumbnailUrl       String
+  guestId            Int
+  guests             Int
+  checkIn            DateTime
+  checkOut           DateTime
+  pricePerNight      Decimal        @db.Decimal(10, 2)
+  bookingAmount      Decimal        @db.Decimal(10, 2)
+  remainingAmount    Decimal        @db.Decimal(10, 2)
+  paidAmount         Decimal        @db.Decimal(10, 2)
+  totalPrice         Decimal        @db.Decimal(10, 2)
+  status             BookingStatus  @default(AWAITING_PAYMENT)
+  cancellationReason String?
+  cancelledAt        DateTime?
+  completedAt        DateTime?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  paymentOption      PaymentOption
+  paymentStatus      BookingPayment @default(PENDING)
+  guest              User           @relation(fields: [guestId], references: [userId])
+  listing            Listing        @relation(fields: [listingId], references: [listingId])
+  room               Room           @relation(fields: [roomId], references: [roomId])
+  payments           Payment[]
+  review             Review?
 
   @@index([roomId, status])
   @@index([guestId])
@@ -74,12 +73,15 @@ model Payment {
   bookingId        Int
   amount           Decimal         @db.Decimal(10, 2)
   purpose          PaymentPurpose
-  method           PaymentMethod?
+  mode             PaymentMode
   status           PaymentStatus   @default(PENDING)
+  
   gateway          PaymentGateway?
   gatewayOrderId   String?
   gatewayPaymentId String?
   gatewaySignature String?
+  gatewayMethod    String?
+
   paidAt           DateTime?
   createdAt        DateTime        @default(now())
   updatedAt        DateTime        @updatedAt
@@ -99,7 +101,7 @@ model Room {
   bedrooms    Int?
   beds        Int
   bathrooms   Int
-  baseprice   Decimal       @db.Decimal(10, 2)
+  basePrice   Decimal       @db.Decimal(10, 2)
   // for V1 only considering one room of each type
   // no iventory control is there
   quantity    Int           @default(1)
@@ -144,7 +146,7 @@ model ListingAmenity {
 }
 
 model RoomImage {
-  imgId        Int      @id @default(autoincrement())
+  imageId      Int      @id @default(autoincrement())
   roomId       Int
   altText      String?
   imageUrl     String
@@ -178,7 +180,7 @@ model Wishlist {
 
   user    User    @relation(fields: [userId], references: [userId], onDelete: Cascade)
   listing Listing @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
-  
+
   createdAt DateTime @default(now())
 
   @@id([userId, listingId])
@@ -279,7 +281,7 @@ enum BookingStatus {
   COMPLETED
 }
 
-enum BookingPaymentStatus {
+enum BookingPayment {
   PENDING
   PARTIALLY_PAID
   PAID
@@ -288,15 +290,12 @@ enum BookingPaymentStatus {
 
 enum PaymentOption {
   PAY_NOW
-  PAY_PARTIALLY
-  PAY_AT_CHECKIN
+  BOOK_ONLY
 }
 
-enum PaymentMethod {
+enum PaymentMode {
   CASH
-  CARD
-  UPI
-  NET_BANKING
+  ONLINE
 }
 
 enum PaymentPurpose {
@@ -313,7 +312,7 @@ enum PaymentGateway {
 
 enum PaymentStatus {
   PENDING
-  PAID
+  SUCCESS
   FAILED
   CANCELLED
   REFUNDED

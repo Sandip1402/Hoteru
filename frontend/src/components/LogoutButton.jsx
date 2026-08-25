@@ -1,4 +1,4 @@
-import { useAuth } from "../Auth/useAuth";
+import { useAuth } from "../auth/useAuth";
 
 export const LogoutButton = () => {
   const { logout } = useAuth();

@@ -98,9 +98,6 @@ export const createBooking = async (guestId, data) => {
                 paymentOption:
                     data.paymentOption,
 
-                remainingPaymentMethod:
-                    data.remainingPaymentMethod,
-
                 status: "AWAITING_PAYMENT",
 
                 paymentStatus: "PENDING",
@@ -121,22 +118,6 @@ export const createBooking = async (guestId, data) => {
                         roomId: room.roomId
                     }
                 }
-            },
-        });
-
-        await tx.payment.create({
-            data: {
-                bookingId: booking.bookingId,
-
-                amount: pricing.bookingAmount,
-
-                purpose: "BOOKING",
-
-                status:
-                    data.paymentOption ===
-                        "PAY_NOW"
-                        ? "PAID"
-                        : "PARTIALLY_PAID",
             },
         });
 
@@ -173,7 +154,7 @@ export const getMyBookings = async (guestId) => {
     });
 };
 
-export const getMyBookingById = async (bookingId, guestId) => {
+export const getBookingById = async (bookingId, guestId) => {
     const booking = await prisma.booking.findFirst({
         where: {
             bookingId,

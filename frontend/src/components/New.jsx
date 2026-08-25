@@ -1,9 +1,9 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
-import { validateFiles } from "../util/validateFiles";
+import { validateFiles } from "../utils/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { CallAPI } from "../util/api";
+import { callAPI } from "../utils/api";
 import { useNavigate } from "react-router"
 
 export const NewHosting = () => {
@@ -13,7 +13,7 @@ export const NewHosting = () => {
     
     const saveData = async(data) => {
         const listing = {...data};
-        const res = await CallAPI('/listings/new', {
+        const res = await callAPI('/listings/new', {
             method : "POST",
             body: JSON.stringify({listing})
         })

@@ -1,5 +1,6 @@
 import { useAuth } from '../Auth/useAuth';
-import { CallAPI } from '../util/callAPI'
+import { callAPI } from '../utils/callAPI'
+import { useHoteruAuth } from '../Auth/HoteruAuthProvider';
 
 
 import { useEffect, useState } from 'react';
@@ -10,24 +11,27 @@ import { Loading } from '../components';
 export const Test = () => {
 
   const [data, setData] = useState(null);
-  const { accessToken, isLoading } = useAuth();
+  const { currentUser } = useHoteruAuth();
 
-  const fetchData = async () => {
-    try {
-      const response = await CallAPI('/test', { method: 'GET' }, true, accessToken);
-      // console.log(response);
-      setData(response);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  // const { accessToken, isLoading } = useAuth();
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await CallAPI('/test', { method: 'GET' }, true, accessToken);
+  //     // console.log(response);
+  //     setData(response);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
 
   useEffect(() => {
-    // make the protected call when the token is fully loaded
-    if (!isLoading && accessToken) {
-      fetchData();
-    }
-  }, [accessToken, isLoading, fetchData]);
+    // // make the protected call when the token is fully loaded
+    // if (!isLoading && accessToken) {
+    //   fetchData();
+    // }
+
+  }, [ data]);
 
 
   return (
@@ -43,4 +47,3 @@ export const Test = () => {
     </div>
   )
 }
-

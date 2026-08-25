@@ -84,7 +84,7 @@ const RoomBaseSchema = z.object({
 
   bathrooms: z.coerce.number().min(0.5).max(20),
 
-  baseprice: z.coerce.number().positive(),
+  basePrice: z.coerce.number().positive(),
 
   quantity: z.coerce.number().int().min(1).default(1),
 
@@ -217,7 +217,7 @@ export const reviewListingSchema = z.object({
       (!data.adminNotes || data.adminNotes.trim().length === 0)
     ) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: "custom",
         path: ["adminNotes"],
         message: "Admin notes are required when rejecting a listing.",
       });
@@ -260,15 +260,7 @@ export const updateListingAmenitiesSchema = z.object({
 
 const paymentOption = [
   "PAY_NOW",
-  "PAY_PARTIALLY",
-  "PAY_AT_CHECKIN",
-];
-
-const paymentMethod = [
-  "CASH",
-  "CARD",
-  "UPI",
-  "NET_BANKING",
+  "BOOK_ONLY"
 ];
 
 export const createBookingSchema = z.object({
@@ -281,8 +273,6 @@ export const createBookingSchema = z.object({
   guests: z.coerce.number().int().min(1).max(50),
 
   paymentOption: z.enum(paymentOption),
-
-  // remainingPaymentMethod: z.enum(paymentMethod), // fix bocomes relevant when we implement pay_at_checkin
 })
   .refine(
     (data) => data.checkOut > data.checkIn,
@@ -291,31 +281,6 @@ export const createBookingSchema = z.object({
       path: ["checkOut"],
     }
   )
-  .superRefine((data, ctx) => {
-    if (
-      data.paymentOption === "PAY_PARTIALLY" &&
-      !data.remainingPaymentMethod
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["remainingPaymentMethod"],
-        message:
-          "Remaining payment mode is required for partial payment.",
-      });
-    }
-
-    if (
-      data.paymentOption === "PAY_NOW" &&
-      data.remainingPaymentMethod
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["remainingPaymentMethod"],
-        message:
-          "Remaining payment mode must not be provided for full online payment.",
-      });
-    }
-  });
 
 export const cancelBookingSchema = z.object({
   cancellationReason: z.string().trim().min(5).max(500),
@@ -331,11 +296,11 @@ export const createPaymentOrderSchema = z.object({
 export const verifyPaymentSchema = z.object({
   paymentId: z.coerce.number().int().positive(),
 
-  razorpayOrderId: z.string().min(1),
+  gatewayOrderId: z.string().min(1),
 
-  razorpayPaymentId: z.string().min(1),
+  gatewayPaymentId: z.string().min(1),
 
-  razorpaySignature: z.string().min(1),
+  gatewaySignature: z.string().min(1),
 });
 
 

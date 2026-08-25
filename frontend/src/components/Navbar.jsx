@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, NavLink } from 'react-router';
 
-import { useAuth } from '../Auth/useAuth';
-import { CallAPI } from '../util/callAPI';
+import { useAuth } from '../auth/useAuth.js';
+import { callAPI } from '../utils/callAPI.js';
 
 import { LoginButton } from './LoginButton.jsx';
 import { LogoutButton } from './LogoutButton.jsx';
@@ -12,32 +12,9 @@ import { FiMenu } from 'react-icons/fi';
 
 
 export const Navbar = () => {
-
-    // const [showLogin, setShowLogin] = useState(false);
-    // const [showSignUp, setShowSignUp] = useState(false);
     const navigate = useNavigate();
 
     const { isAuthenticated } = useAuth();
-    const loggedIn = isAuthenticated;
-
-    // const user = localStorage.getItem("user");
-
-    // 
-
-    // const logOut = async () => {
-    //     try {
-    //         await CallAPI("/logout", { method: "POST" });
-
-    //         // clear access token
-    //         setAccessToken(null);
-    //         navigate("/hotel", { replace: true });
-
-    //     } catch (err) {
-    //         console.error("Logout failed:", err.message);
-    //     }
-    // };
-
-
 
     return (
         <div className="h-max w-full p-2 2xl:p-7 flex items-center-safe bg-base-100 shadow-md 2xl:shadow-xl">
@@ -54,7 +31,7 @@ export const Navbar = () => {
             <div className="flex-1 mx-4">
                 {/* Fix : change this part based on path */}
                 <ul className='hidden md:flex text-sub'>
-                    <li><NavLink className='px-2' to="/hotels">Places to stay</NavLink></li>
+                    <li><NavLink className='px-2' to="/accommodations">Places to stay</NavLink></li>
                     <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
                     <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
                 </ul>
@@ -88,7 +65,7 @@ export const Navbar = () => {
                     </div>
                     <ul tabIndex={-1} className="dropdown-content rounded-box shadow-md bg-white z-10 p-1 w-max
                                                 flex flex-col text-center text-sub">
-                        {loggedIn ?
+                        {isAuthenticated ?
                             <>
                                 <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/profile')}>Profile</li>
                                 <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>

@@ -1,7 +1,7 @@
 import { TbCameraPlus } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { StarRating } from "./StarRating";
-import { CallAPI } from "../js/api";
+import { callAPI } from "../js/api";
 import ImagePreview from "./ImagePreview.jsx";
 import { validateFiles } from "../js/validateFiles";
 
@@ -43,7 +43,7 @@ export const ReviewForm = ({id}) => {
         
 
         // api calling
-        const res = await CallAPI(`/listings/${id}/reviews`,{
+        const res = await callAPI(`/listings/${id}/reviews`,{
             method: "POST",
             body: JSON.stringify({review})
         })

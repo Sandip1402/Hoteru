@@ -1,7 +1,7 @@
 import { MdOutlineLogout } from 'react-icons/md'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router'
-import { useAuth } from '../Auth/useAuth'
+import { useAuth } from '../auth/useAuth'
 
 export const ProfileSideBar = ({ setFunc, style }) => {
 

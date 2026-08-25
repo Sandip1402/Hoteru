@@ -1,145 +1,435 @@
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { useState, useEffect } from "react";
-import { CallAPI } from "../util/callAPI";
-import { FiHeart, FiStar, FiCircle, FiShare2, FiHome, FiCalendar } from "react-icons/fi";
 
-import { PaymentForm, ReviewCard, Review } from "../components";
+import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
+import { Loading } from "../components/Loading.jsx";
+
+import {
+    getRoomById,
+    getRoomImages,
+} from "../apis/roomApi.js";
+
+import {
+    createBooking
+} from "../apis/bookingApi.js"
+
+const FALLBACK_IMAGE = "/images/accommodation-placeholder.jpg";
 
 export const RoomDetails = () => {
-    // const navigate = useNavigate();
-    // const { id } = useParams();
+    const navigate = useNavigate();
+    const { roomId } = useParams();
 
-    // const [item, setItem] = useState(null);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-    const [save, setSave] = useState(false);
+    const {
+        isAuthenticated,
+        getAccessTokenSilently, // fix
+    } = useHoteruAuth();
 
-    // 
+    const [room, setRoom] = useState(null);
+    const [images, setImages] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchItem = async () => {
-    //         try {
-    //             setLoading(true);
-    //             setError(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [imagesLoading, setImagesLoading] = useState(true);
 
-    //             const res = await CallAPI(`/listings/${id}`, { method: "GET" });
-    //             setItem(res.data);
-    //         } catch (err) {
-    //             setError("Failed to load hotel detail 😢");
-    //             console.error(err);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     };
+    const [error, setError] = useState(null);
+    const [imagesError, setImagesError] = useState(null);
 
-    //     fetchItem();
-    // }, [id]);
+    const [checkIn, setCheckIn] = useState("");
+    const [checkOut, setCheckOut] = useState("");
+    const [guests, setGuests] = useState(1);
+    const [paymentOption, setPaymentOption] = useState("PAY_NOW");
 
-    // if (loading) return <p className="text-center my-auto">Loading...</p>;
-    // if (error) return <p className="text-red-500 text-center my-auto">{error}</p>;
-    // if (!item) return <p>No listing found</p>;
+    const [isBooking, setIsBooking] = useState(false);
+    const [bookingError, setBookingError] = useState(null);
+
+
+    // Fetch room
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const fetchRoom = async () => {
+            try {
+                setIsLoading(true);
+                setError(null);
+
+                const response = await getRoomById(
+                    roomId,
+                    controller.signal
+                );
+
+                setRoom(response.data);
+
+                // If the room endpoint still returns amenities,
+                // we can use them directly.
+            } catch (err) {
+                if (err.name === "AbortError") return;
+
+                console.error("Failed to fetch room:", err);
+                setError("Unable to load room.");
+            } finally {
+                if (!controller.signal.aborted) {
+                    setIsLoading(false);
+                }
+            }
+        };
+
+        fetchRoom();
+
+        return () => controller.abort();
+    }, [roomId]);
+
+
+    // Fetch room images
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const fetchImages = async () => {
+            try {
+                setImagesLoading(true);
+                setImagesError(null);
+
+                const response = await getRoomImages(
+                    roomId,
+                    controller.signal
+                );
+
+                setImages(response.data);
+            } catch (err) {
+                if (err.name === "AbortError") return;
+
+                console.error("Failed to fetch room images:", err);
+                setImagesError("Unable to load room images.");
+            } finally {
+                if (!controller.signal.aborted) {
+                    setImagesLoading(false);
+                }
+            }
+        };
+
+        fetchImages();
+
+        return () => controller.abort();
+    }, [roomId]);
+
+
+    // Create booking
+    const handleBooking = async (event) => {
+        event.preventDefault();
+
+        if (!isAuthenticated) {
+            setBookingError("Please log in to book this room.");
+            return;
+        }
+
+        if (!checkIn || !checkOut) {
+            setBookingError("Please select check-in and check-out dates.");
+            return;
+        }
+
+        if (checkOut <= checkIn) {
+            setBookingError("Check-out must be after check-in.");
+            return;
+        }
+
+        if (guests < 1 || guests > room.maxGuests) {
+            setBookingError(
+                `Guests must be between 1 and ${room.maxGuests}.`
+            );
+            return;
+        }
+
+        try {
+            setIsBooking(true);
+            setBookingError(null);
+
+            const token = await getAccessTokenSilently();
+
+            const response = await createBooking(
+                {
+                    roomId: Number(roomId),
+                    checkIn,
+                    checkOut,
+                    guests,
+                    paymentOption,
+                },
+                token
+            );
+
+            const booking = response.data;
+
+            navigate(`/payments/${booking.bookingId}`, {
+                state: {
+                    booking,
+                },
+            });
+        } catch (err) {
+            console.error("Booking failed:", err);
+
+            setBookingError(
+                err.message || "Unable to create booking."
+            );
+        } finally {
+            setIsBooking(false);
+        }
+    };
+
+
+    // Loading / error
+    if (isLoading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return (
+            <div className="py-20 text-center">
+                <p>{error}</p>
+            </div>
+        );
+    }
+
+    if (!room) {
+        return null;
+    }
+
+
+    // Render
     return (
-        <div className="py-1 max-md:px-3 md:px-5 lg:px-20">
+        <main className="max-w-7xl mx-auto px-4 py-8">
 
-            {/* Intro */}
-            <section className="my-3 flex flex-col">
+            {/* Room Images */}
+            <section className="mb-8">
+                <h1 className="text-3xl font-bold mb-4">
+                    {room.name}
+                </h1>
 
-                <div className="w-max flex gap-2">
-                    <b className="text-lg">Superior Family Room</b>
-                    <Review />
-                </div>
+                {imagesLoading && (
+                    <div className="h-72 flex items-center justify-center border rounded-lg">
+                        Loading images...
+                    </div>
+                )}
 
-                <div className="flex justify-between">
+                {imagesError && (
+                    <div className="h-72 flex items-center justify-center border rounded-lg">
+                        <p>{imagesError}</p>
+                    </div>
+                )}
 
-                    {/* Place */}
-                    <span className="text-gray-500">
-                        Taito city, Tokyo, Japan
-                    </span>
-
-                    {/*Share & save */}
-                    <span className="flex items-center gap-4">
-                        {/* fix - give share options */}
-                        <span className="flex cursor-pointer items-center gap-1">
-                            <FiShare2 /> <p>Share</p>
-                        </span>
-                        <span className="flex cursor-pointer items-center gap-1" onClick={() => setSave(!save)}>
-                            <FiHeart strokeWidth={save ? "0" : "1"} fill={save ? "blue" : "none"} /> <p>Save</p>
-                        </span>
-                    </span>
-                </div>
+                {!imagesLoading && !imagesError && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {images.length > 0 ? (
+                            images.map((image) => (
+                                <img
+                                    key={image.imageId}
+                                    src={
+                                        image.imageUrl ||
+                                        FALLBACK_IMAGE
+                                    }
+                                    alt={
+                                        image.altText ||
+                                        room.name
+                                    }
+                                    className="w-full h-64 object-cover rounded-lg"
+                                />
+                            ))
+                        ) : (
+                            <img
+                                src={FALLBACK_IMAGE}
+                                alt={room.name}
+                                className="w-full h-64 object-cover rounded-lg"
+                            />
+                        )}
+                    </div>
+                )}
             </section>
 
-            {/* Photos */}
-            <section>
-                {/* fix - photos */}
-                Photos
+            {/* Room information */}
+            <section className="mb-8">
+                <p className="text-sm text-gray-500">
+                    {room.roomType}
+                </p>
+
+                <div className="flex flex-wrap gap-4 mt-3">
+                    <span>
+                        {room.maxGuests} guests
+                    </span>
+
+                    <span>
+                        {room.beds} beds
+                    </span>
+
+                    <span>
+                        {room.bedrooms ?? 0} bedrooms
+                    </span>
+
+                    <span>
+                        {room.bathrooms} bathrooms
+                    </span>
+                </div>
+
+                <p className="mt-4 text-gray-600">
+                    {room.description}
+                </p>
             </section>
 
-            <section className="flex justify-between max-lg:flex-col gap-x-5 xl:gap-x-10">
+            {/* Amenities */}
+            {room.amenities?.length > 0 && (
+                <section className="mb-8">
+                    <h2 className="text-xl font-semibold mb-3">
+                        Amenities
+                    </h2>
 
-                {/* Room Details */}
-                <div className="flex-col gap-y-3 flex-2">
+                    <div className="flex flex-wrap gap-2">
+                        {room.amenities.map(({ amenity }) => (
+                            <span
+                                key={amenity.amenityId}
+                                className="border rounded-full px-3 py-1 text-sm"
+                            >
+                                {amenity.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
 
-                    {/* OverView */}
-                    <div className="flex flex-col gap-y-2">
-                        <h3><b>Overview</b></h3>
-                        <ul className="flex gap-2 items-center font-bold" >
-                            <li><FiHome className="text-primary" /></li>
-                            <li>2bed</li>
-                            <li>4guests</li>
-                            <li>2baths</li>
-                        </ul>
-                        <span className="flex gap-2 items-center font-bold">
-                            <FiCalendar className="text-pink-600" />
-                            <p>Free cancellation withing 48 hours</p>
-                        </span>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum sint aperiam ducimus odio
-                            explicabo facere dignissimos magnam? Ullam consectetur eligendi asperiores at animi
-                            repellendus optio, sed, sit numquam enim quas.
+            {/* Booking */}
+            <section className="max-w-xl border rounded-lg p-6">
+                <h2 className="text-xl font-semibold mb-4">
+                    Book this room
+                </h2>
+
+                <p className="mb-4">
+                    ₹{room.basePrice} / night
+                </p>
+
+                <form
+                    onSubmit={handleBooking}
+                    className="space-y-4"
+                >
+                    {/* Check-in */}
+                    <div>
+                        <label
+                            htmlFor="checkIn"
+                            className="block mb-1"
+                        >
+                            Check-in
+                        </label>
+
+                        <input
+                            id="checkIn"
+                            type="date"
+                            value={checkIn}
+                            onChange={(e) =>
+                                setCheckIn(e.target.value)
+                            }
+                            className="border rounded px-3 py-2 w-full"
+                            required
+                        />
+                    </div>
+
+                    {/* Check-out */}
+                    <div>
+                        <label
+                            htmlFor="checkOut"
+                            className="block mb-1"
+                        >
+                            Check-out
+                        </label>
+
+                        <input
+                            id="checkOut"
+                            type="date"
+                            value={checkOut}
+                            onChange={(e) =>
+                                setCheckOut(e.target.value)
+                            }
+                            className="border rounded px-3 py-2 w-full"
+                            required
+                        />
+                    </div>
+
+                    {/* Guests */}
+                    <div>
+                        <label
+                            htmlFor="guests"
+                            className="block mb-1"
+                        >
+                            Guests
+                        </label>
+
+                        <input
+                            id="guests"
+                            type="number"
+                            min="1"
+                            max={room.maxGuests}
+                            value={guests}
+                            onChange={(e) =>
+                                setGuests(Number(e.target.value))
+                            }
+                            className="border rounded px-3 py-2 w-full"
+                            required
+                        />
+                    </div>
+
+                    {/* Payment option */}
+                    <div>
+                        <p className="mb-2">
+                            Payment option
                         </p>
+
+                        <label className="flex gap-2 items-center">
+                            <input
+                                type="radio"
+                                name="paymentOption"
+                                value="PAY_NOW"
+                                checked={
+                                    paymentOption === "PAY_NOW"
+                                }
+                                onChange={(e) =>
+                                    setPaymentOption(
+                                        e.target.value
+                                    )
+                                }
+                            />
+
+                            Full payment
+                        </label>
+
+                        <label className="flex gap-2 items-center mt-2">
+                            <input
+                                type="radio"
+                                name="paymentOption"
+                                value="BOOK_ONLY"
+                                checked={
+                                    paymentOption ===
+                                    "BOOK_ONLY"
+                                }
+                                onChange={(e) =>
+                                    setPaymentOption(
+                                        e.target.value
+                                    )
+                                }
+                            />
+
+                            Book only
+                        </label>
                     </div>
 
-                    <div className="w-full h-0.5 my-5 border-b-1 border-b-gray-400"></div>
+                    {bookingError && (
+                        <p className="text-red-500">
+                            {bookingError}
+                        </p>
+                    )}
 
-                    {/* Offerings */}
-                    <div className="flex flex-col gap-y-2">
-                        <h3><b>This Place Offers</b></h3>
-                        <ul className="flex flex-wrap *:w-1/2 ">
-                            {/*fix - need to add icons */}
-                            <li>Kitchen</li>
-                            <li>TV</li>
-                            <li>Air Conditioning</li>
-                            <li>WiFi</li>
-                            <li>Heating</li>
-                            <li>First Aid Kit</li>
-                            <li>Free Hot Beverages</li>
-                            <li>Bicycle rental</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="lg:hidden w-full h-0.5 mt-5 border-b-1 border-b-gray-400"></div>
-
-                {/* Payment info */}
-                <div className="flex-1 lg:flex lg:justify-end">
-                    <PaymentForm />
-                </div>
+                    <button
+                        type="submit"
+                        disabled={isBooking}
+                        className="bg-primary text-white rounded-full px-5 py-2 font-semibold disabled:opacity-50"
+                    >
+                        {isBooking
+                            ? "Creating booking..."
+                            : "Book this room"}
+                    </button>
+                </form>
             </section>
-            
-            <div className="w-full h-0.5 my-5 border-b-1 border-b-gray-400"></div>
-
-            {/* Reviews */}
-            <section className="mb-3">
-                <h3><b>Reviews</b></h3>
-                <Review style={"my-3"} />
-                <div className="w-full flex gap-y-5 max-sm:flex-col sm:flex-wrap sm:gap-x-5">
-                    <ReviewCard />
-                    <ReviewCard />
-                    <ReviewCard />
-                    <ReviewCard />
-                </div>
-            </section>
-            
-        </div>
-    )
+        </main>
+    );
 }

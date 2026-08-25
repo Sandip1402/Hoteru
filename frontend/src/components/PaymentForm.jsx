@@ -1,40 +1,102 @@
-
 import { useSearch } from "../context/SearchContext"
 import { useNavigate } from "react-router";
 import { DateInput } from "./DateInput.jsx";
 import { Review } from "./RoomComponents.jsx";
 
 
-export const PriceDetails = () => {
+export const PriceDetails = ({ booking }) => {
+
+    if (!booking) {
+        return null;
+    }
+
+
+    const checkIn = new Date(
+        booking.checkIn
+    );
+
+    const checkOut = new Date(
+        booking.checkOut
+    );
+
+
+    const nights = Math.max(
+        1,
+        Math.ceil(
+            (
+                checkOut.getTime() -
+                checkIn.getTime()
+            ) /
+            (1000 * 60 * 60 * 24)
+        )
+    );
+
+
+    const pricePerNight =
+        Number(booking.pricePerNight);
+
+
+    const totalPrice =
+        Number(booking.totalPrice);
+
+
     return (
-        <div className="flex flex-col gap-y-2 *:flex *:flex-1 *:justify-between text-sm *:not-last:text-gray-600">
 
-            {/* discounts, fees */}
+        <div className="
+            flex
+            flex-col
+            gap-y-2
+            *:flex
+            *:flex-1
+            *:justify-between
+            text-sm
+            *:not-last:text-gray-600
+        ">
+
+            {/* Room price */}
             <span>
-                <p>$86 * 4 nights</p>
-                <p>$348</p>
+
+                <p>
+                    ₹{pricePerNight} × {nights}{" "}
+                    {nights === 1
+                        ? "night"
+                        : "nights"}
+                </p>
+
+                <p>
+                    ₹{pricePerNight * nights}
+                </p>
+
             </span>
 
-            <span>
-                <p>New user discount</p>
-                <p className="text-green-700">-$87</p>
-            </span>
 
-            <span>
-                <p>Service Fee</p>
-                <p>$12</p>
-            </span>
+            {/* Separator */}
+            <span className="
+                w-full
+                h-0.5
+                border-b
+                border-b-gray-400
+            " />
 
-            <span className="w-full h-0.5 border-b-1 border-b-gray-400"></span>
 
             {/* Total */}
-            <span className="font-bold">
-                <p>Total (USD)</p>
-                <p>$273</p>
+            <span className="
+                font-bold
+            ">
+
+                <p>
+                    Total
+                </p>
+
+                <p>
+                    ₹{totalPrice}
+                </p>
+
             </span>
+
         </div>
-    )
-}
+    );
+};
 
 export const PaymentForm = () => {
     const { setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues } = useSearch();

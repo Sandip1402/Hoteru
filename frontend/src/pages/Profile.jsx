@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { CallAPI } from "../util/callAPI";
+import { callAPI } from "../utils/callAPI";
 
 
 export const Profile = () => {
@@ -17,7 +17,7 @@ export const Profile = () => {
         
     //     const getUser = async() => {
     //         try {
-    //             const res = await CallAPI(`/user/${userId}`,
+    //             const res = await callAPI(`/user/${userId}`,
     //                 {method: "GET"}, true)
     //             setUser(res.data);
     //         } catch (err) {

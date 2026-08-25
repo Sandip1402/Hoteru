@@ -1,11 +1,11 @@
 
 
-export const CallAPI = async (endpoint, options = {}, isProtected = false, accessToken = null) => {
+export const callAPI = async (endpoint, options = {}, isProtected = false, accessToken = null) => {
 
   // If backend is on a different domain, set VITE_API_BASE_URL in .env
   const baseURL = import.meta.env.VITE_API_BASE_URL || '';
 
-  // console.log("Calling API:", `${baseURL}/api${endpoint}`, "Protected:", isProtected);
+  console.log("Calling API:", `${baseURL}/api${endpoint}`, "Protected:", isProtected);
 
   try {
 

@@ -26,8 +26,8 @@ export const getMyBookings = asyncHandler(async (req, res) => {
     });
 });
 
-export const getMyBookingById = asyncHandler(async (req, res) => {
-    const booking = await bookingService.getMyBookingById(
+export const getBookingById = asyncHandler(async (req, res) => {
+    const booking = await bookingService.getBookingById(
         Number(req.params.bookingId),
         req.user.id
     );

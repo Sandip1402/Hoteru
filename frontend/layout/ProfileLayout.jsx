@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router'
-import { useAuth } from '../src/Auth/useAuth'
+import { useAuth } from '../src/auth/useAuth'
 
 import { FaChevronLeft, FaHamburger } from 'react-icons/fa'
 import { ProfileSideBar, LogoutButton } from '../src/components'

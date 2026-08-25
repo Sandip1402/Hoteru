@@ -1,15 +1,15 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
-import { useAuth } from "./Auth/useAuth.js";
-
 import RootLayout from '../layout/RootLayout.jsx'
 import ProfileLayout from '../layout/ProfileLayout.jsx'
 
 import { ProtectedRoute } from "./components";
 
-import { Bookings, Experiences,  Hotel, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
-        SavedPayment, WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security } from "./pages";
-
+import {
+    Bookings, Experiences, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
+    SavedPayment, WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security, Listings, 
+    ListingDetails, BookingDetails
+} from "./pages";
 
 
 export const Router = createBrowserRouter([
@@ -24,15 +24,22 @@ export const Router = createBrowserRouter([
                 children: [
                     { index: true, element: <Home /> },
                     {
-                        path: "hotels",
+                        path: "accommodations",
                         children: [
-                            { index: true, element: <Hotel /> },
-                            { path: "roomdetails", element: <RoomDetails /> },
-                            { path: "payment", element: <Payment /> }
+                            { index: true, element: <Listings /> },
+                            {
+                                path: ":listingId",
+                                children: [
+                                    { index: true, element: <ListingDetails /> },
+                                    { path: "rooms/:roomId", element: <RoomDetails /> },
+                                ]
+                            }
                         ]
                     },
+                    { path: "payments/:bookingId", element: <Payment /> },
+                    { path: "bookings/:bookingId", element: <BookingDetails /> },
                     { path: "experiences", element: <Experiences /> },
-                    { path: "discover", element: <Discover />},
+                    { path: "discover", element: <Discover /> },
                     // {path: "notification", element: <Notification />}, {/* fix - need to add notification page */}
                     // {path: "chat", element: <RootCrash />}, {/* fix - need to add chat page */}
                     {
@@ -44,13 +51,13 @@ export const Router = createBrowserRouter([
                             { path: "wishlist", element: <WishList /> },
                             { path: "booking_history", element: <Bookings /> },
                             { path: "hostings", element: <Hostings /> }, // fix : need to add separate hosting page
-                            { path: "security", element: <Security />},
-                            { path: "notification", element: <Notification />}, // fix - need to add notification page
+                            { path: "security", element: <Security /> },
+                            { path: "notification", element: <Notification /> }, // fix - need to add notification page
                             { path: "payment_info", element: <SavedPayment /> },
                             { path: "logout", element: <Profile /> }
                         ]
                     },
-                    { path: "test", element:<Test />  },
+                    { path: "test", element: <Test /> },
                     { path: "*", element: <NotFound /> }
                 ]
             }

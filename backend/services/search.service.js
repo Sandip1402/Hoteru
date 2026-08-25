@@ -1,5 +1,5 @@
 import { prisma } from "../lib/prisma.js"
-import { publicListingInclude } from "../utils/listing.helper.js";
+import { publicListingDetailSelect } from "../utils/listing.helper.js";
 import {
     getOrderBy,
     applyDestinationFilter,
@@ -41,7 +41,7 @@ export const searchListings = async ({
 
     const listings = await prisma.listing.findMany({
         where,
-        include: publicListingInclude,
+        include: publicListingDetailSelect,
         orderBy: getOrderBy(sort),
         skip: (page - 1) * limit,
         take: limit,

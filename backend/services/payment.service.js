@@ -1,13 +1,13 @@
 import { prisma } from "../lib/prisma.js";
-import { createOrder } from "../lib/razorpay.js";
+import { createOrder, fetchPayment, verifyPaymentSignature } from "../lib/razorpay.js";
 
 import AppError from "../utils/app-error.js";
 
-export const createPaymentOrder = async ({
+export const createPaymentOrder = async (
     userId,
     bookingId,
     purpose,
-}) => {
+) => {
     const booking = await prisma.booking.findFirst({
         where: {
             bookingId,
@@ -43,17 +43,13 @@ export const createPaymentOrder = async ({
     }
 
     if (purpose === "REMAINING") {
-        if (booking.paymentOption !== "PAY_PARTIALLY") {
+        if (
+            booking.paymentOption !== "BOOK_ONLY" ||
+            Number(booking.remainingAmount) <= 0
+        ) {
             throw new AppError(
                 400,
                 "This booking does not have a remaining payment."
-            );
-        }
-
-        if (booking.paymentStatus !== "PARTIALLY_PAID") {
-            throw new AppError(
-                400,
-                "There is no remaining payment for this booking."
             );
         }
 
@@ -69,6 +65,7 @@ export const createPaymentOrder = async ({
             bookingId: booking.bookingId,
             amount,
             purpose,
+            mode: "ONLINE",
             gateway: "RAZORPAY",
             status: "PENDING",
         },
@@ -113,7 +110,7 @@ export const verifyPayment = async ({
     userId,
     paymentId,
     orderId,
-    razorpayPaymentId,
+    gatewayPaymentId,
     signature,
 }) => {
     const payment = await prisma.payment.findFirst({
@@ -132,7 +129,7 @@ export const verifyPayment = async ({
         throw new AppError(404, "Payment not found.");
     }
 
-    if (payment.status === "PAID") {
+    if (payment.status === "SUCCESS") {
         throw new AppError(400, "Payment has already been verified.");
     }
 
@@ -146,7 +143,7 @@ export const verifyPayment = async ({
 
     const isValid = verifyPaymentSignature({
         orderId,
-        paymentId: razorpayPaymentId,
+        paymentId: gatewayPaymentId,
         signature,
     });
 
@@ -165,25 +162,48 @@ export const verifyPayment = async ({
 
     const booking = payment.booking;
 
+    const newPaidAmount =
+        Number(booking.paidAmount) + Number(payment.amount);
+
+    const newRemainingAmount = Math.max(
+        0,
+        Number(booking.totalPrice) - newPaidAmount
+    );
+
+    const isFullyPaid = newRemainingAmount <= 0;
+
+    const razorpayPayment = await fetchPayment(gatewayPaymentId);
+
+    if (razorpayPayment.order_id !== payment.gatewayOrderId) {
+        throw new AppError(400, "Payment order mismatch.");
+    }
+
+    if (
+        Number(razorpayPayment.amount) !==
+        Math.round(Number(payment.amount) * 100)
+    ) {
+        throw new AppError(400, "Payment amount mismatch.");
+    }
+
+    if (razorpayPayment.status !== "captured") {
+        throw new AppError(400, "Payment has not been captured.");
+    }
+
     const result = await prisma.$transaction(async (tx) => {
         const updatedPayment = await tx.payment.update({
             where: {
                 paymentId: payment.paymentId,
             },
             data: {
-                status: "PAID",
-                gatewayPaymentId: razorpayPaymentId,
+                status: "SUCCESS",
+
+                gatewayPaymentId: gatewayPaymentId,
                 gatewaySignature: signature,
-                // method: "UPI", // fix
+                gatewayMethod: razorpayPayment.method,
+
                 paidAt: new Date(),
             },
         });
-
-        const newPaidAmount =
-            Number(booking.paidAmount) + Number(payment.amount);
-
-        const newRemainingAmount =
-            Number(booking.totalPrice) - newPaidAmount;
 
         const updatedBooking = await tx.booking.update({
             where: {
@@ -192,14 +212,14 @@ export const verifyPayment = async ({
             data: {
                 paidAmount: newPaidAmount,
                 remainingAmount: newRemainingAmount,
-                paymentStatus:
-                    newRemainingAmount <= 0
-                        ? "PAID"
-                        : "PARTIALLY_PAID",
-                status:
-                    newRemainingAmount <= 0
-                        ? "CONFIRMED"
-                        : "AWAITING_PAYMENT",
+
+                paymentStatus: isFullyPaid
+                    ? "PAID"
+                    : "PARTIALLY_PAID",
+
+                status: isFullyPaid
+                    ? "CONFIRMED"
+                    : "AWAITING_PAYMENT",
             },
         });
 

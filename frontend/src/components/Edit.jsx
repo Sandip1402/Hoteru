@@ -3,7 +3,7 @@ import { FormField } from "./FormField";
 import { FormInput } from "./FormInput";
 import { validateFiles } from "../js/validateFiles";
 import { TbCameraPlus } from "react-icons/tb";
-import { CallAPI } from "../js/api";
+import { callAPI } from "../js/api";
 
 export const Edit = ({listing}) => {
 
@@ -17,7 +17,7 @@ export const Edit = ({listing}) => {
     const saveData = async(data) => {
         console.log(data);
         const payload = { listing: data };
-        const res = await CallAPI(`/listings/${data._id}`, {
+        const res = await callAPI(`/listings/${data._id}`, {
             method : "PUT",
             body: JSON.stringify(payload)
         })

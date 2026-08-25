@@ -151,7 +151,7 @@ export const applyRoomFilter = (
     }
 
     if (minPrice || maxPrice) {
-        roomWhere.baseprice = {
+        roomWhere.basePrice = {
             ...(minPrice && {
                 gte: minPrice,
             }),

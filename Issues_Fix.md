@@ -18,3 +18,7 @@
             which does not require React Router hooks.
     Fix : even after using plain browser navigation it didn't work as expected, so made a separte file for Router.
             imported router in both app.jsx and Auth0ProviderWithHistory
+
+5. Database services having transaction are giving errors because due to strict mode two api requests are
+    made at a time, giving cannot create transaction error
+    Fix : added an abort signal to cancel the first api request

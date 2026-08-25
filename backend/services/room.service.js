@@ -1,6 +1,6 @@
 import { prisma } from "../lib/prisma.js";
 import AppError from "../utils/app-error.js";
-import { verifyRoomOwnership } from "../utils/resource.helper.js";
+import { getRoomOrThrow, verifyRoomOwnership } from "../utils/resource.helper.js";
 import * as storageService from "./storage.service.js"
 
 
@@ -50,15 +50,18 @@ export const deleteRoom = async (roomId, hostId) => {
 };
 
 export const getRoomById = async (roomId) => {
-  const room = await prisma.room.findUnique({
-    where: { roomId },
-    include: {
-      images: true,
-      amenities: {
-        include: {
-          amenity: true,
-        },
-      },
+  const room = await getRoomOrThrow(roomId, {
+    select: {
+      roomId: true,
+      name: true,
+      description: true,
+      roomType: true,
+      maxGuests: true,
+      bedrooms: true,
+      beds: true,
+      bathrooms: true,
+      basePrice: true,
+      amenities: true,
     },
   });
 
@@ -94,6 +97,13 @@ export const uploadRoomImage = async (roomId, hostId, file) => {
 export const getRoomImages = async (roomId) => {
   return prisma.roomImage.findMany({
     where: { roomId },
+    select: {
+      imageId: true,
+      altText: true,
+      imageUrl: true,
+      isCover: true,
+      displayOrder: true,
+    },
     orderBy: {
       displayOrder: "asc",
     },
@@ -102,7 +112,7 @@ export const getRoomImages = async (roomId) => {
 
 export const setCoverImage = async (imageId, hostId) => {
   const image = await prisma.roomImage.findUnique({
-    where: { imgId: imageId },
+    where: { imageId },
     include: {
       room: {
         include: {
@@ -131,9 +141,7 @@ export const setCoverImage = async (imageId, hostId) => {
     }),
 
     prisma.roomImage.update({
-      where: {
-        imgId: imageId,
-      },
+      where: { imageId },
       data: {
         isCover: true,
       },
@@ -143,7 +151,7 @@ export const setCoverImage = async (imageId, hostId) => {
 
 export const deleteRoomImage = async (imageId, hostId) => {
   const image = await prisma.roomImage.findUnique({
-    where: { imgId: imageId },
+    where: { imageId },
     include: {
       room: {
         include: {
@@ -164,9 +172,7 @@ export const deleteRoomImage = async (imageId, hostId) => {
   await storageService.deleteImage(image.publicId);
 
   await prisma.roomImage.delete({
-    where: {
-      imgId: imageId, // fix, change in model, imgId -> imageId
-    },
+    where: { imageId },
   });
 
   if (image.isThumbnail) {
@@ -182,7 +188,7 @@ export const deleteRoomImage = async (imageId, hostId) => {
     if (next) {
       await prisma.roomImage.update({
         where: {
-          imgId: next.imgId,
+          imageId: next.imageId,
         },
         data: {
           isCover: true,

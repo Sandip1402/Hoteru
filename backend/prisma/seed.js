@@ -8,8 +8,9 @@ async function main() {
 
     console.log('🧹 Cleaning up old data...');
 
-    // // Delete child records first in dependency order
+    // Delete child records first in dependency order
     await prisma.review.deleteMany();
+    await prisma.payment.deleteMany();
     await prisma.booking.deleteMany();
     await prisma.roomImage.deleteMany();
     await prisma.room.deleteMany();
@@ -608,7 +609,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(250.00),
+            basePrice: new Prisma.Decimal(250.00),
             area: 65.5,
             areaUnit: "SQ_FT",
             isActive: true
@@ -624,7 +625,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(180.00),
+            basePrice: new Prisma.Decimal(180.00),
             area: 45.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -640,7 +641,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(160.00),
+            basePrice: new Prisma.Decimal(160.00),
             area: 42.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -656,7 +657,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(75.00),
+            basePrice: new Prisma.Decimal(75.00),
             area: 22.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -672,7 +673,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(290.00),
+            basePrice: new Prisma.Decimal(290.00),
             area: 55.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -688,7 +689,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(150.00),
+            basePrice: new Prisma.Decimal(150.00),
             area: 40.2,
             areaUnit: "SQ_M",
             isActive: true
@@ -702,7 +703,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(190.00),
+            basePrice: new Prisma.Decimal(190.00),
             area: 38.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -716,7 +717,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(165.00),
+            basePrice: new Prisma.Decimal(165.00),
             area: 50.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -730,7 +731,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 2,
-            baseprice: new Prisma.Decimal(350.00),
+            basePrice: new Prisma.Decimal(350.00),
             area: 88.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -744,7 +745,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(140.00),
+            basePrice: new Prisma.Decimal(140.00),
             area: 32.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -758,7 +759,7 @@ async function main() {
             bedrooms: 2,
             beds: 3,
             bathrooms: 2,
-            baseprice: new Prisma.Decimal(280.00),
+            basePrice: new Prisma.Decimal(280.00),
             area: 72.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -772,7 +773,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(130.00),
+            basePrice: new Prisma.Decimal(130.00),
             area: 35.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -786,7 +787,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(210.00),
+            basePrice: new Prisma.Decimal(210.00),
             area: 55.4,
             areaUnit: "SQ_M",
             isActive: true
@@ -800,7 +801,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(125.00),
+            basePrice: new Prisma.Decimal(125.00),
             area: 30.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -814,7 +815,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(175.00),
+            basePrice: new Prisma.Decimal(175.00),
             area: 42.1,
             areaUnit: "SQ_M",
             isActive: true
@@ -828,7 +829,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(225.00),
+            basePrice: new Prisma.Decimal(225.00),
             area: 58.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -842,7 +843,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(200.00),
+            basePrice: new Prisma.Decimal(200.00),
             area: 39.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -856,7 +857,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(160.00),
+            basePrice: new Prisma.Decimal(160.00),
             area: 36.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -870,7 +871,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(95.00),
+            basePrice: new Prisma.Decimal(95.00),
             area: 28.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -884,7 +885,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(135.00),
+            basePrice: new Prisma.Decimal(135.00),
             area: 36.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -898,7 +899,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(110.00),
+            basePrice: new Prisma.Decimal(110.00),
             area: 31.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -912,7 +913,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(195.00),
+            basePrice: new Prisma.Decimal(195.00),
             area: 50.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -926,7 +927,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(65.00),
+            basePrice: new Prisma.Decimal(65.00),
             area: 18.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -940,7 +941,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(90.00),
+            basePrice: new Prisma.Decimal(90.00),
             area: 26.4,
             areaUnit: "SQ_M",
             isActive: true
@@ -954,7 +955,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(120.00),
+            basePrice: new Prisma.Decimal(120.00),
             area: 34.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -968,7 +969,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(115.00),
+            basePrice: new Prisma.Decimal(115.00),
             area: 29.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -982,7 +983,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(105.00),
+            basePrice: new Prisma.Decimal(105.00),
             area: 33.2,
             areaUnit: "SQ_M",
             isActive: true
@@ -996,7 +997,7 @@ async function main() {
             bedrooms: 2,
             beds: 2,
             bathrooms: 1.5,
-            baseprice: new Prisma.Decimal(210.00),
+            basePrice: new Prisma.Decimal(210.00),
             area: 58.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1010,7 +1011,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(88.00),
+            basePrice: new Prisma.Decimal(88.00),
             area: 25.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1024,7 +1025,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(195.00),
+            basePrice: new Prisma.Decimal(195.00),
             area: 34.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -1038,7 +1039,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(220.00),
+            basePrice: new Prisma.Decimal(220.00),
             area: 44.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1052,7 +1053,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(170.00),
+            basePrice: new Prisma.Decimal(170.00),
             area: 38.2,
             areaUnit: "SQ_M",
             isActive: true
@@ -1066,7 +1067,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(240.00),
+            basePrice: new Prisma.Decimal(240.00),
             area: 36.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1080,7 +1081,7 @@ async function main() {
             bedrooms: 2,
             beds: 3,
             bathrooms: 2,
-            baseprice: new Prisma.Decimal(380.00),
+            basePrice: new Prisma.Decimal(380.00),
             area: 75.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1094,7 +1095,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(160.00),
+            basePrice: new Prisma.Decimal(160.00),
             area: 41.5,
             areaUnit: "SQ_M",
             isActive: true
@@ -1108,7 +1109,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(205.00),
+            basePrice: new Prisma.Decimal(205.00),
             area: 46.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1122,7 +1123,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(260.00),
+            basePrice: new Prisma.Decimal(260.00),
             area: 52.1,
             areaUnit: "SQ_M",
             isActive: true
@@ -1136,7 +1137,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(185.00),
+            basePrice: new Prisma.Decimal(185.00),
             area: 33.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1150,7 +1151,7 @@ async function main() {
             bedrooms: 1,
             beds: 1,
             bathrooms: 1,
-            baseprice: new Prisma.Decimal(150.00),
+            basePrice: new Prisma.Decimal(150.00),
             area: 30.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1164,7 +1165,7 @@ async function main() {
             bedrooms: 1,
             beds: 2,
             bathrooms: 1.5,
-            baseprice: new Prisma.Decimal(310.00),
+            basePrice: new Prisma.Decimal(310.00),
             area: 68.0,
             areaUnit: "SQ_M",
             isActive: true
@@ -1753,7 +1754,7 @@ async function main() {
             bookingAmount: 70.0,
             paidAmount: 70.0,
             remainingAmount: 100.0,
-            paymentOption: "PAY_PARTIALLY",
+            paymentOption: "BOOK_ONLY",
             paymentStatus: "PENDING",
             status: "CHECKED_IN",
             cancellationReason: 'Guest changed plans',
@@ -1778,7 +1779,7 @@ async function main() {
             bookingAmount: 1320.0,
             paidAmount: 660.0,
             remainingAmount: 660.0,
-            paymentOption: "PAY_PARTIALLY",
+            paymentOption: "BOOK_ONLY",
             paymentStatus: "PARTIALLY_PAID",
             status: "CHECKED_OUT",
             cancellationReason: null,
@@ -2033,7 +2034,7 @@ async function main() {
             bookingAmount: 750.0,
             paidAmount: 375.0,
             remainingAmount: 375.0,
-            paymentOption: "PAY_PARTIALLY",
+            paymentOption: "BOOK_ONLY",
             paymentStatus: "PARTIALLY_PAID",
             status: "CONFIRMED",
             cancellationReason: null,

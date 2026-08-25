@@ -45,7 +45,7 @@ export const calculateBookingAmounts = (
     nights,
     paymentOption
 ) => {
-    const pricePerNight = Number(room.baseprice); // fix room doesn't have pricePerNight
+    const pricePerNight = Number(room.basePrice);
 
     const totalPrice = pricePerNight * nights;
 
@@ -54,14 +54,11 @@ export const calculateBookingAmounts = (
     const bookingAmount =
         paymentOption === "PAY_NOW"
             ? totalPrice
-            : totalPrice * bookingPercentage;
+            : totalPrice * (bookingPercentage / 100);
 
-    const remainingAmount = totalPrice - bookingAmount;
+    const paidAmount = 0;
 
-    const paidAmount =
-        paymentOption === "PAY_NOW"
-            ? totalPrice
-            : bookingAmount;
+    const remainingAmount = totalPrice;
 
     return {
         pricePerNight,
@@ -107,7 +104,7 @@ export const ensureBookingCanBeCancelled = (booking) => {
 export const ensureBookingCanCheckIn = (
     booking
 ) => {
-    if ( booking.status !== "CONFIRMED" ) {
+    if (booking.status !== "CONFIRMED") {
         throw new AppError(
             400,
             "Booking cannot be checked in."
@@ -118,7 +115,7 @@ export const ensureBookingCanCheckIn = (
 export const ensureBookingCanCheckOut = (
     booking
 ) => {
-    if ( booking.status !== "CHECKED_IN" ) {
+    if (booking.status !== "CHECKED_IN") {
         throw new AppError(
             400,
             "Booking cannot be checked out."

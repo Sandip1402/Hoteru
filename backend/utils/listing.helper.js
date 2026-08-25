@@ -1,45 +1,56 @@
-export const publicListingInclude = {
-    images: {
-        orderBy: {
-            displayOrder: "asc",
-        },
-    },
+export const publicListingSummarySelect = {
+    listingId: true,
+    type: true,
+    name: true,
+    description: true,
 
-    amenities: {
-        include: {
-            amenity: true,
-        },
-    },
+    city: true,
+    state: true,
+    country: true,
+    landmark: true,
 
-    rooms: {
-        where: {
-            isActive: true,
-        },
-        include: {
-            images: {
-                orderBy: {
-                    displayOrder: "asc",
-                },
-            },
-        },
-    },
+    thumbnailUrl: true,
 
-    reviews: {
-        include: {
-            guest: {
-                select: {
-                    firstname: true,
-                    lastname: true,
-                },
-            },
-        },
-        orderBy: {
-            createdAt: "desc",
-        },
-    }
-}
+    bookingMode: true,
+    isActive: true,
 
-export const hostListingInclude = {
+    averageRating: true,
+    reviewCount: true,
+};
+
+export const publicListingDetailSelect = {
+    listingId: true,
+    type: true,
+    name: true,
+    description: true,
+
+    checkInTime: true,
+    checkOutTime: true,
+
+    contactPhone: true,
+    contactEmail: true,
+
+    addressLine1: true,
+    addressLine2: true,
+    city: true,
+    state: true,
+    country: true,
+    postalCode: true,
+    landmark: true,
+
+    latitude: true,
+    longitude: true,
+
+    thumbnailUrl: true,
+
+    bookingMode: true,
+    isActive: true,
+
+    averageRating: true,
+    reviewCount: true,
+};
+
+export const hostListingSelect = {
     images: true,
 
     amenities: {
@@ -55,7 +66,7 @@ export const hostListingInclude = {
     }
 }
 
-export const adminListingInclude = {
+export const adminListingSelect = {
     images: true,
 
     amenities: {
@@ -90,6 +101,7 @@ export const adminListingInclude = {
     },
 };
 
+// fix
 export const getListingDataForSubmit = {
-    
+
 }

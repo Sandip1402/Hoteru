@@ -8,7 +8,7 @@ import {
     checkOutBooking,
     getHostBookings,
     getHostBookingById,
-    getMyBookingById,
+    getBookingById,
 } from "../controllers/booking.controller.js";
 
 import {
@@ -46,11 +46,11 @@ export default function () {
     );
     
     router.get(
-        "/my/:bookingId",
+        "/:bookingId",
         checkJwt,
         attachCurrentUser,
         requireRole("basic_user"),
-        getMyBookingById
+        getBookingById
     );
 
     router.patch(
