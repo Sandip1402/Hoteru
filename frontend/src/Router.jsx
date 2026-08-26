@@ -7,14 +7,13 @@ import { ProtectedRoute } from "./components";
 
 import {
     Bookings, Experiences, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
-    SavedPayment, WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security, Listings, 
-    ListingDetails, BookingDetails
+    WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security, Listings, 
+    ListingDetails, BookingDetails, CreateListing
 } from "./pages";
 
 
 export const Router = createBrowserRouter([
     {
-        /* fix - need to apply dynamic paths */
         path: "/",
         element: <RootLayout />,
         errorElement: <RootCrash />,
@@ -33,7 +32,8 @@ export const Router = createBrowserRouter([
                                     { index: true, element: <ListingDetails /> },
                                     { path: "rooms/:roomId", element: <RoomDetails /> },
                                 ]
-                            }
+                            },
+                            { path: "create", element: <CreateListing /> },
                         ]
                     },
                     { path: "payments/:bookingId", element: <Payment /> },
@@ -43,17 +43,15 @@ export const Router = createBrowserRouter([
                     // {path: "notification", element: <Notification />}, {/* fix - need to add notification page */}
                     // {path: "chat", element: <RootCrash />}, {/* fix - need to add chat page */}
                     {
-                        path: "profile",
+                        path: "user",
                         element: <ProtectedRoute><ProfileLayout /></ProtectedRoute>,
                         children: [
-                            { index: true, element: <Navigate to="/profile/personal_info" replace /> },
+                            { index: true, element: <Navigate to="/user/personal_info" replace /> },
                             { path: "personal_info", element: <Profile /> },
-                            { path: "wishlist", element: <WishList /> },
-                            { path: "booking_history", element: <Bookings /> },
-                            { path: "hostings", element: <Hostings /> }, // fix : need to add separate hosting page
                             { path: "security", element: <Security /> },
-                            { path: "notification", element: <Notification /> }, // fix - need to add notification page
-                            { path: "payment_info", element: <SavedPayment /> },
+                            { path: "bookings", element: <Bookings /> },
+                            { path: "wishlist", element: <WishList /> },
+                            { path: "hostings", element: <Hostings /> }, // fix : need to add separate hosting page
                             { path: "logout", element: <Profile /> }
                         ]
                     },

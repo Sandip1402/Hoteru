@@ -1,5 +1,9 @@
 import { prisma } from "../lib/prisma.js";
-import { createOrder, fetchPayment, verifyPaymentSignature } from "../lib/razorpay.js";
+import {
+    createOrder,
+    fetchPayment,
+    verifyPaymentSignature
+} from "../lib/razorpay.js";
 
 import AppError from "../utils/app-error.js";
 
@@ -102,7 +106,7 @@ export const createPaymentOrder = async (
             },
         });
 
-        throw error;
+        throw new AppError(400, "Payment order creation failed.")
     }
 };
 

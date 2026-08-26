@@ -153,8 +153,7 @@ const ListingBaseSchema = z.object({
       "Invalid phone number."
     ),
 
-  contactEmail: z.string().trim()
-    .email("Invalid email address.")
+  contactEmail: z.email("Invalid email address.")
     .optional(),
 
   addressLine1: z.string().trim()

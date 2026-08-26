@@ -24,3 +24,21 @@ export const getBookingById = async (
         accessToken
     );
 };
+
+export const cancelBooking = async (
+    bookingId,
+    cancellationReason,
+    accessToken
+) => {
+    return callAPI(
+        `/bookings/${bookingId}/cancel`,
+        {
+            method: "PATCH",
+            body: JSON.stringify({
+                cancellationReason,
+            }),
+        },
+        true,
+        accessToken
+    )
+}

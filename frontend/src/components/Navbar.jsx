@@ -42,7 +42,7 @@ export const Navbar = () => {
                 
                 {/* chats */}
                 <button className="btn btn-ghost btn-circle">
-                    <Link to="/profile/:id/chats" ><img src="/Icons/message.svg" className="h-6 w-6" /></Link>
+                    <Link to="/user/:id/chats" ><img src="/Icons/message.svg" className="h-6 w-6" /></Link>
                 </button>
 
                 {/* Offers */}
@@ -67,7 +67,7 @@ export const Navbar = () => {
                                                 flex flex-col text-center text-sub">
                         {isAuthenticated ?
                             <>
-                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/profile')}>Profile</li>
+                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/user')}>Profile</li>
                                 <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
                                 <li><LogoutButton /></li>
                             </>

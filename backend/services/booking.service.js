@@ -1,4 +1,6 @@
 import { prisma } from "../lib/prisma.js";
+import { createRefund } from "../lib/razorpay.js";
+
 import AppError from "../utils/app-error.js";
 
 import { getRoomOrThrow } from "../utils/resource.helper.js";
@@ -174,7 +176,18 @@ export const cancelBooking = async (bookingId, guestId, reason) => {
         where: {
             bookingId,
             guestId,
-        }
+        },
+        include: {
+            payments: {
+                where: {
+                    status: "SUCCESS",
+                    mode: "ONLINE"
+                },
+                orderBy: {
+                    createdAt: "asc",
+                },
+            },
+        },
     });
 
     if (!booking) {
@@ -183,16 +196,22 @@ export const cancelBooking = async (bookingId, guestId, reason) => {
 
     ensureBookingCanBeCancelled(booking);
 
-    return prisma.booking.update({
-        where: {
-            bookingId,
-        },
-        data: {
-            status: "CANCELLED",
-            cancellationReason: reason,
-            cancelledAt: new Date(),
-        },
-    });
+    const cancelledBooking =
+        await prisma.booking.update({
+            where: {
+                bookingId,
+            },
+            data: {
+                status: "CANCELLED",
+                cancellationReason: reason,
+                cancelledAt: new Date(),
+            },
+        });
+
+    return {
+        booking: cancelledBooking,
+        paymentsToRefund: booking.payments,
+    };
 }
 
 
@@ -304,4 +323,52 @@ export const checkOutBooking = async (
             status: "CHECKED_OUT",
         },
     });
+};
+
+export const refundBookingPayments = async (
+    payments
+) => {
+    const results = [];
+
+    for (const payment of payments) {
+        try {
+            // Refund through razorpay first
+            const refund = await createRefund({
+                paymentId: payment.gatewayPaymentId,
+                amount: payment.amount,
+            });
+
+            // mark payment as REFUNDED after
+            // successful process of Razorpay refund
+            const updatedPayment =
+                await prisma.payment.update({
+                    where: {
+                        paymentId: payment.paymentId,
+                    },
+                    data: {
+                        status: "REFUNDED",
+                    },
+                });
+
+            results.push({
+                paymentId: updatedPayment.paymentId,
+                amount: payment.amount,
+                refundId: refund.id,
+                status: "REFUNDED",
+            });
+
+        } catch (error) {
+            console.error(
+                `Refund failed for payment ${payment.paymentId}:`, error
+            );
+
+            results.push({
+                paymentId: payment.paymentId,
+                amount: payment.amount,
+                status: "REFUND_FAILED", // fix
+            });
+        }
+    }
+
+    return results;
 };

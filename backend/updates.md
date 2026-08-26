@@ -11,11 +11,12 @@
     - [x] rename in roomImage model, imgId -> imageId
     - [x] Booking model - remove remainingPaymentMethod, change PaymentOption
     - [x] Payment model - remove PaymentMethod, change PaymentMode
+    - [ ] Add refund failed payment status enum
 
 ## Process Updates
     - [] Need to update search/suggestions route logic
     - [] carefull where two transaction operations happening sequentially
-    - [] make sure in frontend, login request includes scope=openid profile email in x-www-form-urlencoded
+    - [] make sure in frontend, login request includes scope=openid user email in x-www-form-urlencoded
     - [] after a user is upgraded to host, we need to tell them to re-log. Already assigned accesstokens won't have the host role in it
 
     - [o] update routes RESTfuly
@@ -28,6 +29,8 @@
     - [Y] is the trimmed enum approach okay?
     - [ ] GET /api/listings/:listingId/reviews?page=1&limit=10 for paginated reviews in listingdetails page, instead 200+ review in a single page
     - [ ] Choose between include and select
+    - [x] Check refund flow
+    - [ ] Add roles in Auth0 user api call
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

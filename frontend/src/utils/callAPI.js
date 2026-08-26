@@ -1,5 +1,3 @@
-
-
 export const callAPI = async (endpoint, options = {}, isProtected = false, accessToken = null) => {
 
   // If backend is on a different domain, set VITE_API_BASE_URL in .env
@@ -16,7 +14,9 @@ export const callAPI = async (endpoint, options = {}, isProtected = false, acces
         ? {}
         : { "Content-Type": "application/json" }),
       ...(options.headers || {}),
-      ...(isProtected && accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      ...(isProtected && accessToken
+        ? { Authorization: `Bearer ${accessToken}` }
+        : {}),
     };
 
     // API call
@@ -26,18 +26,17 @@ export const callAPI = async (endpoint, options = {}, isProtected = false, acces
       credentials: "include",
     });
 
-    // check response status
-    if (!res.ok) {
-      throw new Error(`error: ${res.status}`);
-    }
-
     // Parse response data - only JSON response
     const data = await res.json();
 
     // handle error
-    if (!data.success) {
-      const error = new Error(data.message || "Request failed");
+    if (!res.ok || !data.success) {
+      const error = new Error(
+        data.message || `Request failed with status ${res.status}`
+      );
+
       error.status = res.status;
+      error.errors = data.errors;
 
       throw error;
     }

@@ -91,8 +91,9 @@ export const generateBookingReference = () => {
 };
 
 export const ensureBookingCanBeCancelled = (booking) => {
-    const cancellableStatuses = ["AWAITING_PAYMENT", "CONFIRMED"];
-
+    const cancellableStatuses = ["AWAITING_PAYMENT", "CONFIRMED"]; 
+    
+    // allow cancellation only if booking is "AWAITING_PAYMENT", "CONFIRMED"
     if (!cancellableStatuses.includes(booking.status)) {
         throw new AppError(
             400,

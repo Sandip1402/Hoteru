@@ -44,23 +44,6 @@ export default function () {
         requireRole("basic_user"),
         getMyBookings
     );
-    
-    router.get(
-        "/:bookingId",
-        checkJwt,
-        attachCurrentUser,
-        requireRole("basic_user"),
-        getBookingById
-    );
-
-    router.patch(
-        "/my/:bookingId/cancel",
-        checkJwt,
-        attachCurrentUser,
-        requireRole("basic_user"),
-        validate(cancelBookingSchema),
-        cancelBooking
-    );
 
     // Host static routes
     router.get(
@@ -79,7 +62,7 @@ export default function () {
         requireRole("host"),
         getHostBookingById
     );
-    
+
     router.patch(
         "/host/:bookingId/checkIn",
         checkJwt,
@@ -94,6 +77,23 @@ export default function () {
         attachCurrentUser,
         requireRole("host"),
         checkOutBooking
+    );
+
+    router.get(
+        "/:bookingId",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("basic_user"),
+        getBookingById
+    );
+
+    router.patch(
+        "/:bookingId/cancel",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("basic_user"),
+        validate(cancelBookingSchema),
+        cancelBooking
     );
 
     return router;

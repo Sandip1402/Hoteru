@@ -38,3 +38,13 @@ export const verifyPaymentSignature = ({
 
     return expectedSignature === signature;
 };
+
+export const createRefund = async ({
+    paymentId,
+    amount,
+}) => {
+    return razorpay.payments.refund(paymentId,{
+            amount: Math.round(Number(amount) * 100),
+        }
+    );
+};

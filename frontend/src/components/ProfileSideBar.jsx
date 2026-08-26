@@ -10,37 +10,27 @@ export const ProfileSideBar = ({ setFunc, style }) => {
 
     const sections = {
         personal_info: {
-            path: "/profile/personal_info",
+            path: "/user/personal_info",
             icon: "/Icons/user-profile.svg",
             label: "Personal Details"
         },
-        payment_info: {
-            path: "/profile/payment_info",
-            icon: "/Icons/credit-card.svg",
-            label: "Payment Info"
-        },
         security: {
-            path: "/profile/security",
+            path: "/user/security",
             icon: "/Icons/lock-alt.svg",
             label: "Security"
         },
-        notification: {
-            path: "/profile/notification",
-            icon: "/Icons/notification.svg",
-            label: "Notification"
-        },
         bookings: {
-            path: "/profile/booking_history",
+            path: "/user/bookings",
             icon: "/Icons/booking.svg",
             label: "Booking History"
         },
         wishlist: {
-            path: "/profile/wishlist",
+            path: "/user/wishlist",
             icon: "/Icons/wishlist.svg",
             label: "Wishlist"
         },
         hostings: {
-            path: "/profile/hostings",
+            path: "/user/hostings",
             icon: "/Icons/hosting.svg",
             label: "Hostings"
         }
@@ -82,7 +72,7 @@ export const ProfileSideBar = ({ setFunc, style }) => {
                     </li>
                 ))}
                 <li onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                    <Link to="/profile/logout" className='text-red-500'>
+                    <Link to="/user/logout" className='text-red-500'>
                         <span className='size-9 flex justify-center items-center rounded-full bg-red-100'>
                             <MdOutlineLogout size={20} />
                         </span>

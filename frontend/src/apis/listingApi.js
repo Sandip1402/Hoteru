@@ -1,5 +1,20 @@
 import { callAPI } from "../utils/callAPI";
 
+export const createListing = async (
+    listingData,
+    accessToken
+) => {
+    return callAPI(
+        "/listings",
+        {
+            method: "POST",
+            body: JSON.stringify(listingData),
+        },
+        true,
+        accessToken
+    );
+};
+
 export const getListings = async (signal) => {
     return callAPI("/listings", {
         method: "GET",

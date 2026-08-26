@@ -8,7 +8,7 @@ Hoteru lets users browse hotel rooms, explore room details, book stays, leave re
 - Hotel and room discovery with dynamic filters and search
 - Room details page with image previews and amenities
 - Booking flow for check-in/check-out and guest selection
-- User authentication and profile management
+- User authentication and user management
 - Review system and rating display
 - Responsive design for desktop and mobile
 

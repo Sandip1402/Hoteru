@@ -1,7 +1,7 @@
-1. Issue regarding profile path, wanted to make profile/personal_info as index but with normal settings two links with active class was being created
-    in profile page.
+1. Issue regarding user path, wanted to make user/personal_info as index but with normal settings two links with active class was being created
+    in user page.
 
-    Fix : used Navigate in profile index path to open profile/personal_info page
+    Fix : used Navigate in user index path to open user/personal_info page
 
 2. CORS issue : as frontend and backend running on different port CORS enforce same-origin-policy
 

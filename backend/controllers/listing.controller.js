@@ -83,7 +83,7 @@ export const updateListingAmenities = asyncHandler(async (req, res) => {
     req.body.amenityIds
   );
 
-  res.json({
+  res.status(200).json({
     success: true,
     message: "Listing amenities updated successfully.",
     data: listing,

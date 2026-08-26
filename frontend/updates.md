@@ -14,12 +14,15 @@
 
 
 ## Process Updates
-    - [ ] Fetch listing images with separate api call
+    - [x] Fetch listing images with separate api call
     - [ ] Fix abort controllers for api calls
-    - [ ] Need to update router state data transfer after booking data from roomDetails page to payment page
+    - [x] Need to update router state data transfer for booking data from roomDetails page to payment page
     - [ ] Navbar login options are getting lost when refreshing, maybe state issue
     - [ ] Redirecting Issue still there
     - [ ] Currently If a process(booking) can't be done, it's showing error code to client instead of proper message
+    - [ ] For check in operation, there should option for cash and online mode for unpaid amounts
+    - [ ] What should happen if someone cancels a payment, currently that particual payment data is staying with status as processing
+    - [ ] Add cache for form values
 
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

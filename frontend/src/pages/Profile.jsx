@@ -36,7 +36,7 @@ export const Profile = () => {
   return (
     /* Sidebar */
     <div className="profile-sections">
-        <p>profile</p>
+        <p>Profile</p>
     </div>
   )
 }

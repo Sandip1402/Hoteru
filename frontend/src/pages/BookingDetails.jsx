@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate, useParams } from "react-router";
 
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
-import { getBookingById } from "../apis/bookingApi.js";
+import { getBookingById, cancelBooking } from "../apis/bookingApi.js";
 
 
 export const BookingDetails = () => {
@@ -23,15 +23,13 @@ export const BookingDetails = () => {
     } = useHoteruAuth();
 
 
-    const [booking, setBooking] = useState(
-        state?.booking || null
-    );
-
-    const [loading, setLoading] = useState(
-        !state?.booking
-    );
-
+    const [booking, setBooking] = useState(state?.booking || null);
+    const [loading, setLoading] = useState(!state?.booking);
     const [error, setError] = useState(null);
+    const [showCancelForm, setShowCancelForm] = useState(false);
+    const [cancellationReason, setCancellationReason] = useState("");
+    const [isCancelling, setIsCancelling] = useState(false);
+    const [cancelError, setCancelError] = useState(null);
 
 
     /*
@@ -40,9 +38,7 @@ export const BookingDetails = () => {
      */
     useEffect(() => {
 
-        if (booking) {
-            return;
-        }
+        if (booking) { return; }
 
         const controller =
             new AbortController();
@@ -117,22 +113,12 @@ export const BookingDetails = () => {
     ]);
 
 
-    /*
-     * Loading
-     */
     if (loading) {
-
         return (
-            <div className="
-                max-md:p-3
-                md:p-5
-                lg:px-15
-                xl:px-20
-            ">
+            <div className="max-md:p-3 md:p-5 lg:px-15 xl:px-20">
                 Loading booking details...
             </div>
         );
-
     }
 
 
@@ -140,7 +126,6 @@ export const BookingDetails = () => {
      * Error / booking not found
      */
     if (!booking) {
-
         return (
             <div className="
                 max-md:p-3
@@ -206,52 +191,70 @@ export const BookingDetails = () => {
 
             </div>
         );
-
     }
+
+    const handleCancelBooking = async () => {
+        if (!cancellationReason.trim()) {
+            setCancelError("Please provide a cancellation reason.");
+            return;
+        }
+
+        try {
+            setIsCancelling(true);
+            setCancelError(null);
+
+            const token = await getAccessTokenSilently();
+
+            const response = await cancelBooking(
+                booking.bookingId,
+                cancellationReason.trim(),
+                token
+            );
+
+            setBooking(response.data.booking);
+            setShowCancelForm(false);
+            setCancellationReason("");
+
+        } catch (err) {
+            console.error("Failed to cancel booking:", err);
+
+            setCancelError(
+                err.message ||
+                "Unable to cancel booking. Please try again."
+            );
+        } finally {
+            setIsCancelling(false);
+        }
+    };
 
 
     /*
      * Booking values
      */
-    const checkIn =
-        new Date(booking.checkIn);
+    const checkIn = new Date(booking.checkIn);
 
-    const checkOut =
-        new Date(booking.checkOut);
-
+    const checkOut = new Date(booking.checkOut);
 
     const nights = Math.max(
         1,
-        Math.ceil(
-            (
-                checkOut.getTime() -
-                checkIn.getTime()
-            ) /
-            (1000 * 60 * 60 * 24)
-        )
+        Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24))
     );
 
+    const pricePerNight = Number(booking.pricePerNight);
 
-    const pricePerNight =
-        Number(booking.pricePerNight);
+    const totalPrice = Number(booking.totalPrice);
 
-    const totalPrice =
-        Number(booking.totalPrice);
+    const paidAmount = Number(booking.paidAmount || 0);
 
-    const paidAmount =
-        Number(booking.paidAmount || 0);
+    const remainingAmount = Number(booking.remainingAmount || 0);
 
-    const remainingAmount =
-        Number(booking.remainingAmount || 0);
+    const isPaid = booking.paymentStatus === "PAID";
 
+    const isCancelled = booking.status === "CANCELLED";
 
-    const isPaid =
-        booking.paymentStatus === "PAID";
-
-
-    const isCancelled =
-        booking.status === "CANCELLED";
-
+    const canCancel =
+        booking.status === "AWAITING_PAYMENT" ||
+        booking.status === "CONFIRMED";
 
     return (
 
@@ -793,7 +796,106 @@ export const BookingDetails = () => {
 
                 </section>
 
+
             </div>
+                {canCancel && (
+                    <div className="mt-6">
+
+                        {!showCancelForm ? (
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowCancelForm(true);
+                                    setCancelError(null);
+                                }}
+                                className="w-full border border-red-500 text-red-500 rounded-full py-3
+                                            font-semibold hover:bg-red-50 cursor-pointer"
+                            >
+                                Cancel Booking
+                            </button>
+                        ) : (
+                            <div className="flex flex-col gap-y-3">
+
+                                <h3 className="font-semibold">
+                                    Cancel Booking
+                                </h3>
+
+                                <textarea
+                                    value={cancellationReason}
+                                    onChange={(e) =>
+                                        setCancellationReason(e.target.value)
+                                    }
+                                    placeholder="Please tell us why you want to cancel..."
+                                    rows={4}
+                                    className="
+                        w-full
+                        border
+                        border-gray-300
+                        rounded-box
+                        p-3
+                        resize-none
+                        focus:outline-none
+                        focus:border-primary
+                    "
+                                />
+
+                                {cancelError && (
+                                    <p className="text-sm text-red-500">
+                                        {cancelError}
+                                    </p>
+                                )}
+
+                                <div className="flex gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setShowCancelForm(false);
+                                            setCancellationReason("");
+                                            setCancelError(null);
+                                        }}
+                                        disabled={isCancelling}
+                                        className="
+                            flex-1
+                            border
+                            border-gray-300
+                            rounded-full
+                            py-3
+                            font-semibold
+                            cursor-pointer
+                        "
+                                    >
+                                        Keep Booking
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={handleCancelBooking}
+                                        disabled={
+                                            isCancelling ||
+                                            !cancellationReason.trim()
+                                        }
+                                        className="
+                            flex-1
+                            bg-red-500
+                            text-white
+                            rounded-full
+                            py-3
+                            font-semibold
+                            cursor-pointer
+                            disabled:opacity-50
+                            disabled:cursor-not-allowed
+                        "
+                                    >
+                                        {isCancelling
+                                            ? "Cancelling..."
+                                            : "Confirm Cancellation"}
+                                    </button>
+                                </div>
+
+                            </div>
+                        )}
+                    </div>
+                )}
 
         </div>
     );
