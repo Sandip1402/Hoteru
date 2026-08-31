@@ -12,7 +12,6 @@
 8. Need to apply skeleton loading, add errorboundaries
 9. Add password strength checker
 
-
 ## Process Updates
     - [x] Fetch listing images with separate api call
     - [ ] Fix abort controllers for api calls
@@ -23,6 +22,9 @@
     - [ ] For check in operation, there should option for cash and online mode for unpaid amounts
     - [ ] What should happen if someone cancels a payment, currently that particual payment data is staying with status as processing
     - [ ] Add cache for form values
+    - [ ] Protected route currentUser roles problem
+    - [ ] Check !isAuthenticated state in CreateListing form
+    - [ ] Access token is visible in network tab through getAccessTokenSilently api call i.g,
 
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

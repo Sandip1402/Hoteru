@@ -74,10 +74,22 @@ export const updateListing = asyncHandler(async (req, res) => {
   });
 });
 
+export const setThumbnail = asyncHandler(async (req, res) => {
+  await listingService.setThumbnail(
+    Number(req.params.imageId),
+    req.user.id
+  );
+
+  return res.status(200).json({
+    success: true,
+    message: "Thumbnail for listing updated successfully.",
+  });
+});
+
 export const updateListingAmenities = asyncHandler(async (req, res) => {
   const listingId = Number(req.params.listingId);
 
-  const listing = await amenityService.updateListingAmenities(
+  await listingService.updateListingAmenities(
     listingId,
     req.user.id,
     req.body.amenityIds
@@ -86,7 +98,6 @@ export const updateListingAmenities = asyncHandler(async (req, res) => {
   res.status(200).json({
     success: true,
     message: "Listing amenities updated successfully.",
-    data: listing,
   });
 })
 
@@ -116,6 +127,18 @@ export const deleteListing = asyncHandler(async (req, res) => {
 });
 
 // For Listing Image
+export const getListingImages = asyncHandler(async (req, res) => {
+  const images = await listingService.getListingImages(
+    Number(req.params.listingId)
+  );
+
+  return res.status(200).json({
+    success: true,
+    message: "Listing images fetched successfully.",
+    data: images,
+  });
+});
+
 export const uploadListingImage = asyncHandler(async (req, res) => {
   if (!req.file) {
     throw new AppError(400, "Please upload an image for listing.");
@@ -135,15 +158,16 @@ export const uploadListingImage = asyncHandler(async (req, res) => {
   });
 });
 
-export const getListingImages = asyncHandler(async (req, res) => {
-  const images = await listingService.getListingImages(
-    Number(req.params.listingId)
+export const deleteListingImage = asyncHandler(async (req, res) => {
+  await listingService.deleteListingImage(
+    Number(req.params.listingId),
+    Number(req.params.imageId),
+    req.user.id
   );
 
   return res.status(200).json({
     success: true,
-    message: "Listing images fetched successfully.",
-    data: images,
+    message: "Listing image deleted successfully.",
   });
 });
 
@@ -168,30 +192,6 @@ export const getRooms = asyncHandler(async (req, res) => {
     success: true,
     message: "Rooms fetched successfully.",
     data: rooms,
-  });
-});
-
-export const setThumbnail = asyncHandler(async (req, res) => {
-  await listingService.setThumbnail(
-    Number(req.params.imageId),
-    req.user.id
-  );
-
-  return res.status(200).json({
-    success: true,
-    message: "Thumbnail for listing updated successfully.",
-  });
-});
-
-export const deleteListingImage = asyncHandler(async (req, res) => {
-  await listingService.deleteListingImage(
-    Number(req.params.imageId),
-    req.user.id
-  );
-
-  return res.status(200).json({
-    success: true,
-    message: "Listing image deleted successfully.",
   });
 });
 

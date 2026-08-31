@@ -45,18 +45,3 @@ export const getAmenities = asyncHandler(async (req, res) => {
     data: amenities,
   });
 });
-
-export const updateRoomAmenities = asyncHandler(async (req, res) => {
-  const roomId = Number(req.params.roomId);
-  const room = await amenityService.updateRoomAmenities(
-    roomId,
-    req.user.id,
-    req.body.amenityIds
-  );
-
-  res.json({
-    success: true,
-    message: "Room amenities updated successfully.",
-    data: room,
-  });
-});

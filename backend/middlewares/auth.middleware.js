@@ -19,8 +19,10 @@ export const attachCurrentUser = async (req, res, next) => {
       return next(new AppError(401, "Missing auth subject"));
     }
 
+    // fetch user from DB
     const user = await userService.getUserByAuth0Id(auth0Id);
 
+    // Attach roles
     req.user = {
       id: user.userId,
       auth0Id: user.auth0Id,

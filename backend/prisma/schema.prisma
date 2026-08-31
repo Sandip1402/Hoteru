@@ -138,11 +138,11 @@ model RoomAmenity {
 
 model ListingAmenity {
   listingId  Int
-  amenityeId Int
-  amenity    Amenity @relation(fields: [amenityeId], references: [amenityId], onDelete: Cascade)
+  amenityId Int
+  amenity    Amenity @relation(fields: [amenityId], references: [amenityId], onDelete: Cascade)
   listing    Listing @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
 
-  @@id([listingId, amenityeId])
+  @@id([listingId, amenityId])
 }
 
 model RoomImage {

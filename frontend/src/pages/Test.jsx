@@ -67,9 +67,9 @@ export const Test = () => {
           <pre className='bg-gray-900 text-blue-400 p-3 rounded overflow-x-auto text-xs max-h-60'>
             {currentUser ? JSON.stringify(currentUser, null, 2) : 'No matched DB user synced'}
           </pre>
-          {currentUser?.role && (
+          {currentUser?.roles && (
             <div className='mt-2 p-2 bg-purple-100 text-purple-900 rounded font-mono text-sm'>
-              Detected Assigned Role: <strong>{currentUser.role}</strong>
+              Detected Assigned Role: <strong>{currentUser.roles}</strong>
             </div>
           )}
         </div>

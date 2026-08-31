@@ -30,7 +30,8 @@
     - [ ] GET /api/listings/:listingId/reviews?page=1&limit=10 for paginated reviews in listingdetails page, instead 200+ review in a single page
     - [ ] Choose between include and select
     - [x] Check refund flow
-    - [ ] Add roles in Auth0 user api call
+    - [x] Fix listing image delete process
+    - [ ] Need to add api to remove an user from host position
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

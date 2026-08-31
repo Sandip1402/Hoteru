@@ -54,16 +54,10 @@ export const hostListingSelect = {
     images: true,
 
     amenities: {
-        include: {
+        select: {
             amenity: true,
         },
     },
-
-    rooms: {
-        include: {
-            images: true,
-        },
-    }
 }
 
 export const adminListingSelect = {

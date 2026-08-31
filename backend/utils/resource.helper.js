@@ -37,8 +37,16 @@ export const verifyListingOwnership = async (
 export const getListingImageOrThrow = async (imageId) => {
     const image = await prisma.listingImage.findUnique({
         where: { imageId },
-        include: {
-            listing: true,
+        select: {
+            imageId: true,
+            isThumbnail: true,
+            publicId: true,
+            listingId: true,
+            listing: {
+                select: {
+                    ownerId: true,
+                }
+            }
         },
     });
 
@@ -49,8 +57,12 @@ export const getListingImageOrThrow = async (imageId) => {
     return image;
 };
 
-export const verifyListingImageOwnership = async (imageId, hostId) => {
+export const verifyListingImageOwnership = async (listingId, imageId, hostId) => {
     const image = await getListingImageOrThrow(imageId);
+
+    if(image.listingId != listingId){
+        throw new AppError(404, "Image not part of this Listing.");
+    }
 
     if (image.listing.ownerId !== hostId) {
         throw new AppError(403, "Forbidden.");
@@ -102,10 +114,7 @@ export const verifyRoomOwnership = async (
         });
 
     if (room.listing.ownerId !== hostId) {
-        throw new AppError(
-            403,
-            "You do not own this room."
-        );
+        throw new AppError(403, "You do not own this room.");
     }
 
     return room;

@@ -6,14 +6,14 @@ const HoteruAuthContext = createContext(null);
 
 export const HoteruAuthProvider = ({ children }) => {
     const {
-        user,
+        user, // Auth0 user
         isAuthenticated,
         isLoading,
         getAccessTokenSilently,
     } = useAuth0();
 
     const [accessToken, setAccessToken] = useState(null);
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null); // DB user with roles
     const [isSyncing, setIsSyncing] = useState(false);
     const [syncError, setSyncError] = useState(null);
 

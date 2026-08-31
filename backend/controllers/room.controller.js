@@ -2,6 +2,17 @@ import * as roomService from "../services/room.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
 import AppError from "../utils/app-error.js";
 
+export const getHostRoomById = asyncHandler(async (req, res) => {
+  const roomId = Number(req.params.roomId);
+  const room = await roomService.getHostRoomById(roomId, req.user.id);
+
+  res.status(200).json({
+    success: true,
+    message: "Room details for host fetched successfully.",
+    data: room,
+  });
+})
+
 export const createRoom = asyncHandler(async (req, res) => {
   const listingId = Number(req.params.listingId);
   const room = await roomService.createRoom(req.user.id, listingId, req.body);
@@ -49,6 +60,21 @@ export const getRoomById = asyncHandler(async (req, res) => {
   res.json({
     success: true,
     message: "Room fetched successfully.",
+    data: room,
+  });
+});
+
+export const updateRoomAmenities = asyncHandler(async (req, res) => {
+  const roomId = Number(req.params.roomId);
+  const room = await roomService.updateRoomAmenities(
+    roomId,
+    req.user.id,
+    req.body.amenityIds
+  );
+
+  res.json({
+    success: true,
+    message: "Room amenities updated successfully.",
     data: room,
   });
 });

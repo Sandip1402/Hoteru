@@ -71,9 +71,6 @@ export const getPublicListing = async (listingId) => {
           amenity: true,
         }
       },
-
-
-
     }
   })
 
@@ -121,16 +118,53 @@ export const getHostListingById = async (listingId, hostId) => {
   return listing;
 };
 
-export const updateListing = async (listingId, ownerId, data) => {
+export const updateListing = async (listingId, hostId, data) => {
   const listing = await getListingOrThrow(listingId);
 
-  if (listing.ownerId !== ownerId) {
+  if (listing.ownerId !== hostId) {
     throw new AppError(403, "You are not allowed to update this listing.");
   }
 
   return prisma.listing.update({
     where: { listingId },
     data,
+  });
+};
+
+export const updateListingAmenities = async (
+  listingId,
+  hostId,
+  amenityIds
+) => {
+  await verifyListingOwnership(listingId, hostId);
+
+  const amenitiesCount = await prisma.amenity.count({
+    where: {
+      amenityId: {
+        in: amenityIds,
+      },
+    },
+  });
+
+  if (amenitiesCount !== amenityIds.length) {
+    throw new AppError(400, "One or more amenities are invalid.");
+  }
+
+  await prisma.$transaction(async (tx) => {
+    await tx.listingAmenity.deleteMany({
+      where: {
+        listingId,
+      },
+    });
+
+    if (amenityIds.length > 0) {
+      await tx.listingAmenity.createMany({
+        data: amenityIds.map((amenityId) => ({
+          listingId,
+          amenityId,
+        })),
+      });
+    }
   });
 };
 
@@ -385,9 +419,9 @@ export const setThumbnail = async (imageId, ownerId) => {
   return true;
 };
 
-export const deleteListingImage = async (imageId, hostId) => {
-  const image = await verifyListingImageOwnership(imageId, hostId);
-
+export const deleteListingImage = async (listingId, imageId, hostId) => {
+  const image = await verifyListingImageOwnership(listingId, imageId, hostId);
+  console.log(image);
   await storageService.deleteImage(image.publicId);
 
   await prisma.$transaction(async (tx) => {

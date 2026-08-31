@@ -7,8 +7,12 @@ import { ProtectedRoute } from "./components";
 
 import {
     Bookings, Experiences, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
-    WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security, Listings, 
-    ListingDetails, BookingDetails, CreateListing
+    WishList, ErrorPage, Hostings, NotFound, RoomDetails, Security, Listings,
+    ListingDetails, BookingDetails, CreateListing,
+    HostListings, AddRoom,
+    HostListingDetails,
+    HostRoomDetails,
+    EditRoom
 } from "./pages";
 
 
@@ -33,7 +37,6 @@ export const Router = createBrowserRouter([
                                     { path: "rooms/:roomId", element: <RoomDetails /> },
                                 ]
                             },
-                            { path: "create", element: <CreateListing /> },
                         ]
                     },
                     { path: "payments/:bookingId", element: <Payment /> },
@@ -44,17 +47,24 @@ export const Router = createBrowserRouter([
                     // {path: "chat", element: <RootCrash />}, {/* fix - need to add chat page */}
                     {
                         path: "user",
-                        element: <ProtectedRoute><ProfileLayout /></ProtectedRoute>,
+                        element: <ProtectedRoute allowedRoles={['basic_user']}><ProfileLayout /></ProtectedRoute>,
                         children: [
                             { index: true, element: <Navigate to="/user/personal_info" replace /> },
                             { path: "personal_info", element: <Profile /> },
                             { path: "security", element: <Security /> },
                             { path: "bookings", element: <Bookings /> },
                             { path: "wishlist", element: <WishList /> },
-                            { path: "hostings", element: <Hostings /> }, // fix : need to add separate hosting page
-                            { path: "logout", element: <Profile /> }
+                            { path: "logout", element: <Profile /> },
+                            { path: "hostings", element: <HostListings /> },
                         ]
                     },
+                    { path: "host/listings", element: <HostListings /> },
+                    { path: "host/listings/create", element: <CreateListing /> },
+                    { path: "host/listings/:listingId", element: <HostListingDetails /> },
+                    { path: "host/listings/:listingId/edit", element: <CreateListing /> },
+                    { path: "host/listings/:listingId/rooms/new", element: <AddRoom /> },
+                    { path: "host/rooms/:roomId", element: <HostRoomDetails /> },
+                    { path: "host/rooms/:roomId/edit", element: <EditRoom />},
                     { path: "test", element: <Test /> },
                     { path: "*", element: <NotFound /> }
                 ]

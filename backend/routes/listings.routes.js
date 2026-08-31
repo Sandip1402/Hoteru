@@ -53,7 +53,7 @@ export default function () {
   );
 
   router.get(
-    "/my",
+    "/host",
     checkJwt,
     attachCurrentUser,
     requireRole("host"),
@@ -61,7 +61,7 @@ export default function () {
   );
 
   router.get(
-    "/my/:listingId",
+    "/host/:listingId",
     checkJwt,
     attachCurrentUser,
     requireRole("host"),
@@ -69,7 +69,7 @@ export default function () {
   );
 
   router.get(
-    "/my/:listingId/rooms",
+    "/host/:listingId/rooms",
     checkJwt,
     attachCurrentUser,
     requireRole("host"),
@@ -100,14 +100,6 @@ export default function () {
     setThumbnail
   );
 
-  router.delete(
-    "/images/:imageId",
-    checkJwt,
-    attachCurrentUser,
-    requireRole("host"),
-    deleteListingImage
-  );
-
   router.patch(
     "/:listingId/amenities",
     checkJwt,
@@ -117,13 +109,13 @@ export default function () {
     updateListingAmenities
   );
 
+  router.get("/:listingId/rooms", // public
+    getListingRooms
+  );
+
   router.get(
     "/:listingId/images",
     getListingImages
-  );
-
-  router.get("/:listingId/rooms", // public
-    getListingRooms
   );
 
   router.post(
@@ -133,6 +125,14 @@ export default function () {
     requireRole("host"),
     upload.single("image"),
     uploadListingImage
+  );
+
+  router.delete(
+    "/:listingId/images/:imageId",
+    checkJwt,
+    attachCurrentUser,
+    requireRole("host"),
+    deleteListingImage
   );
 
   router.patch(

@@ -28,7 +28,6 @@ export * from './RangeFilter';
 export * from './ReviewCard';
 // export * from './ReviewForm';
 export * from './Reviews';
-export * from './RoomCard';
 export * from './RoomCardFlat';
 export * from './RoomComponents';
 export * from './Search';

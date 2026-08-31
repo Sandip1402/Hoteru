@@ -3,14 +3,13 @@ import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 import { LoginButton } from "./LoginButton.jsx";
 import { Loading } from "./Loading.jsx";
 
-// 1. Added allowedRoles prop (defaults to empty array if not provided)
 export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
     const {
         isAuthenticated,
         isLoading,
         isSyncing,
         syncError,
-        currentUser, // 2. Destructure currentUser to read their role
+        currentUser, // Destructure currentUser to read their role
     } = useHoteruAuth();
 
     const navigate = useNavigate();
@@ -61,9 +60,9 @@ export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
         );
     }
 
-    // 3. Role Authorization Check
+    // Role Authorization Check
     // If allowedRoles is specified, make sure the user's role matches
-    if (allowedRoles.length > 0 && (!currentUser || !allowedRoles.includes(currentUser.role))) {
+    if (allowedRoles.length > 0 && (!currentUser || !currentUser.roles.some(role => allowedRoles.includes(role)))) {
         return (
             <div className="flex flex-col gap-y-5 justify-center items-center py-20 text-center">
                 <h1 className="text-xl font-bold text-red-500">Access Denied</h1>

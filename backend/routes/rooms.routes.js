@@ -6,11 +6,12 @@ import {
     deleteRoom,
     getRoomById,
     getRoomImages,
+    updateRoomAmenities,
     uploadRoomImage,
     deleteRoomImage,
     setCoverImage,
+    getHostRoomById,
 } from "../controllers/room.controller.js";
-import { updateRoomAmenities } from "../controllers/amenity.controller.js";
 
 import {
     createRoomSchema,
@@ -30,7 +31,12 @@ import { upload } from "../middlewares/upload.middleware.js";
 export default function () {
     const router = express.Router();
 
-    // Host
+    router.get("/host/:roomId",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("host"),
+        getHostRoomById
+    );
 
     router.patch(
         "/images/:imageId/cover",
@@ -49,7 +55,7 @@ export default function () {
     );
 
     router.post(
-        "/listing/:listingId",
+        "/listings/:listingId",
         checkJwt,
         attachCurrentUser,
         requireRole("host"),

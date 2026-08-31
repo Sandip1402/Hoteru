@@ -5,7 +5,6 @@ import {
   updateAmenity,
   deleteAmenity,
   getAmenities,
-  updateRoomAmenities,
 } from "../controllers/amenity.controller.js";
 
 import {
@@ -19,14 +18,18 @@ import { validate } from "../middlewares/validate.middleware.js";
 import {
   createAmenitySchema,
   updateAmenitySchema,
-  updateRoomAmenitiesSchema,
 } from "../validators/schema.validator.js";
 
 export default function () {
   const router = express.Router();
 
-  // Public
-  router.get("/", getAmenities);
+  // Admin, host
+  router.get("/",
+    checkJwt,
+    attachCurrentUser,
+    requireRole("admin", "host"),
+    getAmenities
+  );
 
   // Admin
   router.post(

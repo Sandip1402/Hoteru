@@ -7,6 +7,7 @@ import {
 } from "../apis/listingApi.js";
 
 import { Loading } from "../components/Loading";
+import { RoomCard } from "../components/room/RoomCard.jsx";
 
 const FALLBACK_IMAGE = "/images/accommodation-placeholder.jpg";
 
@@ -208,77 +209,39 @@ export const ListingDetails = () => {
 
             {/* Rooms */}
             <section>
-                <h2 className="text-xl font-semibold mb-4">
-                    Rooms
-                </h2>
-
                 {roomsLoading && (
                     <p>Loading rooms...</p>
                 )}
 
                 {roomsError && (
-                    <p>{roomsError}</p>
-                )}
-
-                {!roomsLoading && !roomsError && rooms.length === 0 && (
-                    <p className="text-gray-500">
-                        No rooms are currently available.
+                    <p className="text-red-500">
+                        {roomsError}
                     </p>
                 )}
 
-                {!roomsLoading && !roomsError && rooms.length > 0 && (
-                    <div className="flex gap-4 overflow-x-auto pb-4">
-                        {rooms.map((room) => (
-                            <Link
-                                key={room.roomId}
-                                to={`/accommodations/${listingId}/rooms/${room.roomId}`}
-                                className="block cursor-pointer"
-                            >
-                                <article
+                {!roomsLoading &&
+                    !roomsError &&
+                    rooms.length === 0 && (
+                        <p className="text-gray-500">
+                            No rooms are currently available.
+                        </p>
+                    )}
+
+                {!roomsLoading &&
+                    !roomsError &&
+                    rooms.length > 0 && (
+                        <div className="flex gap-4 overflow-x-auto pb-4">
+                            {rooms.map((room) => (
+                                <RoomCard
                                     key={room.roomId}
-                                    className="min-w-[280px] border rounded-lg overflow-hidden"
-                                >
-                                    {/* Room image */}
-                                    {room.images?.[0] && (
-                                        <img
-                                            src={
-                                                room.images[0].imageUrl ||
-                                                FALLBACK_IMAGE
-                                            }
-                                            alt={
-                                                room.images[0].altText ||
-                                                room.name
-                                            }
-                                            className="w-full h-48 object-cover"
-                                        />
-                                    )}
-
-                                    <div className="p-4">
-                                        <h3 className="font-semibold">
-                                            {room.name}
-                                        </h3>
-
-                                        <p className="text-sm text-gray-500">
-                                            {room.roomType}
-                                        </p>
-
-                                        <p className="text-sm mt-2">
-                                            {room.maxGuests} guests ·{" "}
-                                            {room.beds} beds ·{" "}
-                                            {room.bedrooms} bedroom
-                                            {room.bedrooms !== 1 ? "s" : ""}
-                                        </p>
-
-                                        <p className="mt-3 font-semibold">
-                                            ₹{room.basePrice} / night
-                                        </p>
-                                    </div>
-                                </article>
-                            </Link>
-                        ))}
-                    </div>
-                )}
+                                    room={room}
+                                    link={`/accommodations/${listingId}/rooms/${room.roomId}`}
+                                    listingId={listingId}
+                                />
+                            ))}
+                        </div>
+                    )}
             </section>
-        </main>
+        </main >
     );
 }

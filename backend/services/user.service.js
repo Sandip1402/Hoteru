@@ -16,9 +16,10 @@ export const syncCurrentUser = async (accessToken) => {
   }
 
   const authUser = await response.json();
+  // console.log("Auth0 user in sync function : ", authUser);
 
   const userData = mapAuth0User(authUser);
-
+  
   return prisma.user.upsert({
     where: {
       auth0Id: userData.auth0Id,

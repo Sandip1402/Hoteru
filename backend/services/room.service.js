@@ -4,6 +4,16 @@ import { getRoomOrThrow, verifyRoomOwnership } from "../utils/resource.helper.js
 import * as storageService from "./storage.service.js"
 
 
+export const getHostRoomById = async (roomId, hostId) => {
+  const room = await verifyRoomOwnership(roomId, hostId);
+
+  if (!room) {
+    throw new AppError(404, "Room not found.");
+  }
+
+  return room;
+}
+
 export const createRoom = async (hostId, listingId, data) => {
   const listing = await prisma.listing.findUnique({
     where: { listingId },
@@ -33,7 +43,7 @@ export const createRoom = async (hostId, listingId, data) => {
 };
 
 export const updateRoom = async (roomId, hostId, data) => {
-  const room = await verifyRoomOwnership(roomId, hostId);
+  await verifyRoomOwnership(roomId, hostId);
 
   return prisma.room.update({
     where: { roomId },
@@ -42,7 +52,7 @@ export const updateRoom = async (roomId, hostId, data) => {
 };
 
 export const deleteRoom = async (roomId, hostId) => {
-  const room = await verifyRoomOwnership(roomId, hostId);
+  await verifyRoomOwnership(roomId, hostId);
 
   await prisma.room.delete({
     where: { roomId },
@@ -71,9 +81,59 @@ export const getRoomById = async (roomId) => {
   return room;
 };
 
+export const updateRoomAmenities = async (
+  roomId,
+  hostId,
+  amenityIds
+) => {
+  await verifyRoomOwnership(roomId, hostId);
+
+  const amenitiesCount = await prisma.amenity.count({
+    where: {
+      amenityId: {
+        in: amenityIds,
+      },
+    },
+  });
+
+  if (amenitiesCount !== amenityIds.length) {
+    throw new AppError(400, "One or more amenities are invalid.");
+  }
+
+  await prisma.$transaction(async (tx) => {
+    await tx.roomAmenity.deleteMany({
+      where: {
+        roomId,
+      },
+    });
+
+    if (amenityIds.length > 0) {
+      await tx.roomAmenity.createMany({
+        data: amenityIds.map((amenityId) => ({
+          roomId,
+          amenityId,
+        })),
+      });
+    }
+  });
+
+  return prisma.room.findUnique({
+    where: {
+      roomId,
+    },
+    include: {
+      amenities: {
+        include: {
+          amenity: true,
+        },
+      },
+    },
+  });
+};
+
 // For Room Image
 export const uploadRoomImage = async (roomId, hostId, file) => {
-  const room = await verifyRoomOwnership(roomId, hostId);
+  await verifyRoomOwnership(roomId, hostId);
 
   const uploadedImage = await storageService.uploadImage(file, "room");
 
@@ -175,7 +235,7 @@ export const deleteRoomImage = async (imageId, hostId) => {
     where: { imageId },
   });
 
-  if (image.isThumbnail) {
+  if (image.isCover) {
     const next = await prisma.roomImage.findFirst({
       where: {
         roomId: image.roomId,
