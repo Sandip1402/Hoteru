@@ -48,11 +48,11 @@ app.use((req, res, next) => {
     next();
 });
 
+await registerRoutes(app);
+
 app.get(['/', '/api'], (req,res) => {
   res.json({message: "App is running"});
 })
-
-await registerRoutes(app);
 
 app.use((req, res, next) => {
   next(new AppError(404, "Route not found"));

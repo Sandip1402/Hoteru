@@ -50,28 +50,30 @@ export const callAPI = async (endpoint, options = {}, isProtected = false, acces
 }
 
 
+
 // // Handle expired token only if route is protected
-// if (isProtected && res.status === 401) {
-//   const refreshRes = await fetch("/api/refresh", {
-//     method: "POST",
-//     credentials: "include",
-//   });
+//     if (isProtected && res.status === 401) {
+//       const refreshRes = await fetch(`https://${domain}/oauth/token`, {
+//         method: "POST",
+//         credentials: "include",
+//       });
 
-//   const refreshData = await refreshRes.json();
+//       const refreshData = await refreshRes.json();
 
-//   if (refreshData.success) {
-//     setAccessToken(refreshData.accessToken);
+//       if (refreshData.success) {
+//         const { setAccessToken } = useHoteruAuth();
+//         setAccessToken(refreshData.accessToken);
 
-//     // Retry original request with new token
-//     res = await fetch(`/api${endpoint}`, {
-//       ...options,
-//       headers: {
-//         ...headers,
-//         Authorization: `Bearer ${refreshData.accessToken}`,
-//       },
-//       credentials: "include",
-//     });
-//   } else {
-//     throw new Error("Unauthorized: refresh failed");
-//   }
-// }
+//         // Retry original request with new token
+//         res = await fetch(`/api${endpoint}`, {
+//           ...options,
+//           headers: {
+//             ...headers,
+//             Authorization: `Bearer ${refreshData.accessToken}`,
+//           },
+//           credentials: "include",
+//         });
+//       } else {
+//         throw new Error("Unauthorized: refresh failed");
+//       }
+//     }

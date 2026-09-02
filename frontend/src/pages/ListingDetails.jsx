@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams } from "react-router";
 
-import {
-    getPublicListingById,
-    getListingRooms,
-} from "../apis/listingApi.js";
+import { useListingService } from "../hooks/useListingService.js";
 
 import { Loading } from "../components/Loading";
 import { RoomCard } from "../components/room/RoomCard.jsx";
@@ -13,6 +10,8 @@ const FALLBACK_IMAGE = "/images/accommodation-placeholder.jpg";
 
 export const ListingDetails = () => {
     const { listingId } = useParams();
+
+    const { getPublicListingById, getListingRooms } = useListingService();
 
     const [listing, setListing] = useState(null);
     const [rooms, setRooms] = useState([]);
@@ -31,10 +30,7 @@ export const ListingDetails = () => {
                 setIsLoading(true);
                 setError(null);
 
-                const response = await getPublicListingById(
-                    listingId,
-                    controller.signal
-                );
+                const response = await getPublicListingById(listingId, controller.signal);
 
                 setListing(response.data);
             } catch (err) {
@@ -62,10 +58,7 @@ export const ListingDetails = () => {
                 setRoomsLoading(true);
                 setRoomsError(null);
 
-                const response = await getListingRooms(
-                    listingId,
-                    controller.signal
-                );
+                const response = await getListingRooms(listingId, controller.signal);
 
                 setRooms(response.data);
             } catch (err) {

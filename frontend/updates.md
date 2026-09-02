@@ -14,12 +14,13 @@
 
 ## Process Updates
     - [x] Fetch listing images with separate api call
-    - [ ] Fix abort controllers for api calls
     - [x] Need to update router state data transfer for booking data from roomDetails page to payment page
-    - [ ] Navbar login options are getting lost when refreshing, maybe state issue
+    - [x] Navbar login options are getting lost when refreshing, maybe state issue
+    - [x] Tokens are exposed in request header in network tab - completely fine, encrypted if it is https
+    - [ ] Fix abort controllers for api calls - need to work with idempotent keys to handle transactions
     - [ ] Redirecting Issue still there
     - [ ] Currently If a process(booking) can't be done, it's showing error code to client instead of proper message
-    - [ ] For check in operation, there should option for cash and online mode for unpaid amounts
+    - [ ] For check in operation, there should be option for cash and online mode for unpaid amounts
     - [ ] What should happen if someone cancels a payment, currently that particual payment data is staying with status as processing
     - [ ] Add cache for form values
     - [ ] Protected route currentUser roles problem

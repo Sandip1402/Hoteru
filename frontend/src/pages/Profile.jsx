@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { callAPI } from "../utils/callAPI";
 
 
 export const Profile = () => {

@@ -6,17 +6,8 @@ import {
     useParams,
 } from "react-router";
 
-import {
-    getHostListingById,
-    uploadListingImage,
-    deleteListingImage,
-    getListingImages,
-    makeListingImageThumbnail,
-    getListingRooms,
-} from "../apis/listingApi.js";
-
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
-
+import { useListingService } from "../hooks/useListingService.js";
 import { RoomCard } from "../components/room/RoomCard.jsx";
 
 export const HostListingDetails = () => {
@@ -25,10 +16,16 @@ export const HostListingDetails = () => {
 
     const navigate = useNavigate();
 
+    const { isAuthenticated } = useHoteruAuth();
+
     const {
-        isAuthenticated,
-        getAccessTokenSilently,
-    } = useHoteruAuth();
+        getHostListingById,
+        uploadListingImage,
+        deleteListingImage,
+        getListingImages,
+        makeListingImageThumbnail,
+        getListingRooms
+    } = useListingService();
 
     const [listing, setListing] = useState(state?.listing || null);
     const [rooms, setRooms] = useState([]);
@@ -71,8 +68,6 @@ export const HostListingDetails = () => {
                     return;
                 }
 
-                const token = await getAccessTokenSilently();
-
                 /*
                  * If listing was passed through router state,
                  * the listing itself is already available.
@@ -80,12 +75,7 @@ export const HostListingDetails = () => {
                  * intentionally does not include them.
                  */
                 if (listing) {
-                    const response =
-                        await getListingImages(
-                            listingId,
-                            token,
-                            controller.signal
-                        );
+                    const response = await getListingImages(listingId, controller.signal);
 
                     setListing((prev) => ({
                         ...prev,
@@ -94,12 +84,7 @@ export const HostListingDetails = () => {
 
                     return;
                 }
-                const response =
-                    await getHostListingById(
-                        listingId,
-                        token,
-                        controller.signal
-                    );
+                const response = await getHostListingById(listingId, controller.signal);
 
                 setListing(response.data);
             } catch (err) {
@@ -133,7 +118,6 @@ export const HostListingDetails = () => {
     }, [
         listingId,
         isAuthenticated,
-        getAccessTokenSilently,
     ]);
 
     useEffect(() => {
@@ -179,15 +163,11 @@ export const HostListingDetails = () => {
             setIsUploading(true);
             setImageError(null);
 
-            const token =
-                await getAccessTokenSilently();
-
             const response =
                 await uploadListingImage(
                     listing.listingId,
                     selectedFile,
-                    caption.trim(),
-                    token
+                    caption.trim()
                 );
 
             /*
@@ -243,13 +223,7 @@ export const HostListingDetails = () => {
             setDeletingImageId(imageId);
             setImageError(null);
 
-            const token = await getAccessTokenSilently();
-
-            await deleteListingImage(
-                listing.listingId,
-                imageId,
-                token
-            );
+            await deleteListingImage(listing.listingId, imageId);
 
             /*
              * Remove image locally instead of
@@ -284,13 +258,7 @@ export const HostListingDetails = () => {
             setThumbnailImageId(imageId);
             setImageError(null);
 
-            const token =
-                await getAccessTokenSilently();
-
-            await makeListingImageThumbnail(
-                imageId,
-                token
-            );
+            await makeListingImageThumbnail( imageId );
 
             // Update local state.
             // Backend makes the selected image the

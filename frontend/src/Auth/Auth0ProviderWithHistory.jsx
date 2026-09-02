@@ -16,6 +16,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
                 audience: import.meta.env.VITE_REACT_APP_AUTH0_AUDIENCE
             }}
             onRedirectCallback={onRedirectCallback}
+            useRefreshTokens={true}
+            cacheLocation='localstorage'
         >
             {children}
         </Auth0Provider>

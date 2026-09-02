@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { callAPI } from "../utils/callAPI";
 
 const HoteruAuthContext = createContext(null);
 
@@ -33,15 +32,23 @@ export const HoteruAuthProvider = ({ children }) => {
                 setSyncError(null);
 
                 const token = await getAccessTokenSilently();
+                const baseURL = import.meta.env.VITE_API_BASE_URL || '';
 
-                const response = await callAPI(
-                    "/users/sync",
-                    {
-                        method: "POST",
+                // sync user
+                const res = await fetch(`${baseURL}/api/users/sync`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
                     },
-                    true,
-                    token
-                );
+                    credentials: "include"
+                });
+
+                const response = await res.json();
+
+                if (!res.ok || !response.success) {
+                    throw new Error(response.message || "Sync failed");
+                }
 
                 setAccessToken(token);
                 setCurrentUser(response.data);

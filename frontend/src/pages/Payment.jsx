@@ -10,12 +10,9 @@ import {
 import { RoomCardFlat, PriceDetails } from "../components";
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 
-import {
-    createPaymentOrder,
-    verifyPayment,
-} from "../apis/paymentApi.js";
+import { useBookingService } from "../hooks/useBookingService.js";
+import { usePaymentService } from "../hooks/usePaymentService.js";
 
-import { getBookingById } from "../apis/bookingApi.js";
 import { loadRazorpay } from "../utils/razorpay.js";
 
 export const Payment = () => {
@@ -23,10 +20,10 @@ export const Payment = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
 
-    const {
-        isAuthenticated,
-        getAccessTokenSilently,
-    } = useHoteruAuth();
+    const { getBookingById } = useBookingService();
+    const { createPaymentOrder, verifyPayment } = usePaymentService();
+
+    const { isAuthenticated } = useHoteruAuth();
 
     const [booking, setBooking] = useState(state?.booking || null);
 
@@ -51,15 +48,7 @@ export const Payment = () => {
                 setLoading(true);
                 setError(null);
 
-                const token =
-                    await getAccessTokenSilently();
-
-                const response =
-                    await getBookingById(
-                        bookingId,
-                        token,
-                        controller.signal
-                    );
+                const response = await getBookingById(bookingId, controller.signal);
 
                 setBooking(response.data);
             } catch (err) {
@@ -89,7 +78,6 @@ export const Payment = () => {
     }, [
         bookingId,
         booking,
-        getAccessTokenSilently,
     ]);
 
     /*
@@ -191,27 +179,14 @@ export const Payment = () => {
             setPaymentState("PROCESSING");
             setError(null);
 
-            const token = await getAccessTokenSilently();
-
             /*
              * Load Razorpay Checkout
              */
             await loadRazorpay();
 
-            /*
-             * Create payment order
-             *
-             * BOOKING:
-             * PAY_NOW    → totalPrice
-             * BOOK_ONLY  → bookingAmount
-             *
-             * REMAINING:
-             *             → remainingAmount
-             */
             const orderResponse = await createPaymentOrder(
                 booking.bookingId,
                 paymentPurpose,
-                token
             );
 
             const payment = orderResponse.data;

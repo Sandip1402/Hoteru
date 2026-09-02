@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
-import {
-    getHostRoomById,
-    updateRoom,
-} from "../apis/roomApi";
+import { useRoomService } from "../hooks/useRoomService.js";
 
-import { useHoteruAuth } from "../auth/HoteruAuthProvider";
 import { RoomForm } from "../components/room/RoomForm";
 
 export const EditRoom = () => {
     const { roomId } = useParams();
     const navigate = useNavigate();
 
-    const { getAccessTokenSilently } =
-        useHoteruAuth();
+    const { getHostRoomById, updateRoom } = useRoomService();
 
     const [room, setRoom] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -27,14 +22,8 @@ export const EditRoom = () => {
                 setLoading(true);
                 setError("");
 
-                const accessToken =
-                    await getAccessTokenSilently();
-
                 const response =
-                    await getHostRoomById(
-                        Number(roomId),
-                        accessToken
-                    );
+                    await getHostRoomById(Number(roomId));
 
                 setRoom(response.data);
             } catch (error) {
@@ -53,14 +42,11 @@ export const EditRoom = () => {
         };
 
         fetchRoom();
-    }, [roomId, getAccessTokenSilently]);
+    }, [roomId]);
 
     const handleSubmit = async (formData) => {
         try {
             setSaving(true);
-
-            const accessToken =
-                await getAccessTokenSilently();
 
             const roomData = {
                 name: formData.name.trim(),
@@ -88,11 +74,7 @@ export const EditRoom = () => {
                 isActive: formData.isActive,
             };
 
-            await updateRoom(
-                Number(roomId),
-                roomData,
-                accessToken
-            );
+            await updateRoom(Number(roomId), roomData);
 
             navigate(`/host/rooms/${roomId}`);
         } catch (error) {

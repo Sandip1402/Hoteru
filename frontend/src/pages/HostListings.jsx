@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
-import {
-    getHostListings,
-} from "../apis/listingApi.js";
-
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
+import { useListingService } from "../hooks/useListingService.js";
 
 export const HostListings = () => {
-    const {
-        isAuthenticated,
-        getAccessTokenSilently,
-    } = useHoteruAuth();
+    const { isAuthenticated } = useHoteruAuth();
 
+    const { getHostListings } = useListingService();
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,13 +27,8 @@ export const HostListings = () => {
                     return;
                 }
 
-                const token = await getAccessTokenSilently();
-
                 const response =
-                    await getHostListings(
-                        token,
-                        controller.signal
-                    );
+                    await getHostListings(controller.signal);
 
                 setListings(response.data);
             } catch (err) {
@@ -72,7 +62,6 @@ export const HostListings = () => {
             controller.abort();
     }, [
         isAuthenticated,
-        getAccessTokenSilently,
     ]);
 
     if (loading) {

@@ -4,14 +4,8 @@ import { useNavigate, useParams } from "react-router";
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 import { Loading } from "../components/Loading.jsx";
 
-import {
-    getRoomById,
-    getRoomImages,
-} from "../apis/roomApi.js";
-
-import {
-    createBooking
-} from "../apis/bookingApi.js"
+import { useRoomService } from "../hooks/useRoomService.js";
+import { useBookingService } from "../hooks/useBookingService.js";
 
 const FALLBACK_IMAGE = "/images/accommodation-placeholder.jpg";
 
@@ -19,10 +13,10 @@ export const RoomDetails = () => {
     const navigate = useNavigate();
     const { roomId } = useParams();
 
-    const {
-        isAuthenticated,
-        getAccessTokenSilently, // fix
-    } = useHoteruAuth();
+    const { isAuthenticated } = useHoteruAuth();
+
+    const { getRoomById, getRoomImages } = useRoomService();
+    const { createBooking } = useBookingService();
 
     const [room, setRoom] = useState(null);
     const [images, setImages] = useState([]);
@@ -141,8 +135,6 @@ export const RoomDetails = () => {
             setIsBooking(true);
             setBookingError(null);
 
-            const token = await getAccessTokenSilently();
-
             const response = await createBooking(
                 {
                     roomId: Number(roomId),
@@ -150,8 +142,7 @@ export const RoomDetails = () => {
                     checkOut,
                     guests,
                     paymentOption,
-                },
-                token
+                }
             );
 
             const booking = response.data;

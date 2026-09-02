@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
-
-import {
-    createListing,
-    updateListing,
-    getHostListingById,
-    getAmenities,
-    updateListingAmenities,
-} from "../apis/listingApi.js";
+import { useListingService } from "../hooks/useListingService.js";
 
 
 const Types = [
@@ -53,11 +46,15 @@ const emptyForm = {
 export const CreateListing = () => {
     const navigate = useNavigate();
     const { listingId } = useParams();
-
     const {
-        isAuthenticated,
-        getAccessTokenSilently,
-    } = useHoteruAuth();
+        createListing,
+        updateListing,
+        getHostListingById,
+        getAmenities,
+        updateListingAmenities
+    } = useListingService();
+
+    const { isAuthenticated } = useHoteruAuth();
 
     const isEditMode = Boolean(listingId);
 
@@ -84,21 +81,12 @@ export const CreateListing = () => {
                 setLoading(true);
                 setFetchError(null);
 
-                const token = await getAccessTokenSilently();
-
                 /*
                  * Amenities are required in both modes.
                  */
-                const amenitiesResponse =
-                    await getAmenities(
-                        token,
-                        controller.signal
-                    );
+                const amenitiesResponse = await getAmenities(controller.signal);
 
-                setAmenities(
-                    amenitiesResponse.data || []
-                );
-
+                setAmenities(amenitiesResponse.data || []);
 
                 /*
                  * Only edit mode needs the existing
@@ -106,11 +94,7 @@ export const CreateListing = () => {
                  */
                 if (isEditMode) {
                     const listingResponse =
-                        await getHostListingById(
-                            listingId,
-                            token,
-                            controller.signal
-                        );
+                        await getHostListingById(listingId, controller.signal);
 
                     const listing = listingResponse.data;
 
@@ -178,7 +162,6 @@ export const CreateListing = () => {
         isAuthenticated,
         listingId,
         isEditMode,
-        getAccessTokenSilently,
     ]);
 
 
@@ -225,10 +208,6 @@ export const CreateListing = () => {
                 );
                 return;
             }
-
-            const token =
-                await getAccessTokenSilently();
-
 
             // Only fields belonging to ListingBaseSchema.
             const listingData = {
@@ -283,41 +262,21 @@ export const CreateListing = () => {
             if (isEditMode) {
 
                 // Update listing information.
-                listingResponse =
-                    await updateListing(
-                        listingId,
-                        listingData,
-                        token
-                    );
+                listingResponse = await updateListing(listingId, listingData);
 
 
                 // Update amenities
-                await updateListingAmenities(
-                    listingId,
-                    selectedAmenities,
-                    token
-                );
+                await updateListingAmenities(listingId, selectedAmenities);
 
             } else {
 
                 // Create Listing
-                listingResponse =
-                    await createListing(
-                        listingData,
-                        token
-                    );
+                listingResponse = await createListing(listingData);
 
-
-                const newListingId =
-                    listingResponse.data.listingId;
-
+                const newListingId = listingResponse.data.listingId;
 
                 // Add selected amenities.
-                await updateListingAmenities(
-                    newListingId,
-                    selectedAmenities,
-                    token
-                );
+                await updateListingAmenities(newListingId, selectedAmenities);
             }
 
 

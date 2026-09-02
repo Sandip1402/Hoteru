@@ -6,7 +6,6 @@ export function useAuth() {
     isAuthenticated,
     isLoading,
     loginWithRedirect,
-    loginWithPopup,
     logout,
   } = useAuth0();
 
@@ -15,7 +14,6 @@ export function useAuth() {
     isAuthenticated,
     isLoading,
     loginWithRedirect,
-    loginWithPopup,
     logout,
   };
 }

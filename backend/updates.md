@@ -11,7 +11,7 @@
     - [x] rename in roomImage model, imgId -> imageId
     - [x] Booking model - remove remainingPaymentMethod, change PaymentOption
     - [x] Payment model - remove PaymentMethod, change PaymentMode
-    - [ ] Add refund failed payment status enum
+    - [ ] Add refund failed in payment status enum
 
 ## Process Updates
     - [] Need to update search/suggestions route logic
@@ -27,10 +27,10 @@
     - [o] if user select pay_now at booking only then after payement, paymentStatus in booking model should be updated to PAID, otherwise it shuold be pending
     - [o] Need to update publicListingDetailSelect to restrict more data for listing model
     - [Y] is the trimmed enum approach okay?
-    - [ ] GET /api/listings/:listingId/reviews?page=1&limit=10 for paginated reviews in listingdetails page, instead 200+ review in a single page
-    - [ ] Choose between include and select
     - [x] Check refund flow
     - [x] Fix listing image delete process
+    - [ ] GET /api/listings/:listingId/reviews?page=1&limit=10 for paginated reviews in listingdetails page, instead 200+ review in a single page
+    - [ ] Choose between include and select
     - [ ] Need to add api to remove an user from host position
 
     - [] V2 : Penalty logic for confirmed bookings

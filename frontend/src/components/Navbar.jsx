@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, NavLink } from 'react-router';
 
 import { useAuth } from '../auth/useAuth.js';
-import { callAPI } from '../utils/callAPI.js';
 
 import { LoginButton } from './LoginButton.jsx';
 import { LogoutButton } from './LogoutButton.jsx';
 
 import { FiMenu } from 'react-icons/fi';
-
 
 
 export const Navbar = () => {

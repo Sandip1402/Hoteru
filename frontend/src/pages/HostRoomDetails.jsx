@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import {
-    getHostRoomById,
-    getRoomImages,
-    uploadRoomImage,
-    deleteRoomImage,
-} from "../apis/roomApi";
-import { useHoteruAuth } from "../auth/HoteruAuthProvider";
+
+import { useRoomService } from "../hooks/useRoomService.js";
 
 const FALLBACK_IMAGE = "/images/room-placeholder.jpg";
 
 export const HostRoomDetails = () => {
     const { roomId } = useParams();
     const navigate = useNavigate();
-    const { getAccessTokenSilently } = useHoteruAuth();
+
+    const { getHostRoomById,
+        getRoomImages,
+        uploadRoomImage,
+        deleteRoomImage } = useRoomService();
 
     const [room, setRoom] = useState(null);
     const [images, setImages] = useState([]);
@@ -40,13 +39,7 @@ export const HostRoomDetails = () => {
                 setLoading(true);
                 setError("");
 
-                const accessToken =
-                    await getAccessTokenSilently();
-
-                const response = await getHostRoomById(
-                    Number(roomId),
-                    accessToken
-                );
+                const response = await getHostRoomById(Number(roomId));
 
                 setRoom(response.data);
             } catch (error) {
@@ -65,17 +58,17 @@ export const HostRoomDetails = () => {
         };
 
         fetchRoom();
-    }, [roomId, getAccessTokenSilently]);
+    }, [roomId]);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const fetchImages = async () => {
             try {
                 setImagesLoading(true);
                 setImagesError("");
 
-                const response = await getRoomImages(
-                    Number(roomId),
-                );
+                const response = await getRoomImages(Number(roomId), controller.signal);
 
                 setImages(response.data || []);
             } catch (error) {
@@ -94,6 +87,8 @@ export const HostRoomDetails = () => {
         };
 
         fetchImages();
+
+        return () => controller.abort();
     }, [roomId]);
 
     const handleFileChange = (event) => {
@@ -123,14 +118,7 @@ export const HostRoomDetails = () => {
             setUploadError("");
             setUploadSuccess("");
 
-            const accessToken =
-                await getAccessTokenSilently();
-
-            await uploadRoomImage(
-                Number(roomId),
-                selectedFile,
-                accessToken
-            );
+            await uploadRoomImage(Number(roomId), selectedFile);
 
             setSelectedFile(null);
             setPreviewUrl(null);
@@ -139,10 +127,7 @@ export const HostRoomDetails = () => {
             );
 
             // Refresh images
-            const response = await getRoomImages(
-                Number(roomId),
-                accessToken
-            );
+            const response = await getRoomImages(Number(roomId));
 
             setImages(response.data || []);
 
@@ -175,19 +160,10 @@ export const HostRoomDetails = () => {
             setUploadError("");
             setUploadSuccess("");
 
-            const accessToken =
-                await getAccessTokenSilently();
-
-            await deleteRoomImage(
-                imageId,
-                accessToken
-            );
+            await deleteRoomImage(imageId);
 
             // Refresh images
-            const response = await getRoomImages(
-                Number(roomId),
-                accessToken
-            );
+            const response = await getRoomImages(Number(roomId));
 
             setImages(response.data || []);
 
@@ -196,8 +172,7 @@ export const HostRoomDetails = () => {
             );
         } catch (error) {
             console.error(
-                "Failed to delete room image:",
-                error
+                "Failed to delete room image:",error
             );
 
             setUploadError(

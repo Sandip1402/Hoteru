@@ -1,9 +1,8 @@
-
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 
-import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
-import { createRoom } from "../apis/roomApi.js";
+import { useRoomService } from "../hooks/useRoomService.js";
+
 import { RoomForm } from "../components/room/RoomForm.jsx";
 
 const initialForm = {
@@ -25,8 +24,7 @@ export const AddRoom = () => {
     const { listingId } = useParams();
     const navigate = useNavigate();
 
-    const { getAccessTokenSilently } =
-        useHoteruAuth();
+    const { createRoom } = useRoomService();
 
     const [loading, setLoading] = useState(false);
     const [serverError, setServerError] =
@@ -37,9 +35,6 @@ export const AddRoom = () => {
         setLoading(true);
 
         try {
-            const accessToken =
-                await getAccessTokenSilently();
-
             const roomData = {
                 name: formData.name.trim(),
 
@@ -71,11 +66,7 @@ export const AddRoom = () => {
                 isActive: formData.isActive,
             };
 
-            await createRoom(
-                Number(listingId),
-                roomData,
-                accessToken
-            );
+            await createRoom(Number(listingId), roomData);
 
             navigate(
                 `/host/listings/${listingId}`

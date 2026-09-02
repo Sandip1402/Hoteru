@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+
+import { useListingService } from "../hooks/useListingService.js";
+
 import { ListingCard } from "../components/listing/ListingCard";
-import { getListings } from "../apis/listingApi.js";
 import { Loading } from "../components/Loading";
-import { Controller } from "react-hook-form";
 
 export const Listings = () => {
+
+    const { getListings } = useListingService();
+
     const [listings, setListings] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);

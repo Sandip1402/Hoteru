@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate, useParams } from "react-router";
 
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
-import { getBookingById, cancelBooking } from "../apis/bookingApi.js";
+import { useBookingService } from "../hooks/useBookingService.js";
 
 
 export const BookingDetails = () => {
@@ -17,11 +17,9 @@ export const BookingDetails = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
 
-    const {
-        isAuthenticated,
-        getAccessTokenSilently,
-    } = useHoteruAuth();
+    const { isAuthenticated } = useHoteruAuth();
 
+    const { getBookingById, cancelBooking } = useBookingService();
 
     const [booking, setBooking] = useState(state?.booking || null);
     const [loading, setLoading] = useState(!state?.booking);
@@ -58,16 +56,7 @@ export const BookingDetails = () => {
                     return;
                 }
 
-                const token =
-                    await getAccessTokenSilently();
-
-
-                const response =
-                    await getBookingById(
-                        bookingId,
-                        token,
-                        controller.signal
-                    );
+                const response = await getBookingById(bookingId, controller.signal);
 
                 setBooking(response.data);
 
@@ -109,7 +98,6 @@ export const BookingDetails = () => {
         bookingId,
         booking,
         isAuthenticated,
-        getAccessTokenSilently,
     ]);
 
 
@@ -203,12 +191,9 @@ export const BookingDetails = () => {
             setIsCancelling(true);
             setCancelError(null);
 
-            const token = await getAccessTokenSilently();
-
             const response = await cancelBooking(
                 booking.bookingId,
                 cancellationReason.trim(),
-                token
             );
 
             setBooking(response.data.booking);
