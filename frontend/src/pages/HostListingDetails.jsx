@@ -258,7 +258,7 @@ export const HostListingDetails = () => {
             setThumbnailImageId(imageId);
             setImageError(null);
 
-            await makeListingImageThumbnail( imageId );
+            await makeListingImageThumbnail(imageId);
 
             // Update local state.
             // Backend makes the selected image the
@@ -479,7 +479,25 @@ export const HostListingDetails = () => {
 
             </section>
 
+            {/* Amenities */}
+            {listing.amenities?.length > 0 && (
+                <section className="mb-8">
+                    <h2 className="text-xl font-semibold mb-3">
+                        Amenities
+                    </h2>
 
+                    <div className="flex flex-wrap gap-2">
+                        {listing.amenities.map((amenity) => (
+                            <span
+                                key={amenity.amenity.amenityId}
+                                className="border rounded-full px-3 py-1 text-sm"
+                            >
+                                {amenity.amenity.name}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+            )}
 
             {/* Images */}
             <section>

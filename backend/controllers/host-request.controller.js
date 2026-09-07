@@ -1,7 +1,7 @@
 import * as hostRequestService from "../services/host-request.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
 
-export const createHostRequest = asyncHandler(async (req, res, next) => {
+export const createHostRequest = asyncHandler(async (req, res) => {
     const request = await hostRequestService.createHostRequest(
         req.user.id,
         req.body
@@ -11,6 +11,16 @@ export const createHostRequest = asyncHandler(async (req, res, next) => {
         success: true,
         message: "Request submitted successfully for verification.",
         data: request,
+    });
+});
+
+export const getHostProfile = asyncHandler(async (req, res) => {
+    const profile = await hostRequestService.getHostProfile(req.user.id);
+
+    res.status(200).json({
+        success: true,
+        message: "Host profile retrieved successfully.",
+        data: profile,
     });
 });
 

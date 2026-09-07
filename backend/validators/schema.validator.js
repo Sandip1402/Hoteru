@@ -31,9 +31,8 @@ export const createHostRequestSchema = z.object({
   governmentIdType: trimmedEnum(governmentIdTypes),
 
   governmentIdUrl: z
-    .string()
-    .trim()
-    .url("Government ID URL must be a valid URL."),
+    .httpUrl({ message: "Government ID URL must be a valid URL." })
+    .trim(),
 
   businessName: z
     .string()

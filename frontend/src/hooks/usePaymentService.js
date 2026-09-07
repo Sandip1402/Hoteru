@@ -11,9 +11,7 @@ export const usePaymentService = () => {
             `/payments/booking/${bookingId}/order`,
             {
                 method: "POST",
-                body: JSON.stringify({
-                    purpose,
-                }),
+                body: JSON.stringify({purpose}),
             },
             true
         );
@@ -32,8 +30,21 @@ export const usePaymentService = () => {
         );
     };
 
+    const cancelPayment = async (
+        paymentId
+    ) => {
+        return callAPI(
+            `/payments/${paymentId}/cancel`,
+            {
+                method: "PATCH"
+            },
+            true
+        );
+    }
+
     return {
         createPaymentOrder,
         verifyPayment,
+        cancelPayment,
     }
 }

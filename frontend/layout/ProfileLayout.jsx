@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { useAuth } from '../src/auth/useAuth'
 
 import { FaChevronLeft, FaHamburger } from 'react-icons/fa'
-import { ProfileSideBar, LogoutButton } from '../src/components'
+import { ProfileSideBar } from '../src/components'
 
 
-const ProfileLayout = () => {
+export const ProfileLayout = () => {
 
     const [show, setShow] = useState(false);
     const { user, isAuthenticated, isLoading } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     // Close sidebar on route change (for mobile)
     useEffect(() => {
@@ -51,5 +52,3 @@ const ProfileLayout = () => {
         </div>
     )
 }
-
-export default ProfileLayout

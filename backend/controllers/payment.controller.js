@@ -34,3 +34,13 @@ export const verifyPayment = asyncHandler(async (req, res) => {
         data: result,
     });
 });
+
+export const cancelPayment = asyncHandler(async (req, res) => {
+    const paymentId = Number(req.params.paymentId);
+    await paymentService.cancelPayment(paymentId, req.user.id);
+
+    res.status(200).json({
+        success: true,
+        message: "Payment cancelled."
+    })
+})

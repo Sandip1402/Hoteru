@@ -115,9 +115,7 @@ export const EditRoom = () => {
                     <button
                         type="button"
                         onClick={() =>
-                            navigate(
-                                `/host/rooms/${roomId}`
-                            )
+                            navigate(`/host/rooms/${roomId}`)
                         }
                         className="text-sm text-gray-500"
                     >
@@ -159,6 +157,7 @@ export const EditRoom = () => {
                                 room.isActive,
                         }}
                         onSubmit={handleSubmit}
+                        onCancel={() => {navigate(`/host/rooms/${roomId}`)}}
                         loading={saving}
                         submitLabel="Update Room"
                     />

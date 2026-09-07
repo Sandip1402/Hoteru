@@ -190,10 +190,10 @@ export const ListingDetails = () => {
                     <div className="flex flex-wrap gap-2">
                         {listing.amenities.map((amenity) => (
                             <span
-                                key={amenity.amenityId}
+                                key={amenity.amenity.amenityId}
                                 className="border rounded-full px-3 py-1 text-sm"
                             >
-                                {amenity.name}
+                                {amenity.amenity.name}
                             </span>
                         ))}
                     </div>

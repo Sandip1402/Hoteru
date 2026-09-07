@@ -1,6 +1,11 @@
 import express from 'express'
 
-import { createHostRequest, getPendingHostRequests, processHostRequest } from '../controllers/host-request.controller.js';
+import {
+    createHostRequest,
+    getHostProfile,
+    getPendingHostRequests,
+    processHostRequest
+} from '../controllers/host-request.controller.js';
 
 import {
     attachCurrentUser,
@@ -26,9 +31,16 @@ export default function () {
         createHostRequest
     );
 
+    router.get(
+        "/profile",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("host"),
+        getHostProfile
+    );
 
     // V2 : include endpoints to view all the host requests and eventually
-    // a filter to choose between, all, pending, rejected, approved
+    // a filter to choose between, all, pending, rejected, approved for admin
 
     // Admin views pending requests
     router.get(

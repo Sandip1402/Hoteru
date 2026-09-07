@@ -3,7 +3,7 @@ import express from 'express';
 import { checkJwt, attachCurrentUser, requireRole } from "../middlewares/auth.middleware.js";
 import { validate } from "../middlewares/validate.middleware.js";
 
-import { createPaymentOrder, verifyPayment } from '../controllers/payment.controller.js';
+import { cancelPayment, createPaymentOrder, verifyPayment } from '../controllers/payment.controller.js';
 
 import {
     createPaymentOrderSchema,
@@ -31,6 +31,14 @@ export default function () {
         validate(verifyPaymentSchema),
         verifyPayment
     );
+
+    router.patch(
+        "/:paymentId/cancel",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("basic_user"),
+        cancelPayment
+    )
 
     return router;
 }

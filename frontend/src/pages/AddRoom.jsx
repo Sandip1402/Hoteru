@@ -27,8 +27,7 @@ export const AddRoom = () => {
     const { createRoom } = useRoomService();
 
     const [loading, setLoading] = useState(false);
-    const [serverError, setServerError] =
-        useState("");
+    const [serverError, setServerError] = useState("");
 
     const handleSubmit = async (formData) => {
         setServerError("");
@@ -68,9 +67,7 @@ export const AddRoom = () => {
 
             await createRoom(Number(listingId), roomData);
 
-            navigate(
-                `/host/listings/${listingId}`
-            );
+            navigate(`/host/listings/${listingId}`);
         } catch (error) {
             console.error(
                 "Create room error:",

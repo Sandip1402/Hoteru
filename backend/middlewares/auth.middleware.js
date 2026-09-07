@@ -31,7 +31,7 @@ export const attachCurrentUser = async (req, res, next) => {
       lastname: user.lastname,
       roles: req.auth.payload?.[env.AUTH0_NAMESPACE + "/roles"] ?? [],
     };
-
+  
     next();
   } catch (error) {
     return next(error);

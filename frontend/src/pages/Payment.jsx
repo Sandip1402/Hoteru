@@ -21,7 +21,7 @@ export const Payment = () => {
     const navigate = useNavigate();
 
     const { getBookingById } = useBookingService();
-    const { createPaymentOrder, verifyPayment } = usePaymentService();
+    const { createPaymentOrder, verifyPayment, cancelPayment } = usePaymentService();
 
     const { isAuthenticated } = useHoteruAuth();
 
@@ -281,8 +281,21 @@ export const Payment = () => {
                  * User closes Razorpay checkout
                  */
                 modal: {
-                    ondismiss: () => {
-                        setPaymentState("CANCELLED");
+                    ondismiss: async () => {
+                        try {
+                            await cancelPayment(payment.paymentId);
+                            setPaymentState("CANCELLED");
+                        } catch (err) {
+                            console.error(
+                                "Failed to cancel payment:", err
+                            );
+
+                            setError(
+                                err.message || "Failed to cancel payment."
+                            );
+
+                            setPaymentState("FAILED");
+                        }
                     },
                 },
             };

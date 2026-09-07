@@ -77,6 +77,7 @@ export const HoteruAuthProvider = ({ children }) => {
                 isLoading,
                 isSyncing,
                 syncError,
+                setAccessToken,
                 getAccessTokenSilently,
             }}
         >

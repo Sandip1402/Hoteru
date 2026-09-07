@@ -2,7 +2,7 @@ import { Navbar, Footer } from "../src/components";
 import { Outlet } from "react-router"
 
 
-const RootLayout = () => {
+export const RootLayout = () => {
   return (
     <>
       <Navbar />
@@ -11,5 +11,3 @@ const RootLayout = () => {
     </>
   )
 }
-
-export default RootLayout;

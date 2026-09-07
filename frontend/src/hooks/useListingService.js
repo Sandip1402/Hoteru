@@ -55,7 +55,7 @@ export const useListingService = () => {
     const getAmenities = async (signal) => {
         return callAPI(
             "/amenities",
-            { signal },
+            {signal},
             true
         );
     };

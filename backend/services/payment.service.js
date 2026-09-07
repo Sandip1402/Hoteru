@@ -235,3 +235,40 @@ export const verifyPayment = async ({
 
     return result;
 };
+
+export const cancelPayment = async (paymentId, userId) => {
+    const payment = await prisma.payment.findUnique({
+        where: { paymentId },
+        select: {
+            paymentId: true,
+            status: true,
+            booking: {
+                select: {
+                    bookingId: true,
+                    guestId: true,
+                },
+            },
+        },
+    });
+
+    if (!payment) {
+        throw new AppError(404, "Payment not found.");
+    }
+
+    // Verify that the booking belongs to the user
+    if (payment.booking.guestId !== userId) {
+        throw new AppError(403, "Unauthorized");
+    }
+
+    // Don't overwrite a payment that already succeeded
+    if (payment.status === "SUCCESS") {
+        throw new AppError(400, "A successful payment cannot be cancelled.");
+    }
+
+    return prisma.payment.update({
+        where: { paymentId },
+        data: {
+            status: "CANCELLED",
+        },
+    });
+};

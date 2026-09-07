@@ -17,15 +17,15 @@
     - [x] Need to update router state data transfer for booking data from roomDetails page to payment page
     - [x] Navbar login options are getting lost when refreshing, maybe state issue
     - [x] Tokens are exposed in request header in network tab - completely fine, encrypted if it is https
+    - [x] Check !isAuthenticated state in CreateListing form
+    - [x] Currently If a process(booking) can't be done, it's showing error code to client instead of proper message
+    - [x] What should happen if someone cancels a payment, currently that particualar payment data is staying with status as pending
+    - [ ] Protected route currentUser roles problem
     - [ ] Fix abort controllers for api calls - need to work with idempotent keys to handle transactions
     - [ ] Redirecting Issue still there
-    - [ ] Currently If a process(booking) can't be done, it's showing error code to client instead of proper message
     - [ ] For check in operation, there should be option for cash and online mode for unpaid amounts
-    - [ ] What should happen if someone cancels a payment, currently that particual payment data is staying with status as processing
     - [ ] Add cache for form values
-    - [ ] Protected route currentUser roles problem
-    - [ ] Check !isAuthenticated state in CreateListing form
-    - [ ] Access token is visible in network tab through getAccessTokenSilently api call i.g,
-
+    - [ ] Login back button issue, use back buttons wisely, add history
+    - [ ] Make error log flow and error message flow correct
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

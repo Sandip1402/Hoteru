@@ -34,3 +34,4 @@ export * from './Search';
 // export * from './Slide.jsx';
 export * from './SliderBG';
 export * from './StarRating';
+export * from "./HostProfileSideBar";

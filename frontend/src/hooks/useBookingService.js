@@ -3,6 +3,17 @@ import { useAPI } from "./useAPI";
 export const useBookingService = () => {
   const callAPI = useAPI();
 
+  const getMyBookings = async (signal) => {
+    return callAPI(
+      "/bookings/my",
+      {
+        method: "GET",
+        signal
+      },
+      true
+    );
+  };
+
   const getBookingById = async (bookingId, signal) => {
     return callAPI(
       `/bookings/${bookingId}`,
@@ -34,6 +45,7 @@ export const useBookingService = () => {
   };
 
   return {
+    getMyBookings,
     getBookingById,
     createBooking,
     cancelBooking,

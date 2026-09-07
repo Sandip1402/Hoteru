@@ -5,6 +5,8 @@ export const LoginButton = () => {
   const { loginWithRedirect } = useAuth();
 
   const handleLogin = async () => {
+    // window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+
     try {
       await loginWithRedirect({
         appState: {

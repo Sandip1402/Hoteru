@@ -1,18 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Link, useNavigate, NavLink } from 'react-router';
 
-import { useAuth } from '../auth/useAuth.js';
+import { useHoteruAuth } from '../auth/HoteruAuthProvider.jsx';
 
 import { LoginButton } from './LoginButton.jsx';
 import { LogoutButton } from './LogoutButton.jsx';
-
-import { FiMenu } from 'react-icons/fi';
 
 
 export const Navbar = () => {
     const navigate = useNavigate();
 
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated } = useHoteruAuth();
 
     return (
         <div className="h-max w-full p-2 2xl:p-7 flex items-center-safe bg-base-100 shadow-md 2xl:shadow-xl">
@@ -66,6 +63,8 @@ export const Navbar = () => {
                         {isAuthenticated ?
                             <>
                                 <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/user')}>Profile</li>
+                                <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
+                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/host')}>Host Profile</li>
                                 <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
                                 <li><LogoutButton /></li>
                             </>
