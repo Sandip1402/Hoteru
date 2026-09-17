@@ -33,6 +33,7 @@
     - [ ] Choose between include and select
     - [ ] Need to add api to remove an user from host position
     - [ ] Integrate Redis
+    - [ ] Make api to get all the property types available for filtering listings in frontend
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

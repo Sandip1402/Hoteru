@@ -1,30 +1,143 @@
-
-import { CardY, Search, SliderBG } from "../components"
+import { Search, SliderBG } from "../components";
+import { CardY, PossibilityCard, CategoryCard } from "../components";
 
 export const Home = () => {
-  const items = ['bg0.jpg', 'bg1.jpg', 'bg2.jpg', 'bg3.jpg'];
+  const heroImages = [
+    "/bg0.jpg",
+    "/bg1.jpg",
+    "/bg2.jpg",
+    "/bg3.jpg",
+  ];
+
   return (
-    <div className="flex flex-col max-sm:p-2 sm:px-5 lg:px-20">
+    <main className="w-full bg-white">
 
-      <section className="max-sm:mb-3 sm:pt-2 w-full">
-        <Search />
-        {/* Hero Section */ }
-        <div className="sm:relative sm:bottom-6 max-sm:my-2">
-          <SliderBG items={['bg0.jpg', 'bg1.jpg', 'bg2.jpg', 'bg3.jpg']} />
+      {/* Hero */}
+      <section className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="relative pt-4 sm:pt-14">
+
+          {/* Search */}
+          <div
+            className="
+        relative z-20
+        w-full
+        sm:absolute sm:left-1/2 sm:top-0
+        sm:w-[calc(100%-32px)]
+        sm:max-w-[1100px]
+        sm:-translate-x-1/2
+      "
+          >
+            <Search />
+          </div>
+
+          {/* Hero */}
+          <div className="pt-4 sm:pt-2">
+            <SliderBG items={heroImages} />
+          </div>
+
         </div>
       </section>
+      
+      {/* Signature of Excellence */}
+      <section className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
 
-      <section className="flex flex-col gap-y-2">
-        <b>A SIGNATURE OF EXCELLENCE</b>
-        <div className="">
-          <span className="flex max-sm:gap-2 sm:gap-5">
-            {items.map((item) => {
-              return (<CardY key={items.indexOf(item)} item={item} />)
-            })}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-base font-semibold tracking-wide text-text">
+            A SIGNATURE OF EXCELLENCE
+          </h2>
         </div>
+
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4">
+
+          <CardY
+            item="bg0.jpg"
+            title="Mountain Escape"
+            location="Manali, India"
+          />
+
+          <CardY
+            item="bg1.jpg"
+            title="Beach Retreat"
+            location="Goa, India"
+          />
+
+          <CardY
+            item="bg2.jpg"
+            title="Forest Hideaway"
+            location="Coorg, India"
+          />
+
+          <CardY
+            item="bg3.jpg"
+            title="Luxury Stay"
+            location="Udaipur, India"
+          />
+
+        </div>
+
       </section>
 
-    </div>
-  )
-}
+      {/* Featured categories */}
+      <section className="mx-auto max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-16 lg:px-8">
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:grid-rows-2 sm:gap-4">
+
+          <CategoryCard
+            image="bg0.jpg"
+            title="Outdoor getaways"
+            description="Reconnect with nature"
+            className="aspect-square sm:row-span-2 sm:aspect-[3/4]"
+          />
+
+          <CategoryCard
+            image="bg1.jpg"
+            title="Unique destinations"
+            description="Places worth discovering"
+            className="aspect-square"
+          />
+
+          <CategoryCard
+            image="bg2.jpg"
+            title="Entire homes"
+            description="Your own private space"
+            className="aspect-square"
+          />
+
+          <CategoryCard
+            image="bg3.jpg"
+            title="Pet allowed"
+            description="Bring your best friend"
+            className="aspect-square sm:row-span-2 sm:aspect-[3/4]"
+          />
+
+        </div>
+
+      </section>
+
+      {/* Find new possibilities */}
+      <section className="mx-auto max-w-[1320px] px-4 pb-10 sm:px-6 sm:pb-16 lg:px-8">
+
+        <h2 className="mb-5 text-base font-semibold tracking-wide text-text">
+          FIND NEW POSSIBILITIES
+        </h2>
+
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+
+          <PossibilityCard
+            image="bg0.jpg"
+            title="Discover stays made for unforgettable moments"
+            buttonText="Explore stays"
+          />
+
+          <PossibilityCard
+            image="bg3.jpg"
+            title="Find your next escape"
+            buttonText="Discover"
+          />
+
+        </div>
+
+      </section>
+    </main>
+  );
+};

@@ -59,38 +59,6 @@ export const Router = createBrowserRouter([
                             { path: "logout", element: <Profile /> },
                         ]
                     },
-                    // {
-                    //     path: "host", element: <ProtectedRoute allowedRoles={['host']}><HostProfileLayout /></ProtectedRoute>,
-                    //     children: [
-                    //         { index: true, element: <Navigate to="/host/personal_info" replace /> },
-                    //         { path: "personal_info", element: <HostProfile /> },
-                    //         { path: "security", element: <Security /> },
-                    //         {
-                    //             path: "listings", element: <HostListings />,
-                    //             children: [
-                    //                 { path: "create", element: <CreateListing /> },
-                    //                 {
-                    //                     path: ":listingId", element: <HostListingDetails />,
-                    //                     children: [
-                    //                         { path: "edit", element: <EditListing /> },
-                    //                         { path: "rooms/new", element: <AddRoom /> },
-                    //                     ]
-                    //                 },
-                    //             ]
-                    //         },
-                    //         // {
-                    //         //     // path: "rooms", element: <HostRooms />,
-                    //         //     children: [
-                    //         //         {
-                    //         //             path: ":roomId", element: <HostRoomDetails />,
-                    //         //             children: [
-                    //         //                 { path: "edit", element: <EditRoom /> },
-                    //         //             ]
-                    //         //         },
-                    //         //     ]
-                    //         // }
-                    //     ]
-                    // },
                     {
                         path: "host",
                         element: (

@@ -1,11 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default
+  themes: light --default;
 }
 
+
+/* =========================================================
+   HOTERU DESIGN TOKENS
+   ========================================================= */
+
 @theme {
+  /* ---------------- Colors ---------------- */
+
+  --color-primary: #636AE8;
+  --color-primary-dark: #4F56C7;
+  --color-logo: #F55F0A;
+
+  --color-text: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-text-light: #9CA3AF;
+
+  --color-surface: #F9FAFB;
+  --color-border: #E5E7EB;
+
+  --color-success: #16A34A;
+  --color-danger: #DC2626;
+  --color-warning: #F59E0B;
+
+
+  /* ---------------- Typography ---------------- */
+
+  --font-sans: "Inter", sans-serif;
+
+
+  /* ---------------- Radius ---------------- */
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+
+  /* ---------------- Animation ---------------- */
+
   --animate-spin: spin 1.5s linear infinite;
 
   @keyframes spin {
@@ -19,103 +58,144 @@
   }
 }
 
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 html,
 body {
   overflow-x: hidden;
   scrollbar-width: none;
-  --color-logo: #F55F0A;
-  --color-primary: #636AE8;
-  --font-optical-sizing: auto;
 }
-
 
 * {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  user-select: none;
 }
 
+body {
+  margin: 0;
+  background: white;
+  color: var(--color-text);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-
 .no-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
-/* ------------- text -------------- */
-.text-main {
-  @apply text-lg md:text-xl xl:text-3xl 2xl:text-4xl;
-}
 
-.text-sub {
-  @apply text-sm md:text-base xl:text-lg 2xl:text-xl;
-}
-
-/* ------------- li ----------------- */
-li:focus {
-  background-color: transparent !important;
-}
+/* =========================================================
+   GLOBAL ELEMENTS
+   ========================================================= */
 
 li {
   list-style: none;
 }
 
+li:focus {
+  background-color: transparent !important;
+}
 
-/* ----------------------- Navbar ------------------------ */
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 .active {
-  color: var(--color-primary)
+  color: var(--color-primary);
 }
 
 
-/* ----------------------------  Home page --------------------- */
-.dropdown-item {
-  @apply btn border-0 bg-transparent w-full px-2 cursor-pointer rounded-box hover:bg-primary/50;
-}
+/* =========================================================
+   FORMS
+   ========================================================= */
 
-
-/* .swiper::part-pagination{
-  positon: absolute
-  bottom: -20px;
-}
-
-.swiper-pagination-bullet {
-  color: gray;
-} */
-
-
-/* -------------------------- Form ---------------------- */
 .input-field {
-  @apply focus:outline-none text-sm placeholder:text-gray-600 text-black max-sm:border-b-1 border-gray-500;
+  @apply w-full bg-transparent text-sm text-gray-900
+         placeholder:text-gray-500
+         focus:outline-none;
 }
 
 
-/* ---------------- Review Form ------------------------ */
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.dropdown-item {
+  @apply w-full cursor-pointer rounded-lg
+         border-0 bg-transparent px-2
+         hover:bg-gray-100;
+}
+
+
+/* =========================================================
+   LANDING SLIDER
+   ========================================================= */
+
+.landing-slider::part(pagination) {
+  bottom: -18px;
+}
+
+.landing-slider::part(bullet) {
+  width: 5px;
+  height: 5px;
+}
+
+.landing-slider::part(bullet-active) {
+  width: 18px;
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   REVIEW FORM
+   ========================================================= */
+
 .review-text-area {
-  @apply w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 rounded-md resize-none text-gray-700
+  @apply w-full resize-none rounded-lg
+         border border-gray-300
+         px-3 py-2
+         text-sm text-gray-700
+         focus:outline-none
+         focus:ring-2 focus:ring-primary;
 }
 
 .image-input {
-  @apply m-2 w-20 h-20 border-2 border-dashed border-gray-400 rounded flex justify-center items-center cursor-pointer text-gray-400
+  @apply m-2 flex h-20 w-20
+         cursor-pointer items-center justify-center
+         rounded-lg border-2 border-dashed
+         border-gray-300 text-gray-400;
 }
 
 
-/* --------------- Room Card --------------------- */
+/* =========================================================
+   ROOM CARD
+   ========================================================= */
+
 .bullet {
   width: 3px;
   height: 3px;
   background-color: black;
-  border-radius: 100%;
+  border-radius: 999px;
 }
 
 
-/* -------------- Loading ------------------------- */
+/* =========================================================
+   LOADING
+   ========================================================= */
+
 @keyframes rotate-box {
   0% {
     transform: rotate(0deg);
@@ -131,15 +211,21 @@ li {
 }
 
 
-/* -------------- Profile Sections ---------------- */
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
 .profile-sections {
-  background-color: white;
-  border-radius: var(--radius-box);
-  @apply max-sm:p-2 sm:p-3 lg:p-5 2xl:p-10 max-sm:shadow-sm sm:shadow-md flex-1 flex justify-center
+  @apply flex-1 justify-center bg-white;
+
+  border-radius: var(--radius-xl);
 }
 
 
-/* -------------- RangeFilter ------------------- */
+/* =========================================================
+   RANGE FILTER
+   ========================================================= */
+
 .bubble::after {
   content: var();
   background-color: var(--color-primary);

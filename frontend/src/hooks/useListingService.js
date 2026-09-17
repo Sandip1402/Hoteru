@@ -3,10 +3,11 @@ import { useAPI } from "./useAPI";
 export const useListingService = () => {
     const callAPI = useAPI();
 
-    const getListings = async (signal) => {
+    const getListings = async (signal, query = {}) => {
         return callAPI("/listings", {
             method: "GET",
-            signal
+            signal,
+            query
         });
     };
 
@@ -55,8 +56,7 @@ export const useListingService = () => {
     const getAmenities = async (signal) => {
         return callAPI(
             "/amenities",
-            {signal},
-            true
+            {signal}
         );
     };
 
@@ -164,5 +164,4 @@ export const useListingService = () => {
         makeListingImageThumbnail,
         deleteListingImage,
     }
-
-}
+};

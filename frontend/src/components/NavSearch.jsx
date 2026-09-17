@@ -5,7 +5,6 @@ import { useSearch } from "../context/SearchContext"
 export const NavSearch = () => {
     const {setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues} = useSearch();
 
-
   return (
     <form className="px-4 py-2 h-max rounded-full w-max lg:max-w-1/3 bg-white shadow flex justify-evenly items-center gap-2">
         <span className="cursor-pointer text-gray-500">Place</span>

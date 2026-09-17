@@ -1,159 +1,157 @@
-import { Link, useNavigate, NavLink } from 'react-router';
+import { Link, useNavigate, NavLink } from "react-router";
 
-import { useHoteruAuth } from '../auth/HoteruAuthProvider.jsx';
+import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 
-import { LoginButton } from './LoginButton.jsx';
-import { LogoutButton } from './LogoutButton.jsx';
-
+import { LoginButton } from "./LoginButton.jsx";
+import { LogoutButton } from "./LogoutButton.jsx";
 
 export const Navbar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useHoteruAuth();
 
-    const { isAuthenticated } = useHoteruAuth();
+  return (
+    <header className="w-full border-b border-border bg-white">
+      <div className="mx-auto flex h-16 max-w-[1320px] items-center px-4 sm:px-6 lg:px-8">
 
-    return (
-        <div className="h-max w-full p-2 2xl:p-7 flex items-center-safe bg-base-100 shadow-md 2xl:shadow-xl">
-
-            {/* Logo */}
-            <div className="flex-none text-main mb-1 text-primary">
-                <Link className="outline-none font-bold" to="/">
-                    {/* <img src='/Icons/Logo.png' alt='logo' className='w-5 h-5'/> */}
-                    Hoteru
-                </Link>
-            </div>
-
-            {/* Options */}
-            <div className="flex-1 mx-4">
-                {/* Fix : change this part based on path */}
-                <ul className='hidden md:flex text-sub'>
-                    <li><NavLink className='px-2' to="/accommodations">Places to stay</NavLink></li>
-                    <li><NavLink className='px-2' to="/experiences">Experiences</NavLink></li>
-                    <li><NavLink className='px-2' to="/discover">Discover</NavLink></li>
-                </ul>
-            </div>
-
-            {/* User-specific */}
-            <div className="flex-none">
-                
-                {/* chats */}
-                <button className="btn btn-ghost btn-circle">
-                    <Link to="/user/:id/chats" ><img src="/Icons/message.svg" className="h-6 w-6" /></Link>
-                </button>
-
-                {/* Offers */}
-                <button className="btn btn-ghost btn-circle text-sub">
-                    <Link to="/offers">
-                        <div className="indicator relative top-0.5">
-                            <img src="/Icons/offers.svg" className='h-6 w-6' alt="offers" />
-                        </div>
-                    </Link>
-                </button>
-
-                {/* Profile */}
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar text-sub">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Avatar"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                        </div>
-                    </div>
-                    <ul tabIndex={-1} className="dropdown-content rounded-box shadow-md bg-white z-10 p-1 w-max
-                                                flex flex-col text-center text-sub">
-                        {isAuthenticated ?
-                            <>
-                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/user')}>Profile</li>
-                                <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
-                                <li className='rounded-box hover:text-primary cursor-pointer w-full' onClick={() => navigate('/host')}>Host Profile</li>
-                                <li><div className="w-4/5 place-self-center h-0.5 border-b-1 border-gray-500"></div></li>
-                                <li><LogoutButton /></li>
-                            </>
-                            :
-                            <li><LoginButton /></li>
-                        }
-                    </ul>
-                </div>
-            </div>
+        {/* Logo */}
+        <div className="shrink-0">
+          <Link
+            to="/"
+            className="text-xl font-bold tracking-tight text-logo outline-none"
+          >
+            Hoteru
+          </Link>
         </div>
-    )
-}
 
-// <nav className="h-35 bg-primary/80 flex-col p-3">
-//     <div className="nav-top h-1/2 mb-2 flex items-center justify-between">
+        {/* Navigation */}
+        <nav className="ml-10 flex-1">
+          <ul className="hidden items-center gap-7 md:flex">
+            <li>
+              <NavLink
+                to="/accommodations"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${isActive
+                    ? "text-primary"
+                    : "text-text-muted hover:text-text"
+                  }`
+                }
+              >
+                Places to stay
+              </NavLink>
+            </li>
 
-//         <Logo customStyle="nav-top-start w-1/3" />
+            <li>
+              <NavLink
+                to="/experiences"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${isActive
+                    ? "text-primary"
+                    : "text-text-muted hover:text-text"
+                  }`
+                }
+              >
+                Experiences
+              </NavLink>
+            </li>
 
-//         <div className="nav-top-end w-1/3 flex items-center justify-end">
+            <li>
+              <NavLink
+                to="/discover"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${isActive
+                    ? "text-primary"
+                    : "text-text-muted hover:text-text"
+                  }`
+                }
+              >
+                Discover
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-//             <span className='md:hidden'><i className="fa-solid fa-magnifying-glass text-xl"></i></span>
-//             <span className="hidden md:flex btn bg-inherit border-none rounded-3xl hover:shadow-none hover:bg-white text-lg ">Become host</span>
+        {/* Right side */}
+        <div className="flex items-center gap-1">
 
-//             <div className="dropdown dropdown-end">
-//                 <div tabIndex="0" role="button"
-//                     className="bg-none w-10 h-10 rounded-full hover:bg-base-100 hidden md:flex items-center justify-center">
-//                     <i className="fa-solid fa-globe text-xl"></i>
-//                 </div>
+          {/* Chat */}
+          <Link
+            to="/user/:id/chats"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100"
+            aria-label="Messages"
+          >
+            <img
+              src="/Icons/message.svg"
+              alt=""
+              className="h-5 w-5"
+            />
+          </Link>
 
-//                 <div tabIndex="0" role="button"
-//                     className="bg-none w-10 h-10 rounded-full hover:bg-base-100 flex md:hidden items-center justify-center">
-//                     <i className="fa-solid fa-bars text-xl"></i>
-//                 </div>
+          {/* Offers */}
+          <Link
+            to="/offers"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100"
+            aria-label="Offers"
+          >
+            <img
+              src="/Icons/offers.svg"
+              alt=""
+              className="h-5 w-5"
+            />
+          </Link>
 
-//                 {!showLogin &&
-//                     <ul tabIndex="0" className="dropdown-content bg-base-100 rounded-box w-40 md:w-52 shadow-lg px-2 text-lg">
+          {/* Profile */}
+          <div className="dropdown dropdown-end ml-1">
+            <div
+              tabIndex={0}
+              role="button"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white p-0.5"
+            >
+              <img
+                alt="Avatar"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                className="h-full w-full rounded-full object-cover"
+              />
+            </div>
 
-//                         {/* Profile button*/}
-//                         {loggedIn &&
-//                             (<>
-//                                 <NavLink to={`/user/${user.userId}`} className='dropdown-item md:mt-2'>My Profile</NavLink>
-//                                 <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-//                             </>)
-//                         }
+            <ul
+              tabIndex={-1}
+              className="dropdown-content z-50 mt-2 w-44 rounded-xl border border-border bg-white p-2 shadow-lg"
+            >
+              {isAuthenticated ? (
+                <>
+                  <li>
+                    <button
+                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-text transition hover:bg-gray-50 hover:text-primary"
+                      onClick={() => navigate("/user")}
+                    >
+                      Profile
+                    </button>
+                  </li>
 
-//                         <div className="block md:hidden">
-//                             <li className={`dropdown-item ${loggedIn ? '' : "mt-2"}`}><a>Become host</a></li>
-//                             <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-//                         </div>
-//                         <li className={`dropdown-item ${loggedIn ? '' : "md:mt-2"}`}><a>Refer host</a></li>
-//                         <div className="md:my-2 w-full h-0.5 bg-gray-300"></div>
-//                         <li className="dropdown-item"><a>Find co-host</a></li>
-//                         <div className={`md:my-2 w-full h-0.5 bg-gray-300 ${loggedIn ? "hidden" : "block"}`}></div>
-//                         {!loggedIn && <li className="dropdown-item mb-2"
-//                             onClick={() => { setShowLogin(true) }}>
-//                             Log In</li>
-//                         }
-//                         {loggedIn && <button className="btn btn-error w-full mb-2 md:mt-2 px-2"
-//                             onClick={logOut}>
-//                             Log out</button>
-//                         }
-//                     </ul>
-//                 } */
-//             </div>
-//         </div>
-//     </div>
+                  <li>
+                    <button
+                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-text transition hover:bg-gray-50 hover:text-primary"
+                      onClick={() => navigate("/host")}
+                    >
+                      Host Profile
+                    </button>
+                  </li>
 
-//     <div className="nav-bottom w-full flex h-1/2 items-center justify-center md:p-4">
-//         <div className="w-[50%] h-10 border-1 px-4 hidden md:flex rounded-2xl bg-[#ffffff] items-center justify-around">
-//             <div className="flex items-center justify-self-start">
-//                 <i className="fa-solid fa-magnifying-glass text-xl"></i>
-//                 <div className="w-px h-6 bg-black mx-3"></div>
-//             </div>
-//             <form className="w-full">
-//                 <input id="search" type="text" placeholder="Search" className="bg-transparent text-lg outline-none w-full" />
-//             </form>
-//         </div>
-//         <div className='max-md:flex hidden justify-around items-center w-full max-w-md'>
-//             <Movable name="Hotel" />
-//             <Movable name="Experience" />
-//             <Movable name="Service" />
-//         </div>
-//     </div>
-//     <Modal show={showLogin}
-//         onClose={() => { setShowLogin(false) }}>
-//         <Login setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} />
-//     </Modal>
-//     <Modal show={showSignUp}
-//         onClose={() => { setShowSignUp(false) }}>
-//         <Signup setShowLogin={setShowLogin} setShowSignUp={setShowSignUp} />
-//     </Modal>
-// </nav>
+                  <li className="my-1 border-t border-border" />
+
+                  <li>
+                    <LogoutButton />
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <LoginButton />
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};

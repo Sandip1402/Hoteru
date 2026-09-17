@@ -28,6 +28,16 @@ export const useAPI = () => {
       ...(isProtected && token ? { Authorization: `Bearer ${token}` } : {}),
     });
 
+    if (options.query && Object.keys(options.query).length > 0) {
+      // Filter out empty or null values so you don't send "?city=&guests=null"
+      const cleanQuery = Object.fromEntries(
+        Object.entries(options.query).filter(([_, val]) => val !== undefined && val !== null && val !== '')
+      );
+
+      const queryString = new URLSearchParams(cleanQuery).toString();
+      endpoint = `${endpoint}?${queryString}`;
+    }
+
     try {
       let res = await fetch(`${baseURL}/api${endpoint}`, {
         ...options,
@@ -38,11 +48,11 @@ export const useAPI = () => {
       // Handle 401 Unauthorized safely
       if (isProtected && res.status === 401) {
         console.log("Token might be expired. Attempting silent token rotation via Auth0...");
-        
+
         try {
           // ignore cache and force-verify/refresh the token natively
           const newAccessToken = await getAccessTokenSilently({ ignoreCache: true });
-          
+
           setAccessToken(newAccessToken);
 
           // Retry
@@ -51,7 +61,7 @@ export const useAPI = () => {
             headers: buildHeaders(newAccessToken),
             credentials: "include",
           });
-          
+
         } catch (refreshError) {
           // Auth0 fails to get a new token silently, the session is officially dead.
           console.error("Auth0 rotation failed. User is truly unauthorized.", refreshError);

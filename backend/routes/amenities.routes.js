@@ -24,12 +24,7 @@ export default function () {
   const router = express.Router();
 
   // Admin, host
-  router.get("/",
-    checkJwt,
-    attachCurrentUser,
-    requireRole("admin", "host"),
-    getAmenities
-  );
+  router.get("/", getAmenities);
 
   // Admin
   router.post(

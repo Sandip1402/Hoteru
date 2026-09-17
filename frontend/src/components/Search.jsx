@@ -1,50 +1,156 @@
-import { FaSearch } from "react-icons/fa"
-import { useSearch } from "../context/SearchContext";
+import { useState } from "react";
+import { useNavigate, useSearchParams, useLocation } from "react-router";
+
+import { FaSearch } from "react-icons/fa";
 import { DateInput } from "./DateInput.jsx";
 
 export const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const { setPlace, setCheckIn, setCheckOut, setGuests, ...searchValues } = useSearch();
+  const [place, setPlace] = useState(searchParams.get("city") || "");
+  const [checkIn, setCheckIn] = useState(searchParams.get("checkIn") || "");
+  const [checkOut, setCheckOut] = useState(searchParams.get("checkOut") || "");
+  const [guests, setGuests] = useState(searchParams.get("guests") || "");
+  
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+
+    const nextParams = {};
+    if (place) nextParams.city = place;
+    if (checkIn) nextParams.checkIn = checkIn;
+    if (checkOut) nextParams.checkOut = checkOut;
+    if (guests) nextParams.guests = guests;
+
+    // Check if user is currently on the accommodations route
+    if (location.pathname.startsWith("/accommodations")) {
+      // Update parameters in place without changing the page
+      setSearchParams(nextParams);
+    } else {
+      // Redirect from landing page straight to the accommodations search route
+      const queryString = new URLSearchParams(nextParams).toString();
+      navigate(`/accommodations?${queryString}`);
+    }
+  };
 
 
-    {/* Top-down width : parent decides child width */ }
-    return (
-        <form className="m-auto shadow bg-white sticky z-5 flex max-sm:flex-col max-sm:p-3 max-sm:rounded-2xl max-sm:gap-y-2
-                        sm:items-center sm:rounded-full sm:px-6 sm:py-3 lg:max-w-fit 2xl:max-w-3/5"
-            onSubmit={(ev) => { ev.preventDefault(); console.log(searchValues) }}>
-                
-            <main className="flex text-gray-400 max-sm:flex-col max-sm:gap-y-2 sm:flex-1 sm:**:flex-1
-                         sm:items-center">
+  return (
+    <form
+      onSubmit={(ev) => handleSubmit(ev)}
+      className="
+        mx-auto w-full
+        rounded-2xl border border-border
+        bg-white p-4
+        shadow-lg
 
-                {/* Place selection */}
-                <span className="max-sm:w-full flex flex-col w-1/4">
-                    <label htmlFor="place">Location</label>
-                    {/* fix - turn of underlined error squiggle */}
-                    <input className="input-field" id="place" name="place" type="text"
-                        placeholder="Place" onChange={(ev) => setPlace(ev.target.value)} required />
-                </span>
+        sm:flex sm:items-center
+        sm:rounded-full sm:p-1.5
+      "
+    >
+      <div className="flex min-w-0 flex-1 flex-col sm:flex-row sm:items-center">
 
-                {/* Dates */}
-                <span className="flex max-sm:gap-6 sm:hidden">
-                    <DateInput name="Check In" id="mobileCheckIn" setDate={setCheckIn} />
-                    <DateInput name="Check Out" id="mobileCheckOut" setDate={setCheckOut} />
-                </span>
-                <DateInput name={"Check In"} id="checkIn" style={"max-sm:hidden w-1/4 pr-6"} />
-                <DateInput name={"Check Out"} id="checkOut" style={"max-sm:hidden w-1/4 pr-6"} />
+        {/* Location */}
+        <div className="min-w-0 px-1 py-2 sm:flex-[1.3] sm:px-5 sm:py-1">
+          <label
+            htmlFor="place"
+            className="block text-xs font-semibold text-text"
+          >
+            Location
+          </label>
 
-                {/* Guest Count */}
-                <span className="max-sm:w-full flex flex-col w-1/4">
-                    <label htmlFor="guests">Guests</label>
-                    <input id="guests" name="guests" type="number" className="input-field"
-                        min={1} max={10} placeholder="Total guests" onChange={(ev) => setGuests(ev.target.value)} />
-                </span>
+          <input
+            id="place"
+            name="place"
+            type="text"
+            value={place || ""}
+            placeholder="Where are you going?"
+            className="
+              mt-1 w-full min-w-0
+              border-0 bg-transparent p-0
+              text-sm text-text
+              placeholder:text-text-light
+              focus:outline-none
+            "
+            onChange={(ev) => setPlace(ev.target.value)}
+            required
+          />
+        </div>
 
-            </main>
+        {/* Divider */}
+        <div className="border-t border-border sm:h-8 sm:w-px sm:border-t-0" />
 
-            <button className="btn btn-block sm:btn-circle bg-primary text-white sm:relative sm:left-2">
-                <FaSearch /> <p className="sm:hidden">Search</p>
-            </button>
-        </form>
+        {/* Check in */}
+        <DateInput
+          id="checkIn"
+          name="Check in"
+          value={checkIn}
+          setDate={setCheckIn}
+          style="min-w-0 px-1 py-2 sm:flex-1 sm:px-5 sm:py-1"
+        />
 
-    )
-}
+        {/* Divider */}
+        <div className="border-t border-border sm:h-8 sm:w-px sm:border-t-0" />
+
+        {/* Check out */}
+        <DateInput
+          id="checkOut"
+          name="Check out"
+          value={checkOut}
+          setDate={setCheckOut}
+          style="min-w-0 px-1 py-2 sm:flex-1 sm:px-5 sm:py-1"
+        />
+
+        {/* Divider */}
+        <div className="border-t border-border sm:h-8 sm:w-px sm:border-t-0" />
+
+        {/* Guests */}
+        <div className="min-w-0 px-1 py-2 sm:flex-1 sm:px-5 sm:py-1">
+          <label
+            htmlFor="guests"
+            className="block text-xs font-semibold text-text"
+          >
+            Guests
+          </label>
+
+          <input
+            id="guests"
+            name="guests"
+            type="number"
+            min={1}
+            max={10}
+            value={guests || ""}
+            placeholder="Add guests"
+            className="
+              mt-1 w-full min-w-0
+              border-0 bg-transparent p-0
+              text-sm text-text
+              placeholder:text-text-light
+              focus:outline-none
+            "
+            onChange={(ev) => setGuests(ev.target.value)}
+          />
+        </div>
+      </div>
+
+      {/* Search button */}
+      <button
+        type="submit"
+        aria-label="Search"
+        className="
+          mt-3 flex h-11 w-full
+          items-center justify-center gap-2
+          rounded-xl
+          bg-primary text-sm font-semibold text-white
+          transition hover:bg-primary-dark
+
+          sm:mt-0 sm:h-12 sm:w-12
+          sm:shrink-0 sm:rounded-full
+        "
+      >
+        <FaSearch className="text-sm" />
+        <span className="sm:hidden">Search</span>
+      </button>
+    </form>
+  );
+};
