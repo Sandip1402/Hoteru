@@ -14,6 +14,21 @@ export const createBooking = asyncHandler(async (req, res) => {
     });
 });
 
+export const updateBooking = asyncHandler(async (req, res) => {
+    const bookingId = Number(req.params.bookingId);
+    const booking = await bookingService.updateBooking(
+        bookingId, 
+        req.user.id, 
+        req.body
+    );
+
+    res.status(200).json({
+        success: true,
+        message: "Booking updated successfully.",
+        data: booking,
+    });
+});
+
 export const getMyBookings = asyncHandler(async (req, res) => {
     const bookings = await bookingService.getMyBookings(
         req.user.id
@@ -31,7 +46,7 @@ export const getBookingById = asyncHandler(async (req, res) => {
         Number(req.params.bookingId),
         req.user.id
     );
-    
+    console.log(booking);
     res.status(200).json({
         success: true,
         message: "Booking retrieved successfully.",

@@ -132,8 +132,8 @@ export const ListingDetails = () => {
 
             {/* Image Gallery */}
             <ImageGallery
-                images={listing.images}
-                listingName={listing.name}
+                images={images}
+                title={listing.name}
             />
 
             {/* Listing Header */}

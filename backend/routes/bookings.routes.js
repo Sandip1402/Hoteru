@@ -9,6 +9,7 @@ import {
     getHostBookings,
     getHostBookingById,
     getBookingById,
+    updateBooking,
 } from "../controllers/booking.controller.js";
 
 import {
@@ -82,10 +83,22 @@ export default function () {
     router.get(
         "/:bookingId",
         checkJwt,
+        (req, res, next) => {
+            console.log("request passed jwt check.");
+            next();
+        },
         attachCurrentUser,
         requireRole("basic_user"),
         getBookingById
     );
+
+    router.patch(
+        "/:bookingId/update",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("basic_user"),
+        updateBooking
+    )
 
     router.patch(
         "/:bookingId/cancel",

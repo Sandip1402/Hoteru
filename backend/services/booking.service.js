@@ -19,9 +19,17 @@ import {
 export const createBooking = async (guestId, data) => {
     // Get room with listing
     const room = await getRoomOrThrow(data.roomId, {
-        include: {
-            listing: true,
-        },
+        select: {
+            listing: {
+                select: {
+                    isActive: true,
+                    listingId: true,
+                    status: true,
+                    thumbnailUrl: true,
+                    name: true,
+                }
+            }
+        }
     });
 
     // Room must be active
@@ -125,6 +133,95 @@ export const createBooking = async (guestId, data) => {
 
         return booking;
     });
+};
+
+export const updateBooking = async (bookingId, guestId, data) => {
+    const booking = await prisma.booking.findFirst({
+        where: {
+            bookingId,
+            guestId,
+        },
+    });
+
+    if (!booking) {
+        throw new AppError(404, "Booking not found");
+    }
+
+    if (booking.paymentStatus !== "PENDING") {
+        throw new AppError(
+            400,
+            "This booking can no longer be modified."
+        );
+    }
+
+    const room = await getRoomOrThrow(booking.roomId);
+
+    const checkIn = data.checkIn
+        ? new Date(data.checkIn)
+        : booking.checkIn;
+
+    const checkOut = data.checkOut
+        ? new Date(data.checkOut)
+        : booking.checkOut;
+
+    const guests =
+        data.guests !== undefined
+            ? Number(data.guests)
+            : booking.guests;
+
+    // Guest validation
+    if (!Number.isInteger(guests) || guests < 1) {
+        throw new AppError(400, "Guests must be at least 1.");
+    }
+
+    if (guests > room.maxGuests) {
+        throw new AppError(400, `Maximum ${room.maxGuests} guests allowed.`);
+    }
+
+    // Date validation
+    if (checkOut <= checkIn) {
+        throw new AppError(400, "Check-out must be after check-in.");
+    }
+
+    // Nights
+    const nights = calculateNights(
+        checkOut,
+        checkIn
+    );
+
+    // Availability
+    await ensureRoomAvailability(
+        room,
+        checkOut,
+        checkIn,
+        booking.bookingId
+    );
+
+    // Recalculate pricing
+    const pricing = calculateBookingAmounts(
+        room,
+        nights,
+        booking.paymentOption
+    );
+
+    const updatedBooking = await prisma.booking.update({
+        where: {
+            bookingId: booking.bookingId,
+        },
+
+        data: {
+            checkIn,
+            checkOut,
+            guests,
+
+            bookingAmount: pricing.bookingAmount,
+            remainingAmount: pricing.remainingAmount,
+            paidAmount: pricing.paidAmount,
+            totalPrice: pricing.totalPrice,
+        },
+    });
+
+    return updatedBooking;
 };
 
 export const getMyBookings = async (guestId) => {

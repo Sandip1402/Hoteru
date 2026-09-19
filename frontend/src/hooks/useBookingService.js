@@ -15,6 +15,7 @@ export const useBookingService = () => {
   };
 
   const getBookingById = async (bookingId, signal) => {
+    console.log("hello");
     return callAPI(
       `/bookings/${bookingId}`,
       { signal },
@@ -33,6 +34,17 @@ export const useBookingService = () => {
     );
   };
 
+  const updateBooking = async (bookingId, bookingData) => {
+    return callAPI(
+      `/bookings/${bookingId}/update`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(bookingData),
+      },
+      true
+    )
+  };
+
   const cancelBooking = async (bookingId, cancellationReason) => {
     return callAPI(
       `/bookings/${bookingId}/cancel`,
@@ -48,6 +60,7 @@ export const useBookingService = () => {
     getMyBookings,
     getBookingById,
     createBooking,
+    updateBooking,
     cancelBooking,
   };
 };

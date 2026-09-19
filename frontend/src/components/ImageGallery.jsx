@@ -6,9 +6,9 @@ import {
   FaImages,
 } from "react-icons/fa";
 
-const FALLBACK_IMAGE = "/images/accommodation-placeholder.jpg";
+const FALLBACK_IMAGE = "/images/room-placeholder.jpg";
 
-export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => {
+export const ImageGallery = ({ images = [], title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -114,7 +114,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
           >
             <img
               src={galleryImages[0]}
-              alt={listingName}
+              alt={title}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
@@ -132,7 +132,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
           >
             <img
               src={galleryImages[0]}
-              alt={`${listingName} - 1`}
+              alt={`${title} - 1`}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </button>
@@ -155,7 +155,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
                 >
                   <img
                     src={image}
-                    alt={`${listingName} - ${index + 1}`}
+                    alt={`${title} - ${index + 1}`}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </button>
@@ -190,7 +190,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${listingName} photo gallery`}
+          aria-label={`${title} photo gallery`}
           className="
             fixed inset-0 z-[100]
             flex flex-col
@@ -251,7 +251,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
 
             <img
               src={galleryImages[activeIndex]}
-              alt={`${listingName} - ${activeIndex + 1}`}
+              alt={`${title} - ${activeIndex + 1}`}
               className="
                 max-h-full max-w-full
                 rounded-lg object-contain
@@ -298,7 +298,7 @@ export const ImageGallery = ({ images = [], listingName = "Accommodation" }) => 
                   >
                     <img
                       src={image}
-                      alt={`${listingName} thumbnail ${index + 1}`}
+                      alt={`${title} thumbnail ${index + 1}`}
                       className="h-full w-full object-cover"
                     />
                   </button>

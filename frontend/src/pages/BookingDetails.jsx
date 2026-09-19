@@ -59,7 +59,7 @@ export const BookingDetails = () => {
                 const response = await getBookingById(bookingId, controller.signal);
 
                 setBooking(response.data);
-
+                console.log(response.data);
             } catch (err) {
 
                 if (

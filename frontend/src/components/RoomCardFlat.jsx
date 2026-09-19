@@ -1,192 +1,88 @@
 import { useState } from "react";
 import { FiHeart } from "react-icons/fi";
 
-
 export const RoomCardFlat = ({ booking }) => {
-
     const [save, setSave] = useState(false);
-
 
     if (!booking) {
         return null;
     }
 
-
     return (
-
-        <div className="
-            max-sm:flex
-            rounded-2xl
-        ">
-
+        <article className="flex gap-4">
             {/* Image */}
-            <span className="
-                cursor-pointer
-                max-sm:w-1/2
-                sm:w-50
-                sm:flex
-                sm:flex-col
-            ">
-
+            <div className="h-28 w-28 shrink-0 overflow-hidden rounded-xl sm:h-32 sm:w-36">
                 <img
                     src={
                         booking.thumbnailUrl ||
                         "/room1.jpg"
                     }
                     alt={booking.roomName}
-                    className="
-                        rounded-2xl
-                        object-cover
-                        w-full
-                        sm:h-4/5
-                    "
+                    className="h-full w-full object-cover"
                 />
+            </div>
 
-
-                {/* Desktop */}
-                <section className="
-                    max-sm:hidden
-                    flex
-                    flex-col
-                    text-xs
-                    p-1
-                    gap-y-1
-                ">
-
-                    <div className="
-                        flex
-                        justify-between
-                    ">
-
-                        <div>
-
-                            <p className="font-semibold">
-                                {booking.roomName}
-                            </p>
-
-                            <p className="
-                                text-gray-500
-                            ">
-                                {booking.listingName}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div className="
-                        flex
-                        justify-between
-                        items-center
-                    ">
-
-                        <p className="
-                            text-gray-500
-                        ">
-                            Room price
-                        </p>
-
-                        <span>
-                            ₹{booking.pricePerNight}/night
-                        </span>
-
-                    </div>
-
-                </section>
-
-            </span>
-
-
-            {/* Mobile */}
-            <div className="
-                sm:hidden
-                px-2
-                flex
-                flex-col
-                justify-between
-                flex-1
-            ">
-
-                <section className="
-                    flex
-                    flex-col
-                ">
-
-                    <span className="
-                        flex
-                        items-center
-                        justify-between
-                    ">
-
-                        <p className="
-                            text-gray-500
-                        ">
+            {/* Content */}
+            <div className="min-w-0 flex-1">
+                {/* Top */}
+                <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                        <p className="truncate text-xs text-text-muted sm:text-sm">
                             {booking.listingName}
                         </p>
 
+                        <h3 className="mt-1 truncate text-sm font-semibold text-text sm:text-base">
+                            {booking.roomName}
+                        </h3>
+                    </div>
 
-                        <span
-                            className="cursor-pointer"
-                            onClick={() =>
-                                setSave(!save)
+                    <button
+                        type="button"
+                        onClick={() => setSave((current) => !current)}
+                        aria-label={
+                            save
+                                ? "Remove from saved"
+                                : "Save room"
+                        }
+                        className="
+                            shrink-0
+                            rounded-full
+                            p-1.5
+                            text-text-muted
+                            transition
+                            hover:bg-surface
+                            hover:text-text
+                        "
+                    >
+                        <FiHeart
+                            size={18}
+                            strokeWidth={save ? 0 : 1.5}
+                            fill={
+                                save
+                                    ? "currentColor"
+                                    : "none"
                             }
-                        >
+                        />
+                    </button>
+                </div>
 
-                            <FiHeart
-                                strokeWidth={
-                                    save ? "0" : "1"
-                                }
-                                fill={
-                                    save
-                                        ? "blue"
-                                        : "none"
-                                }
-                            />
+                {/* Divider */}
+                <div className="my-3 border-t border-border" />
 
-                        </span>
-
+                {/* Price */}
+                <div className="flex items-center justify-between gap-3">
+                    <span className="text-xs text-text-muted sm:text-sm">
+                        Room price
                     </span>
 
-
-                    <p className="font-semibold">
-                        {booking.roomName}
-                    </p>
-
-                </section>
-
-
-                <div className="
-                    w-30
-                    h-0.5
-                    border-b-1
-                    border-b-gray-400
-                " />
-
-
-                <section className="
-                    flex
-                    justify-between
-                    text-sm
-                ">
-
-                    <p className="
-                        text-gray-500
-                    ">
-                        ₹{booking.pricePerNight}/night
-                    </p>
-
-                    <p>
-                        {booking.guests}{" "}
-                        {booking.guests === 1
-                            ? "guest"
-                            : "guests"}
-                    </p>
-
-                </section>
-
+                    <span className="shrink-0 text-sm font-medium text-text">
+                        ₹{Number(booking.pricePerNight).toFixed(2)}
+                        <span className="ml-1 text-xs font-normal text-text-muted">
+                            / night
+                        </span>
+                    </span>
+                </div>
             </div>
-
-        </div>
+        </article>
     );
 };

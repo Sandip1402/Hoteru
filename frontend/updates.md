@@ -29,5 +29,7 @@
     - [ ] Make error log flow and error message flow correct
     - [ ] Currently if left logged in and comeback later, user is not synced but we are storing refresh token in localstorage
     - [ ] Date values are not persistent across page change for search
+    - [ ] Show availability through calendar
+    - [ ] Thumbnail mage not showing in booking details page
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

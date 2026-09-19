@@ -3,15 +3,14 @@ import { differenceInCalendarDays } from "date-fns";
 
 import { prisma } from "../lib/prisma.js";
 import AppError from "../utils/app-error.js";
-import { getRoomOrThrow } from "./resource.helper.js";
 import { env } from "../config.js";
 
 export const ensureRoomAvailability = async (
     room,
     checkOut,
     checkIn,
+    excludeBookingId = null
 ) => {
-
     const overlappingBookings = await prisma.booking.count({
         where: {
             roomId: room.roomId,
@@ -22,6 +21,12 @@ export const ensureRoomAvailability = async (
                     "CHECKED_IN",
                 ],
             },
+
+            ...(excludeBookingId && {
+                bookingId: {
+                    not: excludeBookingId,
+                },
+            }),
 
             checkIn: {
                 lt: checkOut,
@@ -34,7 +39,10 @@ export const ensureRoomAvailability = async (
     });
 
     if (overlappingBookings >= room.quantity) {
-        throw new AppError(409, "Room not available for the selected dates.");
+        throw new AppError(
+            409,
+            "Room not available for the selected dates."
+        );
     }
 
     return room;

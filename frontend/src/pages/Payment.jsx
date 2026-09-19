@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaPen } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import {
     Link,
     useLocation,
@@ -20,22 +20,59 @@ export const Payment = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
 
-    const { getBookingById } = useBookingService();
-    const { createPaymentOrder, verifyPayment, cancelPayment } = usePaymentService();
+    const { getBookingById, updateBooking } = useBookingService();
+
+    const {
+        createPaymentOrder,
+        verifyPayment,
+        cancelPayment,
+    } = usePaymentService();
 
     const { isAuthenticated } = useHoteruAuth();
 
-    const [booking, setBooking] = useState(state?.booking || null);
+    const [booking, setBooking] = useState(
+        state?.booking || null
+    );
 
-    const [loading, setLoading] = useState(!state?.booking);
+    const [loading, setLoading] = useState(
+        !state?.booking
+    );
 
-    const [paymentState, setPaymentState] = useState("IDLE");
+    const [paymentState, setPaymentState] =
+        useState("IDLE");
     // IDLE | PROCESSING | SUCCESS | FAILED | CANCELLED
+
+    const [updating, setUpdating] = useState(false);
 
     const [error, setError] = useState(null);
 
     /*
-     * Fetch booking only if it wasn't passed
+     * Editable booking values
+     */
+    const [checkIn, setCheckIn] = useState(state?.booking?.checkIn?.slice(0, 10) || "");
+
+    const [checkOut, setCheckOut] = useState(state?.booking?.checkOut?.slice(0, 10) || "");
+
+    const [guests, setGuests] = useState(state?.booking?.guests?.toString() || "1");
+
+    /*
+     * Original values are used to determine
+     * whether the booking has been modified.
+     */
+    const [originalDetails, setOriginalDetails] =
+        useState({
+            checkIn:
+                state?.booking?.checkIn?.slice(0, 10) || "",
+
+            checkOut:
+                state?.booking?.checkOut?.slice(0, 10) || "",
+
+            guests:
+                state?.booking?.guests?.toString() || "1",
+        });
+
+    /*
+     * Fetch booking only when it wasn't passed
      * through navigation state.
      */
     useEffect(() => {
@@ -48,9 +85,30 @@ export const Payment = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await getBookingById(bookingId, controller.signal);
+                const response = await getBookingById(
+                    bookingId,
+                    controller.signal
+                );
 
-                setBooking(response.data);
+                const fetchedBooking = response.data;
+
+                setBooking(fetchedBooking);
+
+                const fetchedCheckIn = fetchedBooking.checkIn?.slice(0, 10) || "";
+
+                const fetchedCheckOut = fetchedBooking.checkOut?.slice(0, 10) || "";
+
+                const fetchedGuests = fetchedBooking.guests?.toString() || "1";
+
+                setCheckIn(fetchedCheckIn);
+                setCheckOut(fetchedCheckOut);
+                setGuests(fetchedGuests);
+
+                setOriginalDetails({
+                    checkIn: fetchedCheckIn,
+                    checkOut: fetchedCheckOut,
+                    guests: fetchedGuests,
+                });
             } catch (err) {
                 if (err.name === "AbortError") {
                     return;
@@ -75,18 +133,26 @@ export const Payment = () => {
         fetchBooking();
 
         return () => controller.abort();
-    }, [
-        bookingId,
-        booking,
-    ]);
+    }, [bookingId, booking]);
+
+    /*
+     * Check whether the user changed
+     * the booking details.
+     */
+    const hasChanges =
+        checkIn !== originalDetails.checkIn ||
+        checkOut !== originalDetails.checkOut ||
+        String(guests) !== originalDetails.guests;
 
     /*
      * Loading
      */
     if (loading) {
         return (
-            <div className="max-md:p-3 md:p-5 lg:px-15 xl:px-20">
-                Loading booking details...
+            <div className="mx-auto max-w-[1320px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+                <p className="text-sm text-text-muted">
+                    Loading booking details...
+                </p>
             </div>
         );
     }
@@ -96,20 +162,27 @@ export const Payment = () => {
      */
     if (!booking) {
         return (
-            <div className="max-md:p-3 md:p-5 lg:px-15 xl:px-20">
-                <h3 className="text-xl my-5 font-bold">
+            <div className="mx-auto max-w-[1320px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+                <h3 className="text-xl font-semibold text-text">
                     Booking information not found
                 </h3>
 
-                <p className="text-gray-500">
-                    Please go back and create your
-                    booking again.
+                <p className="mt-2 text-sm text-text-muted">
+                    Please go back and create your booking
+                    again.
                 </p>
 
                 <button
-                    onClick={() => navigate("/accommodations")}
-                    className="mt-5 bg-primary text-white rounded-full
-                        px-5 py-2 font-semibold"
+                    type="button"
+                    onClick={() =>
+                        navigate("/accommodations")
+                    }
+                    className="
+                        mt-5 rounded-lg
+                        bg-primary px-5 py-2.5
+                        text-sm font-semibold text-white
+                        transition hover:bg-primary-dark
+                    "
                 >
                     Browse accommodations
                 </button>
@@ -120,9 +193,11 @@ export const Payment = () => {
     /*
      * Payment status
      */
-    const isPaid = booking.paymentStatus === "PAID";
+    const isPaid =
+        booking.paymentStatus === "PAID";
 
-    const isProcessing = paymentState === "PROCESSING";
+    const isProcessing =
+        paymentState === "PROCESSING";
 
     /*
      * Determine what this payment is for.
@@ -139,16 +214,7 @@ export const Payment = () => {
             : "REMAINING";
 
     /*
-     * Determine the amount for THIS payment.
-     *
-     * BOOKING + PAY_NOW
-     *   → totalPrice
-     *
-     * BOOKING + BOOK_ONLY
-     *   → bookingAmount
-     *
-     * REMAINING
-     *   → remainingAmount
+     * Determine amount for the current booking.
      */
     const payableAmount =
         paymentPurpose === "BOOKING"
@@ -157,6 +223,127 @@ export const Payment = () => {
                 : Number(booking.bookingAmount)
             : Number(booking.remainingAmount);
 
+    /*
+     * Update booking
+     *
+     * This is called BEFORE payment when the user
+     * changes dates or guests.
+     */
+    const handleUpdateBooking = async () => {
+        const guestCount = Number(guests);
+
+        /*
+         * Date validation
+         */
+        if (!checkIn || !checkOut) {
+            setError(
+                "Please select check-in and check-out dates."
+            );
+            return;
+        }
+
+        if (
+            new Date(checkOut) <=
+            new Date(checkIn)
+        ) {
+            setError(
+                "Check-out must be after check-in."
+            );
+            return;
+        }
+
+        /*
+         * Guest validation
+         */
+        if (
+            !Number.isInteger(guestCount) ||
+            guestCount < 1 ||
+            guestCount > booking.maxGuests
+        ) {
+            setError(
+                `Guests must be between 1 and ${booking.maxGuests}.`
+            );
+            return;
+        }
+
+        try {
+            setUpdating(true);
+            setError(null);
+
+            const response = await updateBooking(
+                booking.bookingId,
+                {
+                    checkIn,
+                    checkOut,
+                    guests: guestCount,
+                }
+            );
+
+            const updatedBooking = response.data;
+
+            /*
+             * Update booking displayed throughout
+             * the payment page.
+             */
+            setBooking(updatedBooking);
+
+            /*
+             * Update the original values so the
+             * "Update trip" button disappears.
+             */
+            setOriginalDetails({
+                checkIn:
+                    updatedBooking.checkIn?.slice(0, 10) ||
+                    checkIn,
+
+                checkOut:
+                    updatedBooking.checkOut?.slice(0, 10) ||
+                    checkOut,
+
+                guests:
+                    updatedBooking.guests?.toString() ||
+                    String(guestCount),
+            });
+
+            /*
+             * Keep inputs synchronized with the
+             * backend response.
+             */
+            setCheckIn(
+                updatedBooking.checkIn?.slice(0, 10) ||
+                checkIn
+            );
+
+            setCheckOut(
+                updatedBooking.checkOut?.slice(0, 10) ||
+                checkOut
+            );
+
+            setGuests(
+                updatedBooking.guests?.toString() ||
+                String(guestCount)
+            );
+        } catch (err) {
+            console.error(
+                "Failed to update booking:",
+                err
+            );
+
+            setError(
+                err.message ||
+                "Unable to update booking."
+            );
+        } finally {
+            setUpdating(false);
+        }
+    };
+
+    /*
+     * Start Razorpay payment
+     *
+     * Booking should already be updated before
+     * reaching this function.
+     */
     const handlePayment = async () => {
         if (!isAuthenticated) {
             setError(
@@ -165,13 +352,27 @@ export const Payment = () => {
             return;
         }
 
-        if (isPaid) {
-            setError("This booking has already been fully paid.");
+        if (hasChanges) {
+            setError(
+                "Please update your trip details before paying."
+            );
             return;
         }
 
-        if (!payableAmount || payableAmount <= 0) {
-            setError("There is no payment amount for this booking.");
+        if (isPaid) {
+            setError(
+                "This booking has already been fully paid."
+            );
+            return;
+        }
+
+        if (
+            !payableAmount ||
+            payableAmount <= 0
+        ) {
+            setError(
+                "There is no payment amount for this booking."
+            );
             return;
         }
 
@@ -184,19 +385,27 @@ export const Payment = () => {
              */
             await loadRazorpay();
 
-            const orderResponse = await createPaymentOrder(
-                booking.bookingId,
-                paymentPurpose,
-            );
+            /*
+             * Create Razorpay order using the
+             * already-updated booking.
+             */
+            const orderResponse =
+                await createPaymentOrder(
+                    booking.bookingId,
+                    paymentPurpose
+                );
 
-            const payment = orderResponse.data;
+            const payment =
+                orderResponse.data;
 
             const options = {
                 key: payment.keyId,
 
-                amount: Number(payment.amount) * 100,
+                amount:
+                    Number(payment.amount) * 100,
 
-                currency: payment.currency,
+                currency:
+                    payment.currency,
 
                 name: "Hoteru",
 
@@ -205,7 +414,8 @@ export const Payment = () => {
                         ? `Booking ${booking.bookingReference}`
                         : `Remaining payment for ${booking.bookingReference}`,
 
-                order_id: payment.orderId,
+                order_id:
+                    payment.orderId,
 
                 handler: async (
                     razorpayResponse
@@ -217,42 +427,47 @@ export const Payment = () => {
                          * Verify payment on backend
                          */
                         const verifyResponse =
-                            await verifyPayment(
-                                {
-                                    paymentId:
-                                        payment.paymentId,
+                            await verifyPayment({
+                                paymentId:
+                                    payment.paymentId,
 
-                                    gatewayOrderId:
-                                        razorpayResponse.razorpay_order_id,
+                                gatewayOrderId:
+                                    razorpayResponse
+                                        .razorpay_order_id,
 
-                                    gatewayPaymentId:
-                                        razorpayResponse.razorpay_payment_id,
+                                gatewayPaymentId:
+                                    razorpayResponse
+                                        .razorpay_payment_id,
 
-                                    gatewaySignature:
-                                        razorpayResponse.razorpay_signature,
-                                },
-                                token
-                            );
+                                gatewaySignature:
+                                    razorpayResponse
+                                        .razorpay_signature,
+                            });
 
-                        console.log("Payment verified:", verifyResponse);
+                        console.log(
+                            "Payment verified:",
+                            verifyResponse
+                        );
 
                         /*
                          * Backend already returns
                          * the updated booking.
-                         *
-                         * No additional GET request.
                          */
-                        const updatedBooking = verifyResponse?.data?.booking;
+                        const updatedBooking =
+                            verifyResponse?.data?.booking;
 
                         if (updatedBooking) {
-                            setBooking(updatedBooking);
+                            setBooking(
+                                updatedBooking
+                            );
                         }
 
-                        setPaymentState("SUCCESS");
+                        setPaymentState(
+                            "SUCCESS"
+                        );
 
                         /*
                          * Redirect to BookingDetails
-                         * using the updated booking.
                          */
                         setTimeout(() => {
                             navigate(
@@ -260,20 +475,27 @@ export const Payment = () => {
                                 {
                                     replace: true,
                                     state: {
-                                        booking: updatedBooking || booking,
+                                        booking:
+                                            updatedBooking ||
+                                            booking,
                                     },
                                 }
                             );
                         }, 1500);
-
                     } catch (err) {
-                        console.error("Payment verification failed:", err);
-
-                        setError(
-                            err.message || "Payment verification failed."
+                        console.error(
+                            "Payment verification failed:",
+                            err
                         );
 
-                        setPaymentState("FAILED");
+                        setError(
+                            err.message ||
+                            "Payment verification failed."
+                        );
+
+                        setPaymentState(
+                            "FAILED"
+                        );
                     }
                 },
 
@@ -281,26 +503,37 @@ export const Payment = () => {
                  * User closes Razorpay checkout
                  */
                 modal: {
-                    ondismiss: async () => {
-                        try {
-                            await cancelPayment(payment.paymentId);
-                            setPaymentState("CANCELLED");
-                        } catch (err) {
-                            console.error(
-                                "Failed to cancel payment:", err
-                            );
+                    ondismiss:
+                        async () => {
+                            try {
+                                await cancelPayment(
+                                    payment.paymentId
+                                );
 
-                            setError(
-                                err.message || "Failed to cancel payment."
-                            );
+                                setPaymentState(
+                                    "CANCELLED"
+                                );
+                            } catch (err) {
+                                console.error(
+                                    "Failed to cancel payment:",
+                                    err
+                                );
 
-                            setPaymentState("FAILED");
-                        }
-                    },
+                                setError(
+                                    err.message ||
+                                    "Failed to cancel payment."
+                                );
+
+                                setPaymentState(
+                                    "FAILED"
+                                );
+                            }
+                        },
                 },
             };
 
-            const razorpay = new window.Razorpay(options);
+            const razorpay =
+                new window.Razorpay(options);
 
             /*
              * Razorpay payment failed
@@ -319,18 +552,27 @@ export const Payment = () => {
                         "Payment failed. Please try again."
                     );
 
-                    setPaymentState("FAILED");
+                    setPaymentState(
+                        "FAILED"
+                    );
                 }
             );
 
             razorpay.open();
-
         } catch (err) {
-            console.error("Unable to start payment:", err);
+            console.error(
+                "Unable to start payment:",
+                err
+            );
 
-            setError(err.message || "Unable to start payment.");
+            setError(
+                err.message ||
+                "Unable to start payment."
+            );
 
-            setPaymentState("FAILED");
+            setPaymentState(
+                "FAILED"
+            );
         }
     };
 
@@ -344,248 +586,646 @@ export const Payment = () => {
     };
 
     return (
-        <div className="max-md:p-3 md:p-5 lg:px-15 xl:px-20">
+        <main className="min-h-screen bg-white">
+            <div className="
+                mx-auto max-w-[1320px]
+                px-4 py-6
+                sm:px-6
+                lg:px-8 lg:py-8
+            ">
 
-            {/* Back */}
-            <Link
-                to={`/accommodations/${booking.listingId}/rooms/${booking.roomId}`}
-                className="flex items-center w-max gap-x-1 text-gray-500
-                    cursor-pointer hover:underline"
-            >
-                <FaChevronLeft size={10} />
-                Back
-            </Link>
-
-            <h3 className="text-xl my-5 font-bold">
-                Confirm and Pay
-            </h3>
-
-            <div className="flex max-lg:flex-col max-lg:gap-y-5 lg:justify-between lg:flex-row-reverse">
-
-                {/* =========================
-                    Room + Price
-                ========================== */}
-                <section className="flex flex-col gap-y-2 rounded-box lg:shadow-lg
-                    lg:w-1/2 lg:p-5"
+                {/* Back */}
+                <Link
+                    to={`/accommodations/${booking.listingId}/rooms/${booking.roomId}`}
+                    className="
+                        mb-5 inline-flex items-center gap-2
+                        text-sm font-medium
+                        text-text-muted
+                        transition hover:text-text
+                    "
                 >
+                    <FaChevronLeft size={11} />
+                    Back to room
+                </Link>
 
-                    <RoomCardFlat booking={booking} />
+                {/* Heading */}
+                <div className="mb-8">
+                    <h1 className="
+                        text-2xl font-semibold text-text
+                        sm:text-3xl
+                    ">
+                        Confirm and pay
+                    </h1>
 
-                    <PriceDetails booking={booking} />
+                    <p className="
+                        mt-2 text-sm text-text-muted
+                        sm:text-base
+                    ">
+                        Review your trip details and
+                        complete your payment.
+                    </p>
+                </div>
 
-                </section>
+                {/* Main layout */}
+                <div className="
+                    grid gap-8
+                    lg:grid-cols-[minmax(0,1fr)_420px]
+                ">
 
-                {/* =========================
-                    Trip + Payment
-                ========================== */}
-                <section className="lg:flex lg:flex-col lg:gap-y-5 lg:w-9/20">
+                    {/* LEFT */}
+                    <div className="
+                        min-w-0 space-y-8
+                    ">
 
-                    {/* Trip Details */}
-                    <div className="flex flex-col gap-y-2">
+                        {/* Your trip */}
+                        <section>
+                            <div className="mb-4">
+                                <h2 className="
+                                    text-xl font-semibold
+                                    text-text
+                                ">
+                                    Your trip
+                                </h2>
 
-                        <h3 className="text-lg max-lg:mt-2 font-bold">
-                            Your Trip
-                        </h3>
+                                <p className="
+                                    mt-1 text-sm
+                                    text-text-muted
+                                ">
+                                    Review your stay details
+                                    before paying.
+                                </p>
+                            </div>
 
-                        <div className="flex max-md:flex-col max-md:gap-y-2 md:gap-x-3
-                            *:flex-1 *:flex-col *:bg-base-300 *:py-2 *:px-3
-                            *:rounded-box **:last:flex **:last:justify-between"
-                        >
+                            <div className="
+                                min-w-0
+                                rounded-2xl
+                                border border-border
+                                bg-white
+                                p-5 sm:p-6
+                            ">
 
-                            {/* Dates */}
-                            <span>
-                                <label>Dates</label>
-
-                                <span>
-                                    <p className="text-gray-500">
-                                        {new Date(booking.checkIn).toLocaleDateString()}
-                                        {" "}-{" "}
-                                        {new Date(booking.checkOut).toLocaleDateString()}
+                                {/* Dates */}
+                                <div>
+                                    <p className="
+                                        mb-3 text-sm
+                                        font-semibold text-text
+                                    ">
+                                        Dates
                                     </p>
 
-                                    <FaPen />
-                                </span>
-                            </span>
+                                    <div className="
+                                        grid min-w-0
+                                        grid-cols-1 gap-4
+                                        sm:grid-cols-2
+                                    ">
 
-                            {/* Guests */}
-                            <span>
-                                <label>Guests</label>
+                                        {/* Check-in */}
+                                        <div className="min-w-0">
+                                            <label
+                                                htmlFor="paymentCheckIn"
+                                                className="
+                                                    mb-2 block
+                                                    text-xs
+                                                    font-medium
+                                                    text-text-muted
+                                                "
+                                            >
+                                                Check-in
+                                            </label>
 
-                                <span>
-                                    <p className="text-gray-500">
-                                        {booking.guests}
-                                    </p>
+                                            <input
+                                                id="paymentCheckIn"
+                                                type="date"
+                                                value={checkIn}
+                                                onChange={(e) =>
+                                                    setCheckIn(
+                                                        e.target.value
+                                                    )
+                                                }
+                                                className="
+                                                    block
+                                                    w-full
+                                                    min-w-0
+                                                    max-w-full
+                                                    rounded-lg
+                                                    border
+                                                    border-border
+                                                    bg-white
+                                                    px-3 py-2.5
+                                                    text-sm
+                                                    text-text
+                                                    outline-none
+                                                    transition
+                                                    focus:border-primary
+                                                    focus:ring-2
+                                                    focus:ring-primary/10
+                                                "
+                                            />
+                                        </div>
 
-                                    <FaPen />
-                                </span>
-                            </span>
+                                        {/* Check-out */}
+                                        <div className="min-w-0">
+                                            <label
+                                                htmlFor="paymentCheckOut"
+                                                className="
+                                                    mb-2 block
+                                                    text-xs
+                                                    font-medium
+                                                    text-text-muted
+                                                "
+                                            >
+                                                Check-out
+                                            </label>
 
-                        </div>
-                    </div>
+                                            <input
+                                                id="paymentCheckOut"
+                                                type="date"
+                                                value={checkOut}
+                                                onChange={(e) =>
+                                                    setCheckOut(
+                                                        e.target.value
+                                                    )
+                                                }
+                                                className="
+                                                    block
+                                                    w-full
+                                                    min-w-0
+                                                    max-w-full
+                                                    rounded-lg
+                                                    border
+                                                    border-border
+                                                    bg-white
+                                                    px-3 py-2.5
+                                                    text-sm
+                                                    text-text
+                                                    outline-none
+                                                    transition
+                                                    focus:border-primary
+                                                    focus:ring-2
+                                                    focus:ring-primary/10
+                                                "
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
 
-                    {/* =========================
-                        Payment
-                    ========================== */}
-                    <div className="flex flex-col gap-y-2">
+                                {/* Guests */}
+                                <div className="
+                                    mt-5
+                                    border-t border-border
+                                    pt-5
+                                ">
+                                    <label
+                                        htmlFor="paymentGuests"
+                                        className="
+                                            mb-2 block
+                                            text-sm
+                                            font-semibold
+                                            text-text
+                                        "
+                                    >
+                                        Guests
+                                    </label>
 
-                        <h3 className="text-lg max-lg:mt-2 font-bold">
-                            Payment
-                        </h3>
+                                    <input
+                                        id="paymentGuests"
+                                        type="number"
+                                        min="1"
+                                        max={booking.maxGuests}
+                                        value={guests}
+                                        onChange={(e) =>
+                                            setGuests(
+                                                e.target.value
+                                            )
+                                        }
+                                        className="
+                                            block
+                                            w-full
+                                            min-w-0
+                                            max-w-full
+                                            rounded-lg
+                                            border
+                                            border-border
+                                            bg-white
+                                            px-3 py-2.5
+                                            text-sm
+                                            text-text
+                                            outline-none
+                                            transition
+                                            focus:border-primary
+                                            focus:ring-2
+                                            focus:ring-primary/10
+                                            sm:max-w-[220px]
+                                        "
+                                    />
+                                </div>
 
-                        <div className="bg-base-300 rounded-box p-4">
+                                {/* Update button */}
+                                {hasChanges && (
+                                    <div className="
+                                        mt-5
+                                        border-t border-border
+                                        pt-5
+                                    ">
+                                        <button
+                                            type="button"
+                                            onClick={
+                                                handleUpdateBooking
+                                            }
+                                            disabled={updating}
+                                            className="
+                                                w-full
+                                                rounded-lg
+                                                bg-primary
+                                                px-5 py-2.5
+                                                text-sm
+                                                font-semibold
+                                                text-white
+                                                transition
+                                                hover:bg-primary-dark
+                                                disabled:cursor-not-allowed
+                                                disabled:opacity-50
+                                                sm:w-auto
+                                            "
+                                        >
+                                            {updating
+                                                ? "Updating..."
+                                                : "Update trip"}
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        </section>
 
-                            {/* Total */}
-                            <div className="flex justify-between">
-                                <span>
-                                    Total price
-                                </span>
+                        {/* Payment breakdown */}
+                        <section>
+                            <div className="mb-4">
+                                <h2 className="
+                                    text-xl font-semibold
+                                    text-text
+                                ">
+                                    Payment
+                                </h2>
 
-                                <span>
-                                    ₹{Number(booking.totalPrice).toFixed(2)}
-                                </span>
+                                <p className="
+                                    mt-1 text-sm
+                                    text-text-muted
+                                ">
+                                    Review the amount you will
+                                    pay now.
+                                </p>
                             </div>
 
-                            {/* Already Paid */}
-                            <div className="flex justify-between mt-2">
-                                <span>
-                                    Already paid
-                                </span>
+                            <div className="
+                                rounded-2xl
+                                border border-border
+                                bg-white
+                                p-5 sm:p-6
+                            ">
 
-                                <span>
-                                    ₹{Number(booking.paidAmount).toFixed(2)}
-                                </span>
+                                {/* Total */}
+                                <div className="
+                                    flex items-center
+                                    justify-between gap-4
+                                    text-sm
+                                ">
+                                    <span className="
+                                        text-text-muted
+                                    ">
+                                        Total price
+                                    </span>
+
+                                    <span className="
+                                        shrink-0
+                                        font-medium text-text
+                                    ">
+                                        ₹
+                                        {Number(
+                                            booking.totalPrice
+                                        ).toFixed(2)}
+                                    </span>
+                                </div>
+
+                                {/* Already paid */}
+                                <div className="
+                                    mt-4 flex items-center
+                                    justify-between gap-4
+                                    text-sm
+                                ">
+                                    <span className="
+                                        text-text-muted
+                                    ">
+                                        Already paid
+                                    </span>
+
+                                    <span className="
+                                        shrink-0
+                                        font-medium text-text
+                                    ">
+                                        ₹
+                                        {Number(
+                                            booking.paidAmount
+                                        ).toFixed(2)}
+                                    </span>
+                                </div>
+
+                                <div className="
+                                    my-5 border-t border-border
+                                " />
+
+                                {/* Amount to pay */}
+                                <div className="
+                                    flex items-center
+                                    justify-between gap-4
+                                ">
+                                    <span className="
+                                        font-semibold text-text
+                                    ">
+                                        Amount to pay
+                                    </span>
+
+                                    <span className="
+                                        shrink-0
+                                        text-xl font-semibold
+                                        text-text
+                                    ">
+                                        ₹
+                                        {payableAmount.toFixed(2)}
+                                    </span>
+                                </div>
+
+                                {/* Payment type */}
+                                <p className="
+                                    mt-2 text-xs
+                                    text-text-muted
+                                ">
+                                    {paymentPurpose ===
+                                    "BOOKING"
+                                        ? booking.paymentOption ===
+                                          "PAY_NOW"
+                                            ? "Full payment"
+                                            : "Booking payment"
+                                        : "Remaining payment"}
+                                </p>
                             </div>
-
-                            {/* Amount to Pay */}
-                            <div className="flex justify-between mt-2 font-semibold">
-                                <span>
-                                    Amount to pay
-                                </span>
-
-                                <span>
-                                    ₹{payableAmount.toFixed(2)}
-                                </span>
-                            </div>
-
-                            {/* Payment type */}
-                            <div className="text-xs text-gray-500 mt-2">
-                                {paymentPurpose === "BOOKING"
-                                    ? booking.paymentOption ===
-                                        "PAY_NOW"
-                                        ? "Full payment"
-                                        : "Booking payment"
-                                    : "Remaining payment"}
-                            </div>
-
-                        </div>
+                        </section>
 
                         {/* Error */}
                         {error && (
-                            <div className="bg-red-100 text-red-700 rounded-box p-3 text-sm">
-                                {error}
+                            <div className="
+                                rounded-xl
+                                border border-red-200
+                                bg-red-50
+                                px-4 py-3
+                            ">
+                                <p className="
+                                    text-sm text-red-600
+                                ">
+                                    {error}
+                                </p>
                             </div>
                         )}
 
-                        {/* =========================
-                            Success
-                        ========================== */}
+                        {/* Success */}
                         {paymentState ===
                             "SUCCESS" && (
-                                <div className="bg-green-100 text-green-800 rounded-box p-4 text-center">
-                                    <h4 className="font-bold text-lg">
-                                        Payment successful
-                                    </h4>
+                            <div className="
+                                rounded-xl
+                                border border-green-200
+                                bg-green-50
+                                p-5
+                            ">
+                                <h3 className="
+                                    text-lg font-semibold
+                                    text-green-800
+                                ">
+                                    Payment successful
+                                </h3>
 
-                                    <p className="text-sm mt-1">
-                                        {booking.paymentStatus ===
-                                            "PARTIALLY_PAID"
-                                            ? "Your booking has been secured. The remaining amount can be paid later."
-                                            : "Your booking has been fully paid."}
-                                    </p>
+                                <p className="
+                                    mt-1 text-sm
+                                    text-green-700
+                                ">
+                                    Your booking has been
+                                    successfully processed.
+                                </p>
 
-                                    <p className="text-xs mt-2 text-green-700">
-                                        Redirecting to your
-                                        booking...
-                                    </p>
-                                </div>
-                            )}
-
-                        {/* =========================
-                            Failed
-                        ========================== */}
-                        {paymentState ===
-                            "FAILED" && (
-                                <div className="flex flex-col gap-y-2">
-                                    <p className="text-sm text-red-500">
-                                        Payment failed.
-                                        Please try again.
-                                    </p>
-
-                                    <button
-                                        type="button"
-                                        onClick={handleRetry}
-                                        className="w-full border border-primary text-primary hover:bg-primary
-                                        hover:text-white rounded-full py-2 font-semibold"
-                                    >
-                                        Try again
-                                    </button>
-                                </div>
-                            )}
-
-                        {/* =========================
-                            Cancelled
-                        ========================== */}
-                        {paymentState ===
-                            "CANCELLED" && (
-                                <div className="flex flex-col gap-y-2">
-                                    <p className="text-sm text-gray-500">
-                                        Payment was cancelled.
-                                        Your booking has not
-                                        been paid.
-                                    </p>
-
-                                    <button
-                                        type="button"
-                                        onClick={handleRetry}
-                                        className="w-full border border-primary text-primary 
-                                        hover:bg-primary hover:text-white rounded-full py-2 font-semibold"
-                                    >
-                                        Pay now
-                                    </button>
-                                </div>
-                            )}
-
-                        {/* =========================
-                            Pay Button
-                        ========================== */}
-                        {!isPaid && paymentState !== "SUCCESS" &&
-                            paymentState !== "FAILED" && paymentState !== "CANCELLED" &&
-                            (
-                                <button
-                                    type="button"
-                                    onClick={handlePayment}
-                                    disabled={isProcessing}
-                                    className="w-full bg-primary hover:bg-primary/80
-                                        text-white rounded-full py-3 font-semibold
-                                        cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isProcessing
-                                        ? "Processing..."
-                                        : `Pay ₹${payableAmount.toFixed(2)}`}
-                                </button>
-                            )}
-
-                        {/* Already paid */}
-                        {isPaid && (
-                            <div className="bg-green-100 text-green-700 rounded-full
-                                py-3 text-center font-semibold">
-                                Booking fully paid
+                                <p className="
+                                    mt-2 text-xs
+                                    text-green-700
+                                ">
+                                    Redirecting to your
+                                    booking...
+                                </p>
                             </div>
                         )}
 
+                        {/* Failed */}
+                        {paymentState ===
+                            "FAILED" && (
+                            <div className="
+                                rounded-xl
+                                border border-red-200
+                                bg-red-50
+                                p-5
+                            ">
+                                <p className="
+                                    text-sm text-red-600
+                                ">
+                                    Payment failed.
+                                    Please try again.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    onClick={
+                                        handleRetry
+                                    }
+                                    className="
+                                        mt-4 w-full
+                                        rounded-lg
+                                        border border-primary
+                                        px-4 py-2.5
+                                        text-sm font-semibold
+                                        text-primary
+                                        transition
+                                        hover:bg-primary
+                                        hover:text-white
+                                        sm:w-auto
+                                    "
+                                >
+                                    Try again
+                                </button>
+                            </div>
+                        )}
+
+                        {/* Cancelled */}
+                        {paymentState ===
+                            "CANCELLED" && (
+                            <div className="
+                                rounded-xl
+                                border border-border
+                                bg-surface
+                                p-5
+                            ">
+                                <p className="
+                                    text-sm text-text-muted
+                                ">
+                                    Payment was cancelled.
+                                    Your booking has not
+                                    been paid.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    onClick={
+                                        handleRetry
+                                    }
+                                    className="
+                                        mt-4 w-full
+                                        rounded-lg
+                                        bg-primary
+                                        px-5 py-2.5
+                                        text-sm font-semibold
+                                        text-white
+                                        transition
+                                        hover:bg-primary-dark
+                                        sm:w-auto
+                                    "
+                                >
+                                    Pay now
+                                </button>
+                            </div>
+                        )}
                     </div>
-                </section>
+
+                    {/* RIGHT — RESERVATION */}
+                    <aside className="
+                        lg:sticky lg:top-24
+                        lg:self-start
+                    ">
+                        <section className="
+                            overflow-hidden
+                            rounded-2xl
+                            border border-border
+                            bg-white
+                            shadow-sm
+                        ">
+
+                            {/* Room */}
+                            <div className="
+                                p-5 sm:p-6
+                            ">
+                                <h2 className="
+                                    mb-4 text-lg
+                                    font-semibold text-text
+                                ">
+                                    Your reservation
+                                </h2>
+
+                                <RoomCardFlat
+                                    booking={booking}
+                                />
+                            </div>
+
+                            <div className="
+                                border-t border-border
+                            " />
+
+                            {/* Price summary */}
+                            <div className="
+                                p-5 sm:p-6
+                            ">
+                                <div className="mb-4">
+                                    <p className="
+                                        text-sm
+                                        font-semibold
+                                        text-text
+                                    ">
+                                        Price details
+                                    </p>
+                                </div>
+
+                                <PriceDetails
+                                    booking={booking}
+                                />
+                            </div>
+
+                            <div className="
+                                border-t border-border
+                            " />
+
+                            {/* Pay */}
+                            <div className="
+                                p-5 sm:p-6
+                            ">
+                                {!isPaid &&
+                                    paymentState !==
+                                        "SUCCESS" &&
+                                    paymentState !==
+                                        "FAILED" &&
+                                    paymentState !==
+                                        "CANCELLED" && (
+                                        <button
+                                            type="button"
+                                            onClick={
+                                                handlePayment
+                                            }
+                                            disabled={
+                                                isProcessing ||
+                                                updating ||
+                                                hasChanges
+                                            }
+                                            className="
+                                                w-full
+                                                rounded-lg
+                                                bg-primary
+                                                px-5 py-3
+                                                text-sm
+                                                font-semibold
+                                                text-white
+                                                transition
+                                                hover:bg-primary-dark
+                                                disabled:cursor-not-allowed
+                                                disabled:opacity-50
+                                            "
+                                        >
+                                            {hasChanges
+                                                ? "Update trip to continue"
+                                                : isProcessing
+                                                    ? "Processing..."
+                                                    : `Pay ₹${payableAmount.toFixed(
+                                                        2
+                                                    )}`}
+                                        </button>
+                                    )}
+
+                                {isPaid && (
+                                    <div className="
+                                        w-full rounded-lg
+                                        bg-green-50
+                                        px-5 py-3
+                                        text-center
+                                        text-sm
+                                        font-semibold
+                                        text-green-700
+                                    ">
+                                        Booking fully paid
+                                    </div>
+                                )}
+
+                                <p className="
+                                    mt-3 text-center
+                                    text-xs text-text-light
+                                ">
+                                    Secure payment powered
+                                    by Razorpay
+                                </p>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
             </div>
-        </div>
+        </main>
     );
 };
