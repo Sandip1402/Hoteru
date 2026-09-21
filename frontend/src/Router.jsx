@@ -123,14 +123,7 @@ export const Router = createBrowserRouter([
                             },
                         ]
                     },
-                    // { path: "host/listings", element: <HostListings /> },
-                    // { path: "host/listings/create", element: <CreateListing /> },
-                    // { path: "host/listings/:listingId", element: <HostListingDetails /> },
-                    // { path: "host/listings/:listingId/edit", element: <EditListing /> },
-                    // { path: "host/listings/:listingId/rooms/new", element: <AddRoom /> },
-                    // { path: "host/rooms/:roomId", element: <HostRoomDetails /> },
-                    // { path: "host/rooms/:roomId/edit", element: <EditRoom /> },
-                    { path: "test", element: <Test /> },
+                    { path: "test", element: <ProtectedRoute allowedRoles={['admin']}><Test /></ProtectedRoute> },
                     { path: "*", element: <NotFound /> }
                 ]
             }

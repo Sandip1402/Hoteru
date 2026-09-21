@@ -20,16 +20,16 @@
     - [x] Check !isAuthenticated state in CreateListing form
     - [x] Currently If a process(booking) can't be done, it's showing error code to client instead of proper message
     - [x] What should happen if someone cancels a payment, currently that particualar payment data is staying with status as pending
-    - [ ] Protected route currentUser roles problem
+    - [x] Thumbnail image not showing in booking details page
+    - [x] Date values are not persistent across page change for search
+    - [x] Protected route currentUser roles problem
     - [ ] Fix abort controllers for api calls - need to work with idempotent keys to handle transactions
     - [ ] Redirecting Issue still there
     - [ ] For check in operation, there should be option for cash and online mode for unpaid amounts
     - [ ] Add cache for form values
-    - [ ] Login back button issue, use back buttons wisely, add history
+    - [ ] Login back button issue after login if back pressed then error page opening from auth0's side, use back buttons wisely
     - [ ] Make error log flow and error message flow correct
     - [ ] Currently if left logged in and comeback later, user is not synced but we are storing refresh token in localstorage
-    - [ ] Date values are not persistent across page change for search
     - [ ] Show availability through calendar
-    - [ ] Thumbnail mage not showing in booking details page
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

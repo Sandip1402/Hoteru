@@ -35,6 +35,7 @@
     - [ ] Integrate Redis
     - [ ] Make api to get all the property types available for filtering listings in frontend
     - [ ] Include guest count in booking price calculations
+    - [ ] Update search algorithm for lisitng
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

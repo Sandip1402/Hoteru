@@ -83,10 +83,6 @@ export default function () {
     router.get(
         "/:bookingId",
         checkJwt,
-        (req, res, next) => {
-            console.log("request passed jwt check.");
-            next();
-        },
         attachCurrentUser,
         requireRole("basic_user"),
         getBookingById

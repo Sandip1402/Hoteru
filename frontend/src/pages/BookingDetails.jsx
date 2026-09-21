@@ -59,7 +59,6 @@ export const BookingDetails = () => {
                 const response = await getBookingById(bookingId, controller.signal);
 
                 setBooking(response.data);
-                console.log(response.data);
             } catch (err) {
 
                 if (
@@ -122,8 +121,8 @@ export const BookingDetails = () => {
                 xl:px-20
             ">
 
-                <Link
-                    to="/accommodations"
+                <span
+                    onClick={() => navigate(-1)}
                     className="
                         flex
                         items-center
@@ -134,8 +133,8 @@ export const BookingDetails = () => {
                     "
                 >
                     <FaChevronLeft size={10} />
-                    Back to accommodations
-                </Link>
+                    Back
+                </span>
 
 
                 <div className="mt-8">
@@ -158,9 +157,7 @@ export const BookingDetails = () => {
 
 
                     <button
-                        onClick={() =>
-                            navigate("/accommodations")
-                        }
+                        onClick={() =>navigate("/accommodations")}
                         className="
                             mt-5
                             bg-primary
@@ -172,7 +169,7 @@ export const BookingDetails = () => {
                             cursor-pointer
                         "
                     >
-                        Browse accommodations
+                        Back to accommodations
                     </button>
 
                 </div>
@@ -251,8 +248,8 @@ export const BookingDetails = () => {
         ">
 
             {/* Back */}
-            <Link
-                to="/accommodations"
+            <span
+                onClick={() => navigate(-1)}
                 className="
                     flex
                     items-center
@@ -263,8 +260,8 @@ export const BookingDetails = () => {
                 "
             >
                 <FaChevronLeft size={10} />
-                Accommodations
-            </Link>
+                Back
+            </span>
 
 
             {/* Header */}

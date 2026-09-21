@@ -174,9 +174,7 @@ export const Payment = () => {
 
                 <button
                     type="button"
-                    onClick={() =>
-                        navigate("/accommodations")
-                    }
+                    onClick={() =>navigate(-1)}
                     className="
                         mt-5 rounded-lg
                         bg-primary px-5 py-2.5
@@ -184,7 +182,7 @@ export const Payment = () => {
                         transition hover:bg-primary-dark
                     "
                 >
-                    Browse accommodations
+                    Back
                 </button>
             </div>
         );
@@ -588,7 +586,7 @@ export const Payment = () => {
     return (
         <main className="min-h-screen bg-white">
             <div className="
-                mx-auto max-w-[1320px]
+                mx-auto w-full max-w-[1320px]
                 px-4 py-6
                 sm:px-6
                 lg:px-8 lg:py-8
@@ -628,7 +626,9 @@ export const Payment = () => {
 
                 {/* Main layout */}
                 <div className="
-                    grid gap-8
+                    grid
+                    min-w-0
+                    gap-8
                     lg:grid-cols-[minmax(0,1fr)_420px]
                 ">
 
@@ -1101,10 +1101,13 @@ export const Payment = () => {
 
                     {/* RIGHT — RESERVATION */}
                     <aside className="
+                        min-w-0
                         lg:sticky lg:top-24
                         lg:self-start
                     ">
                         <section className="
+                            min-w-0
+                            w-full
                             overflow-hidden
                             rounded-2xl
                             border border-border

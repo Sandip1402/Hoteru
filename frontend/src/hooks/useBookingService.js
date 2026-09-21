@@ -15,7 +15,6 @@ export const useBookingService = () => {
   };
 
   const getBookingById = async (bookingId, signal) => {
-    console.log("hello");
     return callAPI(
       `/bookings/${bookingId}`,
       { signal },

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useHoteruAuth } from '../auth/HoteruAuthProvider';
-import { callAPI } from '../utils/callAPI'; // Keeping this if you need it later
+import { useAPI } from '../hooks/useAPI'; // Keeping this if you need it later
 
 export const Test = () => {
   const [apiData, setApiData] = useState(null);
   const [apiError, setApiError] = useState(null);
-
+  const callAPI = useAPI();
+  
   const { 
     user,
     currentUser,

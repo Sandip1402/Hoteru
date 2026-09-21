@@ -11,6 +11,7 @@ export const DateInput = ({ name, id, value, style = "", setDate }) => {
             <input
                 id={id}
                 name={id}
+                value={value}
                 type="date"
                 className="
                     mt-1 w-full min-w-0

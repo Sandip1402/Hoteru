@@ -17,19 +17,20 @@ export const Search = () => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
 
-    const nextParams = {};
-    if (place) nextParams.city = place;
-    if (checkIn) nextParams.checkIn = checkIn;
-    if (checkOut) nextParams.checkOut = checkOut;
-    if (guests) nextParams.guests = guests;
+    const _query = {};
+    if (place) _query.city = place;
+    if (checkIn) _query.checkIn = checkIn;
+    if (checkOut) _query.checkOut = checkOut;
+    if (guests) _query.guests = guests;
 
+    console.log(_query);
     // Check if user is currently on the accommodations route
     if (location.pathname.startsWith("/accommodations")) {
       // Update parameters in place without changing the page
-      setSearchParams(nextParams);
+      setSearchParams(_query);
     } else {
       // Redirect from landing page straight to the accommodations search route
-      const queryString = new URLSearchParams(nextParams).toString();
+      const queryString = new URLSearchParams(_query).toString();
       navigate(`/accommodations?${queryString}`);
     }
   };

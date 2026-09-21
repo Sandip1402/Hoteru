@@ -19,7 +19,7 @@ import {
 export const createBooking = async (guestId, data) => {
     // Get room with listing
     const room = await getRoomOrThrow(data.roomId, {
-        select: {
+        include: {
             listing: {
                 select: {
                     isActive: true,
@@ -31,7 +31,6 @@ export const createBooking = async (guestId, data) => {
             }
         }
     });
-
     // Room must be active
     if (!room.isActive) {
         throw new AppError(400, "Room is not available.");

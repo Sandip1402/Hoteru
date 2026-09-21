@@ -1,85 +1,219 @@
-import { MdOutlineLogout } from 'react-icons/md'
-import { useEffect, useState } from 'react'
-import { Link, NavLink, Outlet } from 'react-router'
-import { useAuth } from '../auth/useAuth'
+import { MdOutlineLogout } from "react-icons/md";
+import { NavLink, Link } from "react-router";
 
-export const ProfileSideBar = ({ setFunc, style }) => {
+import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 
-    const setShow = setFunc || (() => { }) // default to no-op if not provided
-    const { logout } = useAuth();
+export const ProfileSideBar = ({
+    setFunc,
+    mobile = false,
+}) => {
+    const { logout } = useHoteruAuth();
 
-    const sections = {
-        personal_info: {
+    const sections = [
+        {
             path: "/user/personal_info",
             icon: "/Icons/user-profile.svg",
-            label: "Personal Details"
+            label: "Personal Details",
         },
-        security: {
+        {
             path: "/user/security",
             icon: "/Icons/lock-alt.svg",
-            label: "Security"
+            label: "Security",
         },
-        bookings: {
+        {
             path: "/user/bookings",
             icon: "/Icons/booking.svg",
-            label: "Booking History"
+            label: "Booking History",
         },
-        wishlist: {
+        {
             path: "/user/wishlist",
             icon: "/Icons/wishlist.svg",
-            label: "Wishlist"
-        },
-        hostings: {
-            path: "/user/hostings",
-            icon: "/Icons/hosting.svg",
-            label: "Hostings"
+            label: "Wishlist",
         }
-    }
+    ];
 
-    
+    const handleLogout = () => {
+        if (setFunc) {
+            setFunc(false);
+        }
+
+        logout({
+            logoutParams: {
+                returnTo: window.location.origin,
+            },
+        });
+    };
+
     return (
-        <div className={`bg-white *:not-first:text-gray-600 rounded-box ${style}`}>
-            {/* fix - on click outside should close */}
-            <span className='flex justify-between items-center text-lg border-b-2 border-gray-300 mb-4 sm:hidden'>
-                <p>Settings</p>
-                <span className='text-gray-500 font-bold' onClick={() => (setShow(false))}>
-                    x
-                </span>
-            </span>
+        <div className="
+            min-w-0
+            rounded-2xl
+            border
+            border-border
+            bg-white
+            p-2
+        ">
 
-            {/* Sections */}
-            <ul className='flex flex-col **:flex **:items-center **:gap-x-3'>
-                {Object.entries(sections).map(([key, section]) => (
-                    <li key={key}>
-                        <NavLink to={section.path} end={section.label === "personal_info"}>
-                            {({ isActive }) => (
-                                <>
-                                    <span className={`rounded-full size-9 flex justify-center items-center ${isActive ? 'bg-primary/10' : 'bg-neutral-100'}`}>
-                                        {/* Icon with mask */}
-                                        <span className="size-5 bg-current"
-                                            style={{
-                                                maskImage: `url(${section.icon})`,
-                                                maskRepeat: 'no-repeat',
-                                                maskSize: 'contain',
-                                                WebkitMaskImage: `url(${section.icon})`, // For Safari support
-                                            }}
-                                        />
-                                    </span>
-                                    <p>{section.label}</p>
-                                </>
-                            )}
-                        </NavLink>
-                    </li>
+            {/* Desktop heading */}
+            {!mobile && (
+                <div className="
+                    border-b
+                    border-border
+                    px-3 py-4
+                ">
+                    <h2 className="
+                        text-sm
+                        font-semibold
+                        text-text
+                    ">
+                        Account
+                    </h2>
+
+                    <p className="
+                        mt-1
+                        text-xs
+                        text-text-muted
+                    ">
+                        Manage your account
+                    </p>
+                </div>
+            )}
+
+            {/* Navigation */}
+            <nav className="
+                mt-2
+                space-y-1
+            ">
+                {sections.map((section) => (
+                    <NavLink
+                        key={section.path}
+                        to={section.path}
+                        end={
+                            section.path ===
+                            "/user/personal_info"
+                        }
+                        onClick={() =>
+                            setFunc?.(false)
+                        }
+                        className={({ isActive }) => `
+                            group
+                            flex
+                            min-w-0
+                            items-center
+                            gap-3
+                            rounded-xl
+                            px-3 py-2.5
+                            text-sm
+                            font-medium
+                            transition
+                            ${
+                                isActive
+                                    ? `
+                                        bg-primary/10
+                                        text-primary
+                                      `
+                                    : `
+                                        text-text-muted
+                                        hover:bg-surface
+                                        hover:text-text
+                                      `
+                            }
+                        `}
+                    >
+                        {({ isActive }) => (
+                            <>
+                                <span
+                                    className={`
+                                        flex
+                                        h-9 w-9
+                                        shrink-0
+                                        items-center
+                                        justify-center
+                                        rounded-full
+                                        ${
+                                            isActive
+                                                ? "bg-primary/10"
+                                                : "bg-surface"
+                                        }
+                                    `}
+                                >
+                                    <span
+                                        className={`
+                                            h-5 w-5
+                                            bg-current
+                                        `}
+                                        style={{
+                                            maskImage: `url(${section.icon})`,
+                                            maskRepeat:
+                                                "no-repeat",
+                                            maskPosition:
+                                                "center",
+                                            maskSize:
+                                                "contain",
+                                            WebkitMaskImage: `url(${section.icon})`,
+                                            WebkitMaskRepeat:
+                                                "no-repeat",
+                                            WebkitMaskPosition:
+                                                "center",
+                                            WebkitMaskSize:
+                                                "contain",
+                                        }}
+                                    />
+                                </span>
+
+                                <span className="
+                                    min-w-0
+                                    truncate
+                                ">
+                                    {section.label}
+                                </span>
+                            </>
+                        )}
+                    </NavLink>
                 ))}
-                <li onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                    <Link to="/user/logout" className='text-red-500'>
-                        <span className='size-9 flex justify-center items-center rounded-full bg-red-100'>
-                            <MdOutlineLogout size={20} />
-                        </span>
-                        <p>Logout</p>
-                    </Link>
-                </li>
-            </ul>
+            </nav>
+
+            {/* Logout */}
+            <div className="
+                mt-2
+                border-t
+                border-border
+                pt-2
+            ">
+                <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="
+                        flex
+                        w-full
+                        items-center
+                        gap-3
+                        rounded-xl
+                        px-3 py-2.5
+                        text-sm
+                        font-medium
+                        text-red-500
+                        transition
+                        hover:bg-red-50
+                    "
+                >
+                    <span className="
+                        flex
+                        h-9 w-9
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        bg-red-50
+                    ">
+                        <MdOutlineLogout size={19} />
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+                </button>
+            </div>
         </div>
-    )
-}
+    );
+};

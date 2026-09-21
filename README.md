@@ -2,7 +2,7 @@
 A modern hotel booking web application built as a personal full-stack project.
 
 ## Overview
-Hoteru lets users browse hotel rooms, explore room details, book stays, leave reviews, and manage profiles in a polished React UI. The app combines a Vite-powered frontend with an Express backend, Prisma ORM, and PostgreSQL-compatible database support.
+Hoteru lets users  hotel rooms, explore room details, book stays, leave reviews, and manage profiles in a polished React UI. The app combines a Vite-powered frontend with an Express backend, Prisma ORM, and PostgreSQL-compatible database support.
 
 ## Key Features
 - Hotel and room discovery with dynamic filters and search
