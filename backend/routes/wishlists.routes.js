@@ -1,8 +1,8 @@
 import express from "express";
 import {
-    addWishlist,
-    deleteWishlist,
+    addToWishlist,
     getWishlist,
+    removeFromWishlist,
 } from "../controllers/wishlist.controller.js";
 
 import { checkJwt, attachCurrentUser } from "../middlewares/auth.middleware.js";
@@ -19,12 +19,12 @@ export default function () {
 
     router.post(
         "/:listingId",
-        addWishlist
+        addToWishlist
     );
 
     router.delete(
         "/:listingId",
-        deleteWishlist
+        removeFromWishlist
     );
 
     return router;

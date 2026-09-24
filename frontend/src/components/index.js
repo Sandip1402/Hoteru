@@ -1,9 +1,7 @@
 export * from './listing/BubbleFilter';
-export * from './CardX';
 export * from './CardY';
 export * from './listing/CheckFilter';
 export * from './DateInput';
-// export * from './Edit';
 export * from './Error';
 export * from './listing/Filter';
 export * from './Footer';
@@ -14,12 +12,11 @@ export * from './Loading';
 export * from './LoginButton';
 export * from './Logo';
 export * from './LogoutButton';
-// export * from './Modal.jsx';
 
-// export * from './Movable.jsx';
+
+
 export * from './Navbar';
 export * from './NavSearch';
-// export * from './New.jsx';
 export * from './PaymentForm';
 export * from './ProfileSideBar';
 export * from './ProtectedRoute';
@@ -30,7 +27,7 @@ export * from './Reviews';
 export * from './RoomCardFlat';
 export * from './RoomComponents';
 export * from './Search';
-// export * from './Slide.jsx';
+export * from './Slide.jsx';
 export * from './SliderBG';
 export * from './StarRating';
 export * from "./HostProfileSideBar";

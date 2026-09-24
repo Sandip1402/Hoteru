@@ -5,9 +5,11 @@ import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 import { LoginButton } from "./LoginButton.jsx";
 import { LogoutButton } from "./LogoutButton.jsx";
 
+const Avatar = "/Icons/user-profile.svg";
+
 export const Navbar = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useHoteruAuth();
+  const { isAuthenticated, currentUser } = useHoteruAuth();
 
   return (
     <header className="w-full border-b border-border bg-white">
@@ -108,7 +110,7 @@ export const Navbar = () => {
             >
               <img
                 alt="Avatar"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src={currentUser?.image || Avatar}
                 className="h-full w-full rounded-full object-cover"
               />
             </div>

@@ -56,71 +56,23 @@ export const Router = createBrowserRouter([
                             { path: "security", element: <Security /> },
                             { path: "bookings", element: <Bookings /> },
                             { path: "wishlist", element: <WishList /> },
-                            { path: "logout", element: <Profile /> },
                         ]
                     },
                     {
                         path: "host",
-                        element: (
-                            <ProtectedRoute allowedRoles={["host"]}>
-                                <HostProfileLayout />
-                            </ProtectedRoute>
-                        ),
+                        element: (<ProtectedRoute allowedRoles={["host"]}><HostProfileLayout /></ProtectedRoute> ),
                         children: [
-                            {
-                                index: true,
-                                element: <Navigate to="/host/personal_info" replace />
-                            },
-
-                            {
-                                path: "personal_info",
-                                element: <HostProfile />
-                            },
-
-                            {
-                                path: "security",
-                                element: <Security />
-                            },
-
-                            {
-                                path: "listings",
-                                element: <HostListings />
-                            },
-
-                            {
-                                path: "listings/create",
-                                element: <CreateListing />
-                            },
-
-                            {
-                                path: "listings/:listingId",
-                                element: <HostListingDetails />
-                            },
-
-                            {
-                                path: "listings/:listingId/edit",
-                                element: <EditListing />
-                            },
-
-                            {
-                                path: "listings/:listingId/rooms/new",
-                                element: <AddRoom />
-                            },
-
-                            // {
-                            //     path: "rooms",
-                            //     element: <HostRooms />
-                            // },
-
-                            {
-                                path: "rooms/:roomId",
-                                element: <HostRoomDetails />
-                            },
-
-                            {
-                                path: "rooms/:roomId/edit",
-                                element: <EditRoom />
-                            },
+                            { index: true, element: <Navigate to="/host/personal_info" replace />},
+                            { path: "personal_info", element: <HostProfile /> },
+                            { path: "security", element: <Security /> },
+                            { path: "listings", element: <HostListings /> },
+                            { path: "listings/create", element: <CreateListing /> },
+                            { path: "listings/:listingId", element: <HostListingDetails /> },
+                            { path: "listings/:listingId/edit", element: <EditListing /> },
+                            { path: "listings/:listingId/rooms/new", element: <AddRoom /> },
+                            // { path: "rooms", element: <HostRooms /> },
+                            { path: "rooms/:roomId", element: <HostRoomDetails /> },
+                            { path: "rooms/:roomId/edit", element: <EditRoom /> },
                         ]
                     },
                     { path: "test", element: <ProtectedRoute allowedRoles={['admin']}><Test /></ProtectedRoute> },

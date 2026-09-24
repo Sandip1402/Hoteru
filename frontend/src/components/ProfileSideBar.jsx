@@ -1,13 +1,13 @@
 import { MdOutlineLogout } from "react-icons/md";
-import { NavLink, Link } from "react-router";
+import { NavLink } from "react-router";
 
-import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
+import { useAuth } from "../auth/useAuth";
 
 export const ProfileSideBar = ({
     setFunc,
     mobile = false,
 }) => {
-    const { logout } = useHoteruAuth();
+    const { logout } = useAuth();
 
     const sections = [
         {

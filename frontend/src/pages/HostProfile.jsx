@@ -84,8 +84,7 @@ export const HostProfile = () => {
 
                     <img
                         src={
-                            user.image ||
-                            "/default-avatar.png"
+                            user.image || "/Icons/user-profile.svg"
                         }
                         alt="Profile"
                         className="

@@ -29,13 +29,14 @@
     - [Y] is the trimmed enum approach okay?
     - [x] Check refund flow
     - [x] Fix listing image delete process
-    - [ ] GET /api/listings/:listingId/reviews?page=1&limit=10 for paginated reviews in listingdetails page, instead 200+ review in a single page
+    - [ ] implement pagination where it's requried e.g., review, listings, wishlist etc
     - [ ] Choose between include and select
     - [ ] Need to add api to remove an user from host position
     - [ ] Integrate Redis
     - [ ] Make api to get all the property types available for filtering listings in frontend
     - [ ] Include guest count in booking price calculations
     - [ ] Update search algorithm for lisitng
+    - [ ] Maybe fix route names to more restful way
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

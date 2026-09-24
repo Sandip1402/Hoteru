@@ -111,7 +111,7 @@ export const ProfileLayout = () => {
                             text-text
                             transition
                             hover:bg-surface
-                            sm:hidden
+                            lg:hidden
                         "
                     >
                         <FaBars size={14} />

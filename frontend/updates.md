@@ -31,5 +31,9 @@
     - [ ] Make error log flow and error message flow correct
     - [ ] Currently if left logged in and comeback later, user is not synced but we are storing refresh token in localstorage
     - [ ] Show availability through calendar
+    - [ ] Need to add skeleton loading before any error message
+    - [ ] Booking flow should change, first payment then booking/booking cancellation. Right now if a user cancels payment it still shows
+            up in his booking history, should it be like this??
+    - [ ] Put wishlist logo where it needs to be
 Pros :
 1. auth0-react sdk uses state paramets which helps against CSRF attacks, (https://auth0.com/docs/secure/attack-protection/state-parameters)

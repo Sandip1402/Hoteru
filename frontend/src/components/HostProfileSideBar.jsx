@@ -1,108 +1,235 @@
+import { MdOutlineLogout } from "react-icons/md";
 import { NavLink } from "react-router";
-import {
-    FaUser,
-    FaShieldAlt,
-    FaBuilding,
-    FaBed,
-    FaSignOutAlt,
-} from "react-icons/fa";
 
-export const HostProfileSideBar = ({ style = "", setFunc }) => {
+import { useAuth } from "../auth/useAuth";
 
-    const handleClick = () => {
+export const HostProfileSideBar = ({
+    setFunc,
+    mobile = false,
+}) => {
+    const { logout } = useAuth();
+
+    const sections = [
+        {
+            path: "/host/personal_info",
+            icon: "/Icons/user-profile.svg",
+            label: "Personal Details",
+        },
+        {
+            path: "/host/security",
+            icon: "/Icons/lock-alt.svg",
+            label: "Security",
+        },
+        {
+            path: "/host/listings",
+            icon: "/Icons/hosting.svg",
+            label: "My Listings",
+        },
+        {
+            path: "/host/rooms",
+            icon: "/Icons/booking.svg",
+            label: "My Rooms",
+        },
+    ];
+
+    const handleLogout = () => {
         if (setFunc) {
             setFunc(false);
         }
+
+        logout({
+            logoutParams: {
+                returnTo: window.location.origin,
+            },
+        });
     };
 
-    const linkClass = ({ isActive }) =>
-        `flex items-center gap-3 px-3 py-2 rounded-lg transition
-        ${isActive
-            ? "bg-gray-200 font-semibold"
-            : "text-gray-600 hover:bg-gray-100"
-        }`;
-
     return (
-        <aside className={`bg-white rounded-lg ${style}`}>
+        <div
+            className="
+                min-w-0
+                rounded-2xl
+                border
+                border-border
+                bg-white
+                p-2
+            "
+        >
 
-            {/* Account */}
-            <div className="mb-5">
-
-                <p className="text-xs font-semibold text-gray-400 uppercase mb-2">
-                    Account
-                </p>
-
-                <div className="flex flex-col gap-1">
-
-                    <NavLink
-                        to="/host/personal_info"
-                        className={linkClass}
-                        onClick={handleClick}
+            {/* Desktop heading */}
+            {!mobile && (
+                <div
+                    className="
+                        border-b
+                        border-border
+                        px-3 py-4
+                    "
+                >
+                    <h2
+                        className="
+                            text-sm
+                            font-semibold
+                            text-text
+                        "
                     >
-                        <FaUser size={14} />
-                        <span>Personal Information</span>
-                    </NavLink>
+                        Host Dashboard
+                    </h2>
 
-                    <NavLink
-                        to="/host/security"
-                        className={linkClass}
-                        onClick={handleClick}
+                    <p
+                        className="
+                            mt-1
+                            text-xs
+                            text-text-muted
+                        "
                     >
-                        <FaShieldAlt size={14} />
-                        <span>Security</span>
-                    </NavLink>
-
+                        Manage your hosting
+                    </p>
                 </div>
+            )}
 
-            </div>
-
-
-            {/* Hosting */}
-            <div className="mb-5">
-
-                <p className="text-xs font-semibold text-gray-400 uppercase mb-2">
-                    Hosting
-                </p>
-
-                <div className="flex flex-col gap-1">
-
+            {/* Navigation */}
+            <nav
+                className="
+                    mt-2
+                    space-y-1
+                "
+            >
+                {sections.map((section) => (
                     <NavLink
-                        to="/host/listings"
-                        className={linkClass}
-                        onClick={handleClick}
+                        key={section.path}
+                        to={section.path}
+                        end={
+                            section.path ===
+                            "/host/personal_info"
+                        }
+                        onClick={() =>
+                            setFunc?.(false)
+                        }
+                        className={({ isActive }) => `
+                            group
+                            flex
+                            min-w-0
+                            items-center
+                            gap-3
+                            rounded-xl
+                            px-3 py-2.5
+                            text-sm
+                            font-medium
+                            transition
+                            ${
+                                isActive
+                                    ? `
+                                        bg-primary/10
+                                        text-primary
+                                      `
+                                    : `
+                                        text-text-muted
+                                        hover:bg-surface
+                                        hover:text-text
+                                      `
+                            }
+                        `}
                     >
-                        <FaBuilding size={14} />
-                        <span>My Listings</span>
+                        {({ isActive }) => (
+                            <>
+                                <span
+                                    className={`
+                                        flex
+                                        h-9 w-9
+                                        shrink-0
+                                        items-center
+                                        justify-center
+                                        rounded-full
+                                        ${
+                                            isActive
+                                                ? "bg-primary/10"
+                                                : "bg-surface"
+                                        }
+                                    `}
+                                >
+                                    <span
+                                        className="
+                                            h-5 w-5
+                                            bg-current
+                                        "
+                                        style={{
+                                            maskImage: `url(${section.icon})`,
+                                            maskRepeat:
+                                                "no-repeat",
+                                            maskPosition:
+                                                "center",
+                                            maskSize:
+                                                "contain",
+                                            WebkitMaskImage: `url(${section.icon})`,
+                                            WebkitMaskRepeat:
+                                                "no-repeat",
+                                            WebkitMaskPosition:
+                                                "center",
+                                            WebkitMaskSize:
+                                                "contain",
+                                        }}
+                                    />
+                                </span>
+
+                                <span
+                                    className="
+                                        min-w-0
+                                        truncate
+                                    "
+                                >
+                                    {section.label}
+                                </span>
+                            </>
+                        )}
                     </NavLink>
-
-                    <NavLink
-                        to="/host/rooms"
-                        className={linkClass}
-                        onClick={handleClick}
-                    >
-                        <FaBed size={14} />
-                        <span>My Rooms</span>
-                    </NavLink>
-
-                </div>
-
-            </div>
-
+                ))}
+            </nav>
 
             {/* Logout */}
-            <div className="pt-3 border-t border-gray-200">
-
-                <NavLink
-                    to="/user/logout"
-                    className={linkClass}
-                    onClick={handleClick}
+            <div
+                className="
+                    mt-2
+                    border-t
+                    border-border
+                    pt-2
+                "
+            >
+                <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="
+                        flex
+                        w-full
+                        items-center
+                        gap-3
+                        rounded-xl
+                        px-3 py-2.5
+                        text-sm
+                        font-medium
+                        text-red-500
+                        transition
+                        hover:bg-red-50
+                    "
                 >
-                    <FaSignOutAlt size={14} />
-                    <span>Logout</span>
-                </NavLink>
+                    <span
+                        className="
+                            flex
+                            h-9 w-9
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-full
+                            bg-red-50
+                        "
+                    >
+                        <MdOutlineLogout size={19} />
+                    </span>
 
+                    <span>
+                        Logout
+                    </span>
+                </button>
             </div>
-
-        </aside>
+        </div>
     );
 };

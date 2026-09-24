@@ -1,6 +1,6 @@
 import * as userService from "../services/user.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
-import AppError from "../utils/app-error.js";
+import AppError from "../utils/App-Error.js";
 
 export const syncCurrentUser = asyncHandler(async (req, res) => {
   const user = await userService.syncCurrentUser(req.auth.token);

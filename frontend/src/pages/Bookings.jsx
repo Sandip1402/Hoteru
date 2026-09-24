@@ -4,60 +4,7 @@ import { useNavigate } from "react-router";
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
 import { useBookingService } from "../hooks/useBookingService.js";
 
-const formatDate = (date) => {
-    return new Date(date).toLocaleDateString("en-IN", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-    });
-};
-
-const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-IN", {
-        style: "currency",
-        currency: "INR",
-        maximumFractionDigits: 0,
-    }).format(Number(price));
-};
-
-const getStatusClasses = (status) => {
-    switch (status) {
-        case "CONFIRMED":
-            return "bg-green-100 text-green-700";
-
-        case "AWAITING_PAYMENT":
-            return "bg-yellow-100 text-yellow-700";
-
-        case "CANCELLED":
-            return "bg-red-100 text-red-700";
-
-        case "COMPLETED":
-            return "bg-blue-100 text-blue-700";
-
-        default:
-            return "bg-gray-100 text-gray-700";
-    }
-};
-
-const getPaymentStatusClasses = (status) => {
-    switch (status) {
-        case "PAID":
-            return "text-green-600";
-
-        case "PENDING":
-            return "text-yellow-600";
-
-        case "REFUNDED":
-            return "text-blue-600";
-
-        case "FAILED":
-        case "CANCELLED":
-            return "text-red-600";
-
-        default:
-            return "text-gray-500";
-    }
-};
+import { BookingCard } from "../components/booking/BookingCard.jsx";
 
 export const Bookings = () => {
     const navigate = useNavigate();
@@ -99,7 +46,7 @@ export const Bookings = () => {
 
                 setError(
                     err.message ||
-                        "Failed to load bookings."
+                    "Failed to load bookings."
                 );
             } finally {
                 setLoading(false);
@@ -211,163 +158,19 @@ export const Bookings = () => {
 
                     <button
                         type="button"
-                        onClick={() =>
-                            navigate("/accommodations")
-                        }
+                        onClick={() => navigate("/accommodations")}
                         className="mt-5 rounded-lg bg-black px-5 py-2.5 text-sm text-white"
                     >
                         Explore Accommodations
                     </button>
                 </div>
             ) : (
-                <div className="space-y-4">
+                <div className="grid gap-4 lg:grid-cols-2">
                     {bookings.map((booking) => (
-                        <article
+                        <BookingCard
                             key={booking.bookingId}
-                            className="overflow-hidden rounded-xl border bg-white transition-shadow hover:shadow-md"
-                        >
-                            <div className="flex flex-col sm:flex-row">
-
-                                {/* Thumbnail */}
-                                <div className="h-48 shrink-0 sm:h-auto sm:w-56">
-                                    {booking.thumbnailUrl ? (
-                                        <img
-                                            src={
-                                                booking.thumbnailUrl
-                                            }
-                                            alt={
-                                                booking.listingName
-                                            }
-                                            className="h-full w-full object-cover"
-                                        />
-                                    ) : (
-                                        <div className="flex h-full min-h-48 items-center justify-center bg-gray-100 text-sm text-gray-400">
-                                            No image
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Details */}
-                                <div className="flex min-w-0 flex-1 flex-col p-5">
-
-                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                                        <div className="min-w-0">
-                                            <h2 className="truncate text-lg font-semibold">
-                                                {booking.listingName}
-                                            </h2>
-
-                                            <p className="mt-1 text-sm text-gray-500">
-                                                {booking.roomName}
-                                            </p>
-                                        </div>
-
-                                        <span
-                                            className={`w-fit shrink-0 rounded-full px-3 py-1 text-xs font-medium ${getStatusClasses(
-                                                booking.status
-                                            )}`}
-                                        >
-                                            {booking.status
-                                                .replaceAll(
-                                                    "_",
-                                                    " "
-                                                )}
-                                        </span>
-                                    </div>
-
-                                    <div className="mt-5 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
-
-                                        <div>
-                                            <p className="text-gray-500">
-                                                Check-in
-                                            </p>
-
-                                            <p className="mt-1 font-medium">
-                                                {formatDate(
-                                                    booking.checkIn
-                                                )}
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <p className="text-gray-500">
-                                                Check-out
-                                            </p>
-
-                                            <p className="mt-1 font-medium">
-                                                {formatDate(
-                                                    booking.checkOut
-                                                )}
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <p className="text-gray-500">
-                                                Guests
-                                            </p>
-
-                                            <p className="mt-1 font-medium">
-                                                {booking.guests}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-5 flex flex-col gap-4 border-t pt-4 sm:flex-row sm:items-end sm:justify-between">
-                                        <div>
-                                            <p className="text-xs text-gray-500">
-                                                Booking reference
-                                            </p>
-
-                                            <p className="mt-1 text-sm font-medium">
-                                                {
-                                                    booking.bookingReference
-                                                }
-                                            </p>
-
-                                            {booking.paymentStatus && (
-                                                <p className="mt-1 text-xs">
-                                                    Payment:{" "}
-                                                    <span
-                                                        className={`font-medium ${getPaymentStatusClasses(
-                                                            booking.paymentStatus
-                                                        )}`}
-                                                    >
-                                                        {
-                                                            booking.paymentStatus
-                                                        }
-                                                    </span>
-                                                </p>
-                                            )}
-                                        </div>
-
-                                        <div className="flex items-center justify-between gap-4 sm:justify-end">
-                                            <div className="text-right">
-                                                <p className="text-xs text-gray-500">
-                                                    Total
-                                                </p>
-
-                                                <p className="text-lg font-semibold">
-                                                    {formatPrice(
-                                                        booking.totalPrice
-                                                    )}
-                                                </p>
-                                            </div>
-
-                                            <button
-                                                type="button"
-                                                onClick={() =>
-                                                    navigate(
-                                                        `/bookings/${booking.bookingId}`
-                                                    )
-                                                }
-                                                className="rounded-lg border px-4 py-2 text-sm font-medium transition hover:bg-gray-50"
-                                            >
-                                                View Details
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                            booking={booking}
+                        />
                     ))}
                 </div>
             )}

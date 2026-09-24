@@ -1,40 +1,32 @@
-import {
-    addToWishlist,
-    removeFromWishlist,
-    getMyWishlist,
-} from "../services/wishlist.service.js";
+import * as wishlistService from "../services/wishlist.service.js";
 
 import { asyncHandler } from "../utils/async-handler.js"
 
-export const addWishlist = asyncHandler(async (req, res, next) => {
-    const userId = req.user.id;
+export const addToWishlist = asyncHandler(async (req, res) => {
     const listingId = Number(req.params.listingId);
 
-    const wishlist = await addToWishlist(userId, listingId);
+    const wishlist = await wishlistService.addToWishlist(req.user.id, listingId);
 
     res.status(201).json({
         success: true,
-        message: "Listing added to wishlist.",
+        message: "Listing added to wishlist successfully.",
         data: wishlist,
     });
 });
 
-export const deleteWishlist = asyncHandler(async (req, res, next) => {
-    const userId = req.user.id;
+export const removeFromWishlist = asyncHandler(async (req, res) => {
     const listingId = Number(req.params.listingId);
 
-    await removeFromWishlist(userId, listingId);
+    await wishlistService.removeFromWishlist(req.user.id, listingId);
 
     res.status(200).json({
         success: true,
-        message: "Listing removed from wishlist.",
+        message: "Listing removed from wishlist successfully.",
     });
 });
 
-export const getWishlist = asyncHandler(async (req, res, next) => {
-    const userId = req.user.id;
-
-    const wishlist = await getMyWishlist(userId);
+export const getWishlist = asyncHandler(async (req, res) => {
+    const wishlist = await wishlistService.getMyWishlist(req.user.id);
 
     res.status(200).json({
         success: true,
