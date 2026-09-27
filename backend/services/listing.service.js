@@ -365,7 +365,7 @@ export const getListingRooms = async (listingId) => {
 };
 
 // for Host
-export const getRooms = async (listingId, hostId) => {
+export const getRoomsByListing = async (listingId, hostId) => {
   await verifyListingOwnership(listingId, hostId);
 
   return prisma.room.findMany({
@@ -421,7 +421,7 @@ export const setThumbnail = async (imageId, ownerId) => {
 
 export const deleteListingImage = async (listingId, imageId, hostId) => {
   const image = await verifyListingImageOwnership(listingId, imageId, hostId);
-  console.log(image);
+
   await storageService.deleteImage(image.publicId);
 
   await prisma.$transaction(async (tx) => {

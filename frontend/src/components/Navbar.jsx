@@ -10,7 +10,7 @@ const Avatar = "/Icons/user-profile.svg";
 export const Navbar = () => {
   const navigate = useNavigate();
   const { isAuthenticated, currentUser } = useHoteruAuth();
-
+  
   return (
     <header className="w-full border-b border-border bg-white">
       <div className="mx-auto flex h-16 max-w-[1320px] items-center px-4 sm:px-6 lg:px-8">

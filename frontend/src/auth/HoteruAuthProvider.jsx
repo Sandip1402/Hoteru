@@ -42,18 +42,18 @@ export const HoteruAuthProvider = ({ children }) => {
                 setIsSyncing(true);
                 setSyncError(null);
 
-                /*
-                 * Always request a fresh access token.
-                 *
-                 * Auth0 will use the refresh token when the
-                 * previous access token has expired.
-                 */
+                // console.log("1. Starting sync");
+
                 const token = await getAccessTokenSilently();
+
+                // console.log("2. Got access token");
 
                 if (cancelled) return;
 
                 const baseURL =
                     import.meta.env.VITE_API_BASE_URL || "";
+
+                // console.log("3. Calling /users/sync");
 
                 const res = await fetch(
                     `${baseURL}/api/users/sync`,
@@ -67,6 +67,8 @@ export const HoteruAuthProvider = ({ children }) => {
                     }
                 );
 
+                // console.log("4. Sync response received", res.status);
+
                 const response = await res.json();
 
                 if (!res.ok || !response.success) {
@@ -75,26 +77,22 @@ export const HoteruAuthProvider = ({ children }) => {
                     );
                 }
 
+                // console.log("5. Sync successful");
+
                 if (cancelled) return;
 
-                /*
-                 * Only mark Hoteru authentication as ready
-                 * after both token acquisition and DB sync
-                 * have succeeded.
-                 */
                 setAccessToken(token);
                 setCurrentUser(response.data);
-            } catch (error) {
-                if (cancelled) return;
 
-                console.error(
-                    "User authentication/sync failed:",
-                    error
-                );
+            } catch (error) {
+                console.error("User authentication/sync failed:", error);
+
+                if (cancelled) return;
 
                 setAccessToken(null);
                 setCurrentUser(null);
                 setSyncError(error);
+
             } finally {
                 if (!cancelled) {
                     setIsSyncing(false);

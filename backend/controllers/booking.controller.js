@@ -46,7 +46,7 @@ export const getBookingById = asyncHandler(async (req, res) => {
         Number(req.params.bookingId),
         req.user.id
     );
-    console.log(booking);
+
     res.status(200).json({
         success: true,
         message: "Booking retrieved successfully.",

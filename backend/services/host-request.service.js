@@ -1,6 +1,6 @@
 import { prisma } from "../lib/prisma.js";
 import { assignHostRoleInAuth0 } from "../auth/auth0.js";
-import AppError from "../utils/App-Error.js";
+import AppError from "../utils/app-error.js";
 
 export const createHostRequest = async (userId, data) => {
     const { phoneNumber, governmentIdUrl, businessName, governmentIdType } = data;

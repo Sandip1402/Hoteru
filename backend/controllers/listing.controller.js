@@ -183,10 +183,10 @@ export const getListingRooms = asyncHandler(async (req, res) => {
 });
 
 // for Host
-export const getRooms = asyncHandler(async (req, res) => {
+export const getRoomsByListing = asyncHandler(async (req, res) => {
   const listingId = Number(req.params.listingId);
 
-  const rooms = await listingService.getRooms(listingId, req.user.id);
+  const rooms = await listingService.getRoomsByListing(listingId, req.user.id);
 
   res.json({
     success: true,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
 import { useHoteruAuth } from "../auth/HoteruAuthProvider.jsx";
@@ -50,7 +51,9 @@ export const CreateListing = () => {
             try {
                 setAmenitiesLoading(true);
 
-                const response = await getAmenities(controller.signal);
+                const response = await getAmenities(
+                    controller.signal
+                );
 
                 setAmenities(response.data || []);
             } catch (error) {
@@ -61,7 +64,9 @@ export const CreateListing = () => {
                     );
                 }
             } finally {
-                setAmenitiesLoading(false);
+                if (!controller.signal.aborted) {
+                    setAmenitiesLoading(false);
+                }
             }
         };
 
@@ -120,17 +125,20 @@ export const CreateListing = () => {
                 bookingMode: form.bookingMode,
             };
 
-            const response = await createListing(listingData);
+            const response =
+                await createListing(listingData);
 
-            const newListingId = response.data.listingId;
+            const newListingId =
+                response.data.listingId;
 
-            await updateListingAmenities(newListingId, selectedAmenityIds);
+            await updateListingAmenities(
+                newListingId,
+                selectedAmenityIds
+            );
 
             navigate(
                 `/host/listings/${newListingId}`,
-                {
-                    replace: true,
-                }
+                { replace: true }
             );
         } catch (error) {
             console.error(
@@ -151,45 +159,113 @@ export const CreateListing = () => {
         }
     };
 
-    if (!isAuthenticated) {
-        return (
-            <div className="p-6">
-                <p>Log in to continue.</p>
-            </div>
-        );
-    }
-
     return (
-        <div className="mx-auto max-w-4xl px-4 py-8">
-            <div className="mb-8">
-                <h1 className="text-2xl font-bold">
-                    Create Listing
-                </h1>
-
-                <p className="mt-1 text-sm text-gray-500">
-                    Add your property details to create a
-                    listing.
-                </p>
-            </div>
-
-            {amenitiesLoading ? (
-                <p className="text-sm text-gray-500">
-                    Loading amenities...
-                </p>
-            ) : (
-                <ListingForm
-                    initialValues={EMPTY_FORM}
-                    initialSelectedAmenities={[]}
-                    amenities={amenities}
-                    onSubmit={handleSubmit}
-                    onCancel={() =>
+        <main className="min-h-screen bg-white">
+            <div
+                className="
+                    mx-auto
+                    w-full
+                    max-w-[1320px]
+                    min-w-0
+                    px-4 py-6
+                    sm:px-6
+                    lg:px-8
+                    lg:py-8
+                "
+            >
+                {/* Back */}
+                <button
+                    type="button"
+                    onClick={() =>
                         navigate("/host/listings")
                     }
-                    loading={loading}
-                    submitLabel="Create Listing"
-                    submitError={submitError}
-                />
-            )}
-        </div>
+                    className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        text-sm
+                        font-medium
+                        text-text-muted
+                        transition
+                        hover:text-text
+                    "
+                >
+                    <FaChevronLeft size={10} />
+                    Back to listings
+                </button>
+
+                {/* Header */}
+                <div
+                    className="
+                        mb-6
+                        mt-5
+                        sm:mb-8
+                    "
+                >
+                    <h1
+                        className="
+                            text-2xl
+                            font-semibold
+                            text-text
+                            sm:text-3xl
+                        "
+                    >
+                        Create a listing
+                    </h1>
+
+                    <p
+                        className="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-text-muted
+                        "
+                    >
+                        Add your property details,
+                        amenities and booking information
+                        to create a new listing.
+                    </p>
+                </div>
+
+                {/* Form */}
+                <section
+                    className="
+                        min-w-0
+                        rounded-2xl
+                        border
+                        border-border
+                        bg-white
+                        p-4
+                        sm:p-6
+                        lg:p-8
+                    "
+                >
+                    {amenitiesLoading ? (
+                        <div className="space-y-5">
+                            <div className="h-5 w-40 animate-pulse rounded bg-surface" />
+                            <div className="h-11 w-full animate-pulse rounded-lg bg-surface" />
+                            <div className="h-11 w-full animate-pulse rounded-lg bg-surface" />
+                            <div className="h-28 w-full animate-pulse rounded-lg bg-surface" />
+                        </div>
+                    ) : (
+                        <ListingForm
+                            initialValues={EMPTY_FORM}
+                            initialSelectedAmenities={[]}
+                            amenities={amenities}
+                            onSubmit={handleSubmit}
+                            onCancel={() =>
+                                navigate(
+                                    "/host/listings"
+                                )
+                            }
+                            loading={loading}
+                            submitLabel="Create Listing"
+                            submitError={submitError}
+                        />
+                    )}
+                </section>
+            </div>
+        </main>
     );
-}
+};

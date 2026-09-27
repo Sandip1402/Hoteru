@@ -14,6 +14,19 @@ export const getHostRoomById = async (roomId, hostId) => {
   return room;
 }
 
+export const getMyRooms = async (ownerId) => {
+  return prisma.room.findMany({
+    where: {
+      listing: {
+        ownerId: ownerId,
+      }
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+};
+
 export const createRoom = async (hostId, listingId, data) => {
   const listing = await prisma.listing.findUnique({
     where: { listingId },

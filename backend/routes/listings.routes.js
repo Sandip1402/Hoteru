@@ -18,7 +18,7 @@ import {
   setThumbnail,
   deleteListingImage,
   updateListingAmenities,
-  getRooms
+  getRoomsByListing,
 } from "../controllers/listing.controller.js";
 
 import {
@@ -73,7 +73,7 @@ export default function () {
     checkJwt,
     attachCurrentUser,
     requireRole("host"),
-    getRooms
+    getRoomsByListing
   );
 
   router.get(

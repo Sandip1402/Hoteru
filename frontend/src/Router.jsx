@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter, Navigate, Outlet } from "react-router";
 
 import { RootLayout } from '../layout/RootLayout.jsx'
 import { ProfileLayout } from '../layout/ProfileLayout.jsx'
@@ -10,11 +10,12 @@ import {
     Bookings, Experiences, Payment, RootCrash, Test, Discover, Home, Profile, Notification,
     WishList, ErrorPage, NotFound, RoomDetails, Security, Listings,
     ListingDetails, BookingDetails, CreateListing,
-    HostListings, AddRoom,
+    HostListings, HostRooms, AddRoom,
     HostListingDetails,
     HostRoomDetails,
     EditRoom, EditListing,
-    HostProfile
+    HostProfile,
+    HostPersonalInfo,
 } from "./pages";
 
 
@@ -60,26 +61,51 @@ export const Router = createBrowserRouter([
                     },
                     {
                         path: "host",
-                        element: (<ProtectedRoute allowedRoles={["host"]}><HostProfileLayout /></ProtectedRoute> ),
                         children: [
-                            { index: true, element: <Navigate to="/host/personal_info" replace />},
-                            { path: "personal_info", element: <HostProfile /> },
-                            { path: "security", element: <Security /> },
-                            { path: "listings", element: <HostListings /> },
-                            { path: "listings/create", element: <CreateListing /> },
-                            { path: "listings/:listingId", element: <HostListingDetails /> },
-                            { path: "listings/:listingId/edit", element: <EditListing /> },
-                            { path: "listings/:listingId/rooms/new", element: <AddRoom /> },
-                            // { path: "rooms", element: <HostRooms /> },
-                            { path: "rooms/:roomId", element: <HostRoomDetails /> },
-                            { path: "rooms/:roomId/edit", element: <EditRoom /> },
-                        ]
+                            {
+                                element: (<ProtectedRoute allowedRoles={["host"]}><HostProfileLayout /></ProtectedRoute>),
+                                children: [
+                                    { index: true, element: <Navigate to="/host/dashboard" replace /> },
+                                    { path: "dashboard", element: <HostProfile /> },
+                                    { path: "personal_info", element: <HostPersonalInfo /> },
+                                    { path: "security", element: <Security /> },
+                                ]
+                            },
+                            {
+                                element: (<ProtectedRoute allowedRoles={["host"]}><Outlet /></ProtectedRoute>),
+                                children: [
+                                    {
+                                        path: "listings",
+                                        children: [
+                                            { index: true, element: <HostListings /> },
+                                            { path: "create", element: <CreateListing /> },
+                                            { path: ":listingId", element: <HostListingDetails /> },
+                                            { path: ":listingId/edit", element: <EditListing /> },
+                                            { path: ":listingId/rooms/new", element: <AddRoom /> },
+                                        ]
+                                    },
+                                    {
+                                        path: "rooms",
+                                        children: [
+                                            { index: true, element: <HostRooms /> },
+                                            { path: ":roomId", element: <HostRoomDetails /> },
+                                            { path: ":roomId/edit", element: <EditRoom /> },
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
                     },
+                    // { path: "listings/create", element: <CreateListing /> },
+                    // { path: "listings/:listingId", element: <HostListingDetails /> },
+                    // { path: "listings/:listingId/edit", element: <EditListing /> },
+                    // { path: "listings/:listingId/rooms/new", element: <AddRoom /> },
+                    // { path: "rooms/:roomId", element: <HostRoomDetails /> },
+                    // { path: "rooms/:roomId/edit", element: <EditRoom /> },
                     { path: "test", element: <ProtectedRoute allowedRoles={['admin']}><Test /></ProtectedRoute> },
                     { path: "*", element: <NotFound /> }
                 ]
             }
         ]
     }
-
 ])

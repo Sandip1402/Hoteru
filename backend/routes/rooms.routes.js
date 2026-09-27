@@ -11,6 +11,7 @@ import {
     deleteRoomImage,
     setCoverImage,
     getHostRoomById,
+    getMyRooms,
 } from "../controllers/room.controller.js";
 
 import {
@@ -36,6 +37,14 @@ export default function () {
         attachCurrentUser,
         requireRole("host"),
         getHostRoomById
+    );
+
+    router.get(
+        "/host",
+        checkJwt,
+        attachCurrentUser,
+        requireRole("host"),
+        getMyRooms
     );
 
     router.patch(

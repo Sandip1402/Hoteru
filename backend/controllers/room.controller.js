@@ -13,6 +13,16 @@ export const getHostRoomById = asyncHandler(async (req, res) => {
   });
 })
 
+export const getMyRooms = asyncHandler(async (req, res) => {
+  const rooms = await roomService.getMyRooms(req.user.id);
+
+  return res.status(200).json({
+    success: true,
+    message: "Rooms fetched successfully.",
+    data: rooms,
+  });
+});
+
 export const createRoom = asyncHandler(async (req, res) => {
   const listingId = Number(req.params.listingId);
   const room = await roomService.createRoom(req.user.id, listingId, req.body);

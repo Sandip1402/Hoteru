@@ -442,10 +442,7 @@ export const Payment = () => {
                                         .razorpay_signature,
                             });
 
-                        console.log(
-                            "Payment verified:",
-                            verifyResponse
-                        );
+                        console.log("Payment verified:", verifyResponse);
 
                         /*
                          * Backend already returns

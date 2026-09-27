@@ -4,16 +4,21 @@ export const useRoomService = () => {
     const callAPI = useAPI();
 
     const getRoomById = async (roomId, signal) => {
-        return callAPI(`/rooms/${roomId}`, {
-            method: "GET",
-            signal,
-        });
+        return callAPI(`/rooms/${roomId}`,
+            {
+                method: "GET",
+                signal,
+            }
+        );
     };
 
     const getRoomImages = async (roomId, signal) => {
-        return callAPI(`/rooms/${roomId}/images`, {
-            method: "GET",
-        });
+        return callAPI(`/rooms/${roomId}/images`,
+            {
+                method: "GET",
+                signal,
+            }
+        );
     };
 
     const getRoomsByListing = async (listingId) => {
@@ -46,6 +51,16 @@ export const useRoomService = () => {
             true
         );
     };
+
+    const getMyRooms = async (signal) => {
+        return callAPI(
+            "/rooms/host",
+            {
+                method: "GET",
+            },
+            true
+        )
+    }
 
     const updateRoom = async (roomId, roomData) => {
         return callAPI(
@@ -94,6 +109,7 @@ export const useRoomService = () => {
         getRoomsByListing,
         getHostRoomById,
         createRoom,
+        getMyRooms,
         updateRoom,
         uploadRoomImage,
         deleteRoomImage,

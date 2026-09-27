@@ -11,6 +11,11 @@ export const HostProfileSideBar = ({
 
     const sections = [
         {
+            path: "/host/dashboard",
+            icon: "/Icons/dashboard.svg",
+            label: "Dashboard",
+        },
+        {
             path: "/host/personal_info",
             icon: "/Icons/user-profile.svg",
             label: "Personal Details",
@@ -19,16 +24,6 @@ export const HostProfileSideBar = ({
             path: "/host/security",
             icon: "/Icons/lock-alt.svg",
             label: "Security",
-        },
-        {
-            path: "/host/listings",
-            icon: "/Icons/hosting.svg",
-            label: "My Listings",
-        },
-        {
-            path: "/host/rooms",
-            icon: "/Icons/booking.svg",
-            label: "My Rooms",
         },
     ];
 
