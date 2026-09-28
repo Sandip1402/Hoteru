@@ -1,9 +1,9 @@
-import { definePrismaConfig } from "prisma/config";
+import { defineConfig } from "prisma/config";
 import { env } from "./config.js";
 
 // Actual database connection setup with remote database
 
-export default definePrismaConfig({
+export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",

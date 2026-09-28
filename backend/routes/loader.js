@@ -1,4 +1,4 @@
-import { dirname, extname, basename } from 'node:path';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readdirSync } from 'node:fs';
 

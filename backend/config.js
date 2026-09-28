@@ -1,11 +1,9 @@
-import "@dotenvx/dotenvx/config";
-
 export const env = {
     // Backend
     PORT: process.env.PORT,
     NODE_ENV: process.env.NODE_ENV,
 
-    // Auth0
+// Auth0
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
     AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
     AUTH0_NAMESPACE: process.env.AUTH0_NAMESPACE,
@@ -31,7 +29,7 @@ export const env = {
 
     // Upload
     UPLOAD_DIR: process.env.UPLOAD_DIR,
-    MAX_IMAGE_SIZE: process.env.MAX_IMAGE_SIZE,
+    MAX_FILE_SIZE: process.env.MAX_FILE_SIZE,
 
     // Booking
     BOOKING_PERCENTAGE: process.env.BOOKING_PERCENTAGE,

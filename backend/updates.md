@@ -37,6 +37,7 @@
     - [ ] Include guest count in booking price calculations
     - [ ] Update search algorithm for lisitng
     - [ ] Maybe fix route names to more restful way
+    - [ ] Add zod schema in config.js file
 
     - [] V2 : Penalty logic for confirmed bookings
     - [] V2 : Need to work with room avaibility more

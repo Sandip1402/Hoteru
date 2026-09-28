@@ -38,7 +38,7 @@ Hoteru lets users  hotel rooms, explore room details, book stays, leave reviews,
 
 ## Backend Notes
 - The backend listens on `PORT` or defaults to `8080`
-- Uses `@dotenvx/dotenvx/config` to load environment variables
+- Uses `dotenvxg` to load environment variables
 - API routes are registered through `backend/routes/connect_routes.js`
 - Prisma provides the database client via `backend/utils/prisma.js`
 
