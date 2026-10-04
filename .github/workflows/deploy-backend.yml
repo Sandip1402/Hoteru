@@ -10,22 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy backend through AWS SSM
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
-      - name: Run deployment on EC2
+      - name: Deploy backend through AWS SSM
         run: |
           aws ssm send-command \
             --instance-ids "i-0732d72bcae2ccd42" \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
-              "cd ~/Hoteru/backend",
-              "git pull origin main",
-              "npm install",
-              "npm exec dotenvx -- run -f .env.pdn -- npx prisma generate",
-              "pm2 restart hoteru-api"
+              "sudo -u ec2-user bash -lc '\''cd /home/ec2-user/Hoteru/backend && git pull origin main && npm install && npm exec dotenvx -- run -f .env.pdn -- npx prisma generate && pm2 restart hoteru-api'\''"
             ]'
