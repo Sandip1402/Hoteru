@@ -48,7 +48,7 @@ export const ListingCard = ({ listing }) => {
                     {averageRating !== null && (
                         <span className="flex shrink-0 items-center gap-1 text-sm">
                             <Star size={14} fill="currentColor" />
-                            {averageRating.toFixed(1)}
+                            {Number(averageRating).toFixed(1)}
                         </span>
                     )}
                 </div>
