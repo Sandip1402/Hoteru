@@ -20,7 +20,7 @@ export const Filter = ({ name, setState }) => {
       </span>
 
       <img
-        src="/Icons/chevron_right.svg"
+        src="/Icons/right.svg"
         alt=""
         className={`
           h-4 w-4 transition-transform duration-300
