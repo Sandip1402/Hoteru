@@ -82,7 +82,7 @@ export const Navbar = () => {
             aria-label="Messages"
           >
             <img
-              src="/Icons/message.svg"
+              src="/Icons/chat.svg"
               alt=""
               className="h-5 w-5"
             />

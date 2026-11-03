@@ -22,10 +22,10 @@ model User {
   bookings             Booking[]
   HostRequests         HostRequest[]
   verifiedHostRequests HostRequest[] @relation("HostRequestVerifier")
-  wishList             Wishlist[]
   approvedListings     Listing[]     @relation("ListingApprover")
   ownedListings        Listing[]     @relation("ListingOwner")
   reviews              Review[]
+  wishList             Wishlist[]
 
   @@index([country], map: "idx_users_country")
   @@index([createdAt], map: "idx_users_created_at")
@@ -73,18 +73,16 @@ model Payment {
   bookingId        Int
   amount           Decimal         @db.Decimal(10, 2)
   purpose          PaymentPurpose
-  mode             PaymentMode
   status           PaymentStatus   @default(PENDING)
-  
   gateway          PaymentGateway?
   gatewayOrderId   String?
   gatewayPaymentId String?
   gatewaySignature String?
-  gatewayMethod    String?
-
   paidAt           DateTime?
   createdAt        DateTime        @default(now())
   updatedAt        DateTime        @updatedAt
+  gatewayMethod    String?
+  mode             PaymentMode
   booking          Booking         @relation(fields: [bookingId], references: [bookingId], onDelete: Cascade)
 
   @@index([bookingId])
@@ -101,15 +99,13 @@ model Room {
   bedrooms    Int?
   beds        Int
   bathrooms   Int
-  basePrice   Decimal       @db.Decimal(10, 2)
-  // for V1 only considering one room of each type
-  // no iventory control is there
   quantity    Int           @default(1)
   area        Float?
   areaUnit    AreaUnit?
   isActive    Boolean       @default(true)
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+  basePrice   Decimal       @db.Decimal(10, 2)
   bookings    Booking[]
   listing     Listing       @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
   amenities   RoomAmenity[]
@@ -123,8 +119,8 @@ model Room {
 model Amenity {
   amenityId Int              @id @default(autoincrement())
   name      String           @unique
-  rooms     RoomAmenity[]
   listings  ListingAmenity[]
+  rooms     RoomAmenity[]
 }
 
 model RoomAmenity {
@@ -137,23 +133,23 @@ model RoomAmenity {
 }
 
 model ListingAmenity {
-  listingId  Int
+  listingId Int
   amenityId Int
-  amenity    Amenity @relation(fields: [amenityId], references: [amenityId], onDelete: Cascade)
-  listing    Listing @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
+  amenity   Amenity @relation(fields: [amenityId], references: [amenityId], onDelete: Cascade)
+  listing   Listing @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
 
   @@id([listingId, amenityId])
 }
 
 model RoomImage {
-  imageId      Int      @id @default(autoincrement())
-  roomId       Int
   altText      String?
-  imageUrl     String
-  publicId     String
-  isCover      Boolean  @default(false)
-  displayOrder Int      @default(0)
+  roomId       Int
   createdAt    DateTime @default(now())
+  displayOrder Int      @default(0)
+  imageUrl     String
+  isCover      Boolean  @default(false)
+  publicId     String
+  imageId      Int      @id @default(autoincrement())
   room         Room     @relation(fields: [roomId], references: [roomId])
 }
 
@@ -177,11 +173,9 @@ model Review {
 model Wishlist {
   userId    Int
   listingId Int
-
-  user    User    @relation(fields: [userId], references: [userId], onDelete: Cascade)
-  listing Listing @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
-
   createdAt DateTime @default(now())
+  listing   Listing  @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
 
   @@id([userId, listingId])
   @@index([userId, createdAt])
@@ -209,46 +203,44 @@ model HostRequest {
 }
 
 model Listing {
-  listingId    Int         @id @default(autoincrement())
-  ownerId      Int
-  type         ListingType
-  name         String
-  description  String
-  checkInTime  DateTime?   @db.Time
-  checkOutTime DateTime?   @db.Time
-  contactPhone String
-  contactEmail String?
-  addressLine1 String
-  addressLine2 String?
-  city         String
-  state        String
-  country      String
-  postalCode   String
-  latitude     Float?
-  longitude    Float?
-  thumbnailUrl String?
-
-  status       ListingStatus @default(DRAFT)
-  adminNotes   String?
-  reviewedAt   DateTime?
-  approvedById Int?
-
+  listingId     Int              @id @default(autoincrement())
+  ownerId       Int
+  type          ListingType
+  name          String
+  description   String
+  checkInTime   DateTime?        @db.Time(6)
+  checkOutTime  DateTime?        @db.Time(6)
+  contactPhone  String
+  contactEmail  String?
+  addressLine1  String
+  addressLine2  String?
+  city          String
+  state         String
+  country       String
+  postalCode    String
+  latitude      Float?
+  longitude     Float?
+  thumbnailUrl  String?
+  status        ListingStatus    @default(DRAFT)
+  adminNotes    String?
+  approvedById  Int?
   bookingMode   BookingMode
-  isActive      Boolean          @default(true) // it means if the room is ready for booking
+  isActive      Boolean          @default(true)
   createdAt     DateTime         @default(now())
   updatedAt     DateTime         @updatedAt
   publishedAt   DateTime?
   averageRating Decimal?         @db.Decimal(2, 1)
   landmark      String?
   reviewCount   Int              @default(0)
+  reviewedAt    DateTime?
   bookings      Booking[]
   approvedBy    User?            @relation("ListingApprover", fields: [approvedById], references: [userId])
   owner         User             @relation("ListingOwner", fields: [ownerId], references: [userId], onDelete: Cascade)
+  amenities     ListingAmenity[]
   images        ListingImage[]
   reviews       Review[]
   rooms         Room[]
   wistlist      Wishlist[]
-  amenities     ListingAmenity[]
 
   @@index([city, type, status])
   @@index([ownerId])
@@ -265,8 +257,8 @@ model ListingImage {
   publicId     String
   caption      String?
   isThumbnail  Boolean  @default(false)
-  displayOrder Int      @default(0)
   createdAt    DateTime @default(now())
+  displayOrder Int      @default(0)
   listing      Listing  @relation(fields: [listingId], references: [listingId], onDelete: Cascade)
 
   @@index([listingId])

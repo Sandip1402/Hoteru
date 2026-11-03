@@ -1,0 +1,7118 @@
+{
+  "listingAmenities": [
+    {
+      "hotelId": 1,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 1,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 1,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 10,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 10,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 10,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 11,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 11,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 11,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 12,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 12,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 12,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 13,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 13,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 13,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 14,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 14,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 14,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 15,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 15,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 15,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 16,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 16,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 16,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 16,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 16,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 17,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 17,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 17,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 18,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 18,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 18,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 19,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 19,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 19,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 2,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 2,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 2,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 20,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 20,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 20,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 21,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 21,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 21,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 22,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 22,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 22,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 23,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 23,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 23,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 24,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 24,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 24,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 25,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 25,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 25,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 26,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 26,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 26,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 27,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 27,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 27,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 28,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 28,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 28,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 29,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 29,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 29,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 3,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 3,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 3,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 30,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 30,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 30,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 31,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 31,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 31,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 32,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 32,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 32,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 33,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 33,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 33,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 34,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 34,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 34,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 35,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 35,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 35,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 36,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 36,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 36,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 37,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 37,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 37,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 38,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 38,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 38,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 39,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 39,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 39,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 4,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 4,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 4,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 40,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 40,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 40,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 41,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 41,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 41,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 42,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 42,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 42,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 43,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 43,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 43,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 44,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 44,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 44,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 45,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 45,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 45,
+      "amenityName": "restaurant"
+    },
+    {
+      "hotelId": 46,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 46,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 46,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 47,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 47,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 47,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 47,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 48,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 48,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 48,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 49,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 49,
+      "amenityName": "laundry service"
+    },
+    {
+      "hotelId": 49,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 5,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 5,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 5,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 50,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 50,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 50,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 6,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 6,
+      "amenityName": "pool"
+    },
+    {
+      "hotelId": 6,
+      "amenityName": "bar"
+    },
+    {
+      "hotelId": 7,
+      "amenityName": "free parking"
+    },
+    {
+      "hotelId": 7,
+      "amenityName": "24-hour front desk service"
+    },
+    {
+      "hotelId": 7,
+      "amenityName": "coffee in lobby"
+    },
+    {
+      "hotelId": 8,
+      "amenityName": "free wifi"
+    },
+    {
+      "hotelId": 8,
+      "amenityName": "continental breakfast"
+    },
+    {
+      "hotelId": 8,
+      "amenityName": "air conditioning"
+    },
+    {
+      "hotelId": 9,
+      "amenityName": "view"
+    },
+    {
+      "hotelId": 9,
+      "amenityName": "concierge"
+    },
+    {
+      "hotelId": 9,
+      "amenityName": "bar"
+    }
+  ],
+  "roomAmenities": [
+    {
+      "hotelId": 1,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 1,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 10,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 11,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 12,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 13,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 14,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 15,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 16,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 17,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 18,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 19,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 2,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 20,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 21,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 22,
+      "roomName": "Suite, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 23,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 24,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 25,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 26,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 27,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 28,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 29,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 3,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 30,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 2 Double Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 31,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 32,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 33,
+      "roomName": "Suite, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 34,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 35,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 36,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 37,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 38,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 39,
+      "roomName": "Suite, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Budget Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Suite, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 4,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 40,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 41,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 42,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 43,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Suite, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Budget Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 44,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Budget Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Suite, 1 Queen Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 45,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Budget Room, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 46,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 1 King Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Deluxe Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 47,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Deluxe Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 48,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 49,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Suite, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 1 Queen Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 5,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 1 King Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 2 Queen Beds (City View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 50,
+      "roomName": "Standard Room, 1 King Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Suite, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Budget Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Suite, 2 Queen Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 6,
+      "roomName": "Suite, 1 Queen Bed (Amenities)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 1 Queen Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Standard Room, 2 Queen Beds (City View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Queen Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 1 King Bed (Cityside)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Double Beds (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Deluxe Room, 1 King Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Standard Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 7,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 1 Queen Bed (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 1 King Bed (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Standard Room, 1 Queen Bed (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Budget Room, 2 Double Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 2 Double Beds (Amenities)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Budget Room, 1 Queen Bed (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Suite, 1 Queen Bed (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Standard Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Deluxe Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 8,
+      "roomName": "Budget Room, 1 King Bed (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 1 King Bed (City View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (Cityside)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (City View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 1 Queen Bed (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 2 Double Beds (Waterfront View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Suite, 2 Queen Beds (Amenities)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 1 Queen Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Double Beds (Amenities)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 1 King Bed (Mountain View)",
+      "amenityName": "suite"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 Queen Bed (Cityside)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "Room Tags"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Double Beds (Mountain View)",
+      "amenityName": "coffee maker"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Suite, 2 Queen Beds (Mountain View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Standard Room, 2 Queen Beds (Cityside)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "jacuzzi tub"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "vcr/dvd"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 1 King Bed (Waterfront View)",
+      "amenityName": "tv"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Deluxe Room, 2 Queen Beds (Mountain View)",
+      "amenityName": "bathroom shower"
+    },
+    {
+      "hotelId": 9,
+      "roomName": "Budget Room, 2 Double Beds (Cityside)",
+      "amenityName": "bathroom shower"
+    }
+  ]
+}

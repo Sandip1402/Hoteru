@@ -1,3 +1,6 @@
+import dotenvx from '@dotenvx/dotenvx'
+dotenvx.config({path: ".env.dev"});
+
 export const env = {
     // Backend
     PORT: process.env.PORT,
